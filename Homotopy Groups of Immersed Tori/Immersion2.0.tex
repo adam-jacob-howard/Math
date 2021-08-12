@@ -1,0 +1,981 @@
+\documentclass{amsart}
+
+\headheight=8pt
+\topmargin=0pt
+\textheight=624pt
+\textwidth=432pt
+\oddsidemargin=18pt
+\evensidemargin=18pt
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{comment}
+\usepackage{epsfig}
+\usepackage{psfrag}
+\usepackage{mathrsfs}
+\usepackage{amscd}
+\usepackage[all]{xy}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{amsbsy}
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{color}
+\usepackage{bbm}
+\usepackage{eucal}
+
+\usepackage{tikz-cd}
+\usetikzlibrary{patterns,shapes.geometric,arrows,decorations.markings}
+\usepackage{tikz-3dplot}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\colorlet{lightgray}{black!15}
+
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{>}}},postaction={decorate}}}
+\tikzset{midarrow/.style={decoration={
+    markings,
+    mark=at position {#1} with {\arrow{>}}},postaction={decorate}}}
+
+
+
+\pagestyle{plain}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{conj}[theorem]{Conjecture}
+
+
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{ack}[theorem]{Acknowledgments}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{terminology}[theorem]{Terminology}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{q}[theorem]{Question}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{convention}[theorem]{Convention}
+
+
+
+
+\theoremstyle{remark}
+
+
+\definecolor{orange}{rgb}{.95,0.5,0}
+\definecolor{light-gray}{gray}{0.75}
+\definecolor{brown}{cmyk}{0, 0.8, 1, 0.6}
+\definecolor{plum}{rgb}{.5,0,1}
+
+
+\DeclareMathOperator{\Link}{\sf Link}
+\DeclareMathOperator{\Fin}{\sf Fin}
+\DeclareMathOperator{\vect}{\sf Vect}
+\DeclareMathOperator{\Vect}{\cV{\sf ect}}
+\DeclareMathOperator{\Sfr}{S-{\sf fr}}
+\DeclareMathOperator{\nfr}{\mathit{n}-{\sf fr}}
+
+\DeclareMathOperator{\pr}{\mathsf{pr}}
+\DeclareMathOperator{\ev}{\mathsf{ev}}
+
+
+\DeclareMathOperator{\bBar}{\sf Bar}
+\DeclareMathOperator{\Alg}{\sf Alg}
+\DeclareMathOperator{\man}{\sf Man}
+\DeclareMathOperator{\Man}{\cM{\sf an}}
+\DeclareMathOperator{\Mod}{\sf Mod}
+\DeclareMathOperator{\unzip}{\sf Unzip}
+\DeclareMathOperator{\Snglr}{\cS{\sf nglr}}
+\DeclareMathOperator{\TwAr}{\sf TwAr}
+\DeclareMathOperator{\cSpan}{\sf cSpan}
+\DeclareMathOperator{\Kan}{\sf Kan}
+\DeclareMathOperator{\Psh}{\sf PShv}
+\DeclareMathOperator{\LFib}{\sf LFib}
+\DeclareMathOperator{\CAlg}{\sf CAlg}
+
+
+\DeclareMathOperator{\cpt}{\sf cpt}
+\DeclareMathOperator{\Aut}{\sf Aut}
+\DeclareMathOperator{\colim}{{\sf colim}}
+\DeclareMathOperator{\relcolim}{{\sf rel.\!colim}}
+\DeclareMathOperator{\limit}{{\sf lim}}
+\DeclareMathOperator{\cone}{\sf cone}
+\DeclareMathOperator{\Der}{\sf Der}
+\DeclareMathOperator{\Ext}{\sf Ext}
+\DeclareMathOperator{\hocolim}{\sf hocolim}
+\DeclareMathOperator{\holim}{\sf holim}
+\DeclareMathOperator{\Hom}{\sf Hom}
+\DeclareMathOperator{\End}{\sf End}
+\DeclareMathOperator{\ulhom}{\underline{\Hom}}
+\DeclareMathOperator{\fun}{\sf Fun}
+\DeclareMathOperator{\Fun}{{\sf Fun}}
+\DeclareMathOperator{\Iso}{\sf Iso}
+\DeclareMathOperator{\map}{\sf Map}
+\DeclareMathOperator{\Map}{{\sf Map}}
+\DeclareMathOperator{\Mapc}{{\sf Map}_{\sf c}}
+\DeclareMathOperator{\Gammac}{{\Gamma}_{\!\sf c}}
+\DeclareMathOperator{\Tot}{\sf Tot}
+\DeclareMathOperator{\Spec}{\sf Spec}
+\DeclareMathOperator{\Spf}{\sf Spf}
+\DeclareMathOperator{\Def}{\sf Def}
+\DeclareMathOperator{\stab}{\sf Stab}
+\DeclareMathOperator{\costab}{\sf Costab}
+\DeclareMathOperator{\ind}{\sf Ind}
+\DeclareMathOperator{\coind}{\sf Coind}
+\DeclareMathOperator{\res}{\sf Res}
+\DeclareMathOperator{\Ker}{\sf Ker}
+\DeclareMathOperator{\coker}{\sf Coker}
+\DeclareMathOperator{\pt}{\sf pt}
+\DeclareMathOperator{\Sym}{\sf Sym}
+
+\DeclareMathOperator{\str}{\sf str}
+
+\DeclareMathOperator{\exit}{\sf Exit}
+\DeclareMathOperator{\Exit}{\bcE{\sf xit}}
+
+\DeclareMathOperator{\cylr}{{\sf Cylr}}
+
+\DeclareMathOperator{\shift}{\sf shift}
+
+
+
+
+\DeclareMathOperator{\Cat}{{\sf Cat}}
+\DeclareMathOperator{\fCat}{{\sf fCat}}
+\DeclareMathOperator{\cat}{\fC{\sf at}}
+\DeclareMathOperator{\Gcat}{{\sf GCat}_{\oo}}
+\DeclareMathOperator{\gcat}{{\sf GCat}}
+\DeclareMathOperator{\Dcat}{{\sf GCat}}
+\DeclareMathOperator{\dcat}{\fG\fC{\sf at}}
+\DeclareMathOperator{\Mcat}{\cM{\sf Cat}}
+\DeclareMathOperator{\mcat}{\fD{\sf Cat}}
+
+
+
+
+
+
+\DeclareMathOperator{\Ar}{{\sf Ar}}
+\DeclareMathOperator{\twar}{{\sf TwAr}}
+
+
+\DeclareMathOperator{\diskcat}{\sf {\cD}isk_{\mathit n}^\tau-Cat_\infty}
+\DeclareMathOperator{\mfdcat}{\sf {\cM}fd_{\mathit n}^\tau-Cat_\infty}
+\DeclareMathOperator{\diskone}{\sf {\cD}isk_{1}^{\vfr}-Cat_\infty}
+
+\DeclareMathOperator{\symcat}{\sf Sym-Cat_\infty}
+\DeclareMathOperator{\encat}{\cE_{\mathit n}-\sf Cat}
+\DeclareMathOperator{\moncat}{\sf Mon-Cat_\infty}
+
+\DeclareMathOperator{\inrshv}{\sf inr-shv}
+\DeclareMathOperator{\clsshv}{\sf cls-shv}
+
+
+
+\DeclareMathOperator{\qc}{\sf QC}
+\DeclareMathOperator{\m}{\sf Mod}
+\DeclareMathOperator{\bi}{\sf Bimod}
+\DeclareMathOperator{\perf}{\sf Perf}
+\DeclareMathOperator{\shv}{\sf Shv}
+\DeclareMathOperator{\Shv}{\sf Shv}
+
+
+
+\DeclareMathOperator{\psh}{\sf PShv}
+\DeclareMathOperator{\gshv}{\sf GShv}
+\DeclareMathOperator{\csh}{\sf Coshv}
+\DeclareMathOperator{\comod}{\sf Comod}
+\DeclareMathOperator{\M}{\mathsf{-Mod}}
+\DeclareMathOperator{\coalg}{\mathsf{-coalg}}
+\DeclareMathOperator{\ring}{\mathsf{-rings}}
+\DeclareMathOperator{\alg}{\mathsf{Alg}}
+\DeclareMathOperator{\artin}{{\sf Artin}}%{\disk_{\mathit n}\alg^{\sf Art}_{\mathit k}}
+\DeclareMathOperator{\art}{\mathsf{Art}}
+\DeclareMathOperator{\triv}{\mathsf{Triv}}
+\DeclareMathOperator{\cobar}{\mathsf{cBar}}
+\DeclareMathOperator{\ba}{\mathsf{Bar}}
+
+\DeclareMathOperator{\shvp}{\sf Shv_{\sf p}^{\sf cbl}}
+
+\DeclareMathOperator{\lkan}{{\sf LKan}}
+\DeclareMathOperator{\rkan}{{\sf RKan}}
+
+\DeclareMathOperator{\Diff}{{\sf Diff}}
+\DeclareMathOperator{\sh}{\sf shv}
+
+
+
+\DeclareMathOperator{\calg}{\mathsf{CAlg}}
+\DeclareMathOperator{\op}{\mathsf{op}}
+\DeclareMathOperator{\relop}{\mathsf{rel.op}}
+\DeclareMathOperator{\com}{\mathsf{Com}}
+\DeclareMathOperator{\bu}{\cB\mathsf{un}}
+\DeclareMathOperator{\bun}{\sf Bun}
+
+\DeclareMathOperator{\pbun}{\sf PBun}
+
+
+
+
+\DeclareMathOperator{\cMfld}{{\sf c}\cM\mathsf{fld}}
+\DeclareMathOperator{\cBun}{{\sf c}\cB\mathsf{un}}
+\DeclareMathOperator{\Bun}{\cB\mathsf{un}}
+
+\DeclareMathOperator{\dbu}{\mathsf{DBun}}
+
+\DeclareMathOperator{\dbun}{\mathsf{DBun}}
+
+\DeclareMathOperator{\bsc}{\mathsf{Bsc}}
+\DeclareMathOperator{\snglr}{\sf Snglr}
+
+\DeclareMathOperator{\Bsc}{\cB\mathsf{sc}}
+
+
+\DeclareMathOperator{\arbr}{\mathsf{Arbr}}
+\DeclareMathOperator{\Arbr}{\cA\mathsf{rbr}}
+\DeclareMathOperator{\Rf}{\cR\mathsf{ef}}
+\DeclareMathOperator{\drf}{\mathsf{Ref}}
+
+
+\DeclareMathOperator{\st}{\mathsf{st}}
+\DeclareMathOperator{\sk}{\mathsf{sk}}
+\DeclareMathOperator{\Ex}{\mathsf{Ex}}
+
+\DeclareMathOperator{\sd}{\mathsf{sd}}
+
+\DeclareMathOperator{\inr}{\mathsf{inr}}
+
+\DeclareMathOperator{\cls}{\mathsf{cls}}
+\DeclareMathOperator{\act}{\mathsf{act}}
+\DeclareMathOperator{\rf}{\mathsf{ref}}
+\DeclareMathOperator{\pcls}{\mathsf{pcls}}
+\DeclareMathOperator{\opn}{\mathsf{open}}
+\DeclareMathOperator{\emb}{\mathsf{emb}}
+\DeclareMathOperator{\Cylo}{\mathsf{Cylo}}
+\DeclareMathOperator{\Cylr}{\mathsf{Cylr}}
+
+
+\DeclareMathOperator{\cbl}{\mathsf{cbl}}
+
+\DeclareMathOperator{\pcbl}{\mathsf{p.cbl}}
+
+
+\DeclareMathOperator{\gl}{\mathsf{GL}_1}
+
+\DeclareMathOperator{\Top}{\mathsf{Top}}
+\DeclareMathOperator{\Mfd}{{\cM}\mathsf{fd}}
+\DeclareMathOperator{\cMfd}{{\sf c}{\cM}\mathsf{fd}}
+\DeclareMathOperator{\Mfld}{{\cM}\mathsf{fld}}
+\DeclareMathOperator{\mfd}{\mathsf{Mfd}}
+\DeclareMathOperator{\Emb}{\mathsf{Emb}}
+\DeclareMathOperator{\enr}{\fE\mathsf{nr}}
+\DeclareMathOperator{\LEnr}{\mathsf{LEnr}}
+\DeclareMathOperator{\diff}{\mathsf{Diff}}
+\DeclareMathOperator{\conf}{\mathsf{Conf}}
+
+\DeclareMathOperator{\MC}{\mathsf{MC}}
+\DeclareMathOperator{\strat}{\mathsf{Strat}}
+\DeclareMathOperator{\Strat}{\cS\mathsf{trat}}
+\DeclareMathOperator{\kan}{\mathsf{Kan}}
+
+\DeclareMathOperator{\dd}{{\cD}\mathsf{isk}}
+
+\DeclareMathOperator{\loc}{\mathsf{Loc}}
+
+
+
+\DeclareMathOperator{\poset}{\mathsf{Poset}}
+
+
+
+\DeclareMathOperator{\spaces}{\cS\mathsf{paces}}
+\DeclareMathOperator{\Spaces}{\cS\mathsf{paces}}
+
+\DeclareMathOperator{\Space}{{\cS}\sf paces}
+\DeclareMathOperator{\spectra}{\cS\mathsf{pectra}}
+\DeclareMathOperator{\Spectra}{\cS\mathsf{pectra}}
+\DeclareMathOperator{\mfld}{\mathsf{Mfld}}
+\DeclareMathOperator{\Disk}{\cD{\mathsf{isk}}}
+\DeclareMathOperator{\cdisk}{{\sf c}\cD{\mathsf{isk}}}
+\DeclareMathOperator{\cDisk}{{\sf c}\cD{\mathsf{isk}}}
+\DeclareMathOperator{\sing}{\mathsf{Sing}}
+\DeclareMathOperator{\set}{{\mathsf{Sets}}}
+\DeclareMathOperator{\Aux}{\cA{\mathsf{ux}}}
+\DeclareMathOperator{\Adj}{\mathsf{Adj}}
+
+
+\DeclareMathOperator{\Dtn}{\cD{\mathsf{isk}^\tau_{\mathit n}}}
+
+
+\DeclareMathOperator{\sm}{\mathsf{sm}}
+\DeclareMathOperator{\vfr}{\sf vfr}
+\DeclareMathOperator{\fr}{\sf fr}
+\DeclareMathOperator{\sfr}{\sf sfr}
+
+
+\DeclareMathOperator{\bord}{\mathsf{Bord}}
+\DeclareMathOperator{\Bord}{{\sf Bord}_1^{\fr}}
+\DeclareMathOperator{\Bordk}{\cB{\sf ord}_1^{\fr}(\RR^k)}
+
+\DeclareMathOperator{\Corr}{{\sf Corr}}
+\DeclareMathOperator{\corr}{{\sf Corr}}
+
+\DeclareMathOperator{\fcorr}{{\sf FCorr}}
+\DeclareMathOperator{\pcorr}{{\sf PCorr}}
+
+
+
+\DeclareMathOperator{\Sing}{\mathsf{Sing}}
+
+
+\DeclareMathOperator{\BTop}{\sf BTop}
+\DeclareMathOperator{\BO}{{\mathsf BO}}
+
+
+\DeclareMathOperator{\Lie}{\sf Lie}
+
+
+
+\def\ot{\otimes}
+
+\DeclareMathOperator{\fin}{\sf Fin}
+
+\DeclareMathOperator{\oo}{\infty}
+
+
+\DeclareMathOperator{\hh}{\sf HC}
+
+\DeclareMathOperator{\free}{\sf Free}
+\DeclareMathOperator{\fpres}{\sf FPres}
+
+
+\DeclareMathOperator{\fact}{\sf Fact}
+\DeclareMathOperator{\ran}{\sf Ran}
+
+\DeclareMathOperator{\disk}{\sf Disk}
+
+\DeclareMathOperator{\ccart}{\sf cCart}
+\DeclareMathOperator{\cart}{\sf Cart}
+\DeclareMathOperator{\rfib}{\sf RFib}
+\DeclareMathOperator{\lfib}{\sf LFib}
+
+
+\DeclareMathOperator{\tr}{\triangleright}
+\DeclareMathOperator{\tl}{\triangleleft}
+
+
+\newcommand{\lag}{\langle}
+\newcommand{\rag}{\rangle}
+
+
+\newcommand{\w}{\widetilde}
+\newcommand{\un}{\underline}
+\newcommand{\ov}{\overline}
+\newcommand{\nn}{\nonumber}
+\newcommand{\nid}{\noindent}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\xla}{\xleftarrow}
+
+\newcommand{\weq}{\xrightarrow{\sim}}
+\newcommand{\cofib}{\hookrightarrow}
+\newcommand{\fib}{\twoheadrightarrow}
+
+\def\llarrow{   \hspace{.05cm}\mbox{\,\put(0,-2){$\leftarrow$}\put(0,2){$\leftarrow$}\hspace{.45cm}}}
+\def\rrarrow{   \hspace{.05cm}\mbox{\,\put(0,-2){$\rightarrow$}\put(0,2){$\rightarrow$}\hspace{.45cm}}}
+\def\lllarrow{  \hspace{.05cm}\mbox{\,\put(0,-3){$\leftarrow$}\put(0,1){$\leftarrow$}\put(0,5){$\leftarrow$}\hspace{.45cm}}}
+\def\rrrarrow{  \hspace{.05cm}\mbox{\,\put(0,-3){$\rightarrow$}\put(0,1){$\rightarrow$}\put(0,5){$\rightarrow$}\hspace{.45cm}}}
+
+\def\cA{\mathcal A}\def\cB{\mathcal B}\def\cC{\mathcal C}\def\cD{\mathcal D}
+\def\cE{\mathcal E}\def\cF{\mathcal F}\def\cG{\mathcal G}\def\cH{\mathcal H}
+\def\cI{\mathcal I}\def\cJ{\mathcal J}\def\cK{\mathcal K}\def\cL{\mathcal L}
+\def\cM{\mathcal M}\def\cN{\mathcal N}\def\cO{\mathcal O}\def\cP{\mathcal P}
+\def\cQ{\mathcal Q}\def\cR{\mathcal R}\def\cS{\mathcal S}\def\cT{\mathcal T}
+\def\cU{\mathcal U}\def\cV{\mathcal V}\def\cW{\mathcal W}\def\cX{\mathcal X}
+\def\cY{\mathcal Y}\def\cZ{\mathcal Z}
+
+\def\AA{\mathbb A}\def\BB{\mathbb B}\def\CC{\mathbb C}\def\DD{\mathbb D}
+\def\EE{\mathbb E}\def\FF{\mathbb F}\def\GG{\mathbb G}\def\HH{\mathbb H}
+\def\II{\mathbb I}\def\JJ{\mathbb J}\def\KK{\mathbb K}\def\LL{\mathbb L}
+\def\MM{\mathbb M}\def\NN{\mathbb N}\def\OO{\mathbb O}\def\PP{\mathbb P}
+\def\QQ{\mathbb Q}\def\RR{\mathbb R}\def\SS{\mathbb S}\def\TT{\mathbb T}
+\def\UU{\mathbb U}\def\VV{\mathbb V}\def\WW{\mathbb W}\def\XX{\mathbb X}
+\def\YY{\mathbb Y}\def\ZZ{\mathbb Z}
+
+\def\sA{\mathsf A}\def\sB{\mathsf B}\def\sC{\mathsf C}\def\sD{\mathsf D}
+\def\sE{\mathsf E}\def\sF{\mathsf F}\def\sG{\mathsf G}\def\sH{\mathsf H}
+\def\sI{\mathsf I}\def\sJ{\mathsf J}\def\sK{\mathsf K}\def\sL{\mathsf L}
+\def\sM{\mathsf M}\def\sN{\mathsf N}\def\sO{\mathsf O}\def\sP{\mathsf P}
+\def\sQ{\mathsf Q}\def\sR{\mathsf R}\def\sS{\mathsf S}\def\sT{\mathsf T}
+\def\sU{\mathsf U}\def\sV{\mathsf V}\def\sW{\mathsf W}\def\sX{\mathsf X}
+\def\sY{\mathsf Y}\def\sZ{\mathsf Z}
+
+\def\bA{\mathbf A}\def\bB{\mathbf B}\def\bC{\mathbf C}\def\bD{\mathbf D}
+\def\bE{\mathbf E}\def\bF{\mathbf F}\def\bG{\mathbf G}\def\bH{\mathbf H}
+\def\bI{\mathbf I}\def\bJ{\mathbf J}\def\bK{\mathbf K}\def\bL{\mathbf L}
+\def\bM{\mathbf M}\def\bN{\mathbf N}\def\bO{\mathbf O}\def\bP{\mathbf P}
+\def\bQ{\mathbf Q}\def\bR{\mathbf R}\def\bS{\mathbf S}\def\bT{\mathbf T}
+\def\bU{\mathbf U}\def\bV{\mathbf V}\def\bW{\mathbf W}\def\bX{\mathbf X}
+\def\bY{\mathbf Y}\def\bZ{\mathbf Z}
+\def\bdelta{\mathbf\Delta}
+\def\bDelta{\mathbf\Delta}
+\def\blambda{\mathbf\Lambda}
+
+
+\def\fA{\frak A}\def\fB{\frak B}\def\fC{\frak C}\def\fD{\frak D}
+\def\fE{\frak E}\def\fF{\frak F}\def\fG{\frak G}\def\fH{\frak H}
+\def\fI{\frak I}\def\fJ{\frak J}\def\fK{\frak K}\def\fL{\frak L}
+\def\fM{\frak M}\def\fN{\frak N}\def\fO{\frak O}\def\fP{\frak P}
+\def\fQ{\frak Q}\def\fR{\frak R}\def\fS{\frak S}\def\fT{\frak T}
+\def\fU{\frak U}\def\fV{\frak V}\def\fW{\frak W}\def\fX{\frak X}
+\def\fY{\frak Y}\def\fZ{\frak Z}
+
+\def\bcA{\boldsymbol{\mathcal A}}\def\bcB{\boldsymbol{\mathcal B}}\def\bcC{\boldsymbol{\mathcal C}}
+\def\bcD{\boldsymbol{\mathcal D}}\def\bcE{\boldsymbol{\mathcal E}}\def\bcF{\boldsymbol{\mathcal F}}
+\def\bcG{\boldsymbol{\mathcal G}}\def\bcH{\boldsymbol{\mathcal H}}\def\bcI{\boldsymbol{\mathcal I}}
+\def\bcJ{\boldsymbol{\mathcal J}}\def\bcK{\boldsymbol{\mathcal K}}\def\bcL{\boldsymbol{\mathcal L}}
+\def\bcM{\boldsymbol{\mathcal M}}\def\bcN{\boldsymbol{\mathcal N}}\def\bcO{\boldsymbol{\mathcal O}}\def\bcP{\boldsymbol{\mathcal P}}\def\bcQ{\boldsymbol{\mathcal Q}}\def\bcR{\boldsymbol{\mathcal R}}
+\def\bcS{\boldsymbol{\mathcal S}}\def\bcT{\boldsymbol{\mathcal T}}\def\bcU{\boldsymbol{\mathcal U}}
+\def\bcV{\boldsymbol{\mathcal V}}\def\bcW{\boldsymbol{\mathcal W}}\def\bcX{\boldsymbol{\mathcal X}}
+\def\bcY{\boldsymbol{\mathcal Y}}\def\bcZ{\boldsymbol{\mathcal Z}}
+
+\def\ccD{{\sf c}\boldsymbol{\mathcal D}}
+\def\bcM{\boldsymbol{\mathcal M}}
+
+\DeclareMathOperator{\Stri}{\boldsymbol{\cS}{\sf tri}}
+\DeclareMathOperator{\btheta}{\boldsymbol{\Theta}}
+\DeclareMathOperator{\adj}{{\sf adj}}
+
+
+\DeclareMathOperator{\uno}{\mathbbm{1}}
+
+
+
+
+
+\DeclareMathOperator{\Braid}{\sf Braid}
+\DeclareMathOperator{\GL}{\sf GL}
+\DeclareMathOperator{\SL}{\sf SL}
+\DeclareMathOperator{\quot}{\sf quot}
+\DeclareMathOperator{\Fr}{\sf Fr}
+\DeclareMathOperator{\id}{\sf id}
+\DeclareMathOperator{\Act}{\sf Act}
+\DeclareMathOperator{\trans}{\sf trans}
+\DeclareMathOperator{\Bdl}{\sf Bdl}
+\DeclareMathOperator{\sHH}{\sf HH}
+\DeclareMathOperator{\Obj}{\sf Obj}
+\DeclareMathOperator{\Perf}{\sf Perf}
+
+
+\begin{document}
+
+
+\title{On the Homotopy Groups of the Space of Immersions of Orientable Surfaces}
+
+
+\author{Adam Howard}
+
+
+
+
+\address{Department of Mathematics\\Montana State University\\Bozeman, MT 59717}
+\email{david.ayala@montana.edu}
+\thanks{The author was supported by ...}
+
+
+
+
+\keywords{??.}
+
+\subjclass[2010]{Primary ??. Secondary ??.}
+
+\maketitle
+
+
+%%%%%%%%%%%%%% INTRO %%%%%%%%%%%%%%%%%%
+\section{brief introduction and outline}
+The goal of this paper is to describe the homotopy groups of the space of immersions of orientable surfaces into parallelizable manifolds. (This last restriction can be omitted with some effort.) That is we would like to describe $\pi_{k}{\sf Imm}(W_{g}, M)$ where $W_{g}$ is a smooth compact orientable surface of genus g, and $M^{n}$ is a smooth, connected, parallelizable manifold of dimension $n > 2.$
+We state our main result which we prove in section ~(\ref{tmain})
+%This may need updated
+$$\pi_{k}{\sf Imm}(W_{g}, M) \cong 
+ \pi_{k}M \times (\pi_{k + 1}M)^{2g} \times \pi_{k + 1}M \times 
+ \pi_{k}V_{2}(n) \times (\pi_{k + 1}V_{2}(n))^{2g} \times \pi_{k + 1}V_{2}(n). $$
+As a corollary of this, it is know that $V_{2}(4)$ is homeomorphic to $S^{2} \times S^{3}$ and so we can compute the homotopy groups of ${\sf Imm}(W_{g}, M^{4})$ as well as we can compute the homotopy groups of $M, S^{2},$ and $S^{3}.$
+
+
+%%%%%%%%%%%% STRUCTURE OF ARGUMENT %%%%%%%%%%%%%%%%
+\section{Structure} %Find Citation for SH Theorem
+First we note that ${\sf Imm}(W_{g}, M)$ is homotopy equivalent to ${\sf Imm^{f}}(W_{g}, M),$ the space of \textit{formal immersions} which is defined as fiberwise bundle injections between tangent bundles: $${\sf Imm^{f}}(W_{g}, M) := BunInj(TW_{g} \rightarrow W_{g}, TM \rightarrow M).$$
+This homotopy equivalence is by the Hirsch-Smale theorem \cite{?} and is an instance of the h-principle.
+Under our assumption that $M$ is parallelizable, we have that there is a homeomorphism $${\sf Imm^{f}}(W_{g}, M) := BunInj(TW_{g} \rightarrow W_{g}, TM \rightarrow M) \xra{\approx} BunInj(TW_{g} \rightarrow W_{g}, \RR^{n} \times M \rightarrow M)$$ from a choice of trivialization of the tangent bundle of $M.$
+
+\begin{lemma} \label{l1}
+There is a homeomorphism between spaces $$h: {\sf Map}(W_{g}, M) \times {\sf BunInj}_{/W_{g}}(TW_{g}, W_{g} \times \RR^{n}) \rightarrow BunInj(TW_{g} \rightarrow W_{g}, \RR^{n} \times M \rightarrow M)$$ where $$\left( (W_{g} \xra{f} M), \left(\begin{tikzcd}
+TW_{g} \arrow[rd] \arrow[r, "F"]  & \RR^{n} \times W_{g} \arrow[d]\\
+& W_{g}
+\end{tikzcd} \right) \right)
+\mapsto \left(
+\begin{tikzcd}
+TW_{g} \arrow[rd] \arrow[r, "F"] & \RR^{n} \times W_{g} \arrow[d]  \arrow[r, "id \times f"]& \RR^{n} \times M \arrow[d] \\
+& W_{g} \arrow[r, "f"] & M
+\end{tikzcd} \right)
+$$
+\end{lemma}
+\begin{proof}
+The map $h$ is continuous \textcolor{red}{(explain this, specify the topologies of the spaces)}.
+We can define the inverse map as follows:
+$$h^{-1}\left(\begin{tikzcd}
+TW_{g} \arrow[d] \arrow[r, "F"]  & \RR^{n} \times M \arrow[d]\\
+W_{g} \arrow[r, "f"] & M
+\end{tikzcd} \right) =
+\left( (W_{g} \xra{f} M), \left(\begin{tikzcd}
+TW_{g} \arrow[rd] \arrow[r, "\tilde{F}"]  & \RR^{n} \times W_{g} \arrow[d]\\
+& W_{g}
+\end{tikzcd} \right) \right)
+$$
+where for $(x, v) \in T_{x}W_{g}$ we have that $\tilde{F}(v, x) = (F_{x}(v), x) \in \RR^{n} \times W_{g}.$ \textcolor{red}{(Indicate why this map is continuous, showing that $h$ is a homeomorphism.)}
+\end{proof}
+
+\begin{lemma} \label{l2}
+There is a homotopy equivalence $${\sf BunInj}_{/W_{g}}(TW_{g}, W_{g} \times \RR^{n}) \rightarrow {\sf Map}_{/BO(2)}(W_{g}, Gr_{2}(n))$$
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
+\begin{lemma} \label{l3}
+The following diagram is a homotopy pullback:
+$$
+\xymatrix{
+{\sf Map}_{/BO(2)}(W_{g}, Gr_{2}(n))) \ar[rr]^-{} \ar[d]^-{}
+&&
+{\sf Map}(W_{g}, Gr_{2}(n)) \ar[d]^-{\gamma_{2} \circ -}
+\\
+\ast \ar[rr]^-{\langle \tau_{W_{g}} \rangle}
+&&
+{\sf Map}(W_{g}, BO(2))
+,
+}$$ 
+i.e. $${\sf hofib}_{\tau_{W_{g}}}({\sf Map}(W_{g}, Gr_{2}(n)) \xra{\gamma_{2} \circ -} {\sf Map}(W_{g}, BO(2))) \simeq  (=?){\sf Map}_{/BO(2)}(W_{g}, Gr_{2}(n)))$$ where $\gamma_{2}$ is the natural inclusion of $Gr_{2}(n)$ into $BO(2) = Gr_{2}(\infty).$
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
+%%%%%%%% Homotopy Fibers %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Comparing Homotopy Fibers}
+Consider the following pullback diagram:
+$$
+\xymatrix{
+Gr_{2}^{or}(n) \ar[rr]^-{fgt} \ar[d]^-{i}
+&&
+Gr_{2}(n) \ar[d]^-{i}
+\\
+BSO(2) \ar[rr]^-{fgt} 
+&&
+BO(2).
+}$$
+As the horizontal arrows are fibrations, this is a homotopy pullback diagram.
+Now we have that 
+$$
+{\sf hofib}_{(\tau_{W_{g}}, \sigma)}\Big({\sf Map}(W_{g}, Gr_{2}^{or}(n)) \xra{\gamma_{2} \circ - } {\sf Map}(W_{g}, BSO(2))\Big) \simeq
+$$
+$$ 
+{\sf hofib}_{\tau_{W_{g}}}\Big({\sf Map}(W_{g}, Gr_{2}(n)) \xra{\gamma_{2} \circ - } {\sf Map}(W_{g}, BO(2))\Big)
+$$
+%%%%%%%%%%%%%%%%% Claim 4
+\begin{prop}
+We have the following homotopy equivalence
+$${\sf hofib}_{(\tau_{W_{g}}, \sigma)}\Big({\sf Map}(W_{g}, Gr_{2}^{or}(n)) \xra{\gamma_{2} \circ - } {\sf Map}(W_{g}, BSO(2))\Big) \simeq$$
+$$
+{\sf hofib}_{(\epsilon^{2}_{W_{g}}, \sigma_{std})}\Big({\sf Map}(W_{g}, Gr_{2}^{or}(n)) \xra{\gamma_{2} \circ - } {\sf Map}(W_{g}, BSO(2))\Big)
+$$
+\end{prop}
+
+\section{Homotopy Groups of Mapping Spaces}
+\subsection{$\pi_{k}$ for $k \geq 1$}
+\begin{lemma} \label{l2}
+For based topological spaces $(X, x_{0}), (Y, y_{0})$ we have that the following spaces are homotopy equivalent:
+$${\sf Map}(X, \Omega_{y_{0}}Y) \simeq {\sf Map}_{\ast}(X, \Omega_{y_{0}}Y) \times \Omega_{y_{0}}Y.$$
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
+\begin{lemma} \label{l1}
+For based topological spaces $(X, x_{0}), (Y, y_{0})$ we have that for $k \geq 1$ there is an isomorphism of groups, $$\pi_{k}{\sf Map}(X, Y) \cong \pi_{k}{\sf Map}_{\ast}(X, Y) \times \pi_{k}Y,$$ where we take the constant map at $y_{0}$ to be the base point of ${\sf Map}_{\ast}(X, Y)$ and ${\sf Map}(X, Y).$
+\end{lemma}
+\begin{proof}
+From the following homotopy pullback diagram, 
+$$
+\xymatrix{
+{\sf Map}_{\ast}(X, Y) \ar[rr]^-{} \ar[d]^-{}
+&&
+{\sf Map}(X, Y) \ar[d]^-{ev_{x_{0}}}
+\\
+\ast \ar[rr]^-{\langle y_{0} \rangle} 
+&&
+Y
+}$$
+we get the associated long exact sequence on homotopy groups:
+\textcolor{blue}{format LES diagram better.}
+$$
+\xymatrix{
+\pi_{k + 1}{\sf Map}_{\ast}(X, Y) \ar[rr]^-{} 
+&&
+\pi_{k + 1}{\sf Map}(X, Y) \ar[rr]^-{}
+&&
+\pi_{k + 1}Y \ar[dllll]^{\partial_{k}}
+\\
+\pi_{k}{\sf Map}_{\ast}(X, Y) \ar[rr]^-{} 
+&&
+\pi_{k}{\sf Map}(X, Y) \ar[rr]^-{}
+&&
+\pi_{k}Y. 
+}
+$$
+Note that we have a section of spaces
+$$s:Y \rightarrow {\sf Map}(X, Y); \hspace{15 pt} y \mapsto (f_{\text{const @ y}}: X \rightarrow Y),$$ that is $ev_{x_{0}} \circ s = id_{Y}.$ This induces a section of homotopy groups $s^{\ast}: \pi_{k}Y \rightarrow \pi_{k}{\sf Map}(X, Y)$ and implies that $ev_{x_{0}}^{\ast}$ will be surjective and therefore all boundary maps are trivial, $\partial_{k} = 0.$ 
+Furthermore so our long exact sequence is divided into short exact sequences of the form:
+\begin{equation} \label{e2}
+0 \longrightarrow \pi_{k}{\sf Map}_{\ast}(X, Y) \longrightarrow \pi_{k}{\sf Map}(X, Y) \longrightarrow \pi_{k}Y \longrightarrow 0.
+\end{equation} 
+For $k \geq 2,$ the existence of $s^{\ast}$ and the splitting lemma immediately implies that ~(\ref{e2}) splits.
+For $k = 1,$ we can rewrite ~(\ref{e2}) as 
+$$0 \longrightarrow \pi_{0}{\sf Map}_{\ast}(X, \Omega_{y_{0}}Y) \longrightarrow \pi_{0}{\sf Map}(X, \Omega_{y_{0}}Y) \longrightarrow \pi_{0}\Omega_{y_{0}}Y \longrightarrow 0$$
+and lemma ~(\ref{l2}) implies that this short exact sequence is split. Therefore for $k \geq 1$ we have that 
+$$\pi_{k}{\sf Map}(X, Y) \cong \pi_{k}{\sf Map}_{\ast}(X, Y) \times \pi_{k}Y.$$
+\end{proof}
+
+\begin{lemma}
+If Y is a based, connected, simple (abelian) space, then there is a bijection of sets $$\pi_{0}{\sf Map}_{\ast}(X, Y) \cong \pi_{0}{\sf Map}(X, Y)$$ 
+\end{lemma}
+\begin{proof}
+%% TODO
+\end{proof}
+
+\begin{lemma} \label{gc}
+There is a homotopy equivalence between spaces,
+$$\Sigma W_{g} \simeq \Sigma \big( S^{2} \vee (S^{1})^{\vee 2g}\big). $$
+\end{lemma}
+\begin{proof}
+Consider the following pushout diagram,
+$$
+\xymatrix{
+\partial \DD^{2} = S^{1} \ar[rr]^-{c} \ar[d]^-{i}
+&&
+(S^{1})^{\vee 2g} \ar[d]^-{}
+\\
+\DD^{2} \ar[rr]^-{} 
+&&
+W_{g},
+}$$ 
+where $[c] \in \pi_{1}((S^{1})^{\vee 2g})$ is the product of commutators $a_{1}b_{1}a_{1}^{-1}b_{1}^{-1} \hdots a_{n}b_{n}a_{n}^{-1}b_{n}^{-1}.$ As the inclusion $i: \partial \DD^{2} \rightarrow \DD^{2}$ is a cofibration, the diagram is a homotopy pushout diagram. Then taking the reduced suspension of all spaces and maps results in the homotopy pushout diagram:
+$$
+\xymatrix{
+\Sigma S^{1} \simeq S^{2} \ar[rr]^-{\Sigma c} \ar[d]^-{\Sigma i}
+&&
+\Sigma (S^{1})^{\vee 2g} \ar[d]^-{}
+\\
+\Sigma \DD^{2} \ar[rr]^-{} 
+&&
+\Sigma W_{g}.
+}$$  
+Note that the homomorphism $$\langle a_{1}, b_{1}, \hdots, a_{n}, b_{n} \rangle = \pi_{1}\big((S^{1})^{\vee 2g}\big) \xra{\Sigma} \pi_{2}\big(\Sigma(S^{1})^{\vee 2g}\big); \hspace{20pt}  [\gamma] \mapsto [\Sigma \gamma]$$ must factor through the abelianization of $\pi_{1}\big((S^{1})^{\vee 2g}\big)$ since $\pi_{2}\big(\Sigma(S^{1})^{\vee 2g}\big)$ is abelian. That is, there exists a unique map such that the following diagram commutes,
+$$\begin{tikzcd}
+\langle a_{1}, b_{1}, \hdots, a_{n}, b_{n} \rangle = \pi_{1}\big((S^{1})^{\vee 2g}\big) \arrow[r, "q"] \arrow[rd, "\Sigma"]
+&  \pi_{1}\big((S^{1})^{\vee 2g}\big)_{Ab} \cong \ZZ^{2g} \arrow[d, "!"] \\
+&  \pi_{2}\big(\Sigma(S^{1})^{\vee 2g}\big)
+\end{tikzcd}$$
+where the map $q$ is the canonical quotient map. Now clearly $[c] = a_{1}b_{1}a_{1}^{-1}b_{1}^{-1} \hdots a_{n}b_{n}a_{n}^{-1}b_{n}^{-1}$ is in the kernel of $q$ and therefore it is also in the kernel of $\Sigma,$ i.e. $\Sigma c$ is homotopic to the constant map at the basepoint.
+Now, we've identified $$\Sigma W_{g} = {\sf hopush} \left( \begin{tikzcd}
+\Sigma S^{1} \arrow[r, "\Sigma c"] \arrow[d, "\Sigma i"] & \Sigma\big( (S^{1})^{\vee 2g} \big) \\
+\Sigma \DD^{2}
+\end{tikzcd} \right).$$ As this is a homotopy pushout we may replace any spaces with homotopy equivalent spaces and any maps with homotopic maps and the resulting homotopy pushout will be homotopy equivalent. 
+Therefore $$\Sigma W_{g} = {\sf hopush} \left( \begin{tikzcd}
+\Sigma S^{1} \arrow[r, "\Sigma c"] \arrow[d, "\Sigma i"] & \Sigma\big( (S^{1})^{\vee 2g} \big) \\
+\Sigma \DD^{2}
+\end{tikzcd} \right) \simeq 
+{\sf hopush} \left( \begin{tikzcd}
+\Sigma S^{1} \arrow[r, "const_{\ast}"] \arrow[d, "!"] & \Sigma\big( (S^{1})^{\vee 2g} \big) \\
+\ast
+\end{tikzcd} \right) \simeq$$ 
+$$ 
+\Sigma \left( {\sf hopush} \left( \begin{tikzcd}
+S^{1} \arrow[r, "const_{\ast}"] \arrow[d, "!"] & \big( (S^{1})^{\vee 2g} \big) \\
+\ast
+\end{tikzcd} \right) \right) \simeq
+\Sigma \left(\ast \cup_{S^{1} \times 0} S^{1} \times I \cup_{S^{1} \times 1} \big( (S^{1})^{\vee 2g} \big)\right) \simeq \Sigma \big( S^{2} \vee (S^{1})^{\vee 2g}\big).
+$$
+\end{proof}
+
+%``Claim 5'' not necessary that $pi_{1}Z$ be abelian?
+\begin{prop}
+Let $Z$ be based, path-connected topological space with abelian fundamental group. Then consider the based space of all continuous maps, ${\sf Map}(W_{g}, Z),$ with the constant map 
+$$f_{const}: W_{g} \rightarrow Z; \hspace{15 pt } w \mapsto z_{0}$$ serving as its base point. Then we have that
+$$\pi_{k}{\sf Map}(W_{g}, Z) \cong \pi_{k}Z \times (\pi_{k + 1}Z)^{2g} \times \pi_{k + 2}Z.$$
+\end{prop}
+\begin{proof}
+Consider the following homotopy pushout diagram, 
+$$
+\xymatrix{
+(S^{1})^{\vee 2g} \ar[rr]^-{i} \ar[d]^-{}
+&&
+W_{g} \ar[d]^-{}
+\\
+\ast \ar[rr]^-{} 
+&&
+\DD^{2}/\partial \DD^{2} \cong S^{2}
+}$$
+where the map $i: (S^{1})^{\vee 2g} \rightarrow W_{g}$ is a cofibration, the inclusion of the $1$-skeleton into $W_{g}$. We may then apply ${\sf Map}_{\ast}(-, Z)$ to this diagram to get the following homotopy pullback diagram,
+$$
+\xymatrix{
+{\sf Map}_{\ast}(S^{2}, Z) \cong \Omega^{2}Z \ar[rr]^-{i} \ar[d]^-{}
+&&
+{\sf Map}_{\ast}(W_{g}, Z) \ar[d]^-{}
+\\
+\ast \ar[rr]^-{} 
+&&
+{\sf Map}_{\ast}((S^{1})^{\vee 2g}, Z) \cong (\Omega Z)^{2g}.
+}$$
+The Puppe sequence then implies that following is also a homotopy pullback diagram,
+$$
+\xymatrix{
+\Omega( \Omega^{2}Z) \ar[rr]^-{i} \ar[d]^-{}
+&&
+\Omega {\sf Map}_{\ast}(W_{g}, Z) \cong {\sf Map}_{\ast}(\Sigma W_{g}, Z) \ar[d]^-{}
+\\
+\ast \ar[rr]^-{} 
+&&
+\Omega (\Omega Z)^{2g}.
+}$$
+Now from lemma ~(\ref{gc}) we have that $\Sigma W_{g} \simeq \Sigma(S^{2} \vee (S^{1})^{2g})$ and so we have that $${\sf Map}_{\ast}(\Sigma W_{g}, Z) \simeq {\sf Map}_{\ast}(\Sigma(S^{2} \vee (S^{1})^{2g}), Z) \simeq \Omega {\sf Map}_{\ast}(S^{2} \vee (S^{1})^{2g}, Z) \simeq \Omega(\Omega^{2}Z \times (\Omega Z)^{2g}),$$
+and that the homotopy pullback above splits. So we have that $$\Omega {\sf Map}_{\ast}(W_{g}, Z) \simeq \Omega( \Omega^{2}Z) \times \Omega (\Omega Z)^{2g}$$ and therefore for $j \geq 0$ we have $$\pi_{j} \Omega {\sf Map}_{\ast}(W_{g}, Z)  \cong \pi_{j + 1}{\sf Map}_{\ast}(W_{g}, Z) \cong \pi_{j+ 3}Z \times (\pi_{j + 2}Z)^{2g} \cong \pi_{j}\Omega( \Omega^{2}Z) \times \pi_{j}\Omega (\Omega Z)^{2g}.$$ So after relabeling we have that for $k \geq 1$ that 
+\begin{equation} \label{e4}
+ \pi_{k}{\sf Map}_{\ast}(W_{g}, Z) \cong  (\pi_{k + 1}Z)^{2g} \times \pi_{k + 2}Z.
+\end{equation} 
+So by equation ~(\ref{e4}) and lemma ~(\ref{l1}) we have that $$\pi_{k}{\sf Map}(W_{g}, Z) \cong \pi_{k}Z  \times  \pi_{k}{\sf Map}_{\ast}(W_{g}, Z) \cong \pi_{k}Z  \times (\pi_{k + 1}Z)^{2g} \times \pi_{k + 2}Z.$$
+\end{proof}
+
+
+\subsection{The $\pi_{0}$ case}
+\begin{lemma}
+Let $\DD^{2} \subset W_{g}$ be a disk containing the base point of $W_{g}$ on its boundary. Assume further that this disk does not intersect the 1-skeleton of $W_{g}$ other than at the base point. Now consider the map: 
+$$\pi_{2}Z \times \pi_{0}{\sf Map}_{\ast}(W_{g}, Z) \longrightarrow \pi_{0}{\sf Map}_{\ast}(W_{g}, Z)$$
+\begin{equation} \label{action}([\omega: S^{2} \rightarrow Z], [f: W_{g} \rightarrow Z]) \mapsto [W_{g} \xra{collapse} S^{2} \vee W_{g} \xra{\omega \vee f} Z] =: [\omega] \cdot [f] \end{equation}
+where the map $W_{g} \xra{collapse} S^{2} \vee W_{g}$ collapses the boundary of the disk $\DD^{2}$ to the base point. This map is well defined and gives a group action of $\pi_{2}Z$ on the set $\pi_{0}{\sf Map}_{\ast}(W_{g}, Z).$
+\end{lemma}
+\begin{proof}
+First note that the addition rule of $\pi_{2}Z$ can be described as 
+$$[S^{2} \xra{\omega_{2}} Z] + [S^{2} \xra{\omega_{1}} Z] = [S^{2} \xra{c} S^{2} \vee S^{2} \xra{\omega_{2} \vee \omega_{1}} Z]$$ where the map $S^{2} \xra{c} S^{2} \vee S^{2}$ collapses the equator containing the basepoint. Then we have that 
+$$ 
+[\omega_{2}] \cdot ([\omega_{1}] \cdot [f]) = [\omega_{2}] \cdot [W_{g} \xra{collapse} S^{2} \vee W_{g} \xra{\omega_{1} \vee f} Z] = [W_{g} \xra{collapse} S^{2} \vee W_{g} \xra{\omega_{2} \vee (\omega_{1} \cdot f)} Z]
+$$
+$$
+= [W_{g} \xra{collapse} S^{2} \vee W_{g} \xra{\omega_{2} \vee collapse} S^{2} \vee (S^{2} \vee W_{g}) \xra{\omega_{2} \vee (\omega_{1} \vee f)} Z]
+$$
+$$= [W_{g} \xra{collapse} S^{2} \vee W_{g} \xra{c \vee id} S^{2} \vee S^{2} \vee W_{g} \xra{\omega_{2} \vee \omega_{1} \vee f}] = ([\omega_{2}] + [\omega_{1}]) \cdot [f].
+$$
+Next, the identity element of $\pi_{2}Z$ is $[e] = [S^{2} \xra{const_{*}} Z],$ the constant map at the base point. Then
+$$
+[e] \cdot [f] = [W_{g} \xra{collapse} S^{2} \vee W_{g} \xra{const_{*} \vee f} Z] = [W_{g} \xra{f} Z] = [f]. 
+$$ Therefore the map (\ref{action}) does indeed define a group action.
+\end{proof}
+
+\noindent Consider the set $$(\pi_{1}Z)^{2g}_{com} := \{ ([\alpha_{1}], [\beta_{1}], \hdots [\alpha_{g}], [\beta_{g}]) \in (\pi_{1}Z)^{2g} : [\alpha_{1}, \beta_{1}][\alpha_{2}, \beta_{2}]\hdots[\alpha_{g}, \beta_{g}] = [e] \}$$ where $[\alpha_{1}, \beta_{i}] = \alpha_{i}\beta_{i}\alpha_{i}^{-1}\beta_{i}^{-1}$ is the commutator of $\alpha_{i}$ and $\beta_{i}$. Now consider the map
+$$
+\Phi: \pi_{0}{\sf Map}_{\ast}(W_{g}, Z)/\pi_{2}Z \longrightarrow (\pi_{1}Z)^{2g}_{com}
+$$
+\begin{equation}\label{e1}
+[W_{g} \xra{f} Z] \mapsto ([f|_{a_{1}}], [f|_{b_{1}}], \hdots, [f|_{a_{g}}], [f|b_{g}])
+\end{equation}
+where $a_{i}, b_{i}$ are the 1-cells of $W_{g}.$ 
+
+\begin{remark}
+The map (\ref{e1}) is well defined. $W_{g}$ is obtained by gluing the boundary of a 2-disk to the 1-skeleton by $a_{1}b_{1}a_{1}^{-1}b_{1}^{-1}\hdots a_{g}b_{g}a_{g}^{-1}b_{g}^{-1}.$ So given a continuous based map, $f: W_{g} \rightarrow Z,$ restricting to the 1-skeleton we will have based loops in $f|_{a_{1}}, f|_{b_{1}}, \hdots f|_{a_{g}}, f|_{b_{g}}$ in $Z$ for which $f|_{a_{1}}f|_{b_{1}}f|_{a_{1}}^{-1}f|_{b_{1}}^{-1}\hdots f|_{a_{g}}f|_{b_{g}}f|_{a_{g}}^{-1}f|_{b_{g}}^{-1}$ is contractible. 
+Suppose $[f] = [\omega] \cdot [g],$ i.e. $[f]$ and $[g]$ are in the same orbit of (\ref{action}). As the disk we collapse along in our action does not intersect the 1-skeleton on $W_{g}$ other than at the base point, restricting $f$ and $g$ to the 1-skeleton will be equivalent up to homotopy. That is $[f|_{a_{1}}] = [g|_{a_{1}}], \hdots, [f|_{b_{g}}] = [g|_{b_{g}}],$ and so the map (\ref{e1}) is well defined.
+\end{remark}
+
+
+\begin{lemma} \label{l1}
+Consider the following commutative diagram:
+$$\begin{tikzcd}
+\pi_{0}{\sf Map}_{\ast}(W_{g}, Z) \arrow[d, "q"] \arrow[rd, "\tilde{\Phi}"] & \\
+\pi_{0}{\sf Map}_{\ast}(W_{g}, Z)/\pi_{2}Z \arrow[r, "\Phi"]&  (\pi_{1}Z)^{2g}_{com},
+\end{tikzcd}$$
+where $q$ is the canonical quotient map by the action (\ref{action}).
+First we will show that $\Phi$ is surjective, so for each $([\alpha_{1}], [\beta_{1}], \hdots [\alpha_{g}], [\beta_{g}]) \in (\pi_{1}Z)^{2g}_{com}$ there is some $f \in {\sf Map}_{\ast}(W_{g}, Z)$ for which $$\tilde{\Phi}^{-1}([\alpha_{1}], [\beta_{1}], \hdots [\alpha_{g}], [\beta_{g}]) \ni [f].$$ 
+\end{lemma}
+\begin{proof}
+To see that (\ref{e1}) is surjective take any $([\alpha_{1}], [\beta_{1}], \hdots [\alpha_{g}], [\beta_{g}]) \in (\pi_{1}Z)^{2g}$ for which $$[\alpha_{1}, \beta_{1}][\alpha_{2}, \beta_{2}]\hdots[\alpha_{g}, \beta_{g}] = [e].$$ We can construct $[f] \in \pi_{0}{\sf Map}_{\ast}(W_{g}, Z)/\pi_{2}Z$ as follows:
+$f$ maps the 0-cell of $W_{g}$ to the base point of $Z.$ For the 1-skeleton of $W_{g}$ we have $f(a_{1}) = \alpha_{i}, f(b_{i}) = \beta_{i}.$ And finally the 2-cell of $W_{g}$ is mapped to the disk bounded by $[\alpha_{1}, \beta_{1}][\alpha_{2}, \beta_{2}]\hdots[\alpha_{g}, \beta_{g}].$ 
+\end{proof}
+
+
+\begin{lemma} \label{rep}
+Fix some $([\bar{\alpha}] ,[\bar{\beta}]) := ([\alpha_{1}], [\beta_{1}], \hdots [\alpha_{g}], [\beta_{g}]) \in (\pi_{1}Z)^{2g}_{com},$ and fix some $f \in {\sf Map}_{\ast}(W_{g}, Z)$ such that $\tilde{\Phi}([f]) = ([\bar{\alpha}] ,[\bar{\beta}]).$
+Let $[g] \in \tilde{\Phi}^{-1}([\bar{\alpha}] ,[\bar{\beta}]).$ Then there is some representative $g_{rep} \in [g]$ such that $g_{rep}|_{sk_{1}} = f|_{sk_{1}}.$
+\end{lemma}
+\begin{proof}
+The inclusion $sk_{1} \hookrightarrow W_{g}$ is a cofibration. Therefore, the restriction map $$R: {\sf Map}_{\ast}(W_{g}, Z) \rightarrow {\sf Map}_{\ast}(sk_{1}, Z); \hspace{15pt} g \mapsto g|_{sk_{1}}$$ is a fibration. So given some $g' \in [g],$ there is a homotopy $\gamma$ in  ${\sf Map}_{\ast}(sk_{1}, Z)$ from $g'|_{sk_{1}}$ to $f|_{sk_{1}}.$ Consider the following diagram:
+$$
+\xymatrix{
+\{0\} \ar[rr]^-{<g'>} \ar[d]^-{}
+&&
+{\sf Map}_{\ast}(W_{g}, Z) \ar[d]^-{R}
+\\
+I \ar[rr]^-{\gamma} 
+&&
+{\sf Map}_{\ast}(sk_{1}, Z).
+}$$
+Given that $R$ is a fibration and the path-lifting property, there is a lift $\tilde{\gamma}: I \rightarrow {\sf Map}_{\ast}(W_{g}, Z).$ Then take $g_{rep} = \tilde{\gamma}(1),$ and as the diagram commutes... we will have that $g_{rep}|_{sk_{1}} = f|_{sk_{1}}.$
+\end{proof}
+
+\begin{prop}
+Given a map $f \in {\sf Map}_{\ast}(W_{g}, Z)$ and the action (\ref{action}) there exists the orbit map 
+$${\sf Orbit}(f): \pi_{2}Z \longrightarrow \pi_{0}{\sf Map}_{\ast}(W_{g}, Z)$$ 
+$$[\omega] \mapsto [\omega] \cdot [f] =: [\omega f].$$ We claim that as sets there is a bijection $$Image({\sf Orbit}(f)) \cong  \tilde{\Phi}^{-1}([\alpha_{1}], [\beta_{1}], \hdots [\alpha_{g}], [\beta_{g}]) \subset \pi_{0}{\sf Map}_{\ast}(W_{g}, Z),$$ where $\tilde{\Phi} = \Phi \circ q.$ Furthermore, we claim that ${\sf Orbit}(f)$ is an injective map.
+\end{prop}
+\begin{proof}
+Fix the map $f \in {\sf Map}_{\ast}(W_{g}, Z)$ for which $\tilde{\Phi}([f]) = ([\bar{\alpha}] ,[\bar{\beta}])$. 
+Consider the following construction: 
+Given $[g] \in \tilde{\Phi}^{-1}([\bar{\alpha}] ,[\bar{\beta}]),$ take some $g_{rep} \in [g]$ such that $g_{rep}|_{sk_{1}} = f|_{sk_{1}}$ and define the following map
+$$
+(g_{rep} \text{ glue } f): S^{2} = \DD^{2} \cup_{\partial \DD^{2}} \DD^{2} \xra{g|_{\DD^{2}} \cup \bar{f}|_{\DD^{2}}} Z
+$$
+where $\bar{f}|_{\DD^{2}} = f|_{\DD^{2}}$ with the opposite orientation. So given some map $[g] \in \tilde{\Phi}^{-1}([\bar{\alpha}] ,[\bar{\beta}])$ we can can construct $(g_{rep} \text{ glue } f) \in \pi_{2}Z$ and we will prove the following claims about homotopy classes. \newline
+
+%Then define the following gluing map,
+%$${\sf Glue}(f): \tilde{\Phi}^{-1}([\bar{\alpha}] ,[\bar{\beta}]) \longrightarrow \pi_{2}Z$$
+%$$[g] \mapsto [g \text{ glue }f]$$ 
+%where the map $(g \text{ glue } f ): S^{2} \longrightarrow Z$ is defined by mapping the southern hemisphere of $S^{2}$ into Z by $g|_{\DD^{2}}$ and the northern hemisphere of $S^{2}$ is mapped into $Z$ by $f|_{\DD^{2}},$ except where the disk (and namely the boundary of the disk) has the reversed orientation. We will take the base point of the sphere we are mapping out of to be on the equator. \textcolor{red}{need to be more careful in defining this gluing map} %%DEF of GLUE To be fixed
+%\newline \newline
+%Now we will show that ${\sf Orbit}(f)$ and ${\sf Glue}(f)$ are mutual inverses, i.e.
+%$${\sf Glue}(f) \circ {\sf Orbit}(f) = \id_{\pi_{2}Z} \hspace{15pt} \text{ and } \hspace{15pt}  {\sf Orbit}(f) \circ {\sf Glue}(f) = \id_{\tilde{\Phi}^{-1}([\bar{\alpha}] ,[\bar{\beta}])}.$$
+
+% CLAIM 1
+\noindent \underline{Claim 1:} For $[\omega] \in \pi_{2}Z$ we will show that for some representative $(\omega f)_{rep} \in [\omega f]$ that $$[(\omega f)_{rep}  \text{ glue } f] = [\omega].$$
+
+%%% Showing G of O is identity
+\noindent Choose a representative $(\omega f)_{rep} \in [\omega f] \in \tilde{\Phi}^{-1}([\bar{\alpha}, \bar{\beta}])$ such that $(\omega f)_{rep}|_{sk_{1}} = f|_{sk_{1}}.$ As the disk whose boundary we collapse along in $\omega f$ is contained entirely in the 2-skeleton of $W_{g}$ (except the basepoint) we see that the map $((\omega f )_{rep} \text{ glue } f)$ is homotopy equivalent to the composition
+\begin{equation} \label{ofgf}
+S^{2} \xra{collapse} S^{2} \vee S^{2} \xra{\omega \vee (f_{rep}  \text{ glue } f)} Z.
+\end{equation}
+for some $f_{rep} \in [f].$ Now we will show that $(f_{rep}  \text{ glue } f) \simeq const_{*}$ and as such we see that (\ref{ofgf}) is homotopy equivalent to $\omega.$ Consider the following commutative diagram: 
+$$ %%THERE IS SOMETHING WRONG WITH THIS DIAGRAM
+\xymatrix{
+&& 
+S^{2} = \DD^{2} \cup_{\partial \DD^{2}} \DD^{2} \ar[rr]^-{\id_{\DD^{2}} \cup \id_{\DD^{2}}} \ar[dll]_-{f_{rep} \cup \bar{f}}
+&&
+\DD^{2} \ar[d]^-{f|_{\DD^{2}}}
+\\
+W_{g} \cup_{sk_{1}} W_{g} \ar[rr]^-{\id_{W_{g}} \cup \id_{W_{g}}}
+&&
+W_{g} \ar[rr]^-{f} 
+&&
+Z.
+}$$
+This shows that $$(f_{rep}  \text{ glue } f) \simeq S^{2} = \DD^{2} \cup_{\partial \DD^{2}} \DD^{2} \xra{\id_{\DD^{2}} \cup \id_{\DD^{2}}} \DD^{2} \xra{f|_{\DD^{2}}} Z,$$ and as $\DD^{2}$ is contractible this map is null homotopic. Therefore, as (\ref{ofgf}) is homotopy equivalent to $\omega$ we have that $[(\omega f )_{rep} \text{ glue } f] = [\omega].$ \newline
+%% REFERENCE THAT SUPER EASY LEMMA. SO.... WRITE UP THAT EASY LEMMA
+
+%%% CLAIM 2
+\noindent \underline{Claim 2:}  Assume that $[g] \in \pi_{0}{\sf Map}_{\ast}(W_{g}, Z).$ We will show that $[(g_{rep} \text{ glue } f)] \cdot [f] = [g]$ for $g_{rep} \in [g].$ \newline
+
+
+%%% Showing O of G is identity
+\noindent  First we know that $ g_{rep}|_{sk_{1}} = f|_{sk_{1}},$ so then consider the following diagram: 
+$$
+\xymatrix{
+(\DD^{2} \cup_{\partial \DD^{2}} \DD^{2}) \vee \DD^{2}  \ar[rr]^-{(g_{rep} \text{ glue } f) \vee f|_{\DD^{2}}} 
+&&
+Z
+\\
+\DD^{2} \ar[u]^-{collapse} \ar[urr]_-{((g_{rep} \text{ glue } f) \cdot f)|_{\DD^{2}}}
+&&
+}$$
+where the map $collapse,$ collapses an interior disk of $\DD^{2}.$ Now fix some homeomorphism on the interior of the disk $h: (I^{2}, \partial I^{2} - I_{top}) \rightarrow (\DD^{2}, \ast).$ Now define the piecewise map 
+$$\Psi: I^{2} \longrightarrow Z$$ where
+ 
+\[ \Psi(s, t) =  \begin{cases} 
+      f|_{\DD^{2}} \circ h(s, t) & x\leq 0 \\
+      f|_{\DD^{2}} \circ h(s, 1 - t) & 0\leq x\leq 100 \\
+      g|_{\DD^{2}} \circ h(s, t) & 100\leq x 
+   \end{cases}
+\]
+\newline
+%$$\begin{tikzcd} %THIS IS NOT THE ENVIRONMENT FOR THIS SHIT
+%(\DD^{2} \cup_{\partial \DD^{2}} \DD^{2}) \vee \DD^{2} \arrow[r, "(g \text{ glue } f) \vee f"]  & Z \\
+%\DD^{2} \arrow[u, "collapse"] \arrow[ur, "({\sf Orbit}(f) \circ {\sf Glue}(f))(g) " ]&  
+%\end{tikzcd}$$ 
+
+
+%Suppose we have maps $f, g \in {\sf Map}_{\ast}(W_{g}, Z)$ for which the restriction to the 1-skeleton results in homotopic maps, $f|_{sk_{1}} \sim g|_{sk_{1}}.$ That is both $f$ and $g$ lie in the preimage $\tilde{\Phi}^{-1}([\alpha_{1}], [\beta_{1}], \hdots [\alpha_{g}], [\beta_{g}])$ and there is a homotopy $h: I \times sk_{1} \longrightarrow Z$ such that $h(0, x) = f(x)$ and $h(1, x) = g(x).$ 
+
+
+
+%%EDIT PROBLEMS BELOW
+\noindent Now we'll use claims 1 and 2 to show that there is a bijection $Image({\sf Orbit}(f)) \cong   \tilde{\Phi}^{-1}([\bar{\alpha}] ,[\bar{\beta}])$ and that ${\sf Orbit}(f)$ is injective for all $f$. \newline  \newline 
+\noindent Fix some $f \in {\sf Map}_{\ast}(W_{g}, Z)$ such that $\tilde{\Phi}([f]) = ([\bar{\alpha}] ,[\bar{\beta}]).$ Now suppose we have $[g] \in \pi_{0}{\sf Map}_{\ast}(W_{g}, Z)$ for which there exists some $[\omega] \in \pi_{2}Z$ such that $[\omega] \cdot [f] = [g].$ Then $q([g]) = q([f])$ and hence $\tilde{\Phi}([g]) = \tilde{\Phi}([f]) = ([\bar{\alpha}] ,[\bar{\beta}]).$ Therefore $[g] \in \tilde{\Phi}^{-1}([\bar{\alpha}] ,[\bar{\beta}])$ showing that $Image({\sf Orbit}(f)) \subset \tilde{\Phi}^{-1}([\bar{\alpha}] ,[\bar{\beta}]).$ \newline
+
+
+\noindent Now let $[g] \in \tilde{\Phi}^{-1}([\bar{\alpha}] , [\bar{\beta}]),$ then by lemma (\ref{rep}) there is some representative $g_{rep} \in [g]$ for which $g_{rep}|_{sk_{1}} = f_|{sk_{1}}.$ Use this $g_{rep}$ to construct the map $(g_{rep} \text{ glue } f)$ and by claim 2 we have that $$[(g_{rep}  \text{ glue } f)] \cdot [f]  = [g].$$ Therefore $[g] \in Image({\sf Orbit}(f))$ showing $\tilde{\Phi}^{-1}([\bar{\alpha}] ,[\bar{\beta}]) \subset Image({\sf Orbit}(f)),$ and so we have that $Image({\sf Orbit}(f)) \cong \tilde{\Phi}^{-1}([\bar{\alpha}] ,[\bar{\beta}]).$ 
+\newline \newline
+
+\noindent Now suppose then that ${\sf Orbit}(f)([\omega_{1}]) = {\sf Orbit}(f)([\omega_{2}]),$ then we know by claim 1 that there are some representative $(\omega_{1}f)_{rep}$ and $(\omega_{2}f)_{rep}$ such that
+
+$$[\omega_{1}] = [(\omega_{1}f)_{rep} \text{ glue } f]$$
+and  
+$$[\omega_{2}] = [(\omega_{2}f)_{rep} \text{ glue } f]$$
+%= [f_{rep} \text{ glue } \omega_{2}f] = [\omega_{2}]$$ showing that the map ${\sf Orbit}(f)$ is injective.
+
+%$$ [\omega_{1}] = \id_{\pi_{2}Z}([\omega_{1}]) = ({\sf Glue}(f) \circ {\sf Orbit}(f))([\omega_{1}]) = ({\sf Glue}(f) \circ {\sf Orbit}(f))([\omega_{2}]) = \id_{\pi_{2}Z}([\omega_{2}]) = [\omega_{2}]$$ showing that the map ${\sf Orbit}(f)$ is injective.
+\end{proof}
+
+
+
+\begin{prop}
+The map $\Phi$ defined in (\ref{e1}) is a bijection of sets. Furthermore the action of $\pi_{2}Z$ on $\pi_{0}{\sf Map}_{\ast}(W_{g}, Z)$ described above is faithful and by the Orbit-Stabilizer Theorem there is bijection 
+$$\pi_{0}{\sf Map}_{\ast}(W_{g}, Z) \cong \pi_{2}Z \times (\pi_{1}Z)^{2g}_{com}.$$
+\end{prop}
+\begin{proof}
+We've already shown that $\Phi$ is surjective, so we now turn to injectivity. Again, consider the following commutative diagram:
+$$\begin{tikzcd}
+ \pi_{0}{\sf Map}_{\ast}(W_{g}, Z) \arrow[d, "q"] \arrow[rd, "\tilde{\Phi}"] & \\
+\pi_{0}{\sf Map}_{\ast}(W_{g}, Z)/\pi_{2}Z \arrow[r, "\Phi"]&  (\pi_{1}Z)^{2g}_{com}.
+\end{tikzcd}$$
+Given $[f], [g] \in \pi_{0}{\sf Map}_{\ast}(W_{g}, Z)/\pi_{2}Z$ for which $\Phi([f]) = \Phi([g]).$ 
+Then there are corresponding $[\tilde{f}], [\tilde{g}] \in \pi_{0}{\sf Map}_{\ast}(W_{g}, Z)$ such that $\tilde{\Phi}([\tilde{f}]) = \tilde{\Phi}([\tilde{g}]).$ 
+Therefore, $[\tilde{f}]$ and $[\tilde{g}]$ lie in the preimage for some fixed element of $(\pi_{1}Z)^{2g}_{com}$ i.e. $$[\tilde{f}], [\tilde{g}] \in \tilde{\Phi}^{-1}(([\alpha_{1}], [\beta_{1}], \hdots [\alpha_{g}], [\beta_{g}])).$$ Then by lemma (\ref{l1}) there is some $[\omega] \in \pi_{2}Z$ for which $[\omega] \cdot [\tilde{f}] = [\tilde{g}].$ Therefore $$[f] = q([\tilde{f}]) = q([\omega] \cdot [\tilde{f}]) = q([\tilde{g}]) = [g]$$ and we have that $\Phi$ is injective.
+\newline \newline
+Also, because for each $f \in {\sf Map}_{\ast}(W_{g}, Z)$ the orbit map $${\sf Orbit}(f): \pi_{2}Z \rightarrow \pi_{0}{\sf Map}_{\ast}(W_{g}, Z); \hspace{15pt} [\omega] \mapsto [\omega] \cdot [f]$$ is injective by lemma (\ref{l1}) only $[const_{\ast}] \mapsto [const_{\ast}] \cdot [f] \simeq [f].$ All other $[\omega] \in \pi_{2}Z$ must map to other distinct elements in $\pi_{0}{\sf Map}_{\ast}(W_{g}, Z).$ Therefore for any $[f] \in \pi_{0}{\sf Map}_{\ast}(W_{g}, Z)$ we have that $[\omega] \cdot [f] \simeq [f]$ implies that $[\omega] \simeq [const_{\ast}]$ showing our action is faithful. 
+%% Say something about orbit stabilizer theorem to get us all the way.
+\end{proof}
+
+\section{Proof of Main Theorem} \label{tmain}
+
+\begin{proof}
+
+\end{proof}
+
+\section{Immersions of Tori into Compact Hyperbolic 3-Manifolds}
+
+\begin{thebibliography}{9}
+
+\end{thebibliography}
+
+\end{document}

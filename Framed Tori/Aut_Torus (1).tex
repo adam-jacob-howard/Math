@@ -1,0 +1,7788 @@
+\documentclass{amsart}
+
+\headheight=8pt
+\topmargin=0pt
+\textheight=624pt
+\textwidth=432pt
+\oddsidemargin=18pt
+\evensidemargin=18pt
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{comment}
+\usepackage{epsfig}
+\usepackage{psfrag}
+\usepackage{mathrsfs}
+\usepackage{amscd}
+\usepackage[all]{xy}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{amsbsy}
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{color}
+\usepackage{bbm}
+\usepackage{eucal}
+\usepackage{stackrel}
+
+\usepackage{tikz-cd}
+\usetikzlibrary{patterns,shapes.geometric,arrows,decorations.markings}
+\usepackage{tikz-3dplot}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\colorlet{lightgray}{black!15}
+
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{>}}},postaction={decorate}}}
+\tikzset{midarrow/.style={decoration={
+    markings,
+    mark=at position {#1} with {\arrow{>}}},postaction={decorate}} }
+
+
+
+\pagestyle{plain}
+
+\newtheorem{maintheorem}{Theorem}[section]
+\renewcommand*{\themaintheorem}{\Alph{maintheorem}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{innercustomthm}{Theorem}
+\newenvironment{mythm}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+
+
+%\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{conj}{Conjecture}
+
+
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{ack}[theorem]{Acknowledgments}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{terminology}[theorem]{Terminology}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{q}[theorem]{Question}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem*{conventions*}{Convention}
+\newtheorem{convention}{Convention}
+
+
+
+\theoremstyle{remark}
+
+
+\definecolor{orange}{rgb}{.95,0.5,0}
+\definecolor{light-gray}{gray}{0.75}
+\definecolor{brown}{cmyk}{0, 0.8, 1, 0.6}
+\definecolor{plum}{rgb}{.5,0,1}
+
+
+\DeclareMathOperator{\Link}{\sf Link}
+\DeclareMathOperator{\Fin}{\sf Fin}
+\DeclareMathOperator{\vect}{\sf Vect}
+\DeclareMathOperator{\Vect}{\cV{\sf ect}}
+\DeclareMathOperator{\Sfr}{S-{\sf fr}}
+\DeclareMathOperator{\nfr}{\mathit{n}-{\sf fr}}
+
+\DeclareMathOperator{\pr}{\mathsf{pr}}
+\DeclareMathOperator{\ev}{\mathsf{ev}}
+
+
+\DeclareMathOperator{\bBar}{\sf Bar}
+\DeclareMathOperator{\Alg}{\sf Alg}
+\DeclareMathOperator{\man}{\sf Man}
+\DeclareMathOperator{\Man}{\cM{\sf an}}
+\DeclareMathOperator{\Mod}{\sf Mod}
+\DeclareMathOperator{\unzip}{\sf Unzip}
+\DeclareMathOperator{\Snglr}{\cS{\sf nglr}}
+\DeclareMathOperator{\TwAr}{\sf TwAr}
+\DeclareMathOperator{\cSpan}{\sf cSpan}
+\DeclareMathOperator{\Kan}{\sf Kan}
+\DeclareMathOperator{\Psh}{\sf PShv}
+\DeclareMathOperator{\LFib}{\sf LFib}
+\DeclareMathOperator{\CAlg}{\sf CAlg}
+
+
+\DeclareMathOperator{\cpt}{\sf cpt}
+\DeclareMathOperator{\Aut}{\sf Aut}
+\DeclareMathOperator{\colim}{{\sf colim}}
+\DeclareMathOperator{\relcolim}{{\sf rel.\!colim}}
+\DeclareMathOperator{\limit}{{\sf lim}}
+\DeclareMathOperator{\cone}{\sf cone}
+\DeclareMathOperator{\Der}{\sf Der}
+\DeclareMathOperator{\Ext}{\sf Ext}
+\DeclareMathOperator{\hocolim}{\sf hocolim}
+\DeclareMathOperator{\holim}{\sf holim}
+\DeclareMathOperator{\Hom}{\sf Hom}
+\DeclareMathOperator{\End}{\sf End}
+\DeclareMathOperator{\ulhom}{\underline{\Hom}}
+\DeclareMathOperator{\fun}{\sf Fun}
+\DeclareMathOperator{\Fun}{{\sf Fun}}
+\DeclareMathOperator{\Iso}{\sf Iso}
+\DeclareMathOperator{\map}{\sf Map}
+\DeclareMathOperator{\Map}{{\sf Map}}
+\DeclareMathOperator{\Mapc}{{\sf Map}_{\sf c}}
+\DeclareMathOperator{\Gammac}{{\Gamma}_{\!\sf c}}
+\DeclareMathOperator{\Tot}{\sf Tot}
+\DeclareMathOperator{\Spec}{\sf Spec}
+\DeclareMathOperator{\Spf}{\sf Spf}
+\DeclareMathOperator{\Def}{\sf Def}
+\DeclareMathOperator{\stab}{\sf Stab}
+\DeclareMathOperator{\costab}{\sf Costab}
+\DeclareMathOperator{\ind}{\sf Ind}
+\DeclareMathOperator{\coind}{\sf Coind}
+\DeclareMathOperator{\res}{\sf Res}
+\DeclareMathOperator{\Ker}{\sf Ker}
+\DeclareMathOperator{\coker}{\sf Coker}
+\DeclareMathOperator{\pt}{\sf pt}
+\DeclareMathOperator{\Sym}{\sf Sym}
+
+\DeclareMathOperator{\str}{\sf str}
+
+\DeclareMathOperator{\exit}{\sf Exit}
+\DeclareMathOperator{\Exit}{\bcE{\sf xit}}
+
+\DeclareMathOperator{\cylr}{{\sf Cylr}}
+
+\DeclareMathOperator{\shift}{\sf shift}
+
+\newcommand{\bit}[1]{\textbf{\textit{#1}}}
+\newcommand{\racts}{\curvearrowleft}
+\newcommand{\lacts}{\curvearrowright}
+
+
+
+
+\DeclareMathOperator{\Cat}{{\sf Cat}}
+\DeclareMathOperator{\fCat}{{\sf fCat}}
+\DeclareMathOperator{\cat}{\fC{\sf at}}
+\DeclareMathOperator{\Gcat}{{\sf GCat}_{\oo}}
+\DeclareMathOperator{\gcat}{{\sf GCat}}
+\DeclareMathOperator{\Dcat}{{\sf GCat}}
+\DeclareMathOperator{\dcat}{\fG\fC{\sf at}}
+\DeclareMathOperator{\Mcat}{\cM{\sf Cat}}
+\DeclareMathOperator{\mcat}{\fD{\sf Cat}}
+
+
+
+
+
+
+\DeclareMathOperator{\Ar}{{\sf Ar}}
+\DeclareMathOperator{\twar}{{\sf TwAr}}
+
+
+\DeclareMathOperator{\diskcat}{\sf {\cD}isk_{\mathit n}^\tau-Cat_\infty}
+\DeclareMathOperator{\mfdcat}{\sf {\cM}fd_{\mathit n}^\tau-Cat_\infty}
+\DeclareMathOperator{\diskone}{\sf {\cD}isk_{1}^{\vfr}-Cat_\infty}
+
+\DeclareMathOperator{\symcat}{\sf Sym-Cat_\infty}
+\DeclareMathOperator{\encat}{\cE_{\mathit n}-\sf Cat}
+\DeclareMathOperator{\moncat}{\sf Mon-Cat_\infty}
+
+\DeclareMathOperator{\inrshv}{\sf inr-shv}
+\DeclareMathOperator{\clsshv}{\sf cls-shv}
+
+
+
+\DeclareMathOperator{\qc}{\sf QC}
+\DeclareMathOperator{\m}{\sf Mod}
+\DeclareMathOperator{\bi}{\sf Bimod}
+\DeclareMathOperator{\perf}{\sf Perf}
+\DeclareMathOperator{\shv}{\sf Shv}
+\DeclareMathOperator{\Shv}{\sf Shv}
+
+
+
+\DeclareMathOperator{\psh}{\sf PShv}
+\DeclareMathOperator{\gshv}{\sf GShv}
+\DeclareMathOperator{\csh}{\sf Coshv}
+\DeclareMathOperator{\comod}{\sf Comod}
+\DeclareMathOperator{\M}{\mathsf{-Mod}}
+\DeclareMathOperator{\coalg}{\mathsf{-coalg}}
+\DeclareMathOperator{\ring}{\mathsf{-rings}}
+\DeclareMathOperator{\alg}{\mathsf{Alg}}
+\DeclareMathOperator{\artin}{{\sf Artin}}%{\disk_{\mathit n}\alg^{\sf Art}_{\mathit k}}
+\DeclareMathOperator{\art}{\mathsf{Art}}
+\DeclareMathOperator{\triv}{\mathsf{Triv}}
+\DeclareMathOperator{\cobar}{\mathsf{cBar}}
+\DeclareMathOperator{\ba}{\mathsf{Bar}}
+
+\DeclareMathOperator{\shvp}{\sf Shv_{\sf p}^{\sf cbl}}
+
+\DeclareMathOperator{\lkan}{{\sf LKan}}
+\DeclareMathOperator{\rkan}{{\sf RKan}}
+
+\DeclareMathOperator{\Diff}{{\sf Diff}}
+\DeclareMathOperator{\sh}{\sf shv}
+
+
+
+\DeclareMathOperator{\calg}{\mathsf{CAlg}}
+\DeclareMathOperator{\op}{\mathsf{op}}
+\DeclareMathOperator{\relop}{\mathsf{rel.op}}
+\DeclareMathOperator{\com}{\mathsf{Com}}
+\DeclareMathOperator{\bu}{\cB\mathsf{un}}
+\DeclareMathOperator{\bun}{\sf Bun}
+
+\DeclareMathOperator{\pbun}{\sf PBun}
+
+
+
+
+\DeclareMathOperator{\cMfld}{{\sf c}\cM\mathsf{fld}}
+\DeclareMathOperator{\cBun}{{\sf c}\cB\mathsf{un}}
+\DeclareMathOperator{\Bun}{\cB\mathsf{un}}
+
+\DeclareMathOperator{\dbu}{\mathsf{DBun}}
+
+\DeclareMathOperator{\dbun}{\mathsf{DBun}}
+
+\DeclareMathOperator{\bsc}{\mathsf{Bsc}}
+\DeclareMathOperator{\snglr}{\sf Snglr}
+
+\DeclareMathOperator{\Bsc}{\cB\mathsf{sc}}
+
+
+\DeclareMathOperator{\arbr}{\mathsf{Arbr}}
+\DeclareMathOperator{\Arbr}{\cA\mathsf{rbr}}
+\DeclareMathOperator{\Rf}{\cR\mathsf{ef}}
+\DeclareMathOperator{\drf}{\mathsf{Ref}}
+
+
+\DeclareMathOperator{\st}{\mathsf{st}}
+\DeclareMathOperator{\sk}{\mathsf{sk}}
+\DeclareMathOperator{\Ex}{\mathsf{Ex}}
+
+\DeclareMathOperator{\sd}{\mathsf{sd}}
+
+\DeclareMathOperator{\inr}{\mathsf{inr}}
+
+\DeclareMathOperator{\cls}{\mathsf{cls}}
+\DeclareMathOperator{\act}{\mathsf{act}}
+\DeclareMathOperator{\rf}{\mathsf{ref}}
+\DeclareMathOperator{\pcls}{\mathsf{pcls}}
+\DeclareMathOperator{\opn}{\mathsf{open}}
+\DeclareMathOperator{\emb}{\mathsf{emb}}
+\DeclareMathOperator{\Cylo}{\mathsf{Cylo}}
+\DeclareMathOperator{\Cylr}{\mathsf{Cylr}}
+
+
+\DeclareMathOperator{\cbl}{\mathsf{cbl}}
+
+\DeclareMathOperator{\pcbl}{\mathsf{p.cbl}}
+
+
+\DeclareMathOperator{\gl}{\mathsf{GL}_1}
+
+\DeclareMathOperator{\Top}{\mathsf{Top}}
+\DeclareMathOperator{\Mfd}{{\cM}\mathsf{fd}}
+\DeclareMathOperator{\cMfd}{{\sf c}{\cM}\mathsf{fd}}
+\DeclareMathOperator{\Mfld}{{\sf Mfld}}
+\DeclareMathOperator{\mfd}{\mathsf{Mfd}}
+\DeclareMathOperator{\Emb}{\mathsf{Emb}}
+\DeclareMathOperator{\enr}{\fE\mathsf{nr}}
+\DeclareMathOperator{\LEnr}{\mathsf{LEnr}}
+\DeclareMathOperator{\diff}{\mathsf{Diff}}
+\DeclareMathOperator{\conf}{\mathsf{Conf}}
+
+\DeclareMathOperator{\MC}{\mathsf{MC}}
+\DeclareMathOperator{\strat}{\mathsf{Strat}}
+\DeclareMathOperator{\Strat}{\cS\mathsf{trat}}
+\DeclareMathOperator{\kan}{\mathsf{Kan}}
+
+\DeclareMathOperator{\dd}{{\cD}\mathsf{isk}}
+
+\DeclareMathOperator{\loc}{\mathsf{Loc}}
+
+
+
+\DeclareMathOperator{\poset}{\mathsf{Poset}}
+
+
+
+\DeclareMathOperator{\spaces}{\cS\mathsf{paces}}
+\DeclareMathOperator{\Spaces}{\cS\mathsf{paces}}
+
+\DeclareMathOperator{\Space}{{\cS}\sf paces}
+\DeclareMathOperator{\spectra}{\cS\mathsf{pectra}}
+\DeclareMathOperator{\Spectra}{\cS\mathsf{pectra}}
+\DeclareMathOperator{\mfld}{\mathsf{Mfld}}
+\DeclareMathOperator{\Disk}{{\sf Disk}}
+\DeclareMathOperator{\cdisk}{{\sf c}\cD{\mathsf{isk}}}
+\DeclareMathOperator{\cDisk}{{\sf c}\cD{\mathsf{isk}}}
+\DeclareMathOperator{\sing}{\mathsf{Sing}}
+\DeclareMathOperator{\set}{{\mathsf{Sets}}}
+\DeclareMathOperator{\Aux}{\cA{\mathsf{ux}}}
+\DeclareMathOperator{\Adj}{\mathsf{Adj}}
+
+
+\DeclareMathOperator{\Dtn}{\cD{\mathsf{isk}^\tau_{\mathit n}}}
+
+
+\DeclareMathOperator{\sm}{\mathsf{sm}}
+\DeclareMathOperator{\vfr}{\sf vfr}
+\DeclareMathOperator{\fr}{\sf fr}
+\DeclareMathOperator{\sfr}{\sf sfr}
+
+
+\DeclareMathOperator{\bord}{\mathsf{Bord}}
+\DeclareMathOperator{\Bord}{{\sf Bord}_1^{\fr}}
+\DeclareMathOperator{\Bordk}{\cB{\sf ord}_1^{\fr}(\RR^k)}
+
+\DeclareMathOperator{\Corr}{{\sf Corr}}
+\DeclareMathOperator{\corr}{{\sf Corr}}
+
+\DeclareMathOperator{\fcorr}{{\sf FCorr}}
+\DeclareMathOperator{\pcorr}{{\sf PCorr}}
+
+
+
+\DeclareMathOperator{\Sing}{\mathsf{Sing}}
+
+
+\DeclareMathOperator{\BTop}{\sf BTop}
+\DeclareMathOperator{\BO}{{\mathsf BO}}
+
+
+\DeclareMathOperator{\Lie}{\sf Lie}
+
+
+
+\def\ot{\otimes}
+
+\DeclareMathOperator{\fin}{\sf Fin}
+
+\DeclareMathOperator{\oo}{\infty}
+
+
+\DeclareMathOperator{\hh}{\sf HC}
+
+\DeclareMathOperator{\free}{\sf Free}
+\DeclareMathOperator{\fpres}{\sf FPres}
+
+
+\DeclareMathOperator{\fact}{\sf Fact}
+\DeclareMathOperator{\ran}{\sf Ran}
+
+\DeclareMathOperator{\disk}{\sf Disk}
+
+\DeclareMathOperator{\ccart}{\sf cCart}
+\DeclareMathOperator{\cart}{\sf Cart}
+\DeclareMathOperator{\rfib}{\sf RFib}
+\DeclareMathOperator{\lfib}{\sf LFib}
+
+
+\DeclareMathOperator{\tr}{\triangleright}
+\DeclareMathOperator{\tl}{\triangleleft}
+
+
+\newcommand{\lag}{\langle}
+\newcommand{\rag}{\rangle}
+
+
+\newcommand{\w}{\widetilde}
+\newcommand{\un}{\underline}
+\newcommand{\ov}{\overline}
+\newcommand{\nn}{\nonumber}
+\newcommand{\nid}{\noindent}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\xla}{\xleftarrow}
+
+\newcommand{\weq}{\xrightarrow{\sim}}
+\newcommand{\cofib}{\hookrightarrow}
+\newcommand{\fib}{\twoheadrightarrow}
+
+\def\llarrow{   \hspace{.05cm}\mbox{\,\put(0,-2){$\leftarrow$}\put(0,2){$\leftarrow$}\hspace{.45cm}}}
+\def\rrarrow{   \hspace{.05cm}\mbox{\,\put(0,-2){$\rightarrow$}\put(0,2){$\rightarrow$}\hspace{.45cm}}}
+\def\lllarrow{  \hspace{.05cm}\mbox{\,\put(0,-3){$\leftarrow$}\put(0,1){$\leftarrow$}\put(0,5){$\leftarrow$}\hspace{.45cm}}}
+\def\rrrarrow{  \hspace{.05cm}\mbox{\,\put(0,-3){$\rightarrow$}\put(0,1){$\rightarrow$}\put(0,5){$\rightarrow$}\hspace{.45cm}}}
+
+\def\cA{\mathcal A}\def\cB{\mathcal B}\def\cC{\mathcal C}\def\cD{\mathcal D}
+\def\cE{\mathcal E}\def\cF{\mathcal F}\def\cG{\mathcal G}\def\cH{\mathcal H}
+\def\cI{\mathcal I}\def\cJ{\mathcal J}\def\cK{\mathcal K}\def\cL{\mathcal L}
+\def\cM{\mathcal M}\def\cN{\mathcal N}\def\cO{\mathcal O}\def\cP{\mathcal P}
+\def\cQ{\mathcal Q}\def\cR{\mathcal R}\def\cS{\mathcal S}\def\cT{\mathcal T}
+\def\cU{\mathcal U}\def\cV{\mathcal V}\def\cW{\mathcal W}\def\cX{\mathcal X}
+\def\cY{\mathcal Y}\def\cZ{\mathcal Z}
+
+\def\AA{\mathbb A}\def\BB{\mathbb B}\def\CC{\mathbb C}\def\DD{\mathbb D}
+\def\EE{\mathbb E}\def\FF{\mathbb F}\def\GG{\mathbb G}\def\HH{\mathbb H}
+\def\II{\mathbb I}\def\JJ{\mathbb J}\def\KK{\mathbb K}\def\LL{\mathbb L}
+\def\MM{\mathbb M}\def\NN{\mathbb N}\def\OO{\mathbb O}\def\PP{\mathbb P}
+\def\QQ{\mathbb Q}\def\RR{\mathbb R}\def\SS{\mathbb S}\def\TT{\mathbb T}
+\def\UU{\mathbb U}\def\VV{\mathbb V}\def\WW{\mathbb W}\def\XX{\mathbb X}
+\def\YY{\mathbb Y}\def\ZZ{\mathbb Z}
+
+\def\sA{\mathsf A}\def\sB{\mathsf B}\def\sC{\mathsf C}\def\sD{\mathsf D}
+\def\sE{\mathsf E}\def\sF{\mathsf F}\def\sG{\mathsf G}\def\sH{\mathsf H}
+\def\sI{\mathsf I}\def\sJ{\mathsf J}\def\sK{\mathsf K}\def\sL{\mathsf L}
+\def\sM{\mathsf M}\def\sN{\mathsf N}\def\sO{\mathsf O}\def\sP{\mathsf P}
+\def\sQ{\mathsf Q}\def\sR{\mathsf R}\def\sS{\mathsf S}\def\sT{\mathsf T}
+\def\sU{\mathsf U}\def\sV{\mathsf V}\def\sW{\mathsf W}\def\sX{\mathsf X}
+\def\sY{\mathsf Y}\def\sZ{\mathsf Z}
+
+\def\bA{\mathbf A}\def\bB{\mathbf B}\def\bC{\mathbf C}\def\bD{\mathbf D}
+\def\bE{\mathbf E}\def\bF{\mathbf F}\def\bG{\mathbf G}\def\bH{\mathbf H}
+\def\bI{\mathbf I}\def\bJ{\mathbf J}\def\bK{\mathbf K}\def\bL{\mathbf L}
+\def\bM{\mathbf M}\def\bN{\mathbf N}\def\bO{\mathbf O}\def\bP{\mathbf P}
+\def\bQ{\mathbf Q}\def\bR{\mathbf R}\def\bS{\mathbf S}\def\bT{\mathbf T}
+\def\bU{\mathbf U}\def\bV{\mathbf V}\def\bW{\mathbf W}\def\bX{\mathbf X}
+\def\bY{\mathbf Y}\def\bZ{\mathbf Z}
+\def\bdelta{\mathbf\Delta}
+\def\bDelta{\mathbf\Delta}
+\def\blambda{\mathbf\Lambda}
+
+
+\def\fA{\frak A}\def\fB{\frak B}\def\fC{\frak C}\def\fD{\frak D}
+\def\fE{\frak E}\def\fF{\frak F}\def\fG{\frak G}\def\fH{\frak H}
+\def\fI{\frak I}\def\fJ{\frak J}\def\fK{\frak K}\def\fL{\frak L}
+\def\fM{\frak M}\def\fN{\frak N}\def\fO{\frak O}\def\fP{\frak P}
+\def\fQ{\frak Q}\def\fR{\frak R}\def\fS{\frak S}\def\fT{\frak T}
+\def\fU{\frak U}\def\fV{\frak V}\def\fW{\frak W}\def\fX{\frak X}
+\def\fY{\frak Y}\def\fZ{\frak Z}
+
+\def\bcA{\boldsymbol{\mathcal A}}\def\bcB{\boldsymbol{\mathcal B}}\def\bcC{\boldsymbol{\mathcal C}}
+\def\bcD{\boldsymbol{\mathcal D}}\def\bcE{\boldsymbol{\mathcal E}}\def\bcF{\boldsymbol{\mathcal F}}
+\def\bcG{\boldsymbol{\mathcal G}}\def\bcH{\boldsymbol{\mathcal H}}\def\bcI{\boldsymbol{\mathcal I}}
+\def\bcJ{\boldsymbol{\mathcal J}}\def\bcK{\boldsymbol{\mathcal K}}\def\bcL{\boldsymbol{\mathcal L}}
+\def\bcM{\boldsymbol{\mathcal M}}\def\bcN{\boldsymbol{\mathcal N}}\def\bcO{\boldsymbol{\mathcal O}}\def\bcP{\boldsymbol{\mathcal P}}\def\bcQ{\boldsymbol{\mathcal Q}}\def\bcR{\boldsymbol{\mathcal R}}
+\def\bcS{\boldsymbol{\mathcal S}}\def\bcT{\boldsymbol{\mathcal T}}\def\bcU{\boldsymbol{\mathcal U}}
+\def\bcV{\boldsymbol{\mathcal V}}\def\bcW{\boldsymbol{\mathcal W}}\def\bcX{\boldsymbol{\mathcal X}}
+\def\bcY{\boldsymbol{\mathcal Y}}\def\bcZ{\boldsymbol{\mathcal Z}}
+
+\def\ccD{{\sf c}\boldsymbol{\mathcal D}}
+\def\bcM{\boldsymbol{\mathcal M}}
+
+\DeclareMathOperator{\Stri}{\boldsymbol{\cS}{\sf tri}}
+\DeclareMathOperator{\btheta}{\boldsymbol{\Theta}}
+\DeclareMathOperator{\adj}{{\sf adj}}
+
+
+\DeclareMathOperator{\uno}{\mathbbm{1}}
+
+
+
+
+
+\DeclareMathOperator{\Braid}{{\sf Braid}_3}
+\DeclareMathOperator{\Ebraid}{\w{\sf E}_{2}^{+}(\ZZ)}
+\DeclareMathOperator{\GL}{\sf GL}
+\DeclareMathOperator{\SP}{\sf SP}
+\DeclareMathOperator{\SL}{\sf SL}
+\DeclareMathOperator{\quot}{\sf quot}
+\DeclareMathOperator{\Fr}{\sf Fr}
+\DeclareMathOperator{\id}{\sf id}
+\DeclareMathOperator{\Act}{\sf Act}
+\DeclareMathOperator{\trans}{\sf trans}
+\DeclareMathOperator{\Bdl}{\sf Bdl}
+\DeclareMathOperator{\sHH}{\sf HH}
+\DeclareMathOperator{\HHt}{{\sf HH}^{(2)}}
+\DeclareMathOperator{\Obj}{\sf Obj}
+\DeclareMathOperator{\Perf}{\sf Perf}
+\DeclareMathOperator{\Imm}{\sf Imm}
+\DeclareMathOperator{\Aff}{\sf Aff}
+\DeclareMathOperator{\EZ}{\sE_2(\ZZ)}
+\DeclareMathOperator{\EpZ}{\sE^+_2(\ZZ)}
+\DeclareMathOperator{\PShv}{\sf PShv}
+
+
+
+
+\begin{document}
+
+
+\title{Natural symmetries of secondary Hochschild homology}
+
+
+\author{David Ayala and Adam Howard}
+
+
+
+
+
+\address{Department of Mathematics\\Montana State University\\Bozeman, MT 59717}
+\email{david.ayala@montana.edu}
+\address{Department of Mathematics\\Montana State University\\Bozeman, MT 59717}
+\email{adam.howard1@montana.edu}
+\thanks{DA was supported by the National Science Foundation under awards 1812055 and 1945639.  This material is based upon work supported by the National Science Foundation under Grant No. DMS-1440140, while DA was in residence at the Mathematical Sciences Research Institute in Berkeley, California, during the Spring 2020 semester.}
+
+
+
+
+
+
+\begin{abstract}
+We identify the group of framed diffeomorphisms of the torus as a semi-direct product of the torus with the braid group on 3 strands; we also identify the topological monoid of framed local-diffeomorphisms of the torus in similar terms.
+It follows that the framed mapping class group is this braid group.
+We show that the group of framed diffeomorphisms of the torus acts on twice-iterated Hochschild homology, and explain how this recovers a host of familiar symmetries of such.  
+In the case of a Cartesian symmetric monoidal structure, we show that this action extends to the monoid of framed local-diffeomorphisms of the torus.
+Based on this, we propose a definition of an unstable secondary cyclotomic structure, and show that iterated Hochschild homology possesses such.  
+
+\end{abstract}
+
+
+
+\keywords{??.}
+
+\subjclass[2010]{Primary ??. Secondary ??.}
+
+\maketitle
+
+
+\tableofcontents
+
+
+
+%{\color{magenta}
+%
+%
+%For David to do.
+%\begin{enumerate}
+%
+%\item
+%Address all magenta comments in the body.
+%
+%\i
+%
+%
+%\end{enumerate}
+%
+%
+%}
+
+
+
+
+
+{\color{red}
+
+
+
+
+Yo Adam -- do these things to the extent that you're able.
+\begin{enumerate}
+
+%\item
+%Change all instances of $\tau_{1,2}$ to $\tau_1$, and all instances of $\tau_{2,3}$ to $\tau_2$. 
+%\textcolor{blue}{1st pass done. Done done.} 
+%
+%\item
+%Label the three main results (Theorem A, Theorem B1, Theorem B2), in those terms, not by the random numbering given by LaTex. \textcolor{blue}{done}
+
+\item
+Address all red comments in the body.
+
+\item
+On second thought, I think the notation $\Ebraid$ isn't good.
+Perhaps better would be $\w{\sE}^+_2(\ZZ)$, or something like that.
+
+\item
+Reverse the direction of each and every semi-direct product.
+For instance, $\Braid \ltimes \TT^2$ instead of $\TT^2 \rtimes \Braid$.
+
+%\item
+%Invent a term for $\square$, and change it's notation accordingly. \textcolor{blue}{I went with $\Ebraid$, other possibilities we sort of discussed where, $\ebraid$ and $\Eraid$.}
+%
+%\item
+%Replace all instance of coinvariants $X_G$ by $X_{/G}$.  \textcolor{blue}{done}
+
+\item
+Make sure internally-referenced labels are the correct ones. \textcolor{blue}{1st pass done}
+Unlabel any equations that are not internally-referenced somewhere else in the paper. \textcolor{blue}{done, except magenta}
+
+\item
+Fill in missing internal-references, to the extent that it's clear what's intended. \textcolor{blue}{1st pass done, mostly missing external references}
+
+\item
+Fix multiply-defined internal-references (look at the latex compile output for this).
+
+\item
+Make consistent: labeling arrows by their name above versus below the arrow, especially when there's a $\simeq$ below/above the arrow. 
+
+
+\item
+Make sure all notation is defined.
+If not, introduce a definition (as efficiently as reasonable).
+
+
+
+
+\end{enumerate}
+
+
+
+}
+
+
+\section*{Introduction}
+
+
+
+
+This paper has two main results.
+The first main result identifies the continuous group of \bit{framed diffeomorphisms}, and the continuous monoid of \bit{framed local-diffeomorphisms}, of a framed torus.
+The second main result constructs actions of these monoids on iterated Hochschild homology.
+We abstract such action as \bit{unstable secondary cyclotomic structure}.  
+We state these results right away, as Theorem~\ref{Theorem A} and Theorem~\ref{t36}, and direct a reader to the body of the paper for definitions and proofs.  
+
+
+
+
+
+\begin{conventions*}
+\begin{itemize}
+\item[~]
+
+\item
+Out of convenience, we work in the $\infty$-category $\Spaces$ of spaces, or $\infty$-groupoids, an object in which is a \bit{space}.  
+This $\infty$-category can be presented as the $\infty$-categorical localization of the ordinary category of compactly-generated Hausdorff topological spaces that are homotopy equivalent with a CW complex, localized on the weak homotopy equivalences.  
+So we present some objects in $\Spaces$ by naming a topological space.  
+
+\item
+By a pullback square among spaces we mean a pullback square in the $\infty$-category $\Spaces$.
+Should the square be presented by a homotopy-commutative square among topological spaces, then the canonical map from the initial term in the square to the homotopy-pullback is a weak homotopy-equivalence.  
+
+\item
+By a \bit{continuous group} (resp. \bit{continuous monoid}) we mean a group-object (resp. monoid-object) in $\Spaces$.
+
+\item
+For $X \in \cX$ an object in an $\infty$-category, and for $M$ a continuous monoid, 
+an \bit{action of $M$ on $X$}, denoted $M \lacts X$, is an extension
+$
+\lag X \rag 
+\colon 
+\ast 
+\to 
+\fB M 
+\xra{ \lag M \lacts X \rag}
+\cX
+$.
+%\[
+%\xymatrix{
+%\ast 
+%\ar[rr]^-{\lag X \rag}
+%\ar[d]
+%&&
+%\cX
+%\\
+%\fB M
+%\ar@{-->}[urr]_-{\lag M \lacts X \rag}
+%&&
+%.
+%}
+%\]
+The $\infty$-category of \bit{$M$-modules in $\cX$} is
+\[
+\Mod_M(\cX)
+~:=~
+\Fun( \fB M , \cX)
+~.
+\]
+
+\item
+For $G\lacts X$ an action of a continuous group on a space, the space of \bit{coinvariants} is the colimit
+\[
+X_{/G}
+~:=~
+\colim\bigl(
+\sB G
+\xra{~\lag G \lacts X \rag~}
+\Spaces
+\bigr)
+~\in~
+\Spaces
+~.
+\]
+Should the action $G\lacts X$ be presented by a continuous action of a topological group on a topological space, then this space of coinvariants can be presented by the homotopy-coinvariants.  
+
+\item
+We work with $\infty$-operads, as developed in~\cite{HA}.
+As so, they are implicitly symmetric.
+Some $\infty$-operads are presented as discrete operads, such as ${\sf Assoc}$, while some are presented as topological operads, such as the little 2-disks opera $\cE_2$.
+
+
+
+
+\end{itemize}
+
+
+
+\end{conventions*}
+
+
+
+
+
+\subsection{Moduli and isogeny of framed tori}
+Here we state our first result, which identifies the entire symmetries of a framed torus.  
+
+
+
+The \bit{braid group on 3 strands} can be presented as
+\begin{equation}
+\label{e67}
+%\begin{equation}\label{e15}
+\Braid 
+~\cong~
+\Bigl \lag~ \tau_{1}~,~ \tau_{2}~ \mid ~ \tau_{1}\tau_{2}\tau_{1} ~=~ \tau_{2} \tau_{1} \tau_{2} ~\Bigr\rag
+~.
+%\end{equation}
+\end{equation}
+Through this presentation, there is a standard representation
+\begin{equation}
+\label{e63}
+%\begin{equation}
+%\label{e1}
+\Phi
+\colon
+\Braid
+\xra{\bigl\lag~\tau_{1} ~\mapsto ~U_1~,~\tau_{2} ~ \mapsto ~U_2  \bigr\rag}
+\GL_2(\ZZ)
+~,
+\qquad
+\text{ where }
+U_1
+~:=~
+\begin{bmatrix} 
+1 & 1
+\\
+0 & 1
+\end{bmatrix}
+\qquad
+\text{ and }
+\qquad
+U_2~:=~
+\begin{bmatrix} 
+1 & 0
+\\
+-1 & 1
+\end{bmatrix}
+~.
+\end{equation}
+%As recalled in~\S\ref{sec.braids}, there is a standard representation of the braid group on 3 strands,
+%\[
+%\Phi
+%\colon 
+%\Braid
+%\longrightarrow
+%\GL_2(\ZZ)
+%~,
+%\]
+%which 
+The homomorphism $\Phi$ defines an action $\Braid \xra{\Phi} \GL_2(\ZZ) \lacts \TT^2$
+% and $\Braid \lacts (\CC\PP^\infty)^2$ 
+as a topological group.  
+This action defines a topological group:
+\[
+\Braid \ltimes \TT^2
+~.
+\]
+
+
+%%% DO THIS <<<<<
+The following result, which is essentially due to Milnor, is the starting point of this paper.  
+\begin{prop}
+[{\color{red} \cite{milnor ... (find the citation ... should be in Rawnsley)}}]
+\label{t32}
+The image of $\Phi$ is the subgroup $\SL_2(\ZZ)$; the kernel of $\Phi$ is central, and is freely generated by the element $(\tau_{1}\tau_{2})^6  \in \Braid$.
+In other words, $\Phi$ fits into a central extension among groups:
+\begin{equation}
+\label{e46}
+%\begin{equation}\label{e16}
+1
+\longrightarrow
+\ZZ
+\xra{~\bigl\lag (\tau_{1}\tau_{2})^6 \bigr\rag~}
+\Braid
+\xra{~\Phi~}
+\SL_2(\ZZ)
+\longrightarrow  
+1
+~.~
+%\end{equation}
+\end{equation}
+%
+%\end{prop}
+%
+%
+%
+%\begin{prop}
+%[\cite{??}]
+%\label{t30}
+Furthermore, this central extension~(\ref{e46}) is classified by the element
+\[
+\Bigl[{\sf BSL}_2(\ZZ) \xra{\sB~\rm standard} {\sf BSL}_2(\RR) \simeq \sB^2 \ZZ
+\Bigr] 
+~\in~ 
+\sH^2\bigl( \SL_2(\ZZ) ; \ZZ \bigr)
+~,
+\]
+which is to say there is a canonical top horizontal homomorphism making a pullback among groups:
+\[
+\xymatrix{
+\Braid
+\ar@{-->}[rr]
+\ar[d]_-{\Phi}
+&&
+\w{\SL}_2(\RR)  \ar[d]^-{\rm universal~cover}
+\\
+\SL_2(\ZZ)
+\ar[rr]_-{\rm standard}^-{\RR\underset{\ZZ}\ot}
+&&
+\SL_2(\RR)
+.
+}
+\]
+%in which the right vertical homomorphism witnesses a universal cover.  
+%{\color{red}
+%which can be presented as the 2-cocycle
+%\[
+%\rho\colon
+%\SL_2(\ZZ)^{\times 2}
+%\longrightarrow
+%\ZZ
+%~,\qquad
+%??
+%~.
+%\]
+%}
+
+
+
+\end{prop}
+
+
+
+
+
+
+Consider the subgroup $\GL^+_2(\RR)\subset \GL_2(\RR)$ consisting of those $2\times 2$ matrices with positive determinant -- it is the connected component of the identity matrix.  
+Consider the submonoid
+\[
+\RR\underset{\ZZ}\ot
+\colon
+\EpZ
+~\subset~
+\GL^+_2(\RR)
+\]
+consisting of those $2\times 2$ matrices with positive determinant whose entries are integers.
+Consider the pullback among monoids:
+\begin{equation}
+\label{e77}
+\xymatrix{
+\Ebraid
+\ar[d]_-{\Psi} \ar[rr]
+&&
+\w{\GL}^+_2(\RR)  \ar[d]^-{\rm universal~cover}
+\\
+\EpZ
+\ar[rr]^-{\RR \underset{\ZZ}\ot}
+&&
+\GL^+_2(\RR)
+.
+}
+\end{equation}
+%As we are pulling back along a projection and an inclusion, we see that $\Ebraid = (\EpZ  \times \ZZ) \cap \w{\GL^+_2(\RR)}$ and by an abuse of notation the map $\Psi$ is the natural projection map. \newline \newline
+This morphism $\Psi$ supplies a canonical action $\Ebraid \xra{\Psi} \EpZ \lacts \TT^2$ as a topological group.
+This action defines a topological monoid
+\[
+\Ebraid \ltimes \TT^2 
+~.
+\]
+%This is explained more thoroughly in section \S\ref{sec.monoid}.
+
+
+%\textcolor{blue}{
+%\begin{remark}
+%In \cite{rawn} the author introduces the circle function $\phi: \SP_{2}(\RR) \rightarrow \SS^{1}$ and an associated function $\eta: (\SP_{2}(\RR))^{\times 2} \rightarrow \RR$ for which the covering group $\w{\SP_{2}(\RR)}$ can be expressed as $\{(g, c) \in \SP_{2}(\RR) \times \RR : \phi(g) = e^{ic}\}$ with the group multiplication given by $(A, i) \cdot (B, j) = (AB, i + j + \eta(A, B)).$ \newline \newline
+%We can then extend these methods to give a description of the universal covering group $\w{\GL_{2}^{+}(\RR)}$ by projecting onto $\SP_{2}(\RR),$ take 
+%\[
+%{\sf proj}: \GL_{2}^{+}(\RR) \rightarrow \SL_{2}(\RR) = \SP_{2}(\RR); \hspace{15pt} A \mapsto \frac{1}{\sqrt{det A}}A.
+%\]
+%Then we can take $\phi' = \phi \circ {\sf proj}$ and $\eta' = \eta \circ {\sf proj}^{\times 2}$ and define 
+%\[
+%\w{\GL_{2}^{+}(\RR)} := \{ (g, c) \in \GL_{2}^{+}(\RR) \times \RR : \phi'(g) = e^{ic} \}
+%\]
+%with group multiplication again given by $(A, i) \cdot (B, j) = (AB, i + j + \eta'(A, B))$ We then define $\Ebraid$ to be the strict pullback 
+%\[
+%\xymatrix{
+%\Ebraid
+%\ar[d]_-{\Psi} \ar[rr]
+%&&
+%\w{\GL^+_2(\RR)}  \ar[d]^-{\rm universal~cover}
+%\\
+%\EpZ
+%\ar[rr]^-{\RR \underset{\ZZ}\ot}
+%&&
+%\GL^+_2(\RR)
+%}
+%\]
+%where $\EpZ \subset \End_{\sf Groups}(\ZZ^2)$ is the submonoid consisting of those integral $2\times 2$ matrices with positive determinant. As we are pulling back along a projection and an inclusion, we see that $\Ebraid = (\EpZ  \times \ZZ) \cap \w{\GL^+_2(\RR)}$ and by an abuse of notation the map $\Psi$ is the natural projection map. \newline \newline
+%The projection supplies a canonical action $\Ebraid \xra{\Psi} \EpZ \lacts \TT^2$ as a topological group.
+%This defines a topological monoid
+%\[
+%\TT^2 \rtimes \Ebraid
+%~.
+%\]
+%The reason for calling this pullback $\Ebraid$ is that it naturally contains $\Braid$ in the sense that pulling back along the inclusion of $\SL_{2}(\ZZ) \hookrightarrow \EpZ$ and $\Psi$ yields $\Braid.$ This is explained more thoroughly in section \S\ref{sec.monoid}.
+%\end{remark}
+%}
+
+
+%In~\S\ref{sec.monoid} we introduce the monoid 
+%\[
+%\Ebraid  %%%% Introduction of name, and preliminary definition DO THIS <<<<<<<<<<<<<<
+%~=~
+%\EpZ
+%\times
+%\ZZ
+%~,\qquad
+%\text{ with }
+%\qquad
+%(A,i)\cdot (B,j)
+%~:=~
+%(AB , \rho(AB)+i+j)
+%~,
+%\]
+%central extension of monoids
+%\[
+%1
+%\longrightarrow
+%\ZZ
+%\longrightarrow
+%\Ebraid
+%\longrightarrow
+%\EpZ
+%\longrightarrow
+%1
+%~,
+%\]
+%where $\EpZ\subset \End_{\sf Groups}(\ZZ^2)$ is the submonoid consisting of those integral $2\times 2$ matrices with positive determinant, and where 
+%\[
+%\rho(A,B)
+%~:=~
+%\begin{cases}
+%1~,
+%&
+%??
+%\\
+%0~,
+%&
+%??
+%\end{cases}
+%~.
+%\]
+%The projection supplies a canonical action $\Ebraid \xra{\Psi} \EpZ \lacts \TT^2$ as a topological group.
+%This defines a topological monoid
+%\[
+%\TT^2 \rtimes \Ebraid
+%~.
+%\]
+
+
+
+
+
+For $\varphi \colon  \tau_{\TT^2} \cong \epsilon^2_{\TT^2}$ a framing of the torus, as Definition~\ref{d1}, we introduce the continuous group $\Diff^{\fr}(\TT^2,\varphi)$ of \bit{framed diffeomorphisms}, and the continuous monoid $\Imm^{\fr}(\TT^2, \varphi)$ of \bit{framed local-diffeomorphisms} of the torus.
+%This topological monoid $\Imm^{\fr}(\TT^2, \varphi)$ determines the pointed $\infty$-category $\fB \Imm^{\fr}(\TT^2, \varphi)$, which is its deloop.
+%The $\infty$-undercategory $\bigl( \fB \Imm^{\fr}(\TT^2, \varphi) \bigr)^{\ast/}$ can be interpreted as the \emph{divisibility $\infty$-category} of the monoid $\Imm^{\fr}(\TT^2, \varphi)$.  
+ 
+
+
+
+
+
+
+
+\begin{mythm}{A}%[Theorem~A]
+\label{Theorem A}
+
+\begin{enumerate}
+
+\item[~]
+
+\item
+The set of framed-diffeomorphism-types of framed tori is canonically a torsor for $\ZZ^2$.  
+
+
+
+\item
+Let $\varphi\colon \epsilon_{\TT^2} \cong \tau_{\TT^2}$ be a framing of the torus.  
+
+\begin{enumerate}
+
+\item
+There is a canonical identification of the continuous group of framed diffeomorphisms of $(\TT^2,\varphi)$ with a semi-direct product of the torus with the braid group on 3 strands:
+\[
+\Diff^{\fr}(\TT^2,\varphi)
+~\simeq~
+\Braid \ltimes \TT^2
+~.
+\]
+
+
+
+
+
+
+
+\item
+There is a canonical identification of the continuous monoid of framed local-diffeomorphisms of $(\TT^2,\varphi)$ as a semi-direct product of the torus with the monoid $\Ebraid$:
+\[
+\Imm^{\fr}(\TT^2,\varphi)
+~\simeq~
+\Ebraid \ltimes \TT^2
+~.
+\]
+
+
+\end{enumerate}
+
+
+
+
+%\item
+%There is a canonical identification between $\infty$-categories:
+%\[
+%{\sf Orbit}_{\TT^2}^{\sf fin}
+%~\simeq~
+%\bigl( \fB \Imm^{\fr}(\TT^2, \varphi) \bigr)^{\ast/}
+%~.
+%\]
+
+
+\end{enumerate}
+
+\end{mythm}
+
+
+Taking path-components, Theorem~\ref{Theorem A}(2a) has the following immediate consequence.
+\begin{cor}
+\label{t38}
+Let $\varphi$ be a framing of the torus.
+There is a canonical identification of the framed mapping class group of $(\TT^2,\varphi)$ as the braid group on 3 strands:
+\[
+{\sf MCG}^{\fr}(\TT^2,\varphi)
+~\cong~
+\Braid
+~.
+\]
+\end{cor}
+
+
+\begin{remark}
+Consider the moduli space $\bcM^{\fr}_1$ of framed tori.  
+Theorem~\ref{Theorem A}(1)\&(2a) can be phrased as the assertion that $\bcM^{\fr}_1$ has $\ZZ^2$-many path-components, each which is the space of homotopy coinvariants ${(\CC\PP^\infty)^2}_{{\sf h} \Braid}$ with respect to the action $\Braid \xra{\Phi} \GL_2(\ZZ) \lacts \sB^2 \ZZ^2 \simeq (\CC\PP^\infty)^{\times 2}$.
+A neat result of~{\color{red}\cite{??}} gives an isomorphism between groups: 
+\[
+%\begin{equation}
+%\label{e38}
+\Braid
+~\cong~ 
+\pi_1 (\SS^3 \smallsetminus {\sf Trefoil} )
+~.
+%\end{equation}
+\]
+%As the space $\SS^3 \smallsetminus {\sf Trefoil}$ is a path-connected 1-type, there results an equivalence between spaces:
+%\[
+%\sB \Braid
+%~\simeq~
+%\SS^3 \smallsetminus {\sf Trefoil}
+%~.
+%\]
+Using that $\SS^3 \smallsetminus {\sf Trefoil}$ is a path-connected 1-type, this isomorphism reveals that each path-component $(\bcM^{\fr}_1)_{[\varphi]} \subset \bcM^{\fr}_1$ fits into a fiber sequence:
+\[
+(\CC\PP^\infty)^2
+\longrightarrow
+(\bcM^{\fr}_1)_{[\varphi]}
+\longrightarrow
+\bigl( \SS^3 \smallsetminus {\sf Trefoil} \bigr)
+~.
+\]
+
+
+\end{remark}
+
+
+
+
+
+\begin{remark}
+Theorem~\ref{Theorem A}(2a) implies the equivalence-type of the continuous group $\Diff^{\fr}(\TT^2,\varphi)$ is independent of the framing $\varphi$ of the torus.  
+
+\end{remark}
+
+
+%{\color{red}
+%Do you want to forgo mention of framings from here on?
+%If so, this `notation' environment should be filled out.
+%If not, this notation environment could be omitted.
+%\begin{notation}
+%...
+%We might therefore denote this common continuous group $\Diff^{\fr}(\TT^2)$, with the framing omitted from the notation.  
+%
+%\end{notation}
+%
+%}
+
+
+Theorem~?? of~\cite{??} identifies the oriented mapping class group of a punctured torus with parametrized boundary as the braid group on 3 strands, as it is equipped with a homomorphism to the oriented mapping class group of the torus.  
+Together with Corollary~\ref{t38}, this results in an identification between mapping class groups.  
+The next result lifts this identification to continuous groups; it is proved in~\S\ref{sec??}.  
+
+%The next result is proved in~\S\ref{sec.??}.
+
+
+%%%%%%%%%%%
+%{\color{red}
+%...
+%for instance:
+%\[
+%\Braid = \{ ( A \in  \SL_2(\ZZ) ,  \text{ null homotopies of }
+%\ast \xra{\lag A \rag} \SL_2(\ZZ) \to \SL_2(\RR) \simeq {\sf SO}(2) \simeq \SS^1 ) \} .
+%\]
+%there are $\ZZ \simeq \Omega \SS^1$-many null-homotopies. 
+%So $\Ker(\Phi) = \{ \text{ null-htpies of } \lag 1 \rag \colon \ast \xra{\lag \uno \rag} \SL_2(\ZZ) \to \SS^1\} = \Omega_1 \SS^1 \simeq \ZZ$.
+
+%Let $\rho:= \tau_1 \tau_2 \tau_1 \in \Braid$.  
+%$\Phi(\rho) = R = {\sf Rot}_{-\pi/2} \in \SL_2(\ZZ) \subset \Diff(\TT^2)$.
+%As a \bit{framed}-diffeo of $\TT^2$, $\rho = (R \in \Diff(\TT^2) , \varphi_0 \underset{\gamma} \sim R^\ast \varphi_0\colon \tau \xra{\sD R = R} R^\ast \tau \xra{R^\ast \varphi_0} R^\ast \epsilon^2 = \epsilon^2)$
+%where $\gamma$ is the path in $\Fr(\TT^2)$ from $\varphi_0$ to $R^\ast \varphi_0$ which is a path in $\Fr(\TT^2) = \ZZ^2 \times \sO(2)$ from $(0,0,\uno)$ to $(0,0,R)$.
+%So this is a path in $\SS^1$ from $1\in \SS^1$ to $-i\in \SS^1$.
+%This $\rho = (R,\gamma_{shortest})$.
+%So $\rho^4 = (\uno = R^4 , \gamma_{short} \star R\gamma_{short} \star R^2\gamma_{short} \star R^3\gamma_{short})$.
+%This path is the generating loop in $\SS^1$ ~! 
+%So $\rho^4 \in \Ker(\Phi)$ (since $R^4 = \uno$), and is `given by' the generator of $\ZZ\simeq \Omega \sO(2) \simeq \Omega \Fr(\TT^2)$.
+%In as much as $\Fr(\TT^2) = \Map(\TT^2 , \sO(2) )$, is there a local (in $\TT^2$) description of this loop?
+%In other words, for $\alpha\in \Omega \Fr(\TT^2)= \Omega \Map(\TT^2 , \sO(2)) = \Omega \Map(\TT^2 , \SS^1)$ to be this loop, can it be described as $\alpha_t\colon \TT^2 \to \SS^1$ is constant outside of a neighborhood of $0\in \TT^2$ for all time $t$?
+%Well, I think $\alpha$ is most naturally described as $\alpha_t \colon \TT^2 \xra{!} \ast \xra{{\sf Rot}_{2\pi t}} \sO(2)$.  
+%\[
+%\xymatrix{
+%\epsilon^2 \ar[rr]^-L
+%\ar[d]_-{\varphi_0}
+%&&
+%R^\ast \epsilon^2  = \epsilon^2
+%\ar[d]^-{R^\ast \varphi_0}
+%\\
+%\tau
+%\ar[rr]^-{R = \sD R}
+%&&
+%R^\ast \tau
+%}
+%\]
+%${\sf Rot}_{\pi/2} R^\ast \tau_{\TT^2} \xra{\varphi_0} R^\ast \epsilon^2_{\TT^2}$
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{cor}
+\label{t40}
+Let $\varphi$ be a framing of the torus.
+Fix a smooth framed embedding from the closed 2-disk $\DD^2 \hookrightarrow \TT^2$ extending the inclusion $\{0\} \hookrightarrow \TT^2$ of the origin.
+%This determines embeddings $\BB^2 \subset \DD^2 \hookrightarrow \TT^2$ from the open unit ball, and the closed unit disk, resulting in a smooth manifold $\TT^2 \smallsetminus \BB^2$ with boundary.
+There are canonical identifications among continuous groups over $\Diff(\TT^2)$:
+\[
+\Diff^{\fr}(\TT^2~{\sf rel}~0, \varphi)
+~
+\simeq
+~
+\Braid
+~\simeq~
+\Diff(\TT^2 ~{\sf rel}~ \DD^2)
+~.
+\]
+In particular, there are canonical isomorphisms among groups over ${\sf MCG}(\TT^2)$:
+\[
+{\sf MCG}^{\fr}(\TT^2,\varphi)
+~\cong~
+\Braid
+~\cong~
+{\sf MCG}(\TT^2 \smallsetminus \BB^2 ~{\sf rel}~ \partial)
+~,
+\]
+where $\BB^2 \subset \DD^2$ is the open 2-ball. 
+
+
+\end{cor}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Natural symmetries of iterated Hochschild homology}
+\label{sec.second}
+
+
+Here we state our second main result, which identifies natural symmetries of \bit{secondary Hochschild homology}, 
+\[
+\HHt(A)~:=~\sHH\bigl( \sHH(A) \bigr)
+~, 
+\]
+which is simply twice-iterated Hochschild homology, 
+of a \bit{2-algebra} 
+\[
+A~\in~ \Alg_2(\cV)~:=~ \Alg_{\sf Assoc}\bigl( \Alg_{\sf Assoc}(\cV) \bigr)~,\footnote{
+Dunn's additivity~\cite{??} (see also Theorem~?? of~\cite{HA}), gives a canonical equivalence between $\infty$-categories $\Alg_{\cE_2}(\cV) \xra{\simeq}\Alg_2(\cV)$ from that of algebras over the operad of little 2-disks, to that of 2-algebras.
+In particular, there is a canonical forgetful functor from commutative algebras $\CAlg(\cV) \to \Alg_2(\cV)$, so each commutative algebra canonically determines a 2-algebra.
+}
+\]
+which is simply an (associative) algebra among (associative) algebras in $\cV$.
+
+
+\begin{notation}
+Here, and throughout this Section~\S\ref{sec.second}, we fix $\cV$ to be a $\ot$-presentable symmetric monoidal $\infty$-category.  
+
+\end{notation}
+
+
+
+
+
+
+
+
+
+
+
+
+Theorem~\ref{Theorem A}(2a) has the following consequence, proved in~\S\ref{sec.fact.hmlgy} using factorization homology.
+\begin{mythm}{B.1} %[Theorem~B1]
+\label{t36}
+Let $A \in \Alg_2(\cV) $ be a $2$-algebra in a $\ot$-presentable symmetric monoidal $\infty$-category $\cV$.
+%
+%\begin{enumerate}
+%\item
+There is a canonical action of the continuous group $\Braid \ltimes \TT^2$ on iterated Hochschild homology:
+\begin{equation}
+\label{e49}
+\Braid \ltimes \TT^2
+~\lacts~
+\HHt(A)
+~.
+\end{equation}
+%which extends the following familiar symmetries.
+%\begin{enumerate}
+%\item
+%The action $\sB \ZZ^2 \simeq \TT^2 \hookrightarrow \TT^2 \rtimes \Braid
+%\underset{(\ref{e49})}{~\lacts~}
+%\HHt(A)$
+%witnesses the pair of Connes' cyclic operators.
+%
+%\item
+%The action $\ZZ \xla{\lag \tau_{1,2}\rag } \Braid \hookrightarrow \TT^2 \rtimes \Braid
+%\underset{(\ref{e49})}{~\lacts~}
+%\HHt(A)$
+%witnesses the ??
+%
+%
+%\item
+%The action $\ZZ \xla{\lag \tau_{2,3}\rag } \Braid \hookrightarrow \TT^2 \rtimes \Braid
+%\underset{(\ref{e49})}{~\lacts~}
+%\HHt(A) \simeq \HHt(A)$
+%witnesses the ??
+%
+%
+%\item
+%The action $\ZZ\underset{\rm ??~\ref{??}}{~\cong~} {\sf Ker}(\Phi)  \hookrightarrow \Braid \hookrightarrow \TT^2 \rtimes \Braid
+%\underset{(\ref{e49})}{~\lacts~}
+%\HHt(A) \simeq \int_{\TT^2} A \simeq \int_{\{0\}\in \TT^2} (A \lacts A)$
+%witnesses the ??
+%
+%
+%
+%
+%\end{enumerate}
+
+
+
+%\item
+%In the case that the monoidal structure of $\cV$ be Cartesian\footnote{This is to say that the symmetric monoidal structure $\ot = \times$ is given by products.}, there is a further canonical extension
+%\begin{equation}
+%\label{e50}
+%\TT^2 \rtimes \Ebraid
+%~\lacts~
+%\HHt(A)
+%~.
+%\end{equation}
+%Furthermore, through the fully faithful functor of Corollary~\ref{t30}, the isogeny-action~(\ref{e50}) defines an unstable 2-cyclotomic structure on the iterated Hochschild homology of $A$:
+%\[
+%\Bigl(
+%\TT^2 \rtimes \Ebraid
+%~\lacts~
+%\HHt(A)
+%\Bigr)
+%~\in~
+%{\sf Cyc}^{{\sf un} (2)}(\cX)
+%~.
+%\]
+%
+%
+%\end{enumerate}
+
+
+\end{mythm}
+
+
+
+
+
+
+%In fact, the isogeny-action~(\ref{e50}) satisfies a self-similarity condition.  
+
+%\begin{remark}
+%Theorem~\ref{Theorem A}(4) can be interpreted as the action $\Ebraid \to \EpZ \lacts {\sf Orbit}^{\sf fin}_{\TT^2}$ witnessing the free lax $\Ebraid$-module generated by $\ast$.  
+%
+%\end{remark}
+
+
+
+
+
+
+
+
+
+
+%\begin{theorem}
+%\label{t11}
+%\begin{enumerate}
+%\item[~]
+
+
+
+
+
+%
+%
+%\item
+%Taking image of induced maps on degree-1 homology identifies the quotient
+%\[
+%{\sf Image}(\sH_1)
+%\colon
+%\Imm^{\fr}(\TT^2)_{/\Diff^{\fr}(\TT^2)}
+%\xra{~\simeq~}
+%\Bigl\{
+%\Lambda
+%\underset{\rm cofin}
+%\subset
+%\ZZ^2
+%\Bigr\}
+%~,
+%\]
+%as the set of cofinite subgroups of $\ZZ^2$.  
+%
+%
+%\item
+%Applying degree-1 homology defines a morphism between topological monoids,
+%\[
+%\sH_1 \colon 
+%\Imm^{\fr}(\TT^2)
+%\longrightarrow
+%\EpZ
+%~,
+%\]
+%to that of positive-determinant endomorphisms of the group $\ZZ^2$.
+%\begin{enumerate}
+%\item
+%This morphism is surjective.
+%
+%\item
+%The preimage of $\uno \in \EpZ$ is canonically identified as the topological group $\TT^2 \times \ZZ$.
+%
+%\item
+%Each other preimage is a torsor with respect to the resulting canonical $\TT^2 \times \ZZ$-action.  
+%
+%
+%\end{enumerate}
+%
+
+
+
+
+
+
+
+
+%There is a canonical identification of the topological monoid $\Imm^{\fr}(\TT^2)$ of framed local-diffeomorphisms of the torus as a pullback involving the monoid of non-zero-determinant endomorphisms of $\ZZ^2$:
+%\[
+%\xymatrix{
+%\Imm^{\fr}(\TT^2)
+%\ar[rrrr]
+%\ar[d]
+%&&
+%&&
+%\ast
+%\ar[d]
+%\\
+%\TT^2 \rtimes \EZ
+%\ar[rr]^-{\pr}
+%&&
+%\EZ
+%\ar[rr]^-{- \underset{\ZZ}\otimes \RR}
+%&&
+%\GL_2(\RR)\simeq \sO(2)
+%~.
+%}
+%\]
+
+%
+%
+%\end{enumerate}
+%
+%
+%\end{theorem}
+
+
+
+
+%As discussed in~\S\ref{sec.cyc},
+%Theorem~\ref{Theorem A}(3) supplies a coCartesian fibration between $\infty$-categories,
+%\[
+%\fB \Imm^{\fr}(\TT,\varphi) 
+%\longrightarrow
+%\fB \Ebraid
+%~,
+%\]
+%classifying the action $\Ebraid \underset{\Psi}\lacts \sB \TT^2 \simeq (\CC\PP^\infty)^2$.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\subsection{Recovering familiar symmetries of $\HHt(A)$}
+We now explain how Theorem~\ref{t36} extends familiar, or at least expected, symmetries of $\HHt(A)$, and how the action $\Braid \ltimes \TT^2 \lacts \HHt(A)$ can be phrased in terms of these expected symmetries.  
+
+
+
+%Connes' cyclic operator is an action $\TT \simeq \sB \ZZ \lacts \sHH(A)$, which is canonically functorial in the argument $A$.  
+%This results in an action $\TT^2 \simeq \sB \ZZ^2 \lacts \HHt(A)$, which is canonically functorial in the $2$-algebra $A$.  
+Let $\cW$ be an $\ot$-presentable symmetric monoidal $\infty$-category. 
+Let $B$ be an associative algebra in $\cW$.
+Taking Hochschild homology with coefficients defines a functor from the $\infty$-category of $(B,B)$-bimodules:
+\[
+%\Aut_{\Alg(\cV)}(A)
+%\longrightarrow
+{\sf BiMod}_{(B,B)}
+\xra{~\sHH(B,-)~}
+\cW
+~.
+\]
+Each endomorphism $B\xra{\sigma}B$ of the associative algebra $B$ determines a $(B,B)$-bimodule structure $B_\sigma$ on the underlying object $B$, which is characterized by $B\xra{\id}B$ being equivariant with respect to $(B,B)\xra{(\id, \sigma )} (B,B)$.  
+This assignment $\sigma\mapsto B_\sigma$ canonically assembles as a functor from the space of endomorphisms to the $\infty$-category of $(B,B)$-bimodules:
+\[
+\End_{\Alg(\cW)}(B)
+\longrightarrow
+{\sf BiMod}_{(B,B)}
+~,\qquad
+\sigma
+\mapsto 
+B_\sigma
+~.
+\]
+This results in a composite functor
+\[
+\End_{\Alg(\cW)}(B)
+\longrightarrow
+{\sf BiMod}_{(B,B)}
+\xra{~\sHH(B,-)~}
+\cW
+~,\qquad
+\sigma
+\mapsto 
+\sHH(B,B_\sigma)
+~.
+\]
+This functor restricts to automorphisms of $\id\mapsto \sHH(B,B_{\id}) = \sHH(B)$ as a morphism between continuous groups:
+\begin{equation}
+\label{e56}
+\Omega_{\id} \Aut_{\Alg(\cW)}(B)
+~=~
+\Omega_{\id} \End_{\Alg(\cW)}(B)
+\longrightarrow
+\Aut_{\cW}\bigl( \sHH(B) \bigr)
+~.
+\end{equation}
+
+
+Now, take $\cW = \Alg(\cV)$ to be the $\infty$-category of associative algebras in an $\ot$-presentable symmetric monoidal $\infty$-category $\cV$, and take $B = \sHH(A)$ to be the Hochschild homology of a $2$-algebra $A\in \Alg\bigl( \Alg(\cV) \bigr)$. 
+\bit{Connes' cyclic operator} is a $\TT$-action $\TT\simeq \sB \ZZ \lacts \sHH(A)$, which is canonically functorial in the argument $A$.  
+This results in a morphism between continuous groups
+\begin{equation}
+\label{e57}
+\TT
+\xra{~\bigl \lag \TT \lacts \sHH(A) \bigr \rag~}
+\Aut_{\Alg(\cV)}\bigl( \sHH(A) \bigr)
+~.
+\end{equation}
+We conclude a symmetry of Hochschild homology, which manifests as the composite morphisms between continuous groups:
+\[
+\ZZ
+~\simeq~
+\Omega_1 \TT
+\xra{~\Omega (\ref{e57}) ~}
+\Omega_{\id} \Aut_{\Alg(\cV)}\bigl( \sHH(A) \bigr)
+\xra{~(\ref{e56})~}
+\Aut_{\cV}\Bigl( \HHt(A) \Bigr)
+~.
+\]
+This symmetry interacts with the two Connes' cyclic operators $\TT^2 \lacts \HHt(A)$ by assembling as a \bit{sheer-action},
+\begin{equation}
+\label{e60}
+{\sf Sheer}_1
+\colon
+\ZZ
+\underset{U_1}\ltimes
+\TT^2
+~\lacts~
+\HHt(A) 
+~,
+\end{equation}
+where this semi-direct product is defined by $\ZZ\xra{\lag  U_1 \rag} \GL_2(\ZZ)\simeq \Aut_{\sf Groups}(\TT^2)$ (see~(\ref{e63})).
+Corollary~\ref{t45} states that swapping the two associative algebra structures on $A$ does not effect Hochschild homology.
+There results another \bit{sheer-action}:
+\begin{equation}
+\label{e71}
+{\sf Sheer}_2
+\colon
+\ZZ 
+\underset{U_2}\ltimes
+\TT^2
+\underset{\cong}{\xra{\id \rtimes (-1)}}
+\ZZ
+\underset{U_2^{-1}}\ltimes
+\TT^2
+~\lacts~
+\HHt(A) 
+~,
+\end{equation}
+where this semi-direct product is defined by $\ZZ\xra{\lag  U_2 \rag} \GL_2(\ZZ)\simeq \Aut_{\sf Groups}(\TT^2)$ (see~(\ref{e63})).
+%\begin{equation}
+%\label{e59}
+%\sB\ZZ^2 \rtimes \ZZ
+%\underset{ (\ref{e60}) }\lacts
+%\sHH\bigl( \sHH(A)_1 \bigr)_2
+%\xra{~\simeq~}
+%\int_{\TT^2} A
+%\xla{~\simeq~}
+%\sHH\bigl( \sHH(A)_2 \bigr)_1
+%\underset{ (\ref{e60}) }\racts
+%\sB\ZZ^2 \rtimes 
+%~.
+%\end{equation}
+
+
+The following result is proved in~\S\ref{sec.??}.
+\begin{cor}
+\label{t55}
+The action of Theorem~\ref{t36} is a canonical extension of these sheer-actions:
+for $i=1,2$, 
+\[
+{\sf Sheer}_i
+\colon
+\ZZ
+\underset{ U_i }\ltimes \TT^2 
+\xra{~\id \rtimes \lag \tau_i \rag}
+\Braid \ltimes \TT^2 
+~\underset{\rm Thm~\ref{t36}}\lacts~
+\HHt(A)
+~.
+\]
+
+\end{cor}
+
+
+
+\begin{remark}
+One phrasing of Theorem~\ref{t36} is that the two actions~(\ref{e60}) and~(\ref{e71}) are not independent.
+For starters, these sheer-actions~(\ref{e60}) and~(\ref{e71}) define an action
+\begin{equation}
+\label{e59}
+{\sf Sheers}
+\colon
+(\ZZ \amalg \ZZ) 
+\underset{ U_1,U_2 }\ltimes \TT^2
+~\lacts~
+\HHt(A)
+~.
+~
+\footnote{This pushout appearing here is in the category of groups, where it is often referred to as a \emph{free product}.}
+\end{equation}
+Next, the two symmetries $U_1,U_2 \in \GL_2(\ZZ)\simeq \Aut_{\sf Groups}(\TT^2)$ satisfy the relation
+$R := U_1U_2U_2 = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix} = U_2 U_1 U_2$. 
+Denoting the generators $\lag \tau_{1} , \tau_{2} \rag = \ZZ \amalg \ZZ$, 
+this results in two natural actions
+\begin{equation}
+\label{e72}
+\ZZ \underset{R} \ltimes \TT^2
+%\overset{\id \rtimes \lag \tau_{1}\tau_{2} \tau_{1} \rag}
+%{\underset{\id \rtimes \lag \tau_{2}\tau_{1}\tau_{2} \rag} \rightrightarrows} %DONT LOVE THIS
+%\stackrel[\id \rtimes \lag \tau_{1}\tau_{2} \tau_{1} \rag]{a}{\rightrightarrows}
+\stackrel[\mathrm{\lag \tau_{2}\tau_{1}\tau_{2} \rag \ltimes \id }]{\mathrm{\lag \tau_{1}\tau_{2} \tau_{1} \rag} \ltimes \id}{\overrightarrow{\underrightarrow{\hspace{2cm}}}}
+( \ZZ \amalg \ZZ) \underset{U_1,U_2} \ltimes \TT^2
+~\underset{(\ref{e59})}\lacts~
+\HHt(A)
+~.
+\end{equation}
+%{\color{red}
+%Make two labeled arrows here??
+%}\textcolor{blue}{best solution I've found}
+Via the standard presentation~(\ref{e67}) of $\Braid$, Theorem~\ref{t36} can be precisely rephrased as an identification of these two actions~(\ref{e72}).  
+\end{remark}
+
+%\[
+%\xymatrix{
+%\sB\Bigl( \sB \ZZ^2
+% (\ZZ \overset{\rm Groups}\amalg \ZZ)
+%\Bigr)
+%\ar[rr]^{ \bigl \lag \sB \ZZ^2
+%\rtimes (\ZZ \overset{\rm Groups}\amalg \ZZ)\underset{ (\ref{e59}) }\lacts~
+%\HHt(A) \bigr\rag }
+%&&
+%\Aut_{\cV}\Bigl(
+%\HHt(A)
+%\Bigr)
+%\\
+%\sB\Bigl( \sB \ZZ^2
+%\rtimes (\ZZ \overset{\rm Groups}\amalg \ZZ)
+%\Bigr)
+%\ar[rr]^{ \bigl \lag \sB \ZZ^2
+%\rtimes (\ZZ \overset{\rm Groups}\amalg \ZZ)\underset{ (\ref{e59}) }\lacts~
+%\HHt(A) \bigr\rag }
+%&&
+%.
+%}
+%\]
+
+
+%
+%\begin{equation}
+%\label{e58}
+%&&
+%\sHH\bigl( \sHH(A)_1 \bigr)_2
+%\ar[drr]^-{\simeq}
+%&&
+%\\
+%\sB\ZZ^2
+%\ar[urr]
+%\ar[drr]
+%&&
+%&&
+%\int_{\TT^2} A
+%~.
+%\\
+%&&
+%\sHH\bigl( \sHH(A)_2 \bigr)_1
+%\ar[urr]_-{\simeq}
+%&&
+%\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Next, the short exact sequence~(\ref{e46}) of Proposition~\ref{t32} implies an identification between moduli spaces:
+\[
+\Bigl\{
+\text{ extensions of $\Braid\lacts \HHt(A)$ along $\Phi$ to an action $\SL_2(\ZZ)\lacts \HHt(A)$ }
+\Bigr\}
+\]
+\[
+~\simeq~
+\Bigl\{
+\text{ trivializations of $\Ker(\Phi) \lacts \HHt(A)$ }
+\Bigr\}
+~.
+\]
+{\color{red}
+LaTexing issue.
+How to break the lines in the above braces into, like, three, and enlarge the braces, so that the above expression can fit into a single (horizontally aligned) display.
+}
+
+{\color{magenta}
+\begin{remark}
+In the case that $\cV = ( \Mod_{\Bbbk} , \underset{\Bbbk} \ot )$ for some commutative ring $\Bbbk$, 
+then an extension of $\Braid \lacts \HHt(A)$ along $\Phi$ to $\SL_2(\ZZ) \lacts \HHt(A)$ is obstructed by the element
+\[
+\bigl[
+\HHt(\beta_A)
+\bigr]
+~\in~
+{\sf Ext}^1\bigl( \HHt(A) , \Bbbk[\epsilon] \bigr)
+~.
+\]
+
+\end{remark}
+}
+
+
+We are interested in identifying the action $\Ker(\Phi)\lacts \HHt(A)$ in familiar, or at least expected, terms.
+Corollary~\ref{t54} does just this, in terms of the familiar/expected symmetry of secondary Hochschild homology given by \bit{braiding-conjugation}, as we now explain.  
+A starting point for this symmetry is given from the following result which was essentially due to Dunn.
+Recall the topological operad $\cE_2$ of little 2-disks, which we regard as an $\infty$-operad in the standard manner.  
+\begin{theorem}[{\color{red} \cite{dunn??}, Theorem~?? of~\cite{HA}}]
+\label{t52}
+There is a canonical equivalence from the $\infty$-category of $\cE_2$-algebras in $\cV$ to that of 2-algebras in $\cV$:
+\[
+\Alg_{\cE_2}(\cV)
+\xra{~\simeq~}
+\Alg_2(\cV)
+~.
+\]
+
+\end{theorem}
+
+After Theorem~\ref{t52}, the standard continuous action $\sO(2) \lacts \cE_2$ on the topological operad immediately implies the following.  
+\begin{cor}
+\label{t53}
+There is a canonical action of the continuous group $\sO(2) \lacts \Alg_2(\cV)$.  
+In particular, for each 2-algebra $A$ in $\cV$, 
+the orbit map with respect to the action of Corollary~\ref{t53} lends to a canonical 
+%there is the orbit-map for the action of Corollary~\ref{t53},
+%\[
+%{\sf Orbit}_A
+%\colon
+%\sO(2)
+%\xra{~( \id , {\sf const}_A)~}
+%\sO(2)
+%\times
+%\Alg_2(\cV)
+%\xra{~\rm action~}
+%\Alg_2(\cV)
+%~,
+%\]
+%which determines a 
+symmetry of $A$:
+\[
+\beta_A
+\colon
+\ZZ
+~\simeq~
+\Omega_{\uno} {\sf SO}(2)
+~=~
+\Omega_{\uno} \sO(2)
+\xra{~\Omega {\sf Orbit}_{A}~}
+\Aut_{\Alg_2(\cV)}(A)
+~.
+\]
+
+
+\end{cor}
+
+
+
+\begin{remark}
+This symmetry $\beta_A$ on each 2-algebra $A$ is \bit{braiding-conjugation}.
+For instance, this this symmetry $\beta_A$ is the identity on the underlying object (so, $\beta_A(1) = \id_A$), and for $\mu\in \cE_2(2)$ it supplies the commutativity of the diagram in $\cV$,
+\[
+\xymatrix{
+A \ot A
+\ar[rr]^-{ \id \ot \id}
+\ar[d]_-{\mu_A}
+&&
+A \ot A
+\ar[d]^-{\mu_A}
+&&
+\text{ given by the point }
+\\
+A
+\ar[rr]^-{\id}
+&&
+A
+,
+&&
+\beta_A(2)\colon \ast \xra{\lag 1 \rag} \ZZ \simeq \Omega_{\mu} \cE_2(2) \to \Omega_{\mu_A} \Hom_{\cV}(A\ot A , A)
+~.
+}
+\]
+\end{remark}
+%
+%\begin{cor}
+%\label{t41}
+%Let $\cV$ be an $\ot$-presentable symmetric monoidal $\infty$-category.
+%Let $A \in \Alg_2(\cV)$ be a 2-algebra in $\cV$.
+
+
+The following result is a direct consequence of Observation~\ref{t43}, 
+and inspection of the action $\Braid\lacts \HHt(A)$ of Theorem~\ref{t36}, proved in~\S\ref{sec.??}. 
+\begin{cor}
+\label{t54}
+Let $A$ be a 2-algebra in $\cV$.
+Through the action of Theorem~\ref{t36}, the kernel of $\Phi$ acts $\HHt(\beta_A)$:
+there is a canonically commutative diagram among continuous groups:
+\[
+\xymatrix{
+\ZZ
+\ar[d]^-{\cong}_-{\bigl\lag (\tau_1\tau_2)^6 \bigr\rag}
+%\ar[rr]^-{\simeq}
+\ar[rrrr]^-{\beta_A}
+&&
+%\Omega_{\uno} {\sf SO}(2)
+&&
+\Aut_{\Alg_2(\cV)}(A)
+\ar[d]^-{\HHt}
+\\
+\Ker(\Phi)
+\ar[rr]
+&&
+\Braid
+\ar[rr]^-{\rm Thm~\ref{t36}}
+&&
+\Aut_{\cV}\bigl(
+\HHt(A)
+\bigr)
+.
+}
+\]
+
+\end{cor}
+
+
+%
+%The action
+%\[
+%\ZZ
+%\underset{(\ref{e??}){\color{red} reference??}}\cong {\sf Ker}(\Phi)
+%\longrightarrow
+%\Braid
+%\xra{~\rm Thm~\ref{Theorem A}~}
+%\Diff^{\fr}(\TT^2)
+%\underset{\rm Thm~\ref{t36}}{~\lacts~}
+%\HHt(A)
+%\]
+%can be presented as follows.
+%Proposition~\ref{t??} grants a canonical identification in $\cV$,
+%\[
+%\int_{\TT^2} A
+%~\simeq~
+%\HHt(A)
+%~,
+%\]
+%in which the lefthand side is defined upon regarding $A$ as an $\cE_2$-algebra in $\cV$, via Dunn's additivity~(\cite{dunn}, see also Theorem~?? of~\cite{HA}).
+%\[
+%\ZZ \simeq \Omega \sO(2)
+%\xra{\beta_A} 
+%\Aut_{\Alg_{\cE_2}(\cV)}(A)
+%\longrightarrow
+%\Aut_{\Mod^{\cE_2}_A}(A)
+%\xra{\int_{\{0\}\subset \TT^2} (A \lacts -)}
+%\Aut_\cV\Bigl(
+%\int_{\{0\}\subset \TT^2} (A \lacts A)
+%\Bigr)
+%~\simeq~
+%\Aut_\cV\Bigl(
+%\int_{\TT^2} A
+%\Bigr)
+%%~\simeq~
+%%\Aut_\cV\Bigl(
+%%\HHt(A)
+%%\Bigr)
+%~.
+%\]
+%
+%
+%\end{cor}
+%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In particular, there is the following immediate consequence of Proposition~\ref{t32}.
+\begin{cor}
+\label{t37}
+Let $A$ be a 2-algebra in $\cV$.
+An ${\sf SO}(2)$-fixed-point-structure on $A\in \Alg_2(\cV)$ 
+determines a trivialization of the action $\Ker(\Phi) \lacts \HHt(A)$, and thereafter an extension along $\Phi$ of the actions $\Braid \to \Braid \ltimes \TT^2 \lacts \HHt(A)$ to 
+actions
+\[
+\SL_2(\ZZ) \to \SL_2(\ZZ) \ltimes \TT^2 ~ \lacts~ \HHt(A)
+~.  
+\]
+
+\end{cor}
+
+
+
+
+
+
+
+
+\begin{remark}
+It is not generally true that the action $\Braid \lacts \HHt(A)$ 
+extends along $\Phi$ as an action $\SL_2(\ZZ) \lacts \HHt(A)$. 
+%This is not generally the case.
+%For starters, the forgetful functor
+%$
+%\Alg\bigl(
+%\Alg(\cV) 
+%\bigr)^{{\sf SO}(2)}
+%\to
+%\Alg\bigl(
+%\Alg(\cV) 
+%\bigr)
+%$
+%is not generally surjective.
+Examples demonstrating this can be derived from~\cite{BZ.Jordan  INTEGRATING QUANTUM GROUPS OVER SURFACES}.
+
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\begin{remark}
+%Through Corollary~\ref{t38}, there happens to be an isomorphism between the framed mapping class group and the oriented mapping class group of a punctured torus.  
+%\[
+%{\sf MCG}^{\fr}(\TT^2,\varphi)
+%~\cong~
+%\Braid
+%~\cong~
+%{\sf MCG}^{\sf or}(\TT^2 \smallsetminus 0)
+%~,
+%\]
+%which in fact lies over ${\sf MCG}^{\sf or}(\TT^2)$, the oriented mapping class group of the torus.
+%
+%\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Isogenic symmetries of secondary Hochschild homology}
+
+{\color{magenta}
+Recall the $\infty$-category ${\sf Orbit}_{\TT^2}^{\sf fin}$ of transitive $\TT^2$-spaces with finite isotropy, and $\TT^2$-equivariant maps between them. 
+For $\cX$ an $\infty$-category, the $\infty$-category of \bit{genuine finite $\TT^2$-objects in $\cX$} is
+\[
+\cX^{{\sf g}_{\sf fin}. \TT^2}
+~:=~
+\Fun\bigl(
+({\sf Orbit}^{\sf fin}_{\TT^2})^{\op} , \cX
+\bigr)
+~.
+\]
+The action $\Ebraid \to \EpZ \lacts \TT^2$ as a topological group supplies an action:
+\begin{equation}
+\label{e48}
+\Ebraid^{\op}~ \lacts~ \cX^{{\sf g}_{\sf fin}. \TT^2}
+~.
+\end{equation}
+%which is manifest as the Cartesian fibration
+%\begin{equation}
+%\label{e48}
+%\Bigl(
+%\Ebraid^{\op} \lacts \cX^{{\sf g}_{\sf fin}. \TT^2}
+%\Bigr)
+%~=~
+%\Bigl(
+%~
+%\Fun^{\sf rel}_{\fB \Ebraid}\bigl( \fB ( \TT^2 \rtimes \Ebraid )  ,  \un{\cX} \bigr)
+%\longrightarrow
+%\fB \Ebraid
+%~
+%\Bigr)
+%~.
+%\end{equation}
+
+
+We propose the following.
+\begin{definition}
+\label{d2}
+%Let $\cX$ be an $\infty$-category.
+%An \bit{unstable 2-cyclotomic object in $\cX$} is a genuine-finite $\TT^2$-object in $\cX$ together with the structure of being $\Ebraid$-fixed. 
+The $\infty$-category of \bit{unstable 2-cyclotomic objects} in an $\infty$-category $\cX$ is
+\[
+{\sf Cyc}^{{\sf un} (2)}(\cX)
+~:=~
+\bigl( \cX^{{\sf g}_{\sf fin}. \TT^2}\bigr)^{{\sf h}\Ebraid}
+~.
+\]
+
+
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+%With respect to this action~(\ref{e48}), a (strict) fixed point is a genuine-finite $\TT^2$-object $(\TT^2 \overset{{\sf g}_{\sf fin}}\lacts X) \in \cX^{{\sf g}_{\sf fin}. \TT^2}$ together with a coherent system, indexed by $\w{A}\in \Ebraid$, of identifications between genuine-finite $\TT^2$-objects in $\cX$:
+%\[
+%X
+%~\simeq~
+%\w{A}^\ast X
+%~.
+%%~,\qquad
+%%\text{  ~in~}\cX^{{\sf g}_{\sf fin}. \TT^2}
+%~.
+%\]
+
+Theorem~\ref{Theorem A}(3) has the following consequence, which is proved in~\S\ref{sec.cyc}.
+\begin{cor}
+\label{t30}
+Let $\cX$ be an $\infty$-category.
+Let $\varphi$ be a framing of the torus.
+There is a canonical equivalence between the $\infty$-category of $\Imm^{\fr}(\TT^2,\varphi)$-modules in $\cX$ and the left??-lax invariants with respect to the action~(\ref{e48}):
+\[
+\Mod_{\Imm^{\fr}(\TT^2 , \varphi)} ( \cX )
+%~:=~
+%\Fun\bigl( \fB \Imm^{\fr}(\TT^2 , \varph) , \cX \bigr)
+\xra{~\simeq~}
+\bigl( \cX^{{\sf g}_{\sf fin}. \TT^2}\bigr)^{{\sf l.lax} \Ebraid}
+~.
+\]
+In particular, there is a canonical fully faithful functor from the (strict) invariants:
+\[
+{\sf Cyc}^{{\sf un} (2)}(\cX)
+~\hookrightarrow~
+\Mod_{\Imm^{\fr}(\TT^2 , \varphi)} ( \cX )
+~.
+%\Fun\bigl( \fB \Imm^{\fr}(\TT^2 , \varph) , \cX \bigr)
+\]
+
+
+\end{cor}
+
+
+
+
+\begin{remark}
+The underpinning of Corollary~\ref{t30} is that the group $\Braid$ has no non-trivial finite subgroups, unlike the group $\SL_2(\ZZ)$ which has the single non-trivial finite subgroup: $\Bigl\lag \begin{bmatrix}-1 & 0 \\ 0 & -1 \end{bmatrix} \Bigr\rag \subset \SL_2(\ZZ)$.
+
+\end{remark}
+
+}
+
+
+
+
+\begin{mythm}{B.2}
+\label{t51}
+
+Let $\cX$ be a presentable $\infty$-category in which finite products distribute over colimits separately in each variable.  
+Regard $\cX$ as a symmetric monoidal $\infty$-category via the Cartesian symmetric monoidal structure.  
+For each 2-algebra $A\in \Alg_2(\cX)$, 
+the action~(\ref{e49}) of Theorem~\ref{t36} canonically extends
+\begin{equation}
+\label{e50}
+\Ebraid \ltimes \TT^2
+~\lacts~
+\HHt(A)
+~.
+\end{equation}
+Furthermore, through the fully faithful functor of Corollary~\ref{t30}, the isogeny-action~(\ref{e50}) defines an unstable 2-cyclotomic structure on the iterated Hochschild homology of $A$:
+\[
+\Bigl(
+\Ebraid \ltimes \TT^2 
+~\lacts~
+\HHt(A)
+\Bigr)
+~\in~
+{\sf Cyc}^{{\sf un} (2)}(\cX)
+~.
+\]
+
+
+\end{mythm}
+
+
+
+
+\begin{remark}
+\label{r3}
+We explain a relationship between an unstable secondary cyclotomic structure and an iterated unstable cyclotomic structure.
+Notice the commutative diagram among groups, 
+\[
+\xymatrix{
+\NN^\times \times \NN^\times
+\ar@{-->}[rr]
+\ar[d]
+&&
+\RR_{>0}^{\times} \times \RR_{>0}^{\times}
+\ar[d]
+\\
+\EpZ 
+\ar[rr]^-{\RR\underset{\ZZ}\ot}
+&&
+\GL_2^+(\RR)
+,
+}
+\]
+in which the downward homomorphisms are inclusions as diagonal matrices:
+$
+(r,s)\mapsto \begin{bmatrix} s & 0 \\ 0 & r \end{bmatrix}
+~,
+$
+Contractibility of the continuous group $\RR_{>0}^\times$ thusly supplies a lift
+there is a continuous section 
+\begin{equation}
+\label{e81}
+\NN^\times \times \NN^\times
+\longrightarrow
+\Ebraid
+~.
+\end{equation}
+With respect to this morphism between monoids~(\ref{e81}), the product isomorphism $\TT\times \TT \xra{\times} \TT^2$ is equivariant. 
+%Next, taking products defines a functor between $\infty$-categories:
+%\[
+%{\sf Orbit}^{\sf fin}_{\TT}
+%\times
+%{\sf Orbit}^{\sf fin}_{\TT}
+%\xra{~\times~}
+%{\sf Orbit}^{\sf fin}_{\TT^2}
+%~,\qquad
+%\bigl(
+%\TT_{/C}
+%,
+%\TT_{/D}
+%\bigr)
+%\mapsto 
+%\TT^2_{/C\times D}
+%~.
+%\]
+%This functor is evidently equivariant with respect to the morphism between monoids~(\ref{e81}).
+For $\cX$ an $\infty$-category, this results in a forgetful functor from unstable secondary cyclotomic objects to iterated unstable cyclotomic objects:
+\[
+{\sf Cyc}^{{\sf un} (2)}(\cX)
+\longrightarrow
+{\sf Cyc}^{\sf un}\bigl( {\sf Cyc}^{\sf un}(\cX) \bigr)
+~.
+\]
+This functor is generally not an equivalence.\footnote{
+{\color{blue}
+(This footnote could be commented out entirely.)
+\\
+Indeed, first note that it is evidently $\TT^2$-equivariant. 
+Next, consider the commutative square among $\infty$-categories, and restriction functors among them:
+\[
+\xymatrix{
+\Mod_{\w{\GL}_2^+(\QQ)}(\cX)
+\ar[rr]
+\ar[d]
+&&
+%\Mod_{\TT^2\rtimes (\NN^\times)^2 }(\cX)^{\TT^2} \simeq 
+{\sf Cyc}^{(2)}(\cX)^{\TT^2}
+\ar[d]
+\\
+\Mod_{ (\QQ_{>0}^{\times})^2 }(\cX)
+\ar[rr]
+&&
+%\Mod_{\TT^2\rtimes \Ebraid}(\cX)^{\TT^2} \simeq 
+{\sf Cyc}\bigl( {\sf Cyc}(\cX) \bigr) ^{\TT^2}
+.
+}
+\]
+Proposition~\ref{t59} implies the horizontal functors are fully faithful.  
+To finish, simply note that the left vertical restriction functor is not generally fully faithful, as demonstrated by the homomorphism between group cohomologies with coefficients in a commutative ring $\Bbbk$, 
+\[
+\sH^\ast( \w{\GL}_2^+(\QQ) ;  \Bbbk )
+\longrightarrow
+\sH^\ast( ( \QQ_{>0}^\times)^2 ; \Bbbk )
+~,
+\]
+not being injective. 
+}
+}
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{\color{blue}
+(This whole subsection might reasonably be removed.)
+
+\subsection{Analogy with dimension 1}
+
+Theorems~\ref{Theorem A} and~\ref{t36}, as well as Definition~\ref{d2}, are in precise analogy with the established 1-dimensional array of results and definitions.  
+We explain.
+\begin{enumerate}
+\item
+There are pullback squares among monoid-objects in the $\infty$-category $\Spaces$:
+\[
+\xymatrix{
+\NN^\times \ar[rr]
+\ar[d]
+&&
+\End^{{\sf det}\neq 0}(\ZZ)
+\ar[d]
+&
+&
+\Ebraid \ar[rr]
+\ar[d]
+&&
+\EZ
+\ar[d]
+\\
+\ast
+\ar[rr]
+&&
+\End^{{\sf det}\neq 0}(\RR) \simeq \sO(1)
+&
+\text{ and }
+&
+\ast
+\ar[rr]
+&&
+\End^{{\sf det}\neq 0}(\RR^2) \simeq \sO(2)
+.
+}
+\]
+
+
+\item
+There are pullback squares among $\infty$-categories:
+\[
+\xymatrix{
+{\sf Orbit}_{\TT}^{\sf fin} 
+\ar[rr]
+\ar[d]
+&&
+\fB (\NN^\times \ltimes \TT)
+\ar[d]
+&
+&
+{\sf Orbit}_{\TT^2}^{\sf fin}  \ar[rr]
+\ar[d]
+&&
+\fB ( \Ebraid \ltimes \TT^2) 
+\ar[d]
+\\
+( \fB  \NN^\times )^{\ast/}
+\ar[rr]
+&&
+\fB  \NN^\times
+&
+\text{ and }
+&
+( \fB \Ebraid )^{\ast/}
+\ar[rr]
+&&
+\fB \Ebraid
+~,
+}
+\]
+which in particular codify actions as $\infty$-categories:
+\[
+\NN^\times 
+~\lacts~
+{\sf Orbit}_{\TT}^{\sf fin} 
+\qquad
+\text{ and }
+\qquad
+\Ebraid
+~\lacts~
+{\sf Orbit}_{\TT^2}^{\sf fin} 
+~.
+\]
+
+
+\item
+For each $\infty$-category $\cX$, there are identifications between $\infty$-categories of modules and of left-lax fixed-points:
+\[
+\Mod_{\NN^\times \ltimes \TT}(\cX)
+~\simeq~
+\bigl( \cX^{{\sf g}_{\sf fin}. \TT}\bigr)^{{\sf l.lax}\NN^\times}
+\qquad
+\text{ and }
+\qquad
+\Mod_{\Ebraid \ltimes \TT^2 }(\cX)
+~\simeq~
+\bigl( \cX^{{\sf g}_{\sf fin}. \TT^2}\bigr)^{{\sf l.lax}\Ebraid }
+~.
+\]
+These identifications yield fully faithful functors
+\begin{equation}
+\label{e51}
+{\sf Cyc}^{\sf un}(\cX)
+:=
+\bigl( \cX^{{\sf g}_{\sf fin}. \TT}\bigr)^{{\sf h}\NN^\times}
+~\hookrightarrow~
+\Mod_{\NN^\times \ltimes \TT}(\cX)
+\qquad
+\text{ and }
+\qquad
+{\sf Cyc}^{{\sf un} (2)}(\cX)
+:=
+\bigl( \cX^{{\sf g}_{\sf fin}. \TT^2}\bigr)^{{\sf h}\Ebraid }
+~\hookrightarrow~
+\Mod_{\Ebraid  \ltimes \TT^2}(\cX)
+~.
+\end{equation}
+
+
+
+\item
+There are canonical identifications between monoid-objects in the $\infty$-category $\Spaces$:
+\[
+\NN^\times \ltimes \TT
+\xra{~\simeq~}
+\Imm^{\fr}(\TT)
+\qquad
+\text{ and }
+\qquad
+\Ebraid \ltimes \TT^2
+\xra{~\simeq~}
+\Imm^{\fr}(\TT^2)
+~.
+\]
+
+\item
+For $\cV$ a $\ot$-presentably symmetric monoidal $\infty$-category, there are canonical actions
+\[
+\TT
+~\lacts~
+\sHH(A)
+\qquad
+\text{ and }
+\qquad
+\Braid
+\ltimes \TT^2 
+~\lacts~
+\sHH\bigl( \sHH(A_2) \bigr)
+~.
+\]
+If the monoidal structure of $\cV$ is Cartesian, these actions canonically extend as actions:
+\[
+\NN^\times \ltimes \TT
+~\lacts~
+\sHH(A)
+\qquad
+\text{ and }
+\qquad
+\Ebraid \ltimes \TT^2 
+~\lacts~
+\sHH\bigl( \sHH(A_2) \bigr)
+~.
+\]
+Through the fully faithful functors~(\ref{e51}), these extended actions define objects:
+\[
+\Bigl(
+\NN^\times \ltimes \TT 
+~\lacts~
+\sHH(A)
+\Bigr)
+~\in~
+{\sf Cyc}^{\sf un}(\cV)
+\qquad
+\text{ and }
+\qquad
+\Bigl(
+ \Ebraid \ltimes \TT^2
+~\lacts~
+\sHH\bigl( \sHH(A_2) \bigr)
+\Bigr)
+~\in~
+{\sf Cyc}^{{\sf un} (2)}(\cV)
+~.
+\]
+
+
+\end{enumerate}
+}
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Remarks on secondary cyclotomic trace}
+
+
+We see the role of Corollary~\ref{t30} as informing an approach to secondary cyclotomic traces.  
+
+Let $\Bbbk$ be a commutative ring spectrum.
+Let $A\in \Alg_2(\Mod_{\Bbbk})$.
+%\footnote{Recall that a commutative $\Bbbk$-algebra forgets as a associative algebra in associative $\Bbbk$-algebras.}
+Recall the $\Bbbk$-linear Dennis trace map: $\sK(A) \xra{{\sf tr}} \sHH(A)$~(see~\cite{??}).
+The cyclic trace map is a canonical factorization of this Dennis trace map through negative-cyclic homology
+$
+\sK(A)
+\xra{{\sf tr}^{\TT}}
+{\sHH}^-(A)
+:=
+\sHH(A)^{\TT}
+$
+~(see~\cite{??  look in ``cyclo'' for a citation}).
+Iterating this cyclic trace map results in a map between $\Bbbk$-modules:
+\[
+\sK\bigl( \sK(A) \bigr)
+\xra{~{\sf tr}^{\TT}( {\sf tr}^{\TT})~}
+\sHH^-\bigl( \sHH^-(A)\bigr)
+~.
+\]
+
+We expect the work of~\cite{reuben} on universal properties of secondary $\sK$-theory to yield a solution to the following.
+\begin{conj}
+\label{c1}
+The iterated cyclic trace map factors through the $\Braid$-fixed points:
+\[
+\xymatrix{
+&&
+\sHH\bigl( \sHH( A ) \bigr)^{\Braid \ltimes \TT^2} \ar[d] 
+\\
+\sK\bigl(\sK(A) \bigr)
+\ar[rr]^-{~{\sf tr}^{\TT}( {\sf tr}^{\TT})~}
+\ar@{-->}[urr]
+&&
+\sHH^-\bigl( \sHH^-(A) \bigr)
+.
+}
+\]
+
+
+
+
+\end{conj}
+
+%We expect that the construction of the Dennis trace map lends to a canonical factorization~(a) in the diagram below.
+%The universal property of secondary $\sK$-theory, as articulated in~\cite{mazel.gee.ruben}, thereafter results in a factorization~(b):
+%\begin{equation*}
+%%\label{e36} 
+%{\Small
+%\xymatrix{
+%\Bbbk \Bigl \lag \Obj\Bigl( \Perf\bigl( \Perf(A) \bigr) \Bigr) \Bigr \rag
+%\ar@{-->}[rr]^-{\rm (a)} \ar[dd]
+%&&
+%\sHH\Bigl( \sHH\bigl( \Perf\bigl( \Perf(A) \bigr) \bigr) \Bigr)^{{\sf h} ( \TT^2 \rtimes \Braid) }  \ar[d]
+%&&
+%\sHH\bigl( \sHH( A ) \bigr)^{{\sf h} ( \TT^2 \rtimes \Braid) } \ar[d] \ar[ll]^-{\simeq}
+%\\
+%&&
+%\sHH\Bigl( \sHH\bigl( \Perf\bigl( \Perf(A) \bigr)^{{\sf h} \TT}  \bigr) \Bigr)^{{\sf h} \TT}  \ar[d]
+%&&
+%\sHH\bigl( \sHH( A )^{{\sf h} \TT} \bigr)^{{\sf h} \TT} \ar[d] \ar[ll]^-{\simeq}
+%\\
+%\sK\bigl( \sK( A ) \bigr) \ar[rr]^-{{\sf tr}({\sf tr})}
+%\ar[urr]^-{{\sf tr}^-({\sf tr}^-)}
+%\ar@(-,u)@{-->}[uurr]^-{\rm (b)}
+%&&
+%\sHH\Bigl( \sHH\bigl( \Perf\bigl( \Perf(A) \bigr) \bigr) \Bigr)
+%&&
+%\sHH\bigl( \sHH( A ) \bigr) \ar[ll]^-{\simeq}_-{\rm Morita~invariance}
+%.
+%}
+%}
+%\end{equation*}
+For the case in which $\Bbbk = \SS$ is the sphere spectrum, where standard notation is $\sHH = {\sf THH}$ and referred to as \emph{topological} Hochschild homology, 
+the cyclic trace map factors further through the topological cyclotomic homology,
+$\sK(A) \xra{{\sf tr}^{\sf Cyc}} {\sf TC}(A) := {\sf THH}(A)^{\sf Cyc}$, 
+%\[
+%\xymatrix{
+%&&
+%\sHH( A )^{\sf Cyc} \ar[d] 
+%\\
+%\sK(A)
+%\ar[rr]^-{~ {\sf tr}^{\TT}~}
+%\ar@{-->}[urr]^-{{\sf tr}^{\sf Cyc}}
+%&&
+%\sHH(A)^{\TT}
+%,
+%}
+%\]
+which is the \emph{cylotomic} fixed-points with respect to a canonical \emph{cyclotomic structure} on topological Hochschild homology.  
+Iterating this cyclotomic trace map results in a map between spectra:
+\[
+\sK\bigl( \sK(A) \bigr)
+\xra{~{\sf tr}^{\sf Cyc}( {\sf tr}^{\sf Cyc})~}
+{\sf TC}\bigl( {\sf TC}(A)\bigr)
+~.
+\]
+Following the developments in~\ref{cyclo}, we further expect Definition~\ref{d2} to lend to a definition of a (stable) secondary cyclotomic object, and that secondary topological Hochschild homology
+canonically admits a secondary cyclotomic structure.  
+For secondary topological cyclotomic homology to be the fixed-points with respect to this structure, ${\sf TC}^{(2)}(A):={\sf THH}\bigl( {\sf THH}(A) \bigr)^{\sf Cyc^{(2)}}$, we expect the work~\cite{reuben} on secondary $\sK$-theory to further lend a secondary cyclotomic trace map, which we state as the following.
+\begin{conj}
+\label{c2}
+The iterated cyclotomic trace map factors through the secondary topological cyclotomic homology, compatibly with the factorization of Conjecture~\ref{c1}:
+\[
+\xymatrix{
+\sK\bigl(\sK( A) \bigr)
+\ar@(d,-)[ddrr]_-{\rm Conj~\ref{c1}}
+\ar@{-->}[drr]^-{{\sf tr}^{\sf Cyc^{(2)}}}
+\ar@(u,-)[drrrr]^-{~{\sf tr}^{\sf Cyc}( {\sf tr}^{\sf Cyc})~}
+&&
+&&
+\\
+&&
+{\sf TC}^{(2)}(A)
+\ar[rr]
+\ar[d]
+&&
+{\sf TC}\bigl( {\sf TC}(A) \bigr)
+\ar[d]
+\\
+&&
+{\sf THH}\bigl( {\sf THH}(A) \bigr)^{ \Braid \ltimes \TT^2 }
+\ar[rr]
+&&
+{\sf THH}^-\bigl( {\sf THH}^-(A) \bigr)
+~.
+}
+\]
+\end{conj}
+
+
+\begin{remark}
+One might be encouraged by Remark~\ref{r3} to expect that the secondary cyclotomic trace map ${\sf tr}^{{\sf Cyc}^{(2)}}$ of Conjecture~\ref{c2} is locally-constant (in the variable $A$), thereby correcting the failure for the iterated cyclotomic trace map ${\sf tr}^{\sf Cyc}( {\sf tr}^{\sf Cyc})$ to be locally-constant. 
+However, we do not expect for this to be so.
+Namely, the local-constancy of the cyclotomic trace map $\sK(A) \xra{{\sf tr}^{\sf Cyc}} {\sf TC}(A)$ relies in an essential way on calculations of~\cite{hesselholt}, which identify the fiber of the canonical map ${\sf TC}(A \ltimes V) \to {\sf TC}(A)$ associated to a square-zero extension of $A$.  
+These calculations in turn rely on the simple observation that, for each $i \geq 0$, the canonical action $\TT \simeq \Diff^{\fr}(\TT)\lacts {\sf Conf}_i(\TT)_{\Sigma_i}$ on unordered configuration space canonically factors as a $\TT_{/\sC_i}$-torsor.  
+Because the canonical action $\Braid \ltimes \TT^2 \simeq \Diff^{\fr}(\TT^2) \lacts {\sf Conf}_{i}(\TT^2)_{\Sigma_i}$ does not apparently have any such property, 
+we do not expect for the secondary cyclotomic trace map of Conjecture~\ref{c1} to be locally constant.  
+
+\end{remark}
+
+
+
+
+%{\color{red}
+%Dark Seid
+%by Elon Musks wife
+%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Moduli and isogeny of framed tori}
+
+
+
+
+\subsection{Moduli and isogeny of tori}
+
+Vector addition, as well as the standard vector norm, gives $\RR^2$ the structure of a topological abelian group.
+Consider its closed subgroup $\ZZ^2\subset \RR^2$.  
+The \bit{torus} is the quotient in the short exact sequence of topological abelian groups:
+\[
+0
+\longrightarrow
+\ZZ^2
+\xra{\rm inclusion}
+\RR^2 
+\xra{~\quot~}
+\TT^2
+\longrightarrow
+0
+~.
+\] 
+Because $\RR^2$ is connected, and because $\ZZ^2$ acts cocompactly by translations on $\RR^2$, the torus $\TT^2$ is connected and compact.  
+The quotient map $\RR^2 \xra{\quot} \TT^2$ endows the torus with the structure of a Lie group, and in particular a smooth manifold.
+Consider the submonoid
+\begin{equation*}
+%\label{e47}
+\EZ
+~:=~
+\Bigl\{
+\ZZ^2 \xra{A} \ZZ^2 \mid {\sf det}(A) \neq 0
+\Bigr\}
+~\subset~
+\End_{\sf Groups}(\ZZ^2)
+~,
+\end{equation*}
+consisting of the cofinite endomorphisms of the group $\ZZ^2$.  
+Using that the smooth map $\RR^2 \xra{\quot} \TT^2$ is a covering space and $\TT^2$ is connected, there is a canonical continuous action on the topological group:
+\begin{equation}
+\label{e2}
+\EZ
+~\lacts~
+\TT^2
+~,\qquad
+A \cdot q
+~:=~
+\quot( A\w{q} )
+\qquad
+{\Small \bigl(\text{for any }\w{q} \in \quot^{-1}(q) \bigr) }
+~.
+\footnote{
+Note that (\ref{e2}) indeed does not depend on $\w{q} \in \quot^{-1}(q)$.
+}
+\end{equation}
+This homomorphism~(\ref{e2}) defines a semi-direct product topological monoid:
+\[
+%\begin{equation}
+%\label{e6}
+\EZ \ltimes \TT^2
+~.
+%\end{equation}
+\]
+
+%I'm sure this could be said better //// Where to place this... 
+% \noindent Even more $\RR^2 \xra{\quot} \TT^2$ is a local diffeomorphism. So for every $\tilde{q} \in \RR^{2}$ the map $$D_{\tilde{q}}\quot: T_{\tilde{q}}\RR^{2} \rightarrow T_{q}\TT^{2}$$ is an isomorphism and we can define the inverse isomorphism $$D_{q}\quot^{-1}: T_{q}\TT^{2} \rightarrow T_{\tilde{q}}\RR^{2}$$ for $\tilde{q} = \bigl( \quot^{-1}(q) \cap [0, 1) \times [0, 1) \bigr).$
+
+%Transition 
+
+Consider the topological monoid of smooth local-diffeomorphisms of the torus:
+\[
+\Imm(\TT^2)
+~\subset~
+\Map(\TT^2 , \TT^2)
+~,
+\] 
+which is endowed with the subspace topology of the $\sC^\infty$-topology on the set of smooth self-maps of the torus.
+
+\begin{observation}
+\label{t21}
+\begin{enumerate}
+
+\item[~]
+
+\item
+The standard inclusion $\GL_2(\ZZ) \hookrightarrow \EZ$ witnesses the maximal subgroup.
+It follows that the standard inclusion $\GL_2(\ZZ) \ltimes \TT^2 \hookrightarrow \EZ \ltimes \TT^2$ witnesses the maximal subgroup, both as topological monoids and as monoid-objects in the $\infty$-category $\Spaces$.
+
+
+\item
+The standard monomorphism $\Diff(\TT^2) \hookrightarrow \Imm(\TT^2)$ witnesses the maximal subgroup, both as topological monoids and as monoid-objects in the $\infty$-category $\Spaces$.
+
+\end{enumerate}
+\end{observation}
+
+
+
+
+
+
+Consider the morphism between topological monoids:
+\begin{equation}
+\label{e7}
+\Aff: \EZ \ltimes \TT^2
+\longrightarrow
+\Imm(\TT^2)
+~,\qquad
+(A, p)
+\mapsto
+\Bigl(
+q\mapsto 
+Aq + p
+\Bigr)
+~.
+\end{equation}
+%Observation~\ref{t21} implies this morphism~(\ref{e7}) restricts as a morphism between topological groups:
+%\begin{equation}
+%\label{e7}
+%\Aff: \TT^2 \rtimes \GL_2(\ZZ)
+%\longrightarrow
+%\Diff(\TT^2)
+%~,\qquad
+%(p,A)
+%\mapsto
+%\Bigl(
+%q\mapsto 
+%Aq + p
+%\Bigr)
+%~.
+%\end{equation}
+
+
+
+
+
+
+
+
+
+We record the following classical result.
+\begin{lemma}\label{t1}
+The restriction of the morphism~(\ref{e7}) to maximal subgroups is a homotopy-equivalence:
+\[
+\Aff \colon
+ \GL_2(\ZZ) \ltimes \TT^2
+\xra{~\simeq~}
+\Diff(\TT^2)
+~,\qquad
+(A, p)
+\mapsto
+\Bigl(
+q\mapsto 
+Aq + p
+\Bigr)
+~.
+\]
+\end{lemma}
+
+
+\begin{proof}
+Let $G$ be a locally path-connected topological group, which we regard as a continuous group.
+Denote by $G_{\uno} \subset G$ the path-component containing the identity element in $G$.
+This subspace $G_{\uno}\subset G$ is a normal subgroup, and the sequence of continuous homomorphisms
+\[
+1
+\longrightarrow
+G_{\uno}
+\xra{~\rm inclusion~}
+G
+\xra{~\rm quotient~}
+\pi_0(G)
+\longrightarrow
+1
+\]
+is a fiber-sequence among continuous groups.
+This fiber sequence is evidently functorial in the argument $G$.
+In particular, there is a commutative diagram among topological groups 
+\[
+\xymatrix{
+1 \ar[d]_-= \ar[r]
+&
+\TT^{2} = \bigl( \GL_2(\ZZ) \ltimes \TT^{2} \bigr)_{\uno}
+\ar[d]_-{\Aff_{\uno}}
+\ar[r]^-{\rm inc}
+&
+\GL_2(\ZZ) \ltimes \TT^{2} 
+\ar[d]_-{\Aff} 
+\ar[r]^-{\rm quot}
+&
+\pi_0 \bigl( \GL_2(\ZZ) \ltimes \TT^{2} \bigr)
+=
+\GL_2(\ZZ)
+\ar[d]_-{\pi_0(\Aff)}
+\ar[r]
+&
+1 \ar[d]_-=
+\\
+1
+\ar[r]
+&
+\Diff(\TT^2)_{\uno}
+\ar[r]^-{\rm inc}
+&
+\Diff(\TT^2) 
+\ar[r]^-{\rm quot}
+&
+\pi_0 \bigl( \Diff(\TT^2) \bigr)
+\ar[r]
+&
+1
+.
+}
+\] 
+Now, by the 5-lemma applied to homotopy groups, if both horizontal sequences are exact, if the vertical homomorphisms $\Aff_{\uno}$ and $\pi_0(\Aff)$ are homotopy equivalences, then the vertical homomorphism $\Aff$ is a homotopy equivalence as well.
+
+
+
+Theorem 2.D.4 of~\cite{rolf}, along with the Kirby torus trick {\color{red} Improve citation here}, implies $\pi_0(\Aff)$ is an isomorphism.  
+
+
+
+It remains to show $\Aff_{\uno}$ is a homotopy equivalence. 
+With respect to the canonical continuous action $\Diff(\TT^2)_{\uno} \lacts \TT^2$, 
+the orbit of the identity element $0\in \TT^2$ is the evaluation map 
+\begin{equation}\label{e25}
+\ev_0
+\colon 
+\Diff(\TT^2)_{\uno}
+\longrightarrow
+\TT^2
+~.
+\end{equation}
+Note that the composition,
+\[
+\id
+\colon
+\TT^2
+\xra{~\Aff_{\uno}~}
+\Diff(\TT^2)_{\uno}
+\xra{~(\ref{e25})~}
+\TT^2
+~,
+\]
+is the identity map.
+Now, Theorem 1b of \cite{ee} gives that the subspace of those diffeomorphisms of the torus that fix $0\in \TT^2$ has contractible path-components.
+This implies the stabilizer ${\sf Stab}_0\bigl(\Diff(\TT^2)_{\uno}\bigr)$ is contractible, which implies $\Aff_{\uno}$ is a homotopy equivalence.  
+
+
+
+\end{proof}
+
+
+
+
+
+
+\begin{remark}
+\label{r10}
+By the classification of compact surfaces, the moduli space $\bcM_1$ of smooth tori is path-connected, and as so is 
+\[
+\bcM_1
+~\simeq~
+{\sf BDiff}(\TT^2)
+\underset{\rm Lem~\ref{t1}}{~\simeq~}
+\sB\bigl(
+\GL_2(\ZZ) \ltimes \TT^2
+\bigr)
+~.
+\]
+In particular, this path-connected moduli space fits into a fiber sequence
+\[
+(\CC\PP^\infty)^2
+\longrightarrow
+\bcM_1
+\longrightarrow
+{\sf BGL}_2(\ZZ)
+~,
+\]
+which is classified by the standard action $\GL_2(\ZZ) \lacts \sB^2 \ZZ^2 \simeq (\CC\PP^\infty)^2$.
+
+\end{remark}
+
+
+
+
+
+
+
+%Recall from~(\ref{e47}) the submonoid $\EZ \subset \End_{\sf Groups}(\ZZ^2)$ consisting of those integral $2\times 2$ matrices with non-zero determinant.  
+Consider the set of \bit{cofinite subgroups} of $\ZZ^2$:
+\begin{equation*}
+%\label{e61} 
+\bcL(2) 
+~:=~
+\Bigl\{
+\Lambda
+\underset{\rm cofin}
+\subset
+\ZZ^2
+\Bigr\}
+~.
+\end{equation*}
+\begin{observation}
+\label{t22}
+
+\begin{enumerate}
+
+\item[~]
+
+\item
+The orbit-stabilizer theorem immediately verifies the composite map 
+$
+\EZ \ltimes \TT^2
+\xra{\pr}
+\EZ
+\xra{\rm Image} 
+\bcL(2)
+$
+witnesses the quotient:
+\[
+\EZ_{/\GL_2(\ZZ) \ltimes \TT^2 } \ltimes \TT^2
+\xra{~\cong~}
+\EZ_{/\GL_2(\ZZ)}
+\xra{~\cong~}
+\bcL(2)
+~.
+\]
+
+
+\item
+Using that each finite-sheeted cover over $\TT^2$ is diffeomorphic with $\TT^2$, the classification of covering spaces implies the map given by taking the image of degree-1 homology
+$
+\Imm(\TT^2)
+\xra{{\sf Image}(\sH_1)}
+\bcL(2)
+$
+witnesses the quotient:
+\[
+\Imm(\TT^2)_{/\Diff(\TT^2)}
+\xra{~\cong~}
+\bcL(2)
+~.
+\]
+
+
+\item
+The diagram
+\[
+\xymatrix{
+\EZ \ltimes \TT^2
+\ar[rr]^-{\Aff}
+\ar[d]_-{\pr}
+&&
+\Imm(\TT^2) 
+\ar[d]^-{{\rm Image}(\sH_1)}
+\ar[dll]_-{\sH_1}
+\\
+\EZ
+\ar[rr]^-{\rm Image}
+&&
+\bcL(2)
+}
+\]
+commutes.
+
+\end{enumerate}
+
+
+\end{observation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%After Lemma~\ref{t1}, Observation~\ref{t22} implies the following classical result.
+\begin{cor}
+\label{t22}
+The morphism (\ref{e7}) between topological monoids is a homotopy-equivalence:
+\[
+\Aff
+\colon
+\EZ \ltimes \TT^2
+\xra{~\simeq~}
+\Imm(\TT^2)
+~.
+\]
+
+\end{cor}
+
+\begin{proof}
+
+Consider the morphism between fiber sequences in the $\infty$-category $\Spaces$:
+\[
+\xymatrix{
+\EZ \ltimes \TT^2
+\ar[rr]^-{\rm quotient}
+\ar[d]_-{\Aff}
+&&
+\bigl(
+\EZ \ltimes \TT^2
+\bigr)_{\GL_2(\ZZ) \ltimes \TT^2}
+\ar[rr]
+\ar[d]^-{\Aff_{\Aff}}
+&&
+\sB\bigl( \GL_2(\ZZ) \ltimes \TT^2 \bigr)
+\ar[d]^-{\sB \Aff}
+\\
+\Imm(\TT^2)
+\ar[rr]^-{\rm quotient}
+&&
+\Imm(\TT^2)_{/\Diff(\TT^2)}
+\ar[rr]
+&&
+\sB \Diff(\TT^2)
+.
+}
+\]
+Lemma~\ref{t1} implies the right vertical map is an equivalence.
+Observation~\ref{t22} implies the middle vertical map is an equivalence.
+It follows that the left vertical map is an equivalence, as desired.
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Framings}
+
+
+
+A \bit{framing} of the torus is a trivialization of its tangent bundle: $\varphi\colon  \tau_{\TT^2} \cong  \epsilon^2_{\TT^2}$.
+Consider the topological \bit{space of framings} of the torus:
+\[
+\Fr(\TT^2)
+~:=~
+\Iso_{\Bdl_{\TT^2}}\bigl( \tau_{\TT^2} , \epsilon^2_{\TT^2}  \bigr)
+~\subset~
+\Map(  \sT \TT^2  , \TT^2 \times \RR^2 )
+~,
+\]
+which is endowed with the subspace topology of the $\sC^\infty$-topology on the set of smooth maps between total spaces.  
+The quotient map $\RR^2\xra{\quot}\TT^2$ endows the smooth manifold $\TT^2$ with a \bit{standard framing} $\varphi_0$:
+for 
+\[
+\trans\colon \TT^2 \times \TT^2 
+\xra{~(p,q)\mapsto \trans_p(q) := p+q~} 
+\TT^2
+\]
+the abelian multiplication rule of the Lie group $\TT^2$, 
+\[
+%\begin{equation}
+%\label{e5}
+(\varphi_0)^{-1}
+\colon
+\epsilon^2_{\TT^2}
+\xra{~\cong~}
+\tau_{\TT^2}
+~,\qquad
+\TT^2 \times \RR^2 \ni (p,v)
+\mapsto
+\bigl(p,\sD_{0}(\trans_p \circ \quot) (v) \bigr)
+\in \sT \TT^2
+~.
+%\end{equation}
+\]
+%In this way we regard $\TT^2$ as a \bit{framed smooth 2-manifold}.
+
+
+
+The next sequence of observations culminates as an identification of this space of framings.
+\begin{observation}
+\label{t20}
+
+
+\begin{enumerate}
+\item[~]
+
+
+\item
+Postcomposition gives the topological space $\Fr(\TT^2)$ the structure a left-torsor for the topological group $\Iso_{\Bdl_{\TT^2}}\bigl( \epsilon^2_{\TT^2} , \epsilon^2_{\TT^2} \bigr)$.
+In particular, the orbit map of a of framing $\varphi \in \Fr(\TT^2)$ is a homeomorphism:
+\begin{equation}
+\label{e41}
+\Iso_{\Bdl_{\TT^2}}\bigl( \epsilon^2_{\TT^2} , \epsilon^2_{\TT^2} \bigr)
+\xra{~\cong~}
+\Fr(\TT^2)
+~,\qquad
+\alpha \mapsto 
+\alpha \circ \varphi 
+~.
+\end{equation}
+
+
+\item
+Consider the topological space $\Map \bigl( \TT^2 , \GL_2(\RR) \bigr)$ of smooth maps from the torus to the standard smooth structure on $\GL_2(\RR)$, which is endowed with the $\sC^\infty$-topology. 
+The map
+\begin{equation}
+\label{e43}
+\Map \bigl( \TT^2 , \GL_2(\RR) \bigr)
+\xra{~\cong~}
+\Iso_{\Bdl_{\TT^2}}\bigl( \epsilon^2_{\TT^2} , \epsilon^2_{\TT^2} \bigr)
+~,\qquad
+a
+\mapsto 
+\Bigl(
+\TT^2\times \RR^2
+\xra{\bigl( p,v \bigr) \mapsto \bigl( p,a_p(v) \bigr) }
+\TT^2 \times \RR^2
+\Bigr)
+~,
+\end{equation}
+is a homeomorphism.
+
+\item
+The map to the product with based maps,
+\begin{equation}
+\label{e44}
+\Map \bigl( \TT^2 , \GL_2(\RR) \bigr)
+\xra{~\cong~}
+\Map_\ast\Bigl( ( 0\in \TT^2) , ( \uno \in \GL_2(\RR) \bigr) \Bigr)
+\times
+\GL_2(\RR)
+~,\qquad
+a
+\mapsto 
+\bigl(
+~
+a(0)^{-1} a~ ,~ a(0)
+~
+\bigr)
+~,
+\end{equation}
+is a homeomorphism.
+
+
+\item
+Because both of the spaces $\TT^2$ and $\GL_2(\RR)$ are 1-types with the former path-connected, 
+the map,
+\[
+\pi_1
+\colon
+\Map_\ast\Bigl( ( 0\in \TT^2) , ( \uno \in \GL_2(\RR) \bigr) \Bigr)
+\xra{~\simeq~}
+{\sf Homo}\Bigl( \pi_1\bigl( 0 \in \TT^2 \bigr) , \pi_1\bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) 
+~,
+\]
+is a homotopy-equivalence.
+
+\item
+Evaluation on the standard basis for $\pi_1(0\in \TT^2) \xra{\cong} \pi_1(0\in \TT)^2 \cong \ZZ^2$ defines a homeomorphism:
+\begin{equation}
+\label{e45}
+{\sf Homo}\Bigl( \pi_1\bigl( 0 \in \TT^2 \bigr) , \pi_1\bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) 
+\xra{~\cong~}
+\pi_1\bigl( \uno \in \GL_2(\RR)^2 \bigr)
+~\cong~
+\ZZ^2
+%~,\qquad
+%g
+%\mapsto 
+%\Bigl(
+%~
+%g\bigl( [ \TT \times \{1\}] \bigr)
+%~,~
+%g\bigl( [ \{1\}\times  \TT ] \bigr)
+%~
+%\Bigr)
+~.
+\end{equation}
+
+\end{enumerate}
+
+\end{observation}
+
+
+
+
+Observation~\ref{t20}, together with the Gram-Schmidt homotopy-equivalence $\sO(2) \xra{\simeq} \GL_2(\RR)$, yields the following.
+\begin{cor}
+\label{t25}
+A choice of framing $\varphi \in \Fr(\TT^2)$ determines a composite homotopy-equivalence:
+\begin{eqnarray*}
+%\label{e42}
+\Fr(\TT^2) 
+&
+\underset{\simeq}{
+\xla{~(\ref{e43})\circ (\ref{e41})~}
+}
+&
+\Map\bigl( \TT^2 , \GL_2(\RR) \bigr)
+\\
+\nonumber
+&
+\underset{\simeq}{
+\xra{~(\ref{e44})~}
+}
+&
+\Map_\ast \Bigl( \bigl( 0 \in \TT^2 \bigr) , \bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \times \GL_2(\RR) 
+\\
+\nonumber
+&
+\underset{\simeq}{
+\xra{~\pi_1 \times \id ~}
+}
+&
+{\sf Homo}\Bigl( \pi_1\bigl( 0 \in \TT^2 \bigr) , \pi_1\bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \times \GL_2(\RR) 
+\\
+\nonumber
+&
+\underset{\simeq}{
+\xra{(\ref{e45}) \times \id }
+}
+&
+\ZZ^2 \times \GL_2(\RR)
+\\
+\nonumber
+&
+\underset{\simeq}{
+\xla{ \id \times {\sf GS}}
+}
+&
+\ZZ^2 \times \sO(2)
+~.
+\end{eqnarray*}
+
+\end{cor}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Moduli of framed tori}
+
+
+Consider the map:
+\[
+\Act\colon
+\Fr(\TT^2)
+\times
+\Imm(\TT^2)
+\longrightarrow
+\Fr(\TT^2)
+~,
+\]
+\[
+( \varphi , f )
+\mapsto 
+\Bigl(
+~
+\tau_{\TT^2} 
+\underset{\cong}{\xra{\sD f}}
+f^\ast \tau_{\TT^2}
+\underset{\cong}{ \xra{f^\ast \varphi} }
+f^\ast \epsilon^2_{\TT^2}
+=
+\epsilon^2_{\TT^2}
+~
+\Bigr)
+~.
+\]
+
+\begin{lemma}
+\label{t50}
+The map $\Act$ is a continuous right action of the topological monoid $\Imm(\TT^2)$ on the topological space $\Fr(\TT^2)$.
+In particular, there is a continuous right action of the topological group $\Diff(\TT^2)$ on the topological space $\Fr(\TT^2)$. 
+
+\end{lemma}
+
+\begin{proof}
+Consider the topological subspace of the topological space of smooth maps between total spaces of tangent bundles, which is endowed with the $\sC^\infty$-topology,
+\[
+{\sf Bdl}^{\sf fw.iso}(\tau_{\TT^2} , \tau_{\TT^2})
+~\subset~
+\Map\bigl( \sT \TT^2 , \sT \TT^2 \bigr)
+~,
+\]
+consisting of the smooth maps between tangent bundles that are fiberwise isomorphisms.
+Notice the factorization
+\[
+\Act\colon
+\Fr(\TT^2)
+\times
+\Imm(\TT^2)
+\xra{\id \times \sD}
+\Fr(\TT^2)
+\times 
+{\sf Bdl}^{\sf fw.iso}(\tau_{\TT^2} , \tau_{\TT^2})
+\xra{\circ}
+\Fr(\TT^2)
+\]
+as first taking the derivative, followed by composition of bundle morphisms.  
+The definition of the $\sC^\infty$-topology is so that the first map in this factorization is continuous. 
+The second map in this factorization is continuous because composition is continuous with respect to $\sC^\infty$-topologies.
+We conclude that $\Act$ is continuous.  
+
+We now show that $\Act$ is an action.
+Clearly, for each $\varphi \in \Fr(\TT^2)$, there is an equality $\Act( \varphi  , \id) = \varphi$.
+Next, let $g,f\in \Imm(\TT^2)$, and let $\varphi \in \Fr(\TT^2)$.
+The chain rule, together with universal properties for pullbacks, gives that the diagram among smooth vector bundles
+\[
+\xymatrix{
+\tau_{\TT^2}
+\ar@(u,u)[rrrrrr]^-{\sD (g\circ f)}
+\ar[rr]_-{\sD g}
+%\ar[d]
+&&
+g^\ast 
+\tau_{\TT^2}
+\ar[rr]_-{g^\ast \sD f}
+%\ar[d]
+&&
+f^\ast g^\ast \tau_{\TT^2}
+\ar[d]^-{f^\ast g^\ast \varphi}
+\ar[rr]_-=
+&&
+(g\circ f)^\ast \tau_{\TT^2}
+\ar[d]^-{(g \circ f)^\ast \varphi}
+\\
+\epsilon^2_{\TT^2}
+&&
+g^\ast \epsilon^2_{\TT^2}
+\ar[ll]_-=
+&&
+f^\ast g^\ast \epsilon^2_{\TT^2}
+\ar[ll]_-=
+&&
+(g \circ f)^\ast \epsilon^2_{\TT^2}
+\ar[ll]_-=
+\ar@(d,d)[llllll]^=
+}
+\]
+commutes.
+Inspecting the definition of $\Act$, the commutativity of this diagram implies the euqlity $\Act\bigl( \Act(\varphi, g) , f \bigr) = \Act( \varphi , g\circ f)$, as desired.  
+
+
+
+\end{proof}
+
+
+
+
+\begin{remark}
+\label{r8}
+The space of homotopy-coinvariants with respect to this conjugation action $\Act$ can be interpreted as the \bit{moduli space of framed tori}:
+\[
+\bcM^{\fr}_1
+~:=~
+\Fr(\TT^2)_{/ \Diff(\TT^2)}
+~.
+%\footnote{Here, we use the subscript ${\sf h}$ just for emphasis: we care considering the homotopy-coinvariants for this continuous right action $\Diff(\TT^2) \lacts \Fr(\TT^2)$.  
+%}
+\]
+
+
+\end{remark}
+
+
+
+
+%\begin{remark}
+%\label{r9}
+%In diagrams, the value $\Act(\varphi,f)$ is the framing
+%\begin{equation}\label{e299}
+%\xymatrix{
+%\TT^{2} \times \RR^{2} 
+%\ar[d] \ar[rr]^-{f^{-1} \times \id} 
+%&& 
+%\TT^{2} \times \RR^{2} 
+%\ar[rr]^-{\varphi} 
+%\ar[d] 
+%&& 
+%{\sT}\TT^{2} 
+%\ar[rr]^-{\sD f} 
+%\ar[d] 
+%&& 
+%{\sT}\TT^{2} 
+%\ar[d] 
+%\\
+%\TT^{2} 
+%\ar[rr]^-{f^{-1}} 
+%&& 
+%\TT^{2}  
+%\ar[rr]^-{\id} 
+%&& 
+%\TT^{2}
+%\ar[rr]^-{f} 
+%&& 
+%\TT^{2}
+%~.
+%}
+%\end{equation} 
+%
+%\end{remark}
+
+
+\begin{observation}\label{t4}
+Through Corollary~\ref{t25}, the action $\Act$ is compatible with familiar actions.
+Specifically, a choice of framing $\varphi \in \Fr(\TT^2)$ fits $\Act$ into a commutative diagram among topological spaces:
+\begin{equation*}%\label{e19}
+\xymatrix{
+\Fr(\TT^2)
+\times
+\Imm(\TT^2)
+\ar[rrr]^-{\Act}
+&
+&&
+\Fr(\TT^2)
+\\
+\Map\bigl( \TT^2 , \GL_2(\RR) \bigr)
+\times
+\bigl(
+\EZ \ltimes \TT^2 
+\bigr)
+\ar[u]^-{ {\rm Cor}~\ref{t25} \times \Aff}_-{\simeq}
+\ar[r]^-{ \id \times \pr }
+\ar[d]_-{ {\rm Cor}~\ref{t25} \times \id}^-{\simeq}
+&
+\Map\bigl( \TT^2 , \GL_2(\RR) \bigr)
+\times
+\EZ 
+\ar[rr]^-{\rm value-wise}_-{\rm multiply}
+\ar[d]^-{\id \times {\rm Cor}~\ref{t25}}_-{\simeq}
+&&
+\Map\bigl( \TT^2 , \GL_2(\RR) \bigr)
+\ar[d]^-{{\rm Cor}~\ref{t25}}_-{\simeq}
+\ar[u]_-{{\rm Cor}~\ref{t25}}^-{\cong}
+\\
+\bigl( \ZZ^2 \times \GL_2(\RR) \bigr)
+\times
+\bigl(
+\EZ \ltimes \TT^2 
+\bigr)
+\ar[r]^-{ \id \times \pr }
+&
+\bigl( \ZZ^2\times  \GL_2(\RR) \bigr)
+\times
+\EZ 
+\ar[rr]^-{(a,b,A;B)\mapsto (a,b,AB)}
+&&
+%\underset{\rm swap}
+%\cong
+%\ZZ^2 \times \bigl( \GL_2(\RR)\times \GL_2(\RR) \bigr)
+\ZZ^2 \times \GL_2(\RR) 
+.
+}
+\end{equation*}
+
+
+\end{observation}
+
+
+
+
+
+
+
+\begin{cor}
+\label{t26}
+A choice of framing $\varphi \in \Fr(\TT^2)$ canonically determines an identification in the $\infty$-category $\Spaces$ of the homotopy-coinvariants for $\Act$,
+\[
+\Fr(\TT^2)_{/\Diff(\TT^2)} 
+\xra{~\simeq~}
+\ZZ^2
+\times
+\Bigl(
+{(\CC\PP^\infty)^2}_{ \Omega
+\bigl( \GL_2(\RR)_{/\GL_2(\ZZ)} \bigr)
+}
+\Bigr)
+~,
+\]
+through which $\varphi$ selects the $(0,0)$-path-component. 
+Each path-component in this expression fits into the fiber sequence,
+\[
+(\CC\PP^\infty)^2
+\longrightarrow
+{(\CC\PP^\infty)^2}_{/\Omega
+\bigl( \GL_2(\RR)_{/\GL_2(\ZZ)} \bigr)
+}
+\longrightarrow
+\bigl( \GL_2(\RR)_{/\GL_2(\ZZ)} \bigr)
+~,
+\]
+which is classified by the action
+\[
+\Omega
+\bigl( \GL_2(\RR)_{/\GL_2(\ZZ)} \bigr)
+\xra{~\pi_0~}
+\pi_1
+\bigl( \GL_2(\RR)_{/\GL_2(\ZZ)} \bigr)
+\longrightarrow
+\GL_2(\ZZ)
+~\lacts~
+\sB^2 \ZZ^2 \simeq (\CC\PP^\infty)^2
+~.
+\]
+Furthermore, the resulting projection is given by
+\[
+\Fr(\TT^2)_{/\Diff(\TT^2)}
+\longrightarrow
+\ZZ^2
+~,\qquad
+[\varphi']
+\mapsto
+\Bigl[
+\TT \vee \TT = \sk_1(\TT^2)
+\xra{ \varphi^{-1} \varphi' _{|\sk_1(\TT^2)} }
+\GL_2(\RR) 
+\Bigr]
+\in \pi_1\bigl(\uno \in \GL_2(\RR)\bigr)^2 \cong \ZZ^2
+~.
+\]
+
+
+
+\end{cor}
+
+
+\begin{proof}
+We explain the following sequences of identifications in the $\infty$-category $\Spaces$.
+\begin{eqnarray}
+\nonumber
+\Fr(\TT^2)_{/\Diff(\TT^2)} 
+&
+\underset{\rm Obs~\ref{t4}}
+{~\simeq~}
+&
+\Bigl(
+\ZZ^2
+\times
+\GL_2(\RR) 
+\Bigr)_{\GL_2(\ZZ) \ltimes \TT^2}
+\\
+\nonumber
+&
+\underset{\rm triv~on~\ZZ^2}
+{~\simeq~}
+&
+\ZZ^2
+\times
+\Bigl(
+\GL_2(\RR) 
+\Bigr)_{ \GL_2(\ZZ) \ltimes \TT^2 }
+\\
+\nonumber
+&
+\underset{\rm iterate~coinvariants}
+{~\simeq~}
+&
+\ZZ^2
+\times
+\Bigl(
+\bigl(
+\GL_2(\RR) 
+\bigl)_{\TT^2}
+\Bigr)_{ \GL_2(\ZZ)}
+\\
+\nonumber
+&
+\underset{\rm \TT^2-action~trivial}
+{~\simeq~}
+&
+\ZZ^2
+\times
+\Bigl(
+(\CC\PP^\infty)^2\times \GL_2(\RR) 
+\Bigr)_{ \GL_2(\ZZ)}
+\\
+\nonumber
+&
+\underset{\rm \Omega-Puppe}
+{~\simeq~}
+&
+\ZZ^2
+\times
+\Bigl(
+(\CC\PP^\infty)^2
+\Bigr)_{ \Omega \bigl( \GL_2(\RR)_{/\GL_2(\ZZ)} \bigr) }
+~.
+\end{eqnarray}
+The first identification follows from Observation~\ref{t4}.
+The bottom horizontal map in Observation~\ref{t4} reveals that the action $\GL_2(\ZZ) \ltimes \TT^2 \lacts \ZZ^2 \times \GL_2(\RR)$ is the diagonal action of the trivial action on $\ZZ^2$ and the action \[
+\GL_2(\ZZ) \ltimes \TT^2 \xra{~\pr~} \GL_2(\ZZ) \xra{~\rm include~} \underset{\rm left~mult}\lacts \GL_2(\RR)
+~.
+\]
+This supplies the second identification.  
+The third identification is iteration of coinvariants.
+The fourth identification follows because the restricted $\TT^2$-action is trivial.  
+The final identification is an instance of the following general fact.
+
+Let $H \to G$ be a morphism between continuous groups that is $\pi_0$-surjective.
+Let $H\lacts X$ be an action on a space.  
+The $\Omega$-Puppe sequence supplies a canonical morphism 
+$
+\Omega (G_{/H})
+\to 
+H
+$
+between continuous groups.
+Specifically, this morphism witnesses the stabilizer of $\ast \xra{\rm unit} G$ with respect to the action $H \to G \underset{\rm left~trans}\lacts G$:
+\[
+\xymatrix{
+\Omega (G_{/H})
+\ar[rr]
+\ar[d]
+&&
+H
+\ar[d]
+\\
+\ast
+\ar[rr]^-{\rm unit}
+&&
+G
+.
+}
+\]
+In particular, there is a canonical $\Omega (G_{/H})$-equivariant map
+\[
+X
+~\simeq~
+X\times \ast
+\xra{ \id \times {\rm unit}}
+X \times G
+~.
+\]
+Taking coinvariants lends a canonically commutative diagram among spaces:
+\[
+\xymatrix{
+X_{ \Omega (G_{/H}) }
+\ar[d]
+\ar[r]
+&
+(X \times  G)_{/H}
+\ar[r]
+\ar[d]
+&
+X_{/H}
+\ar[d]
+\\
+\sB \Omega (G_{/H})
+\ar[r]
+&
+G_{/H}
+\ar[r]
+&
+\sB H
+.
+}
+\]
+Because groupoid-objects are effective in the $\infty$-category $\Spaces$,
+the coinvariants functor,
+\[
+\Fun ( \sB H , \Spaces )
+\longrightarrow
+\Spaces_{/\sB H}
+~,\qquad
+(H \lacts X)
+\mapsto 
+( X_{/H} \to \sB H)
+~,
+\]
+is an equivalence between $\infty$-categories.
+In particular, it preserves products.
+It follows that the right square witnesses a pullback.  
+By definition of coinvariants of the restricted action $\Omega (G_{/H}) \to H \lacts X$, the outer square is a pullback.  
+The connectivity assumption on the morphism $H\to G$ implies the left bottom horizontal map is an equivalence.  
+We conclude that the left top horizontal map is also an equivalence, as desired.  
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+For $\varphi\in \Fr(\TT^2)$ a framing of the torus, consider the orbit map of $\varphi$ for this continuous action of Lemma~\ref{t50}:
+\[
+%\begin{equation}\label{e10}
+{\sf Orbit}_\varphi
+\colon
+\Imm(\TT^2)
+\xra{~( ~ {\sf constant}_{\varphi}~ , ~\id ~ )~}
+\Fr(\TT^2)
+\times 
+\Imm(\TT^2)
+\xra{~{\sf Act}~}
+\Fr(\TT^2)
+~,\qquad
+f
+\mapsto {\sf Act}(\varphi , f)
+~.
+%\end{equation}
+\]
+
+\begin{observation}
+\label{t33}
+After Observation~\ref{t4}, for each framing $\varphi \in \Fr(\TT^2)$, 
+the orbit map for $\varphi$ fits into a commutative diagram among topological spaces:
+\begin{equation*}%\label{e19}
+\xymatrix{
+\Diff(\TT^2) 
+\ar[rr]
+\ar@{-->}[dr]^-{\sH_1}
+&&
+\Imm(\TT^2)
+\ar[rrrr]^-{{\sf Orbit}_\varphi}
+\ar@{-->}[dr]^-{\sH_1}
+&&
+&&
+\Fr(\TT^2)
+\ar[d]^-{{\rm Cor}~\ref{t25}}_-{\simeq}
+\\
+&
+\GL_2(\ZZ) 
+\ar[rr] 
+&&
+\EZ
+\ar[r]^-{\RR\underset{\ZZ}\ot }_-{\rm standard}
+&
+\GL_2(\RR)
+\ar[rr]^-{ \lag (0,0) \rag \times \id}
+&&
+\ZZ^2 \times \GL_2(\RR)
+\\
+\GL_2(\ZZ) \ltimes \TT^2
+\ar[uu]^-{\Aff}
+\ar[rr]
+\ar[ur]_-{\pr}
+&&
+\EZ \ltimes \TT^2
+\ar[uu]^(.35){\Aff} | \hole
+\ar[ur]_-{\pr}
+&&
+.
+}
+\end{equation*}
+%{\color{red}
+%LaTex issue:
+%\\
+%\textcolor{blue}{fixed} How to move the ``$\Aff$'', so it doesn't interfere with the horizontal arrow??
+%}
+
+The existence and commutativity of the fillers follows form Observation~\ref{t22}.
+
+\end{observation}
+
+\begin{remark}
+\label{r5}
+The point-set fiber of ${\sf Orbit}_{\varphi}$ over $\varphi$, which is the point-set stabilizer of the action $\Fr(\TT^2) \racts \Imm(\TT^2)$ of Lemma~\ref{t50}, 
+consists of those local-diffeomorphisims $f$ for which the diagram among vector bundles, 
+\[
+\xymatrix{
+\tau_{\TT^2}
+\ar[rr]^-{\varphi}
+\ar[d]_-{\sD f}
+&&
+\epsilon^2_{\TT^2}
+\\
+f^\ast 
+\tau_{\TT^2}
+\ar[rr]^-{f^\ast \varphi}
+&&
+f^\ast
+\epsilon^2_{\TT^2}
+\ar[u]_-=
+,
+}
+\]
+commutes.
+In the case of the standard framing $\varphi_0$, a local-diffeomorphism $f$ satisfies this rigid condition if and only if $f = {\sf trans}_{f(0)} \circ {\sf quot}_C$ is translation in the group $\TT^2$ after a group-theoretic quotient $\TT^2 \xra{\rm quotient} \TT^2$. 
+In particular, the point-set fiber of $\bigl( {\sf Orbit}_{\varphi_0} \bigr)_{|\Diff(|TT^2)}$ over $\varphi_0$ is $\TT^2$, and the homomorphism $\TT^2 \hookrightarrow \Diff(\TT^2)$ witnesses the inclusion of those diffeomorphisms that \emph{strictly} fix $\varphi_0$.  
+
+
+On the other hand, the \emph{homotopy-}fiber of~${\sf Orbit}_{\varphi_0}$ over $\varphi_0$ is more flexible: 
+it consists of pairs $(f, \gamma)$ in which $f$ is a local-diffeomorphism and $\gamma$ is a homotopy 
+\[
+\varphi_0
+~ \underset{\gamma}\sim ~
+\Act(\varphi_0,f)
+~.
+\]
+As we will see, every orientation-preserving local-diffeomorphism $f$ admits a lift to this homotopy-fiber.  
+In particular, small perturbations of such $f$, such as multiplication by bump functions in neighborhoods of $\TT^2$, can be lifted to this homotopy-fiber.
+\end{remark}
+
+
+
+
+\begin{definition}\label{d1}
+Let $\varphi\in \Fr(\TT^2)$ be a framing of the torus.  
+The space of \bit{framed local-diffeomorphisms}, and the space of \bit{framed diffeomorphisms}, of the framed smooth manifold $(\TT^2,\varphi)$ are respectively the pullbacks in the $\infty$-category $\Spaces$:
+\begin{equation*}%\label{e11}
+\xymatrix{
+\Imm^{\sf fr}(\TT^2,\varphi)
+\ar[rr]
+\ar[d]
+&&
+\Imm(\TT^2)
+\ar[d]^-{{\sf Orbit}_\varphi}
+&&
+\Diff^{\sf fr}(\TT^2,\varphi)
+\ar[rr]
+\ar[d]
+&&
+\Diff(\TT^2)
+\ar[d]^-{{\sf Orbit}_\varphi}
+\\
+\ast
+\ar[rr]^-{\lag \varphi \rag}
+&&
+\Fr(\TT^2)
+&
+\text{ and }
+&
+\ast
+\ar[rr]^-{\lag \varphi \rag}
+&&
+\Fr(\TT^2)
+~.
+}
+\end{equation*}
+In the case that the framing $\varphi = \varphi_0$ is the standard framing, we simply denote
+\[
+\Imm^{\sf fr}(\TT^2)
+~:=~
+\Imm^{\sf fr}(\TT^2,\varphi_0)
+\qquad
+\text{ and }
+\qquad
+\Diff^{\sf fr}(\TT^2)
+~:=~
+\Diff^{\sf fr}(\TT^2,\varphi_0)
+~.
+\]
+\end{definition}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{lemma}\label{t2}
+Let $G \lacts X$ be an action of a continuous on a space $X$.
+Let $\ast \xra{\lag x \rag } X$ be a point in $X$.
+Consider stabilizer of $x$, which is the fiber of the orbit map of $x$:
+\begin{equation}
+\label{e52}
+\xymatrix{
+{\sf Stab}_G(x)
+\ar[rrrr]
+\ar[d]
+&&
+&&
+\ast
+\ar[d]^-{\lag x \rag}
+\\
+G \simeq G\times \ast 
+\ar[rr]^-{ \id \times \lag x \rag} 
+\ar@(d,d)[rrrr]_-{{\sf Orbit}_x}
+&&
+G \times X 
+\ar[rr]^-{\sf act} 
+&&
+X
+.
+}
+\end{equation}
+There is a canonical identification in $\Spaces$ between this stabilizer and the based-loops at $[x]\colon \ast \xra{\lag x \rag} X \xra{\rm quotient} X_{/G}$ of the $G$-coinvariants,
+\[
+{\sf Stab}_G(x)
+~\simeq~
+\Omega_{[x]} X_{/G}
+~,
+\]
+through which the resulting composite morphism $\Omega_{[x]} X_{/G}
+\simeq {\sf Stab}_G(x)
+\to 
+G
+$
+canonically lifts to one between continuous groups.
+
+\end{lemma}
+
+
+
+\begin{proof}
+By definition of a $G$-action, the orbit map $G\xra{{\sf Orbit}_x} X$ is canonically $G$-equivariant.
+Taking $G$-coinvariants supplies an extension of the commutative diagram~(\ref{e52}) in $\Spaces$:
+\[
+%\begin{equation}\label{e18}
+\xymatrix{
+{\sf Stab}_G(x) 
+\ar[rr] \ar[d]
+&&
+G 
+\ar[d]^-{{\sf Orbit}_x} \ar[rr]^-{\rm quotient}
+&&
+G_{/G} 
+\simeq 
+\ast
+\ar[d]^-{({\sf Orbit}_x)_{G}}
+\\
+\ast \ar[rr]^-{\lag x\rag}
+&&
+X
+\ar[rr]^-{\rm quotient}
+&&
+X_{/G}
+.
+}
+%\end{equation}
+\]
+Through the identification $G_{/G} \simeq \ast$, the right vertical map is identified as $\ast\xra{\lag [x] \rag} X_{/G}$.
+Using that groupoids in $\Spaces$ are effective, the right square is a pullback.  
+Because the lefthand square is defined as a pullback, it follows that the outer square is a pullback.
+The identification ${\sf Stab}_G(x) \simeq \Omega_{[x]} X_{/G}$ follows.  
+In particular, the space ${\sf Stab}_G(x)$ has the canonical structure of a continuous groups.
+
+
+Now, this continuous group ${\sf Stab}_G(x)$ is evidently functorial in the argument $G \lacts X \ni x$.  
+In particular, the unique $G$-equivariant morphism $X\xra{!} \ast$ determines a morphism between continuous groups
+\[
+{\sf Stab}_x(X)
+\longrightarrow
+{\sf Stab}_{\ast}(\ast)
+~\simeq~
+G
+~.
+\]
+
+
+\end{proof}
+
+\begin{cor}\label{t3}
+Let $\varphi \in \Fr(\TT^2)$ be a framing.
+There space $\Diff^{\fr}(\TT^2 , \varphi)$ is canonically endowed with the structure of a continuous group over $\Diff(\TT^2)$.
+With respect to this structure, 
+there is a canonical identification,
+\[
+\Diff^{\fr}(\TT^2, \varphi)
+~\simeq~
+\Omega_{[\varphi]} \bigl( \Fr(\TT^2)_{/\Diff(\TT^2)} \bigr)
+~.
+\]
+
+
+\end{cor}
+
+
+
+
+
+
+%\begin{proof}
+%The commutative diagram among spaces~(\ref{e11}) extends as a commutative diagram in $\Spaces$:
+%\begin{equation}\label{e18}
+%\xymatrix{
+%\Diff^{\fr}(\TT^2,\varphi) \ar[rr] \ar[d]
+%&&
+%\Diff(\TT^2) \ar[d]^-{{\sf Orbit}_\varphi} \ar[rr]^-{\rm quotient}
+%&&
+%\Diff(\TT^2)_{/\Diff(\TT^2)} \ar[d]^-{({\sf Orbit}_\varphi)_{/\Diff(\TT^2)}}
+%\\
+%\ast \ar[rr]^-{\lag \varphi\rag}
+%&&
+%\Fr(\TT^2)
+%\ar[rr]^-{\rm quotient}
+%&&
+%\Fr(\TT^2)_{/\Diff(\TT^2)}
+%,
+%}
+%\end{equation}
+%in which the rightmost terms are homotopy-coinvariants.  
+%Observe the canonical contractibility $\Diff(\TT^2)_{/\Diff(\TT^2)}\simeq\ast$, with respect to which the right vertical map selects $[\varphi] \in \Fr(\TT^2)_{/\Diff(\TT^2)}$.
+%Through this contractibility, the right square is a homotopy pullback square.  
+%Because the lefthand square is defined as a pullback square, it follows that the outer square is a  pullback square.
+%The result follows.
+%
+%\end{proof}
+
+
+
+
+
+
+
+\begin{observation}
+\label{t43}
+Let $\varphi \in \Fr(\TT^2)$ be a framing.
+The kernel of $\Phi$ acts by rotating framing, which is to say 
+there is a canonically commutative diagram among continuous groups:
+\[
+\xymatrix{
+\ZZ
+\ar[d]^-{\cong}_-{\bigl\lag (\tau_1\tau_2)^6 \bigr\rag}
+\ar[rr]^-{\simeq}
+&&
+\Omega_{\uno} \GL_2(\RR)
+\ar[rr]^-{\Omega \bigl( A\mapsto A \cdot \varphi \bigr)}
+&&
+\Omega_{\varphi} \Fr(\TT^2)
+\ar[d]
+\\
+\Ker(\Phi)
+\ar[rr]
+&&
+\Braid
+\ar[rr]^-{\Aff^{\fr}}
+&&
+\Diff^{\fr}(\TT^2, \varphi)
+.
+}
+\]
+%
+%\end{cor}
+%
+%\begin{proof}
+%%[Proof of Corollary~\ref{t43}]
+Indeed, there is a canonically commutative diagram among spaces, in which each row is an $\Omega$-Puppe sequence:
+\[
+\xymatrix{
+\Ker(\Phi)
+\ar[rr]
+\ar[d]
+&&
+\Braid
+\ar[rr]^-{\Phi}
+\ar[d]^-{\Aff^{\fr}}
+&&
+\GL_2(\ZZ)
+\ar[rr]^-{\RR\underset{\ZZ}\ot}
+\ar[d]^-{\Aff}
+&&
+\GL_2(\RR)
+\ar[d]^-{\rm Rotate~the~framing~\varphi}
+\\
+\Omega_{\varphi} \Fr(\TT^2)
+\ar[rr]
+&&
+\Diff^{\fr}(\TT^2,\varphi)
+\ar[rr]
+&&
+\Diff(\TT^2)
+\ar[rr]^-{{\sf Orbit}_{\varphi}}
+&&
+\Fr(\TT^2)
+.
+}
+\]
+By definition of $\Diff^{\fr}(\TT^2,\varphi)$, both of the horizontal sequences are $\Omega$-Puppe sequences.
+The result follows.  
+
+\end{observation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Braid group and braid monoid}
+\label{sec.monoid}
+Here we collect some facts about the braid group on 3 strands, and the braid monoid on 3 strands.
+
+
+
+
+
+%Notice the commutative diagram among topological monoids
+%\begin{equation*}
+%%\label{e53}
+%\xymatrix{
+%\SL_2(\ZZ)
+%\ar[d]_-{\rm inclusion}
+%\ar[rr]^-{\RR \underset{\ZZ}\ot}
+%&&
+%\SL_2(\RR)
+%\ar[d]^-{\rm inclusion}
+%\\
+%\EpZ
+%\ar[rr]^-{\RR \underset{\ZZ}\ot}
+%&&
+%\End^{{\sf det} > 0}(\RR^2)
+%,
+%}
+%\end{equation*}
+%where the bottom right term is the connected-component of $\uno \in \GL_2(\RR)$.  
+%
+%
+%
+%
+%\begin{definition}
+%\label{d3}
+%The \bit{braid group on 3 strands}, and respectively the monoid which we refer to as \bit{EndBraid}, are the pullbacks among monoids:
+%\[
+%\xymatrix{
+%\Braid
+%\ar[rr]
+%\ar[d]_-{\Phi}
+%&&
+%\Ebraid
+%\ar[d]_-{\Psi} \ar[rr]
+%&&
+%\w{\GL}^+_2(\RR)  \ar[d]^-{\rm universal~cover}
+%\\
+%\SL_2(\ZZ)
+%\ar[rr]
+%&&
+%\EpZ
+%\ar[rr]^-{\RR \underset{\ZZ}\ot}
+%&&
+%\GL^+_2(\RR)
+%.
+%}
+%\]
+%
+%\end{definition}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%The homomorphisms~$\Phi$ and $\Psi$ determine actions on the topological group $\TT^2$: 
+%\begin{equation*}
+%%\label{e3}
+%\Braid
+%\xra{~\Phi~}
+%\SL_2(\ZZ)
+%\hookrightarrow
+%\GL_2(\ZZ)
+%\underset{~(\ref{e2})~}
+%\lacts
+%\TT^2
+%\qquad
+%\text{ and }
+%\qquad
+%\Ebraid
+%\xra{~\Psi~}
+%\EpZ
+%\hookrightarrow
+%\EZ
+%\underset{~(\ref{e2})~}
+%\lacts
+%\TT^2
+%~.
+%\end{equation*}
+%These actions define a semi-direct product topological group and a semi-direct product topological monoid, and Definition~\ref{d3} supplies an inclusion between them:
+%\begin{equation}
+%\label{e4}
+%\TT^2 \rtimes \Braid
+%\longrightarrow
+%\TT^2 \rtimes \Ebraid
+%~.
+%\end{equation}
+
+
+
+\begin{remark}
+We give an explicit description of $\Ebraid$.
+In~\cite{rawn}, the author gives an explicit description for the universal cover of $\SP_{2}(\RR) = \SL_{2}(\RR)$ (and goes on to establish the pullback square of Proposition~\ref{t32}).
+Following those methods, consider function
+\[
+\phi
+\colon
+\GL_2(\RR)
+\longrightarrow
+\SS^1
+~,\qquad
+{\color{red}
+det(C_{A})
+}
+~,
+\]
+the argument map
+%\emph{circle function} $\phi: \SL_{2}(\RR) \rightarrow \SS^{1}$ and an associated function 
+\[
+\eta 
+\colon
+(\GL_{2}(\RR))^{\times 2} 
+\longrightarrow 
+\RR
+~,\qquad
+\arg\Bigl(
+{\color{red}
+??
+}
+\Bigr)
+~.
+\]
+Then the universal cover can be expressed as the subset
+\[
+\w{\GL}^+_{2}(\RR)
+~:=~
+\bigl\{
+(A, c)  \mid  \phi(A) = e^{ic}
+\bigr\}
+~\subset~
+\GL_2(\RR)\times \RR
+~,~
+\text{with group-law }(A, c) \cdot (B, d) := \bigl(AB, c + d + \eta(A, B) \bigr)
+~.
+\]
+%We can then extend these methods to give a description of the universal covering group $\w{\GL}_{2}^{+}(\RR)$ by first projecting onto $\SP_{2}(\RR),$ take 
+%\[
+%{\sf proj}: \GL_{2}^{+}(\RR) \rightarrow \SL_{2}(\RR) = \SP_{2}(\RR); \hspace{15pt} A \mapsto \frac{1}{\sqrt{det A}}A.
+%\]
+%Then we can take $\phi' = \phi \circ {\sf proj}$ and $\eta' = \eta \circ {\sf proj}^{\times 2}$ and define 
+%\[
+%\w{\GL}_{2}^{+}(\RR) := \{ (g, c) \in \GL_{2}^{+}(\RR) \times \RR : \phi'(g) = e^{ic} \}
+%\]
+%with group multiplication again given by $(A, i) \cdot (B, j) = (AB, i + j + \eta'(A, B)).$
+So the monoid
+\[
+\Ebraid
+~:=~
+\bigl\{
+(A, c)  \mid  \phi(A) = e^{ic}
+\bigr\}
+~\subset~
+\EpZ \times \RR
+~,~
+\text{with monoid-law }(A, c) \cdot (B, d) := \bigl(AB, c + d + \eta(A, B) \bigr)
+~.
+\]
+\end{remark}
+
+
+\begin{observation}
+\label{t39}
+The inclusion $\SL_2(\ZZ)\subset \EpZ$ between submonoids of $\GL_2^+(\RR)$ determines an inclusion between topological monoids:
+\begin{equation}
+\label{e4}
+\Braid \ltimes \TT^2
+\longrightarrow
+\Ebraid \ltimes \TT^2 
+~.
+\end{equation}
+After Observation~\ref{t21}, this inclusion~(\ref{e4}) witnesses the maximal subgroup, both as topological monoids and as monoid-objects in the $\infty$-category $\Spaces$.
+
+\end{observation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{observation}
+In $\Braid$, there is an identity of the generator of $\Ker(\Phi)$:
+\[
+(\tau_{1} \tau_{2} \tau_{1})^4 
+=
+( \tau_{1} \tau_{2})^6
+=
+(\tau_{2} \tau_{1} \tau_{2})^4
+\in {\sf Ker}(\Phi)
+~.
+\]
+For that matter, since the matrix
+\begin{equation}
+\label{e64}
+R~:=~ U_1 U_2 U_3 ~=~ 
+\begin{bmatrix}
+0 & 1 
+\\
+-1 & 0
+\end{bmatrix}
+~=~
+U_2 U_1 U_2
+~\in~\GL_2(\ZZ)
+\end{equation}
+implements rotation by $-\frac{\pi}{2}$, 
+then $R^4 = \uno$ in $\GL_2(\ZZ)$.
+
+\end{observation}
+
+
+
+For $\RR\underset{\QQ}\ot \colon \GL_2^+(\QQ)\subset \GL_2^+(\RR)$ the subgroup with rational coefficients, consider the pullback among groups:
+\[
+\w{\GL}_2^+(\QQ)
+~:=~
+\GL_2^+(\QQ)
+\underset{
+\GL_2^+(\RR)
+}
+\times
+\w{\GL}_2(\RR)
+~.
+\]
+\begin{prop}
+\label{t59}
+Each of the standard inclusions
+\[
+\QQ\underset{\ZZ}\ot
+\colon
+\EZ
+\longrightarrow
+\GL_2(\QQ)
+\qquad
+\text{ and }
+\qquad
+\Ebraid
+\longrightarrow
+\w{\GL}_2^+(\QQ)
+\]
+witnesses a group-completion between (a priori continuous) monoids.
+In other words, the induced maps between pointed spaces are equivalences:
+\[
+{\sf BE}_2(\ZZ)
+\xra{~\simeq~}
+{\sf BGL}_2(\QQ)
+\qquad
+\text{ and }
+\qquad
+\sB
+\Ebraid
+\xra{~\simeq~}
+{\sf B \w{GL}}_2^+(\QQ)
+~.
+\]
+
+\end{prop}
+
+\begin{proof}
+First note that the (a priori continuous) monoid $\NN^\times\cong \underset{p~{\rm prime}} \bigoplus (\NN,+)$ is the free (a priori continuous) monoid on the set of prime natural numbers.  
+Next note the monomorphism between monoids $\NN^\times \subset \EZ$ as scalar matrices, the image which is central.  
+Recall the elementary formula for the inverse of a 2x2 matrix:
+\[
+\text{ for }A = \begin{bmatrix} a & b \\ c & d  \end{bmatrix}\in \EZ
+\qquad
+\text{ then }
+\qquad
+A^{-1} = \frac{1}{ad-bc}\begin{bmatrix} a & b \\ c & d  \end{bmatrix} \in \GL_2(\QQ)
+~.
+\]
+Together, these facts imply the canonical inclusion $\QQ\underset{\ZZ}\ot \colon \EZ \to \GL_2(\QQ)$ witnesses the localization on $\NN^\times \subset \EZ$:
+\[
+\EZ[ (\NN^\times)^{-1} ]
+~\cong~
+\GL_2(\QQ)
+~.
+\]
+In particular, this localization is a (a priori continuous) group.
+The left identification follows from the universal property of group-completion.
+This immediately implies $\QQ\underset{\ZZ}\ot \colon \EpZ \to \GL_2^+(\QQ)$ also witnesses a group-completion.  
+The right result follows via base-change along the central extension among continuous groups
+\[
+1
+\longrightarrow
+\ZZ
+\longrightarrow
+\w{\GL}_2^+(\RR)
+\longrightarrow
+\GL_2^+(\RR)
+\longrightarrow
+1
+~.
+\]
+
+\end{proof}
+
+
+
+The following result is an immediate consequence of the Definition~\ref{d?? definition of EBraid}, using that the continuous group $\GL^+_2(\RR)$ is a path-connected 1-type.
+\begin{cor}
+\label{t31}
+%The homomorphism~$\Phi$ fits into a pullback square among topological groups in which the right vertical homomorphism is the universal cover:
+%\begin{equation}\label{e23}
+%\xymatrix{
+%\Braid \ar[d]_-{\Phi} \ar[rr]
+%&&
+%\w{\SL}_2(\RR)\ar[d]^-{\rm universal~cover}
+%\\
+%\SL_2(\ZZ)
+%\ar[rr]^-{\RR \underset{\ZZ}\ot}_-{\rm standard}
+%&&
+%\SL_2(\RR)
+%.
+%}
+%\end{equation}
+There are pullbacks among continuous monoids:
+\begin{equation*}%\label{e24}
+\xymatrix{
+\Braid
+\ar[rr]
+\ar[d]_-{\Phi}
+&&
+\Ebraid
+\ar[d]_-{\Psi} \ar[rr]
+&&
+\ast \ar[d]^-{\lag \uno \rag}
+\\
+\GL_2(\ZZ)
+\ar[rr]
+&&
+\EZ
+\ar[rr]^-{\RR \underset{\ZZ}\ot}
+&&
+\GL_2(\RR)
+.
+}
+\end{equation*}
+In particular, there is a canonical identification between continuous groups over $\GL_2(\ZZ)$:
+\[
+\Braid
+~\simeq~
+\Omega\bigl(
+\GL_2(\RR)_{/\GL_2(\ZZ)}
+\bigr)
+\qquad
+\bigl({\rm ~over~}
+\GL_2(\ZZ)
+~\bigr)
+~.
+\]
+
+\end{cor}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Proof of Theorem~\ref{Theorem A} and Corollaries~\ref{t40} }
+Theorem~\ref{Theorem A} consists of three statements. 
+Theorem~\ref{Theorem A}(1) is a consequence of Corollary~\ref{t26}.
+Theorem~\ref{Theorem A}(2) follows immediately from the following.
+%Theorem~\ref{Theorem A}(2b) . 
+%{\color{red}
+%Modify this blurb so it matches the way that theorem, and the logic in this paper, are presented.  
+%}
+
+
+
+\begin{lemma}
+\label{t34}
+There are canonical equivalences in the diagrams among continuous monoids:
+\begin{equation}
+\label{e54}
+\xymatrix{
+\Ebraid \ltimes \TT^2
+\ar@{-->}[rr]^-{\simeq}_{\Aff^{\fr}}
+\ar[d]_-{\Psi \ltimes \id}
+&&
+\Imm^{\fr}(\TT^2) 
+\ar[d]^-{\rm forget}
+&&
+\Braid \ltimes \TT^2
+\ar@{-->}[rr]^-{\simeq}_{\Aff^{\fr}}
+\ar[d]_-{\Phi \ltimes \id}
+&&
+\Diff^{\fr}(\TT^2) 
+\ar[d]^-{\rm forget}
+\\
+\TT^2 \ltimes \EZ
+\ar[rr]^-{\simeq}_-\Aff
+&&
+\Imm(\TT^2)
+&
+\text{ and }
+&
+\GL_2(\ZZ) \ltimes \TT^2
+\ar[rr]^-{\simeq}_-\Aff
+&&
+\Diff(\TT^2)
+.
+}
+\end{equation}
+
+
+\end{lemma}
+
+
+
+\begin{proof}
+Using Observation~\ref{t21}, the canonical equivalence in the commutative diagram on the right follows from that on the left.  
+
+
+Consider the diagram in the $\infty$-category $\Spaces$:
+\[
+\xymatrix{
+\Ebraid \ltimes \TT^2
+\ar[d]_-{\Psi \ltimes \id}
+\ar[rr]^-{\pr}
+&&
+\Ebraid
+\ar[d]_-{\Psi}
+\ar[rr]^-{!}
+&&
+\ast
+\ar[rr]^-{!}
+\ar[d]^-{\lag \uno \rag}
+&&
+\ast
+\ar[d]^-{\lag (0,0,\uno)\rag}
+\\
+\EZ \ltimes \TT^2
+\ar[d]_-{\Aff}^{\simeq}
+\ar[rr]^-{\pr}
+&&
+\EZ
+\ar[rr]^-{\RR\underset{\ZZ}\ot }_-{\rm standard}
+&&
+\GL_2(\RR)
+\ar[rr]^-{\lag (0,0) \rag \times \id}
+&&
+\ZZ^2 \times \GL_2(\RR)
+\\
+\Imm(\TT^2)
+\ar[rrrrrr]^-{{\sf Orbit}_\varphi}
+&&
+&&
+&&
+\Fr(\TT^2)
+\ar[u]_-{\rm Cor~\ref{t25}}
+.
+}
+\]
+Observation~\ref{t33} implies that the bottom rectangle canonically commutes.
+Lemma~\ref{t1} and Corollary~\ref{t25} together imply this bottom rectangle witnesses a pullback.
+The top left square is clearly a pullback.
+Because $\ZZ^2$ is discrete, the top right square is a pullback.  
+Corollary~\ref{t31} states that the top middle square is a pullback.
+We conclude that the outer square witnesses a pullback.  
+The result follows by Definition~\ref{d1} of $\Imm^{\fr}(\TT^2,\varphi)$.
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+By applying the product-preserving functor $\Spaces \xra{\pi_0} {\sf Sets}$, Lemma~\ref{t34} implies the following.
+\begin{cor}\label{r2}
+There is a canonical isomorphism in the diagram of groups:
+\[
+\xymatrix{
+\Braid
+\ar@{-->}[rr]^-{\cong}
+\ar[d]_-{\Phi}
+&&
+{\sf MCG}^{\sf fr}(\TT^2)
+\ar[d]^-{\rm forget}
+\\
+\GL_2(\ZZ)
+\ar[rr]^-{\cong}
+&&
+{\sf MCG}(\TT^2)
+.
+}
+\]
+
+
+\end{cor}
+
+
+
+\begin{remark}\label{r1}
+Proposition~\ref{t32} and Corollary~\ref{r2} grant a central extension among groups:
+\[
+%\begin{equation}\label{e17}
+1
+\longrightarrow
+\ZZ
+\longrightarrow
+{\sf MCG}^{\fr}(\TT^2)
+\longrightarrow
+{\sf MCG}^{\sf or}(\TT^2)
+\longrightarrow
+1
+~.
+\\
+%\end{equation}
+\]
+
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+%\subsection{Comparison with known automorphisms}
+%
+%
+%
+%
+%
+%
+%
+%In this discussion, we leave framings as understood and implicit in notation.  
+%In~\S\ref{sec.??} we introduce the continuous group and continuous monoids,
+%\[
+%\Diff^{\fr}(\TT^2 \xra{\pr}\TT)
+%\qquad
+%\text{ and }
+%\qquad
+%\Imm^{\fr}(\TT^2 \xra{\pr} \TT)
+%~,
+%\]
+%of framed diffeomorphisms and framed local-diffeomorphisms of the projection $\TT^2 \xra{\pr} \TT$.  
+%In~\S\ref{sec.??} we also introduce a pair of injective morphisms between monoids,
+%\[
+%\ZZ
+%\longrightarrow
+%\Braid
+%\qquad
+%\text{ and }
+%\qquad
+%\Ebraid'
+%\longrightarrow
+%\Ebraid
+%~.
+%\]
+%
+%This projection is framed in the sense that the diagram among vector bundles
+%\[
+%\xymatrix{
+%\epsilon^2_{\TT^2} 
+%\ar[rr]^{\varphi_0}
+%\ar[d]_-{\pr_{\pr}}
+%&&
+%\tau_{\TT^2}
+%\ar[d]^-{\sD \pr}
+%\\
+%\epsilon^1_{\TT}
+%\ar[rr]^-{\varphi_1}
+%&&
+%\tau_{\TT}
+%}
+%\]
+%commutes.  
+%The following consequences of Theorem~\ref{Theorem A} are proved in~\S\ref{sec.compare.symmetries}.
+%\begin{cor}
+%\label{t42}
+%Let $\varphi$ be a framing of the torus.
+%There is a canonical commutative diagram among continuous monoids:
+%\begin{equation}
+%\label{e54}
+%\xymatrix{
+%\TT^2 \rtimes \ZZ
+%\ar[rrrr]^-{\simeq}_-{\rm Lem~\ref{??}}
+%\ar[drr]
+%\ar[dd]_-{\lag \tau_{1,2} \rag}
+%&&
+%&&
+%\Diff^{\fr}(\TT^2 \xra{\pr} \TT) \ar[drr]
+%\ar[dd]
+%&&
+%\\
+%&&
+%\TT^2 \rtimes \Ebraid'
+%\ar[rrrr]^-{\simeq}_-{\rm Lem~\ref{??}}
+%\ar[dd]
+%&&
+%&&
+%\Imm^{\fr}(\TT^2 \xra{\pr}\TT)
+%\ar[dd]
+%\\
+%\TT^2 \rtimes \Braid
+%\ar[rrrr]^-{\simeq}_-{\rm Thm~\ref{Theorem A}}
+%\ar[drr]
+%\ar[dd]
+%&&
+%&&
+%\Diff^{\fr}(\TT^2) \ar[drr]
+%\ar[dd]
+%&&
+%\\
+%&&
+%\TT^2 \rtimes \Ebraid
+%\ar[rrrr]^-{\simeq}_-{\rm Thm~\ref{Theorem A}}
+%\ar[dd]
+%&&
+%&&
+%\Imm^{\fr}(\TT^2)
+%\ar[dd]
+%\\
+%\TT^2 \rtimes \GL_2(\ZZ)
+%\ar[rrrr]^-{\simeq}_-{\rm Lem~\ref{t??}}
+%\ar[drr]
+%&&
+%&&
+%\Diff(\TT^2)
+%\ar[drr]
+%&&
+%\\
+%&&
+%\TT^2 \rtimes \EZ
+%\ar[rrrr]^-{\simeq}_-{\rm Cor~\ref{t??}}
+%&&
+%&&
+%\Imm(\TT^2)
+%.
+%}
+%\end{equation}
+%\end{cor}
+%
+%
+%
+%
+%
+%
+%
+%\begin{proof}[Proof of Corollary~\ref{t42}]
+%Recall the diagram~(\ref{e54}) among continuous monoids.
+%Commutativity of~(\ref{e??}) implies commutativity of the left square.   
+%Forgetting framing establishes commutativity of the right square.  
+%The construction~?? of the morphism $\TT^2\rtimes \Ebraid \to \Imm^{\fr}(\TT^2)$ lies over $\Aff$, thereby witnessing commutativity of the front square.  The commutativity of the cube follows.  
+%
+%\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{proof}[Proof of Corollary~\ref{t40}]
+By construction, the diagram among spaces,
+\[
+\xymatrix{
+\EZ \ltimes \TT^2
+\ar[rr]^-{\simeq}_-{\rm Cor~\ref{t22}}
+\ar[dr]_-{\pr}
+&&
+\Imm(\TT^2)
+\ar[dl]^-{\ev_0}
+\\
+&
+\TT^2
+&
+,
+}
+\]
+canonically commutes, in which the left vertical map is projection, and the right vertical map evaluates at the origin $0\in \TT^2$.  
+Therefore, upon taking fibers over $0\in \TT^2$, the (left) commutative diagram~(\ref{e54}) among continuous monoids determines the commutative diagram among commutative monoids:
+\begin{equation*}
+%\label{e55}
+\xymatrix{
+%\Braid
+%\ar[rrrr]^-{\simeq}
+%\ar[drr]
+%\ar[dd]
+%&&
+%&&
+%\Diff^{\fr}(\TT^2 ~{\sf rel } ~0) \ar[drr]
+%\ar[dd]
+%&&
+%\\
+%&&
+\Ebraid
+\ar[rrrr]^-{\simeq}
+\ar[d]
+&&
+&&
+\Imm^{\fr}(\TT^2 ~{\sf rel } ~0)
+\ar[d]
+%\\
+%\GL_2(\ZZ)
+%\ar[rrrr]^-{\simeq}
+%\ar[drr]
+%&&
+%&&
+%\Diff(\TT^2 ~{\sf rel}~ 0)
+%\ar[drr]
+%&&
+\\
+%&&
+\EZ
+\ar[rrrr]^-{\simeq}_-{\rm Cor~\ref{t22}}
+\ar[drr]_-{\RR \underset{\ZZ}\ot}
+&&
+&&
+\Imm(\TT^2 ~{\sf rel } ~0)
+\ar[dll]^-{\sD_0}
+\\
+%&&
+&&
+\GL_2(\RR)
+&&
+,
+}
+\end{equation*}
+in which the map $\RR \underset{\ZZ}\ot $ is the standard inclusion, and $\sD_0$ takes the derivative at the origin $0\in \TT^2$.
+To finish, Corollary~\ref{t31} supplies the left pullback square in the following diagram among continuous groups, while the right pullback square is definitional:
+\[
+\xymatrix{
+\Braid
+\ar[rr]
+\ar[d]
+&&
+\ast
+\ar[d]
+&&
+\Diff(\TT^2 \smallsetminus \BB^2 ~{\sf rel}~\partial )
+\ar[ll]
+\ar[d]
+\\
+\GL_2(\ZZ)
+\ar[rr]^-{\RR \underset{\ZZ}\ot}
+&&
+\GL_2(\RR)
+&&
+\Diff(\TT^2~{\sf rel}~0)
+\ar[ll]_-{\sD_0}
+.
+}
+\]
+The result follows. 
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Comparison with sheering}
+We use Theorem~\ref{Theorem A}(2) to show that the $\Diff^{\fr}(\TT^2)$ is generated by sheering.  
+We quickly tour through some notions and results, which are routine after the above material.  
+
+\begin{notation}
+It will be convenient to define the projection $\TT^{2} \xra{\pr_{i}} \TT$ to be projection \textit{off} of the $i-$th coordinate. So for $\TT^{2} \ni p = (x_{p}, y_{p}),$ we have $\pr_{1}(p) = y_{p}$ and $\pr_{2}(p) = x_{p}.$
+\end{notation}
+
+Let $ i\in \{1,2\}$.
+Consider the topological subgroup and topological submonoid,
+\[
+\Diff(\TT^2 \xra{\pr_i} \TT)
+~\subset~
+\Diff(\TT^2)
+\qquad
+\text{ and }
+\qquad
+\Imm(\TT^2 \xra{\pr_i} \TT)
+~\subset~
+\Imm(\TT^2)
+~,
+\]
+consisting of those (local-)diffeomorphisms $\TT^2\xra{f} \TT^2$ that lie over some (local-)diffeomorphism $\TT\xra{\ov{f}} \TT$:
+\[
+\xymatrix{
+\TT^2
+\ar[rr]^-f
+\ar[d]_-{\pr_i}
+&&
+\TT^2 \ar[d]^-{\pr_i}
+\\
+\TT
+\ar[rr]^-{\ov{f}}
+&&
+\TT
+~.
+}
+\]
+Because $\pr_i$ is surjective, for a given $f$, there is a unique $\ov{f}$ if any.
+Better, $f\mapsto \ov{f}$ defines a forgetful morphism between topological monoids, whose kernel is the topological monoid of smooth maps from $\TT$ to $\Imm(\TT)$ with value-wise monoid-structure, which is to say
+there is a short exact sequence of topological monoids:
+\begin{equation}
+\label{e68}
+\xymatrix{
+1
+\ar[r] 
+&
+\Map\bigl( \TT , \Imm(\TT) \bigr) 
+\ar[rr]
+&&
+\Imm(\TT^2 \xra{\pr_i} \TT)
+\ar[rr]_-{ \rm forget }
+&&
+\Imm(\TT)
+\ar[r]
+\ar@{-->}@(u,-)[ll]
+&
+1
+.
+}
+\end{equation}
+The isotopy-extension theorem implies this short exact sequence among topological groups forgets as a short exact sequence among continuous groups.  
+Furthermore, this short exact sequence of continuous monoids~(\ref{e68}) splits, as indicated, by way of the precomposition action $\Map\bigl( \TT , \Imm(\TT) \bigr)  \racts \Imm(\TT)$:
+there is a canonical equivalence between continuous monoids:
+\begin{equation*}
+%\label{e69}
+\Imm(\TT^2 \xra{\pr_i} \TT)
+~\simeq~
+\Imm(\TT)  \ltimes  \Map\bigl( \TT , \Imm(\TT) \bigr)
+~.
+\end{equation*}
+
+
+
+
+
+Now, the topological space of \bit{framings} of $\TT^2 \xra{\pr_i} \TT$ is the subspace
+\[
+\Fr(\TT^2 \xra{\pr_i} \TT)
+~\subset~
+\Fr(\TT^2)
+\]
+consisting of those framings $\tau_{\TT^2}\xra{\varphi} \epsilon^2_{\TT^2}$ that lie over a framing $\tau_{\TT} \xra{\ov{\varphi}} \epsilon^1_{\TT}$:
+\begin{equation}
+\label{e70}
+\xymatrix{
+\tau_{\TT^2}
+\ar[rr]^-{\varphi}_-{\cong}
+\ar[d]_-{\sD \pr_i}
+&&
+\epsilon^2_{\TT^2}
+\ar[d]^-{\pr_i \times \pr_i}
+\\
+\tau_{\TT}
+\ar[rr]^-{\ov{\varphi}}_-{\cong}
+&&
+\epsilon^1_{\TT}
+.
+}
+\end{equation}
+The continuous right action $\Act$ of Lemma~\ref{t50} evidently restricts as a continuous right action
+\[
+\Fr(\TT^2 \xra{\pr_i} \TT)
+~\racts~
+\Imm(\TT^2 \xra{\pr_i} \TT)
+~.
+\]
+Now, because $\pr_i$ is surjective, for a given $\varphi$, there is a unique $\ov{\varphi}$ as in~(\ref{e70}) if any.  
+Better, $\varphi\mapsto \ov{\varphi}$ defines a continuous map, which is evidently equivariant with respect to the morphism between topological monoids $\Imm(\TT^2 \xra{\pr_i} \TT) \xra{\rm forget} \Imm(\TT)$:
+\[
+\Bigl(
+~
+\Fr(\TT^2 \xra{\pr_i} \TT)
+~\racts~
+\Imm(\TT^2 \xra{\pr_i} \TT)
+~\Bigr)
+~
+\xra{~\rm forget~}
+~
+\Bigl(
+~
+\Fr(\TT)
+~\racts~
+\Imm(\TT)
+~\Bigr)
+~,\qquad
+\varphi
+\mapsto 
+\ov{\varphi}
+~.
+\]
+
+
+
+
+
+
+Now let $\varphi \in \Fr(\TT^2 \xra{\pr_i} \TT)$ be a framing of the projection.
+The orbit of $\varphi$ by this action is the map
+\[
+{\sf Orbit}_\varphi
+\colon 
+\Imm(\TT^2 \xra{\pr_i}\TT)
+\longrightarrow
+\Fr(\TT^2 \xra{\pr_i} \TT)
+~,\qquad
+f\mapsto \Act(\varphi,f)
+~.
+\]
+The space of \bit{framed local-diffeomorphisms}, and the space of \bit{framed diffeomorphisms}, of $(\TT^2 \xra{\pr_i} \TT , \varphi)$ are respectively the homtopy-pullbacks among spaces:
+\[
+%\begin{equation}\label{e11}
+\xymatrix{
+\Imm^{\sf fr}(\TT^2\xra{\pr_i} \TT,\varphi)
+\ar[r]
+\ar[d]
+&
+\Imm(\TT^2\xra{\pr_i} \TT)
+\ar[d]^-{{\sf Orbit}_\varphi}
+&&
+\Diff^{\sf fr}(\TT^2 \xra{\pr_i} \TT,\varphi)
+\ar[r]
+\ar[d]
+&
+\Diff(\TT^2\xra{\pr_i} \TT)
+\ar[d]^-{{\sf Orbit}_\varphi}
+\\
+\ast
+\ar[r]^-{\lag \varphi \rag}
+&
+\Fr(\TT^2\xra{\pr_i} \TT)
+&
+\text{ and }
+&
+\ast
+\ar[r]^-{\lag \varphi \rag}
+&
+\Fr(\TT^2\xra{\pr_i} \TT)
+~.
+}
+\]
+%\end{equation}
+%{\color{red}
+%You can see I petered out around here.
+%Consider taking this up: just fill in definitions/set-up/logic as efficiently/trimly as possible to get to the Observation, Observation, Corollary below.
+%}
+
+The topological space $\Fr(\TT^2 \xra{\pr_i} \TT)$ is a torsor for the topological group $\Map\bigl( \TT^2 , \GL_{\{i\}\subset 2}(\RR) \bigr)$ of smooth maps from $\TT^2$ to the subgroup 
+\[
+\GL_{\{i\}\subset 2}(\RR)
+~:=~
+\Bigl\{
+A \mid
+Ae_i \in {\sf Span}\{e_i\}
+\Bigr\}
+~\subset~
+\GL_2(\RR)
+\]
+consisting of those $2 \times 2$ matrices that carry the $i^{\rm th}$-coordinate line to itself. 
+
+\begin{lemma} \label{prfr}
+The homotopy equivalence of lemma (\ref{t25}) restricts to the following homotopy equivalence of spaces:
+\begin{equation} \label{e801}
+\Fr(\TT^2 \xra{\pr_i} \TT)
+~\simeq~
+{\sf O}(1) \times {\sf O}(1). 
+\end{equation}
+\end{lemma}
+\begin{proof}
+Upon a choice of framing $\varphi \in \Fr(\TT^2 \xra{\pr_i} \TT),$ we have the homeomorphism 
+\[
+\Fr(\TT^2 \xra{\pr_i} \TT) \approx {\sf Map}\Big( (\TT^2 \xra{\pr_i} \TT), (\GL_{\{i\}\subset 2}(\RR) \rightarrow \GL_{1}(\RR)) \Big)
+\]
+where the latter space consists of those maps which lie over a map making the diagram below commute
+\[ {\sf Map}\Big( (\TT^2 \xra{\pr_i} \TT), (\GL_{\{i\}\subset 2}(\RR) \rightarrow \GL_{1}(\RR)) \Big) :=
+\left\{ \begin{tikzcd}
+\TT^{2} \arrow[r] \arrow[d,"\pr_{i}"]
+&
+\GL_{\{i\}\subset 2}(\RR) \arrow[d, "e_{k}^{T}(-)e_{k}"]
+\\
+\TT \arrow[dashed, r]
+&
+\GL_{1}(\RR).
+\end{tikzcd} \right\}
+\]
+where $k \in \{1, 2\} - i.$ This homeomorphism is $(\ref{e41}) \circ (\ref{e43})$ restricted to the appropriate subspaces.
+Now, $\GL_{1}(\RR) \simeq \RR^{\times} \simeq {\sf O}(1)$ and $\GL_{\{i\}\subset 2}(\RR) \simeq \RR^{\times} \times \RR^{\times} \simeq {\sf O}(1) \times {\sf O}(1)$ as we can take a straight line homotopy to diagonal matrices. Then note we have the following inclusion which is a homotopy equivalence:
+\[
+\left\{ \begin{tikzcd}
+\TT^{2} \arrow[r] \arrow[d,"\pr_{i}"]
+&
+\GL_{\{i\}\subset 2}(\RR) \arrow[d, ""]
+\\
+\TT \arrow[dashed, r]
+&
+\GL_{1}(\RR).
+\end{tikzcd} \right\}
+\hookleftarrow
+\left\{ \begin{tikzcd}
+\TT^{2} \arrow[r] \arrow[d,"\pr_{i}"]
+&
+{\sf O}(1) \times {\sf O}(1) \arrow[d, "\pr_{i}"]
+\\
+\TT \arrow[dashed, r]
+&
+{\sf O}(1).
+\end{tikzcd} \right\} \simeq {\sf Map}(\TT^{2}, {\sf O}(1) \times {\sf O}(1))
+\]
+where the last equivalence is due to the diagram being fixed after choosing such a map. As $\TT^{2}$ is connected we have that ${\sf Map}(\TT^{2}, {\sf O}(1) \times {\sf O}(1)) \simeq {\sf O}(1) \times {\sf O}(1).$
+\end{proof}
+
+
+
+ 
+
+%For $i = 1,2$, 
+%consider the projection onto the $i^{\rm th}$-coordinate
+ %$\TT^2 \xra{\pr_i} \TT$ from the framed torus to the framed circle.  
+
+
+%\textcolor{blue}{
+%Recall the matrices $U_1,U_2 \in \GL_2(\ZZ)$ form~(\ref{e63}). These induce actions of $\ZZ$ onto $\TT^{2}$ defined by $k \cdot p = U_{i}^{k}p$ which define the semi-direct products $\ZZ \underset{U_{i}}\ltimes \TT^{2}$. There is also a natural action of ${\sf O}(1) \times {\sf O}(1)$ on $\TT^{2}$ defined by $(m, n) \cdot p = (x_{p}, y_{p}) = (mx_{p}, ny_{p}).$ We can then extend this action to $\ZZ \underset{U_{i}}\ltimes \TT^{2}$ where ${\sf O}(1) \times {\sf O}(1)$ acts trivially on $\ZZ,$ which defines $({\sf O}(1) \times {\sf O}(1)) \ltimes (\ZZ \underset{U_{i}}\ltimes \TT^{2}).$
+%\textcolor{red}{or is the action conjugation? of $\SS^{1} \subset \CC^{2}$}
+%}
+ 
+\begin{lemma} %Maybe call this sucker a Lemma
+There exist the following factorizations between topological groups: %{\sf E}_{2}(\ZZ)
+\[
+\begin{tikzcd}
+{\sf E}_{\{1\} \subset 2}(\ZZ) \ltimes \TT^{2} \arrow[dashed, r, "{\sf Aff}_{1}"] \arrow[hookrightarrow]{d}& \Imm(\TT^2 \xra{\pr_1} \TT)  \arrow[hookrightarrow]{d} \\
+{\sf E}_{2}(\ZZ) \ltimes \TT^{2} \arrow[r, "{\sf Aff}"] & \Imm(\TT^{2}),
+\end{tikzcd}
+\hspace{15pt}
+\begin{tikzcd}
+{\sf E}_{\{2\} \subset 2}(\ZZ) \ltimes \TT^{2} \arrow[dashed, r, "{\sf Aff}_{2}"] \arrow[hookrightarrow]{d}& \Imm(\TT^2 \xra{\pr_2} \TT)  \arrow[hookrightarrow]{d} \\
+{\sf E}_{2}(\ZZ) \ltimes \TT^{2} \arrow[r, "{\sf Aff}"] & \Imm(\TT^{2})
+\end{tikzcd}
+\]
+where ${\sf E}_{\{1\} \subset 2}(\ZZ)$ consists of the upper triangular matrices in ${\sf E}_{2}(\ZZ)$ and ${\sf E}_{\{2\} \subset 2}(\ZZ)$ consists of the lower triangular matrices in ${\sf E}_{2}(\ZZ).$ 
+\end{lemma}
+\begin{proof}
+We need to show that the image of ${\sf Aff}_{1}$ lies in $\Imm(\TT^2 \xra{\pr_1} \TT).$ In other words we need to show that for $(A, p)$ in the domain, the map $$\Aff_{1}(A, p): \TT^{2} \rightarrow \TT^{2}; \hspace{15pt} q \mapsto Aq + p$$ lies over an immersion of $\TT.$ Note the following commutative square:
+for $p = (x_{p}, y_{p}) \in \TT^{2}$ and
+\[
+A=
+\left[ {\begin{array}{cc}
+ a & b \\
+ 0 & d \\
+\end{array} } \right] \in {\sf E}_{\{1\} \subset 2}(\ZZ), \hspace{ 20 pt}
+\xymatrix{
+\TT^{2} \ni q = (x_{q}, y_{q})
+\ar[r]^-{\Aff_{1}(A, p)}
+\ar[d]_-{\pr_{1}}
+&
+(ax_{q} + by_{q} + x_{p} , dy_{q} + y_{p}) \in \TT^{2} \ar[d]_-{\pr_{1}}
+\\
+\TT \ni y_{q}
+\ar[r]^-{\trans_{y_{p}} \circ{~} {\sf scale}_{d}}
+&
+dy_{q} + y_{p} \in \TT
+~.
+}
+\]
+Both $a, d$ are nonzero integers and so we see that the bottom map is indeed an immersion of $\TT.$ A similar computation shows that ${\sf \Aff_{2}}(A, p)$ lies over an immersion of $\TT.$
+\end{proof}
+
+
+\begin{prop}
+For $i = 1, 2$ the map ${\sf Aff}_{i}$ is a homotopy equivalence of spaces.
+\end{prop}
+\begin{proof}
+Consider the following commutative diagram of topological spaces:
+\begin{equation}\label{cd1}
+\xymatrix{
+1 \ar[d]_-= \ar[r]
+&
+{\sf E}_{\{1\} \subset 2}(\ZZ)_{ker} \ltimes \TT
+\ar[d]_-{F}
+\ar[r]^-{inc_{x}}
+&
+{\sf E}_{\{1\} \subset 2}(\ZZ) \ltimes \TT^{2} 
+\ar[d]_-{\Aff_{i}} 
+\ar[r]^-{d \ltimes \pr_{1}}
+&
+{\sf E}_{1}(\ZZ) \ltimes \TT
+\ar[d]_-{{\Aff}_{\TT}}
+\ar[r]
+&
+1 \ar[d]_-=
+\\
+1
+\ar[r]
+&
+{\sf Map}(\TT, \Imm(\TT))
+\ar[r]^-{}
+&
+\Imm(\TT^2 \xra{\pr_{1}} \TT) 
+\ar[r]^-{}
+&
+\Imm(\TT)
+\ar[r]
+&
+1
+}
+\end{equation}
+where ${\sf E}_{\{1\} \subset 2}(\ZZ)_{ker}$ consists of matrices of the form
+\[
+\left\{
+\left[ {\begin{array}{cc}
+ a & b \\
+ 0 & 1 \\
+\end{array} } \right] : a, b \in \ZZ \text{ and } a \neq 0 \right\}.
+\] 
+and $inc_{x}: {\sf E}_{\{1\} \subset 2}(\ZZ)_{ker} \ltimes \TT \longrightarrow {\sf E}_{\{1\} \subset 2}(\ZZ) \ltimes \TT^{2} $ is given by the inclusion $(A, \theta) \mapsto (A, (\theta, 0)).$ This makes the top sequence exact.
+The map ${\Aff}_{\TT}: {\sf E}_{1}(\ZZ) \ltimes \TT \rightarrow \Imm(\TT)$ is defined by $(c, \theta) \mapsto (\gamma \mapsto c\gamma + \theta),$ which is well known to be a homotopy equivalence. Then the map $F$ is defined by 
+\[
+{\sf E}_{\{1\} \subset 2}(\ZZ)_{ker} \ltimes \TT \ni \left(A = \left[ {\begin{array}{cc}
+ a & b \\
+ 0 & 1 \\
+\end{array} } \right] , \theta \right) \mapsto (\psi \mapsto f_{a, b, \theta, \psi}) \in {\sf Map}(\TT, \Imm(\TT))
+\]
+where $f_{a, b, \theta, \psi}(\gamma) = a\gamma + b\psi + \theta.$ We will show that $F$ is also a homotopy equivalence. Consider the commutative diagram with exact rows:
+\[
+\xymatrix{
+1 \ar[d]_-= \ar[r]
+&
+\ZZ 
+\ar[r]^-{UR}
+\ar[d]^-{G}
+&
+{\sf E}_{\{1\} \subset 2}(\ZZ)_{ker} \ltimes \TT
+\ar[d]_-{F}
+\ar[r]^-{a \ltimes \id}
+&
+{\sf E}_{1}(\ZZ) \ltimes \TT
+\ar[r]^-{}
+\ar[d]^{{\sf Aff}_{\TT}}
+&
+1 \ar[d]_-=
+\\
+1
+\ar[r]
+&
+{\sf Map}_{\ast}(0 \in \TT, \id_{\TT} \in \Imm(\TT))
+\ar[r]^-{{\sf inc}}
+&
+{\sf Map}(\TT, \Imm(\TT))
+\ar[r]^-{ev_{0}}
+&
+\Imm(\TT)
+\ar[r]^-{}
+&
+1
+}
+\] 
+where
+\[UR(b) =  \left(\left[ {\begin{array}{cc}
+ 1 & b \\
+ 0 & 1 \\
+\end{array} } \right] , 0 \right)
+\hspace{10pt} \text{and} \hspace{10pt} 
+G(b) = (\psi \mapsto (g_{b, \psi}: \TT \rightarrow \TT)); \hspace{5 pt} g_{b, \psi}(\gamma) = \gamma + b\psi.
+\]
+Again, ${\sf Aff}_{\TT}$ is a homotopy equivalence and so 
+\[{\sf Map}_{\ast}(0 \in \TT, \id_{\TT} \in \Imm(\TT)) \simeq {\sf Map}_{\ast}(\TT, {\sf E}_{1}(\ZZ) \ltimes \TT) =  {\sf Map}_{\ast}(\TT,\TT).
+\]
+Now consider the map $\w{G}: \ZZ \rightarrow {\sf Map}_{\ast}(\TT,\TT)$ which is just $G$ followed by the homotopy equivalence above. Then $\w{G}(b)$ is just the based map $\psi \mapsto b\psi$ which is the homotopy inverse of $\pi_{0}: {\sf Map}_{\ast}(\TT,\TT) \rightarrow \ZZ.$ Therefore $\w{G}$ is a homotopy equivalence which implies that $G$ must be a homotopy equivalence. Finally by the 5-lemma we have that the map $F$ is a homotopy equivalence.
+
+Now as the rows of the diagram (\ref{cd1}) are exact and the outer columns, F and ${\sf Aff}_{\TT},$ are homomtopy equivalences the 5-lemma yields that ${\sf Aff}_{1}$ is also a homotopy equivalence. A similar argument shows that ${\sf Aff}_{2}$ is a homotopy equivalence as well.
+\end{proof}
+
+
+\begin{prop} \label{p45}
+The following diagrams commute:
+\[
+\xymatrix{
+{\sf E}_{\{1\} \subset 2}(\ZZ) \ltimes \TT^{2} \ar[r]^-{ {\sf Aff}_{1}}
+\ar[d]^{\left(\frac{a}{|a|}, \frac{d}{|d|}\right)} 
+&
+\Imm(\TT^2 \xra{\pr_1} \TT) \ar[d]^-{{\sf Orbit}_{\varphi}} 
+\\
+{\sf O}(1) \times {\sf O}(1) 
+&
+\Fr(\TT^2 \xra{\pr_1} \TT) \ar@(-,-)[l]^-{\simeq},
+}
+\hspace{15pt}
+\xymatrix{
+{\sf E}_{\{2\} \subset 2}(\ZZ) \ltimes \TT^{2} \ar[r]^-{ {\sf Aff}_{2}}
+\ar[d]^{\left(\frac{a}{|a|}, \frac{d}{|d|}\right)} 
+&
+\Imm(\TT^2 \xra{\pr_2} \TT) \ar[d]^-{{\sf Orbit}_{\varphi}} 
+\\
+{\sf O}(1) \times {\sf O}(1) 
+&
+\Fr(\TT^2 \xra{\pr_2} \TT) \ar@(-,-)[l]^-{\simeq}.
+}
+\]
+\end{prop} 
+\begin{proof}
+Given some element $(A, p)$ of ${\sf E}_{\{i\} \subset 2}(\ZZ) \ltimes \TT^{2}$ we want to identify the associated element of ${\sf Orbit}_{\varphi} \circ {\sf Aff}_{i}(A, p)$ in ${\sf O}(1) \times {\sf O}(1).$ We know that the differential ${\sf D Aff}_{i}(A, p) = A$ and therefore
+\[
+{\sf Orbit}_{\varphi} \circ {\sf Aff}_{i}(A, p) = \tau_{\TT^2} 
+\underset{\cong}{\xra{A}}
+{\sf Aff}_{i}(A, p)^\ast \tau_{\TT^2}
+\underset{\cong}{ \xra{{\sf Aff}_{i}(A, p)^\ast \varphi} }
+{\sf Aff}_{i}(A, p)^\ast \epsilon^2_{\TT^2}
+=
+\epsilon^2_{\TT^2}.
+\]
+and then through the homotopy equivalence above in lemma \ref{prfr} we have that the associated element of ${\sf O}(1) \times {\sf O}(1)$ corresponds to reading off the signs of the diagonal of $A.$
+\end{proof}
+
+
+\begin{cor}
+There exists a homotopy equivalence of spaces 
+\[
+{\sf E}_{\{i\} \subset 2}^{++}(\ZZ) \ltimes \TT^{2} \simeq \Imm^{\sf fr}(\TT^2 \xra{\pr_i} \TT) 
+\]
+where ${\sf E}_{\{i\} \subset 2}^{++}(\ZZ)$ are those elements of ${\sf E}_{\{i\} \subset 2}(\ZZ)$ whose diagonal elements are positive.
+\end{cor}
+ \begin{proof}
+ We have that $\Imm^{\sf fr}(\TT^2 \xra{\pr_i} \TT)$ is defined to be the homotopy fiber
+ \[
+\Imm^{\sf fr}(\TT^2 \xra{\pr_i} \TT) := {\sf hofib}_{\varphi}(\Imm(\TT^2 \xra{\pr_i} \TT) \xra{{\sf Orbit}_{\varphi}} \Fr(\TT^2 \xra{\pr_i} \TT)).
+\]
+Then as ${\sf Aff}_{i}$ and $(\ref{e801})$ are homotopy equivalences of spaces, there exists a homotopy equivalence 
+\[
+{\sf hofib}_{\varphi}\big(\Imm(\TT^2 \xra{\pr_i} \TT) \xra{{\sf Orbit}_{\varphi}} \Fr(\TT^2 \xra{\pr_i} \TT)\big) 
+\] 
+\[
+\simeq \hspace{5pt} {\sf hofib}_{(1,1)}\big({\sf E}_{\{i\} \subset 2}(\ZZ) \ltimes \TT^{2} \xra{{\sf Aff}_{i}} \Imm(\TT^2 \xra{\pr_i} \TT) \xra{{\sf Orbit}_{\varphi}} \Fr(\TT^2 \xra{\pr_i} \TT) \xra{(\ref{e801})} {\sf O}(1) \times {\sf O}(1)\big) 
+\]
+\[
+\overset{(\ref{p45})}= {\sf hofib}_{(1,1)}\big({\sf E}_{\{i\} \subset 2}(\ZZ) \ltimes \TT^{2} \xra{\left(\frac{a}{|a|}, \frac{d}{|d|}\right)} {\sf O}(1) \times {\sf O}(1)\big).
+\]
+But as the last map is projection onto a discrete space, the homotopy fiber over $(1, 1)$ is equivalent to the standard fiber over $(1, 1)$ which is ${\sf E}_{\{i\} \subset 2}^{++}(\ZZ) \ltimes \TT^{2}.$
+\end{proof}
+ 
+ 
+ \begin{observation} \label{t14}
+Note that in restricting the maps of proposition (\ref{p45}) to the maximal subgroup of ${\sf E}_{\{i\} \subset 2}(\ZZ)$ we have that $$\GL_{\{i\} \subset 2}(\ZZ) \ltimes \TT^{2} \xra{(\ref{e801}) \circ {\sf Orbit}_{\varphi} \circ {\sf Aff_{i}}} {\sf O}(1) \times {\sf O}(1)$$ is equal to projection off of the diagonal elements of $\GL_{\{i\} \subset 2}(\ZZ).$ Therefore the homotopy fiber of $(1, 1)$ of this map is just the fiber over $(1, 1)$ which is equivalent of $\ZZ \underset{U_{i}}\ltimes \TT^{2}$ where $\ZZ \ni k \lacts p \in \TT^{2}$ by $U_{i}^{k}p.$ Therefore we have the homotopy equivalences $\ZZ \underset{U_{i}}\ltimes \TT^{2} \simeq \Diff^{\fr}(\TT^2 \xra{\pr_i} \TT).$
+\end{observation}
+ 
+%\begin{observation}
+%\label{t14}
+%The group of framed automorphisms of $\TT^2 \xra{\pr_i} \TT$ 
+%fits into a split short-exact sequence among continuous groups,
+%\begin{equation}
+%\label{e31}
+%\xymatrix{
+%1
+%\ar[r]
+%\ar[d]_=
+%&
+%\TT \times \ZZ
+%\ar[r]
+%\ar[d]_-{\simeq}
+%&
+%\ZZ \underset{U_i} \ltimes \TT^2
+%\ar[rr]
+%\ar[d]_-{ \lag \tau_i \rag \ltimes \trans }
+%&&
+%\NN^\times
+%\ltimes
+%\TT
+%\ar[d]_-{\trans}
+%\ar@(u,-)[ll]^-{}
+%\ar[r]
+%&
+%1
+%\ar[d]^=
+%\\
+%1
+%\ar[r]
+%&
+%\Map\bigl(\TT , \Imm^{\fr}(\TT) \bigr)
+%\ar[r]
+%&
+%\Imm^{\fr}\bigl(
+%\TT^2 \xra{\pr_i} \TT
+%\bigr)
+%\ar[rr]_-{\rm forget}
+%&&
+%\Imm^{\fr}(\TT)
+%\ar@(d,-)[ll]^-{}
+%\ar[r]
+%&
+%1
+%~,
+%}
+%\end{equation}
+%that is classified by the pre-composition action $\Diff^{\fr}(\TT) \lacts \Map\bigl(\TT , \Diff^{\fr}(\TT) \bigr)$.
+%Recall the canonical identifications between continuous groups
+%\[
+%\TT \xra{~\simeq~} \Diff^{\fr}(\TT)
+%\qquad
+%\text{ and }
+%\qquad
+%\Map(\TT , \TT)
+%~\simeq~
+%\TT \times \ZZ
+%~.
+%\]
+%Through these identifications, this split short-exact sequence~(\ref{e31}) is canonically identified as the split short-exact sequence
+%\begin{equation*}
+%\label{e32}
+%\xymatrix{
+%1
+%\ar[rr]
+%&&
+%\TT \times \ZZ
+%\ar[rr]
+%&&
+%\ZZ \underset{U_i}\ltimes \TT^2 
+%\ar[rr]
+%&&
+%\TT
+%\ar@(u,-)[ll]^-{}
+%\ar[rr]
+%&&
+%1
+%~,
+%}
+%\end{equation*}
+%where the action $\ZZ \lacts \TT^2$ is via a sheering elements
+%$
+%U_i 
+%\in \GL_2(\ZZ)
+%\to
+%\Aut_{\sf Groups}(\TT^2)
+%$
+%of~(\ref{e63}).
+
+
+%\end{observation}
+
+
+
+
+\begin{observation}
+\label{t15}
+Through observation ~\ref{t14}, there are canonically commutative diagrams among continuous groups:
+\[
+\xymatrix{
+\ZZ \underset{U_{1}}\ltimes \TT^2 
+\ar[r]^-{\simeq}_-{\rm Obs~\ref{t14}}
+\ar[d]_-{\lag 
+\tau_{1}
+\rag \ltimes \id }
+&
+\Diff^{\fr}(\TT^2 \xra{\pr_1} \TT) 
+\ar[d]^-{\rm forget}
+&&
+\ZZ \underset{U_{2}}\ltimes \TT^2
+\ar[r]^-{\simeq}_-{\rm Obs~\ref{t14}}
+\ar[d]_-{ \lag 
+\tau_{2}
+\rag \ltimes \id }
+&
+\Diff^{\fr}(\TT^2 \xra{\pr_2} \TT) 
+\ar[d]^-{\rm forget}
+\\
+\Braid \ltimes \TT^2 
+\ar[r]^-{\simeq}_-{\rm Lem~\ref{t34}}
+&
+\Diff^{\fr}(\TT^2)
+&
+\text{ and }
+&
+\Braid \ltimes \TT^2
+\ar[r]^-{\simeq}_-{\rm Lem~\ref{t34}}
+&
+\Diff^{\fr}(\TT^2)
+.
+}
+\\
+\]
+
+\end{observation}
+
+
+
+
+
+
+
+
+
+We now explain how the presentation~(\ref{e67}) of $\Braid$ gives a presentation of the continuous group $\Diff^{\fr}(\TT^2)$.
+Observe the canonically commutative diagram among continuous groups:
+\[
+\xymatrix{
+\TT^2 \ar[rr]
+\ar[d]
+&&
+\Diff^{\fr}(\TT^2 \xra{\pr_1} \TT)
+\ar[d]
+\\
+\Diff^{\fr}(\TT^2 \xra{\pr_2} \TT)
+\ar[rr]
+&&
+\Diff^{\fr}(\TT^2)
+.
+}
+\]
+It results in a morphism from the pushout in continuous groups:
+\begin{equation}
+\label{e65}
+\Diff^{\fr}(\TT^2\xra{\pr_1} \TT)
+\underset{\TT^2}
+\coprod
+\Diff^{\fr}(\TT^2 \xra{\pr_2} \TT)
+\longrightarrow
+\Diff^{\fr}(\TT^2)
+~.
+\end{equation}
+Recall the element $R \in \GL_2(\ZZ)$ from~(\ref{e64}).
+The two homomorphisms
+\[
+\begin{tikzcd}
+\ZZ \arrow[rr, yshift=0.7ex, "\lag \tau_{1} \tau_{2} \tau_{1}\rag"] \arrow[swap, rr, yshift=-0.7ex, "\lag \tau_{2} \tau_{1} \tau_{2}\rag"]
+& 
+& \ZZ \amalg \ZZ % \arrow[d, xshift=0.7ex] \arrow[d, xshift=-0.7ex] 
+\end{tikzcd}
+\]
+%$$
+%\ZZ \stackrel[\mathrm{discharge}]{\mathrm{charge}}{\overrightarrow{\underrightarrow{\hspace{5cm}}}}  \ZZ \amalg \ZZ
+%$$
+%\[
+%\xymatrix{
+%\ZZ
+%\ar@(u,u)[rr]^-{??}
+%\ar@(d,d)[rr]_-{??}
+%&&
+%\ZZ
+%\amalg 
+%\ZZ
+%}
+%\]
+%{\color{red}
+%Improve the LaTexing here, so that it doesn't take up so much darn room.
+%For instance, just two flat horizontal arrows would suffice.
+%}
+determine two morphisms among continuous groups under $\TT^2$:
+%\begin{equation}
+%\label{e66}
+%\xymatrix{
+%\TT^2 \underset{R}\rtimes \ZZ
+%\ar@(u,u)[rr]^-{\id \rtimes ??}
+%\ar@(d,d)[rr]_-{\id \rtimes ??}
+%&&
+%\TT^2 \underset{U_1,U_2} \rtimes (\ZZ \amalg \ZZ)
+%\ar[r]_-{\rm Obs~\ref{t15}}^-{\simeq}
+%&
+%\Diff^{\fr}(\TT^2\xra{\pr_1} \TT)
+%\underset{\TT^2}
+%\coprod
+%\Diff^{\fr}(\TT^2 \xra{\pr_2} \TT)
+%\ar[r]^-{(\ref{e65})}
+%&
+%\Diff^{\fr}(\TT^2)
+%}
+%\end{equation}
+
+\begin{equation} \label{e66}
+\begin{tikzcd}
+\ZZ \underset{R}\ltimes \TT^2 \arrow[rr, yshift=0.7ex, "\lag \tau_{1} \tau_{2} \tau_{1}\rag \ltimes \id"] \arrow[swap, rr, yshift=-0.7ex, "\lag \tau_{2} \tau_{1} \tau_{2}\rag \ltimes \id "]
+&
+&
+(\ZZ \amalg \ZZ) \underset{U_1,U_2} \ltimes \TT^2
+\arrow[r, "\simeq"]
+\arrow[swap, r, "\rm Obs~\ref{t15}"]
+%\arrow[r]_-{\rm Obs~\ref{t15}}^-{\simeq}
+&
+\Diff^{\fr}(\TT^2\xra{\pr_1} \TT)
+\underset{\TT^2}
+\coprod
+\Diff^{\fr}(\TT^2 \xra{\pr_2} \TT)
+\arrow[r, "(\ref{e65})"]
+&
+\Diff^{\fr}(\TT^2)
+\end{tikzcd}
+\end{equation}
+
+
+\begin{remark}
+One can wonder if there is a similar presentation of $\Imm^{\sf fr}(\TT^{2})$ generated by ... subject to the relations ...
+\end{remark}
+
+
+\begin{cor}
+\label{t49}
+The diagram among continuous groups under $\TT^2$,~(\ref{e66}), 
+witnesses a coequalizer.
+%In other words, the canonical morphism between continuous groups
+%\[
+%\xymatrix{
+%\TT^2 \rtimes
+%\Bigl(
+%\ZZ
+%\ar@(u,u)[rr]^-{ \id \rtimes \lag \tau_{1,2} \tau_{2,3} \tau_{1,2}\rag}
+%\ar@(d,d)[rr]_-{ \id \rtimes \lag \tau_{2,3} \tau_{1,2} \tau_{2,3}\rag}
+%&&
+%\ZZ \amalg \ZZ
+%\Bigr)
+%\ar[rr]^-{\simeq}
+%&&
+%\Diff^{\fr}(\TT^2)
+%~,
+%}
+%\]
+%is an equivalence.
+In particular, for each $\infty$-category $\cX$, there is a pullback diagram among $\infty$-categories of modules in $\cX$:
+\[
+\xymatrix{
+\Mod_{\Diff^{\fr}(\TT^2)}(\cX)
+\ar[rr]
+\ar[d]
+&&
+\Mod_{\ZZ \underset{U_1} \ltimes \TT^2}(\cX)
+\underset{\Mod_{\TT^2}(\cX)}\times
+\Mod_{\ZZ  \underset{U_2} \ltimes \TT^2}(\cX)
+\ar[d]^-{\bigl(\lag \tau_{1} \tau_{2} \tau_{1}\rag \ltimes \id \bigr)^\ast \times \bigl(\lag \tau_{2} \tau_{1} \tau_{2}\rag \ltimes \id \bigr)^\ast}
+\\
+\Mod_{\ZZ \underset{R} \ltimes \TT^2}(\cX)
+\ar[rr]^-{\rm diagonal}
+&&
+\Mod_{ \ZZ \underset{R} \ltimes \TT^2}(\cX)
+\underset{\Mod_{\TT^2}(\cX)}\times
+\Mod_{\ZZ \underset{R} \ltimes \TT^2}(\cX)
+.
+}
+\]
+In particular, for $X\in \cX$ an object, an action $\Diff^{\fr}(\TT^2) \lacts X$ is 
+\begin{enumerate}
+\item
+an action $\TT^2\lacts X$~,
+
+\item
+extensions of this action to actions $\ZZ \underset{U_1}\ltimes \TT^2 \lacts X$ and $\ZZ \underset{U_2} \ltimes \TT^2  \lacts X$~,
+
+\item
+an identification under $\TT^2 \lacts X$ of the two restricted actions
+%\[
+%\xymatrix{
+%\TT^2 \underset{R}\rtimes \ZZ 
+%\ar@(u,u)[rr]^-{ \id \rtimes \lag \tau_{1} \tau_{2} \tau_{1}\rag  } 
+%\ar@(d,d)[rr]_-{ \id \rtimes \lag \tau_{2} \tau_{1} \tau_{2}\rag  } 
+%&&
+%\TT^2 \underset{U_1, U_2}\rtimes (\ZZ \amalg \ZZ) \lacts X
+%~.
+%}
+%\]
+\[
+\begin{tikzcd}
+\ZZ \underset{R}\ltimes \TT^2 \arrow[rr, yshift=0.7ex, "\lag \tau_{1} \tau_{2} \tau_{1}\rag \ltimes \id "] \arrow[swap, rr, yshift=-0.7ex, "\lag \tau_{2} \tau_{1} \tau_{2}\rag \ltimes \id "]
+&
+&
+(\ZZ \amalg \ZZ) \underset{U_1, U_2}\ltimes \TT^2  \lacts X
+\end{tikzcd}
+\]
+
+
+\end{enumerate}
+
+
+\end{cor}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+%\subsection{Isogeny of framed tori}
+%
+%
+%
+%
+%
+%
+%\begin{lemma}
+%\label{t44}
+%There is a canonical equivalence in the diagram among monoid-objects in $\Spaces$:
+%\[
+%\xymatrix{
+%\TT^2 \rtimes \Ebraid
+%\ar@{-->}[rr]^-{\simeq}_{\Aff^{\fr}}
+%\ar[d]_-{\id\rtimes \Psi}
+%&&
+%\Imm^{\fr}(\TT^2) 
+%\ar[d]^-{\rm forget}
+%\\
+%\TT^2 \rtimes \EZ
+%\ar[rr]^-{\simeq}_-\Aff
+%&&
+%\Imm(\TT^2)
+%.
+%}
+%\]
+%
+%\end{lemma}
+%
+%\begin{proof}
+%{\color{magenta}
+%Gotta construct the map first, somehow.
+%}
+%
+%
+%
+%Consider the fiber sequence of spaces
+%\[
+%\xymatrix{
+%\TT^2 \rtimes \Ebraid
+%\ar[rr]^-{\rm quotient}
+%\ar[d]_-{\Aff^{\fr}}
+%&&
+%(\TT^2 \rtimes \Ebraid)_{\TT^2 \rtimes \Braid} 
+%\ar[d]^-{\Aff^{\fr}_{\Aff^{\fr}}}
+%\ar[rr]
+%&&
+%\sB \bigl( 
+%\TT^2 \rtimes \Braid
+%\bigr)
+%\ar[d]^-{\sB \Aff^{\fr}}
+%\\
+%\Imm^{\fr}(\TT^2)
+%\ar[rr]^-{\rm quotient}
+%&&
+%\Imm^{\fr}(\TT^2)_{/\Diff^{\fr}(\TT^2)}
+%\ar[rr]
+%&&
+%\sB \Diff(\TT^2)
+%.
+%}
+%\]
+%We seek to show that the left vertical map is an equivalence.
+%Lemma~\ref{t34} implies the right vertical map is an equivalence.  
+%We are therefore reduced to showing the middle vertical map $\Aff^{\fr}_{\Aff^{\fr}}$ is an equivalence.
+%This map fits into the canonically commutative diagram among spaces:
+%\[
+%\xymatrix{
+%\w{\GL_2}^{{\sf det}>0}(\RR)_{\Braid}
+%\ar[d]^-{\rm (a)}
+%&
+%\Ebraid_{\Braid}
+%\ar[d]^-{\rm (b)}
+%\ar[l]_-{\rm inclusion}
+%&
+%(\TT^2 \rtimes \Ebraid)_{\TT^2 \rtimes \Braid} 
+%\ar[r]^-{\Aff^{\fr}_{\Aff^{\fr}}}
+%\ar[d]
+%\ar[l]_-{\pr_{\pr}}
+%&
+%\Imm^{\fr}(\TT^2)_{/\Diff^{\fr}(\TT^2)}
+%\ar[d]
+%\\
+%\GL_2(\RR)_{\GL_2(\ZZ)}
+%&
+%\EZ_{\GL_2(\ZZ)}
+%\ar[l]_-{\rm inclusion}
+%&
+%\bigl( \TT^2 \rtimes \EZ\bigr)_{\TT^2 \rtimes \GL_2(\ZZ)}
+%\ar[r]^-{\Aff_{\Aff}}
+%\ar[l]_-{\pr_{\pr}}
+%&
+%\Imm(\TT^2)_{/\Diff(\TT^2)}
+%.
+%}
+%\]
+%Observation~\ref{t22} implies the bottom rightward map $\Aff_{\Aff}$ is an equivalence.  
+%The leftward maps $\pr_{\pr}$ are evidently equivalences.
+%The fiber of the right vertical map over a finite-sheeted covering space $E\xra{\pi} \TT^2$ is contractible: it is the space of framings $\w{\varphi}$ on $E$ together with an identification $\w{\varphi}\simeq \pi^\ast \varphi$ with the pullback framing.  
+%Therefore, the right vertical map is an equivalence.  
+%It remains to verify that the vertical map $\rm (b)$ is an equivalence.
+%The definition of the monoid $\Ebraid$ as a pullback implies the left square is a pullback. 
+%The third isomorphism theorem of group theory gives that the map $\rm (a)$ is an equivalence.
+%It follows that the map $\rm (b)$ is an equivalence, as desired.
+%
+%%Note that the maps $\rm (a)$ and $\rm (b)$ factor
+%%\[
+%%{\rm (b)}
+%%\colon
+%%\Ebraid_{\Braid}
+%%\ar[rr]
+%%\ar[d]
+%%&&
+%%\EpZ_{\SL_2^(\ZZ)}
+%%\ar[rr]
+%%\ar[d]
+%%&&
+%%\EZ_{\GL_2(\ZZ)}
+%%\\
+%%{\rm (a)}
+%%\colon
+%%\w{\GL_2}^{{\sf det}>0}(\RR)_{\Braid}
+%%\ar[rr]
+%%&&
+%%\GL_2^{{\sf det}>0}(\RR)_{\SL_2(\ZZ)}
+%%\ar[rr]
+%%&&
+%%\GL_2(\RR)_{\GL_2(\ZZ)}
+%%~.
+%%\]
+%%It is routine to verify that the second maps in each of these factorizations is a bijection.
+%%The third isomorphism of group theory implies the map $\rm (a)$ is a bijection.  
+%%Because the map $\Ebraid \to \EpZ$ is surjective, the first map in this factorization is surjective.
+%%It is routine to verify that the second map in this factorization is a bijection.
+%%It follows that the map $\rm (b)$ is surjective. 
+%%It remains to show that the map $\rm (b)$ is injective.  
+%%For this, observe that 
+%
+%
+%
+%\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{\color{magenta}
+
+
+\subsection{The finite orbit category of $\TT^2$}
+
+
+
+
+\begin{equation}
+\label{t75}
+{\sf Orbit}^{\sf fin}_{\TT^2}
+\longrightarrow
+\Ar\bigl( \fB \Imm^{\fr}(\TT^2) \bigr)
+~,\qquad
+\Bigl(
+{\TT^2}_{/C}
+\mapsto 
+\TT^2 \to {\TT^2}_{/C}
+\Bigr)
+~.
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{remark}
+$\bigl(\fB \Imm^{\fr}(\TT^2,\varphi) \bigr)^{\ast/}$ is a poset!
+Say what it is.
+\end{remark}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Natural symmetries of secondary Hochschild homology}
+
+Let $A$ be an associative algebra in $\cV$.  
+Consider the \bit{Hochschild homology} of $A$ in $\cV$:
+\[
+\sHH(A)
+~:=~
+\sHH_\cV(A) 
+~:= ~
+A \underset{ A^{\op}\ot A} \ot A
+~\simeq~
+\bigl|
+\bBar_\bullet^{\sf cyc}(A)
+\bigr|
+~\in~ \cV
+~.
+\]
+In~\cite{connes??}, Connes constructs a canonical $\TT$-action on $\sHH(A)$, which is functorial in the algebra $A$.
+When working over the sphere spectrum (which is to say $\cV = ({\sf Spectra},\wedge)$) so that $\sHH_{\sf Spectra}(A) = {\sf THH}(A)$ is \bit{topological Hochschild homology}, in~\cite{??} Bokstedt-Hsaing-Madsen extend this $\TT$-action as a \bit{cyclotomic structure} on ${\sf THH}(A)$.  
+In~\cite{cyclo} it is demonstrated how this cyclotomic structure on ${\sf THH}(A)$ is derived from an action of the continuous monoid $\NN^\times \ltimes \TT$ on the unstable version $\sHH_{\Spaces}(A)$.
+Here, we prove Theorem~\ref{B1}, which constructs a canonical $\Braid \ltimes \TT^2$-action on $\sHH^{(2)}(A)$, which is functorial in the 2-algebra $A$.  
+We then prove Theorem~\ref{B2}, which, in the case that $\cV = (\Spaces,\times)$, extends this action to one by the continuous monoid $\Ebraid \ltimes \TT^2$.  
+
+
+
+
+
+\begin{conventions*}
+We fix a symmetric monoidal $\infty$-category $\cV$, and assume it is $\ot$-presentable (meaning the underlying $\infty$-category $\cV$ is presentable, and $\ot$ distributes over colimits separately in each variable).
+
+\end{conventions*}
+
+\begin{example}
+For $\Bbbk$ a commutative ring, take $(\cV,\ot) = \bigl({\sf Ch}_\Bbbk[\{{\sf quasi\text{-}isos}\}^{-1}],\underset{\Bbbk}\otimes^{\LL}\bigr)$ to be the $\infty$-categorical localization of chain complexes over $\Bbbk$ on quasi-isomorphisms, with derived tensor product over $\Bbbk$ presenting the symmetric monoidal structure.
+More generally, for $R$ a commutative ring spectrum, take $(\cV,\ot) := (\Mod_R,\underset{R}\wedge)$ to be the $\infty$-category of $R$-module spectra and smash product over $R$ as the symmetric monoidal structure.
+
+
+\end{example}
+
+
+
+
+
+
+
+\subsection{Secondary Hochschild homology of 2-algebras}
+
+In order for the Hochschild homology construction to be twice-iterated, we endow the entity $A\in \cV$ with an algebra structure among algebras.
+\begin{definition}
+\label{d4}
+The $\infty$-category of \bit{2-algebras (in $\cV$)} is
+\[
+\Alg_2(\cV)
+~:=~
+\Alg_{\sf Assoc}\bigl(
+\Alg_{\sf Assoc}(\cV)
+\bigr)
+~.
+\]
+
+\end{definition}
+
+
+\begin{example}
+A commutative algebra $A = (A,\mu)$ in $\cV$, 
+determines the 2-algebra $(A,\mu,\mu)$ in $\cV$.
+This association assembles as a functor
+\[
+\CAlg(\cV)
+\longrightarrow
+\Alg_2(\cV)
+~,
+\]
+thusly supplying a host of examples of 2-algebras.
+
+\end{example}
+
+
+
+\begin{observation}
+\label{t46}
+Using that the tensor product of operads is defined by a ``hom-tensor'' adjunction, there is a canonical equivalence between $\infty$-categories:
+\[
+\Alg_{{\sf Assoc}\ot {\sf Assoc}}(\cV)
+~\simeq~
+\Alg_2(\cV)
+~.
+\]
+In particular, swapping the two tensor-factors supplies an involution 
+\[
+\Sigma_2
+~\lacts~ 
+\Alg_2(\cV)
+~.
+\]
+
+\end{observation}
+
+\begin{remark}
+\label{r12}
+After Observation~\ref{t46}, a $2$-algebra in $\cV$ is an object $A\in \cV$ together with two associative algebra structures $\mu_1$ and $\mu_2$ on $A$, and compatibility between them which can be stated as either of the two equivalent structures:
+\begin{itemize} 
+
+\item
+A lift of the morphism $A\ot A \xra{\mu_2} A$ in $\cV$ to a morphism $(A,\mu_1)\otimes (A,\mu_1) \xra{\mu_2} (A,\mu_1)$ in $\Alg_{\sf Assoc}(\cV)$.
+
+\item
+A lift of the morphism $A\ot A \xra{\mu_1} A$ in $\cV$ to a morphism $(A,\mu_2)\otimes (A,\mu_2) \xra{\mu_1} (A,\mu_2)$ in $\Alg_{\sf Assoc}(\cV)$.
+
+\end{itemize}
+
+\end{remark}
+
+
+
+\begin{example}
+\label{r13}
+Consider the operad $\cE_2$ of little 2-disks.  
+There is a standard morphism between operads ${\sf Assoc}\ot{\sf Assoc} \to \cE_2$.
+Through Observation~\ref{t46}, restriction along this morphism defines a functor between $\infty$-categories
+\begin{equation}
+\label{e62}
+\Alg_{\cE_2}(\cV)
+\longrightarrow
+\Alg_2(\cV)
+~,
+\end{equation}
+thusly supplying some rich examples of 2-algebras (in fact, Dunn's additivity (Theorem~\ref{t48}) states that the functor~(\ref{e62}) is an equivalence). 
+For instance, for $\Bbbk$ a commutative ring, a braided-monoidal $\Bbbk$-linear category $\sR$ is a 2-algebra in the $(2,1)$-category of $\Bbbk$-linear categories.  
+{\color{magenta}
+For instance, for $G$ a semi-simple Lie group, and for $k$ a level, ...??
+}
+ 
+
+
+
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{theorem}[Dunn's additivity~\cite{dunn} (see also Theorem~?? of~\cite{HA})]
+\label{t48}
+The functor~(\ref{e62})
+is an equivalence between $\infty$-categories.
+
+\end{theorem}
+
+
+
+
+\begin{remark}
+The action $\sO(2)
+\lacts
+\Alg_2(\cV)$ of Corollary~\ref{t??}, afforded by Theorem~\ref{t48}, 
+extending the evident $\Sigma_2 \wr \sO(1)$-action which swaps the two associative algebra structures (as the $\Sigma_2$-factor) and takes opposites of the two associative algebra structures (as the two $\sO(1)$-factors).
+\end{remark}
+
+
+
+
+
+
+\begin{definition}
+\label{d5}
+\bit{Secondary Hochschild homology} is the composite functor, given by twice-iterating Hochschild homology:
+\[
+\HHt
+\colon
+\Alg_2(\cV)
+~:=~
+\Alg_{\sf Assoc}\bigl(
+\Alg_{\sf Assoc}(\cV)
+\bigr)
+\xra{~\sHH~}
+\Alg_{\sf Assoc}(\cV)
+\xra{~\sHH~}
+\cV
+~,
+\]
+\[
+(A,\mu_1,\mu_1)
+\mapsto
+\bigl( \sHH(A,\mu_1) , \sHH(\mu_2) \bigr)
+\mapsto
+\sHH\bigl( 
+\sHH(A,\mu_1)
+,
+\sHH(\mu_2)
+\bigr)
+~.
+\]
+
+\end{definition}
+
+
+
+
+
+
+
+
+
+The following assertion is proved in~\S\ref{sec.fact.hmlgy}.
+\begin{cor}
+\label{t45}
+For $A = (A,\mu_1,\mu_2)$ a $2$-algebra in $\cV$, swapping the roles of algebra structures does not change secondary Hochschild homology:
+\[
+\sHH\bigl( 
+\sHH(A,\mu_1)
+,
+\sHH(\mu_2)
+\bigr)
+~\simeq~
+\sHH\bigl( 
+\sHH(A,\mu_2)
+,
+\sHH(\mu_1)
+\bigr)
+~.
+\]
+More precisely, with respect to the involution $\Sigma_2 \lacts \Alg_2(\cV)$ of Observation~\ref{t46}, secondary Hochschild homology is $\Sigma_2$-invariant:
+\[
+\HHt\colon \Alg_2(\cV)_{\Sigma_2}
+\longrightarrow
+\cV
+~.
+\]
+
+\end{cor}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Proof of Theorem~\ref{t36} and Corollaries~\ref{t55},~\ref{t54},~\ref{t53}}
+\label{sec.fact.hmlgy}
+This subsection proves Theorem~\ref{t36} and Corollary~\ref{t55}, then Corollary~\ref{t54}, and then Corollary~\ref{t53}.  
+The key idea is to use \bit{factorization homology}, as established in~\cite{old.fact}.  
+
+Recall from~\cite{old.fact} the symmetric monoidal $\infty$-category $\Mfld^{\fr}_2$ whose objects are framed 2-manifolds, whose spaces of morphisms are spaces of framed embeddings between them, and whose symmetric monoidal structure is given by disjoint union.
+Consider the full $\infty$-subcategories,
+\begin{equation}
+\label{t73}
+\Disk^{\fr}_2 
+~\hookrightarrow ~
+\Mfld^{\fr}_2 
+~\hookleftarrow ~
+{\sf BDiff}^{\fr}(\TT^2)
+~,
+\end{equation}
+respectively spanned by those framed 2-manifolds each of whose connected components is equivalent with $\RR^2$, and by those framed 2-manifolds that are equivalent with $\TT^2$.
+The left full $\infty$-subcategory is closed with respect to the symmetric monoidal structure.
+Restriction along these full $\infty$-subcategories determines the solid diagram among $\infty$-categories:
+\begin{equation}
+\label{e75}
+\xymatrix{
+\Alg_{\cE_2}(\cV)
+\simeq
+\Fun^{\ot}(\Disk_2^{\fr} , \cV )
+\ar@{-->}@(u,u)[rr]^-{\int}
+&&
+\Fun^{\ot}(\Mfld_2^{\fr} , \cV)
+\ar[r]^-{\rm restrict}
+\ar[ll]_-{\rm restrict}
+&
+\Fun\bigl({\sf BDiff}^{\fr}(\TT^2) , \cV \bigr)
+\simeq
+\Mod_{\Diff^{\fr}(\TT^2)}(\cV)
+~.
+}
+\end{equation}
+\bit{Factorization homology} is defined as the left adjoint to the leftward restriction functor; 
+factorization homology over the torus, as it is endowed with a canonical $\Diff^{\fr}(\TT^2)$-action, is the rightward composite functor:
+\begin{equation}
+\label{e74}
+\int_{\TT^2}
+\colon
+\Alg_{\cE_2}(\cV)
+\longrightarrow
+\Mod_{\Diff^{\fr}(\TT^2)}(\cV)
+~.
+\end{equation}
+
+
+
+
+
+Next, we explain the following diagram among $\infty$-categories: 
+\begin{equation}
+\label{e73}
+\xymatrix{
+\Alg_2(\cV)
+\ar[d]_-{\HHt}
+&
+&
+\Alg_{\cE_2}(\cV)
+\ar[ll]^-{\simeq}_-{{\sf fgt}_1}
+\ar[rr]^-{{\sf fgt}_2}_-{\simeq}
+\ar[d]^-{\int_{\TT^2}}
+\ar[dr]^-{\int_{\pr_2}}
+\ar[dl]_-{\int_{\pr_1}}
+&
+&
+\Alg_2(\cV)
+\ar[d]^-{\HHt}
+\\
+\Mod_{\ZZ \underset{U_1} \ltimes \TT^2}(\cV)
+&
+\Mod_{\Diff^{\fr}(\pr_1)}(\cV)
+\ar[l]^-{\simeq}_-{(\Aff_1^{\fr})^\ast}
+\ar[dr]_-{\rm forget}
+&
+\Mod_{\Diff^{\fr}(\TT^2)}(\cV)
+\ar[d]^-{\rm forget}
+\ar[r]^-{\rm forget}
+\ar[l]_-{\rm forget}
+&
+\Mod_{\Diff^{\fr}(\pr_2)}(\cV)
+\ar[r]_-{\simeq}^-{(\Aff_2^{\fr})^\ast}
+\ar[dl]^-{\rm forget}
+&
+\Mod_{\ZZ \underset{U_2} \ltimes \TT^2}(\cV)
+\\
+&
+&
+\Mod_{\TT^2}(\cV)
+&
+&
+.
+}
+\end{equation}
+\begin{itemize}
+\item
+The functors labeled by ``$\rm forget$'' are restriction along evident morphisms between continuous groups.  
+The lower triangles canonically commute.
+
+\item
+The functor $\int_{\TT^2}$ is~(\ref{e74}).
+
+\item
+For $i=1,2$, the functor $\int_{\pr_i}$ is factorization homology over the circle $\TT$ of the \bit{pushforward} along the projection $\TT^2 \xra{\pr_i} \TT$ onto the $i^{\rm th}$-coordinate, as it is endowed with its canonical $\Diff^{\fr}(\pr_i)$-action.
+{\color{red}
+(Everywhere, change the notation $\Diff^{\fr}(\TT^2\xra{\pr_i} \TT)$ simply to $\Diff^{\fr}(\pr_i)$.)
+}
+The \bit{pushforward formula} (Prop~{pushforward formula??} of~\cite{oldfact}),
+$
+\int_{\pr_i}
+\simeq
+\int_{\TT}
+\int_{\TT}
+,
+$
+supplies commutativity of the upper triangles.  
+
+
+\item
+The functor $\Alg_{\cE_2} \xra{{\sf fgt}_1} \Alg_2(\cV)$ is restriction along the standard morphism between operads ${\sf Assoc}\ot {\sf Assoc} \xra{\rm standard} \cE_2$.
+The functor $\Alg_{\cE_2} \xra{{\sf fgt}_2} \Alg_2(\cV)$ is restriction along the morphism between operads ${\sf Assoc}\ot {\sf Assoc} \xra{\rm swap} {\sf Assoc}\ot {\sf Assoc} \xra{\rm standard} \cE_2$.
+Theorem~\ref{t??} implies that each of these functors are equivalences.  
+
+\item
+For $i=1,2$, the outer vertical functors are $\HHt$, as it is endowed with its canonical action
+${\sf Sheer}_i\colon \ZZ \underset{U_i}\ltimes \TT^2 \underset{(\ref{e71})}\lacts \HHt(A)$ from~\S\ref{sec.??}, which is evidently functorial in $A\in \Alg_2(\cV)$.  
+%Recall from~\S\ref{sec.??} the action 
+%This action is evidently functorial in $A\in \Alg_2(\cV)$:
+%\[
+%\xymatrix{
+%&&
+%\Mod_{\TT^2 \underset{U_1} \rtimes \ZZ}(\cV) 
+%\ar[d]^-{\rm foget}
+%\\
+%\Alg_2(\cV)
+%\ar[rr]^-{\HHt}
+%\ar[urr]^-{\bigl \lag  \TT^2 \underset{U_1} \rtimes \ZZ \underset{{\sf Sheer}_1}\lacts \HHt  \bigr \rag}
+%&&
+%\cV
+%.
+%}
+%\]
+%These lifts supply the left and right vertical functors.
+
+
+
+\item
+For each $i=1,2$, the functor $(\Aff_i^{\fr})^\ast$ is restriction along the functor $\Aff_i^{\fr}$ of~(\ref{e??}).
+Theorem~\ref{t??} implies each of these functors is an equivalence.
+
+
+\item
+Theorem~?? of~\cite{old.fact} implies a canonical identification $\sHH \simeq \int_{\TT}$ between functors $\Alg_{\sf Assoc}(\cV) \to \Mod_{\TT}(\cV)$.
+Commutativity of the upper tilted squares follows.  
+
+
+
+
+
+
+\end{itemize}
+In particular, for each 2-algebra $A\in \Alg_2(\cV)$, there is a canonical action $\Diff^{\fr}(\TT^2) \lacts \HHt(A)$.
+Through Theorem~\ref{Theorem A}(2a), this is an action $\Braid \ltimes \TT^2 \lacts \HHt(A)$, which establishes the statement of Theorem~\ref{t36}.
+Furthermore, commutativity of the diagram~(\ref{e73}) implies Corollary~\ref{t55}.  
+Corollary~\ref{t54} follows from this commutative diagram, upon noticing that the top horizontal composite functor $\Alg_2(\cV) \to \Alg_2(\cV)$ is the involution of Observation~\ref{t46}.
+
+
+
+
+
+
+
+
+
+%
+%
+%The following result is an immediate consequence of \bit{pushforward} for factorization homology.
+%\begin{prop}
+%\label{t47}
+%The diagram among $\infty$-categories
+%\[
+%\xymatrix{
+%\Alg_2(\cV)
+%\ar[dd]_-{\rm involution~(Obs~\ref{t46})}^-{\simeq}
+%\ar@(-,u)[drrrr]^-{\HHt}
+%&&
+%&&
+%\\
+%&&
+%\Alg_{\cE_2}(\cV)
+%\ar[dll]^-{\simeq}_-{\rm Thm~\ref{t48}}
+%\ar[ull]_-{\simeq}^-{\rm Thm~\ref{t48}}
+%\ar[rr]^-{\int_{\TT^2}}
+%&&
+%\cV
+%\\
+%\Alg_2(\cV)
+%\ar[uu]
+%\ar@(-,d)[urrrr]_-{\HHt}
+%&&
+%&&
+%}
+%\]
+%canonically commutes.
+%In particular, 
+%the secondary Hochschild homology of a 2-algebra $A$ 
+%is canonically identified as the factorization homology over the framed 2-torus of the unique $\cE_2$-algebra structure on $A$ lifting its 2-algebra structure:
+%\begin{equation}
+%\label{e34}
+%\HHt(A)
+%~\simeq~
+%\int_{\TT^2} A
+%~.
+%\end{equation}
+%
+%\end{prop}
+%
+%
+%
+%\begin{proof}
+%%
+%%\begin{eqnarray}
+%%\nonumber
+%%\HHt(-)
+%%&
+%%~:=~
+%%&
+%%\sHH\bigl( 
+%%\sHH(-)
+%%\bigr)
+%%\\
+%%\nonumber
+%%&
+%%\int_{\TT}
+%%\int_{\TT}
+%%(
+%%
+%%)
+%%&
+%%
+%%\\
+%%
+%%
+%%
+%%
+%%\]
+%%
+%%(A,\mu_1,\mu_1)
+%%\mapsto
+%%\bigl( \sHH(A,\mu_1) , \sHH(\mu_2) \bigr)
+%%\mapsto
+%%\sHH\bigl( 
+%%\sHH(A,\mu_1)
+%%,
+%%\sHH(\mu_2)
+%%\bigr)
+%%
+%%
+%%
+%%\HHt(A)
+%%
+%%:=
+%
+%
+%
+%
+%\end{proof}
+%
+%
+%
+%
+%
+%
+%\begin{proof}[Proof of Theorem~\ref{t??}(1)]
+%The development of factorization homology in~\cite{oldfact} is such that there is a canonical action on the functor $\Diff^{\fr}(\TT^2)\lacts \int_{\TT^2}$ given by factorization homology over the torus.
+%This can be depicted as the upper lift in the diagram among $\infty$-categories:
+%\[
+%\xymatrix{
+%&&
+%&&
+%&&
+%\Mod_{\Diff^{\fr}(\TT^2)}(\cV)
+%\ar[drr]_-{\simeq}^-{\rm Thm~\ref{Theorem A}(2a)}
+%\ar[d]^-{\rm forget}
+%&&
+%\\
+%\Alg_{\cE_2}(\cV)
+%\ar@{-->}[urrrrrr]^-{\bigl \lag \Diff^{\fr}(\TT^2) \lacts \int_{\TT^2} \bigr \rag}
+%\ar[drr]_-{\simeq}^-{\rm Thm~\ref{t48}}
+%\ar[rrrrrr]_-{\int_{\TT^2}}
+%&&
+%&&
+%&&
+%\cV
+%\ar[drr]^-=
+%&&
+%\Mod_{\TT^2 \rtimes \Braid}(\cV)
+%\ar[d]^-{\rm forget}
+%\\
+%&&
+%\Alg_2(\cV)
+%\ar@{-->}[urrrrrr]^-{\bigl \lag \TT^2 \rtimes \Braid \lacts \HHt \bigr \rag}
+%\ar[rrrrrr]_-{\HHt}
+%&&
+%&&
+%&&
+%\cV
+%.
+%}
+%\]
+%The lower lift follows by commutativity of the solid diagram, together with the down-rightward functors being equivalences, as indicated.  
+%
+%
+%
+%\end{proof}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%\subsection{Compatibility with familiar symmetries}
+%
+%
+%
+
+
+
+
+
+
+
+Next, observe that both of the full $\infty$-subcategories~(\ref{e73}) are closed with respect to the $\sO(2)\simeq \GL_2(\RR)$-action on $\Mfld_2^{\fr}$ given by change-of-framing.
+It follows that the left adjoint, $\int$, is $\sO(2)$-equivariant.  
+This implies the composite functor
+\[
+\int_{\TT^2}
+\colon 
+\Alg_{\cE_2}(\cV)
+\longrightarrow
+\Mod_{\Diff^{\fr}(\TT^2)}(\cV)
+\]
+is canonically $\sO(2)$-equivariant.  
+Given this, Corollary~\ref{t53} follows from Observation~\ref{t43}. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Proof of Theorem~\ref{t51}}
+Here, we fix a presentable $\infty$-category $\cX$ in which products distribute over colimits separately in each variable.  
+We regard $\cX$ as a $\ot$-presentable symmetric monoidal $\infty$-category, via its Cartesian monoidal structure.
+
+
+We prove Theorem~\ref{t51} by extending factorization homology, via the developments of~\cite{afr2}.
+Namely, recall from~\cite{afr2} the $\infty$-category $\Mfd_2^{\sfr}$ of \bit{solidly 2-framed stratified spaces}.  
+Consider the full $\infty$-subcategory $\bcM_{=2}^{\sfr}\subset \Mfd_2^{\sfr}$ consisting of those solidly 2-framed stratified spaces each of whose strata is 2-dimensional.
+\begin{observation}
+\label{t56}
+Inspection of the definition of $\Mfd_2^{\sfr}$ reveals the following.
+\begin{enumerate}
+
+\item
+The the moduli space of objects 
+\[
+\Obj( \bcM_{=2}^{\sfr})
+~\simeq~
+\underset{[\Sigma,\varphi]} \coprod {\sf BDiff}^{\fr}(\Sigma,\varphi)
+\]
+is that of a framed 2-manifolds.  
+In other words, there is a canonical bijection between framed-diffeomorphism-types of framed 2-manifolds and equivalence-classes of objects in $\bcM_{=2}^{\sfr}$, and for $(\Sigma,\varphi)$ a framed 2-manifold, there is a canonical identification between continuous groups:
+\[
+\Diff^{\fr}(\Sigma,\varphi)
+~\simeq~
+\Aut_{\bcM_{=2}^{\sfr}}(\Sigma,\varphi)
+~.
+\]
+
+\item
+Let $(\Sigma,\varphi)$ and $(\Sigma',\varphi')$ be framed 2-manifolds.
+The space of morphisms from $(\Sigma,\varphi)$ to $(\Sigma',\varphi')$ in $\bcM_{=2}^{\sfr}$,
+\[
+\Hom_{\bcM_{=2}^{\sfr}}\bigl( (\Sigma,\varphi) , (\Sigma',\varphi') \bigr)
+~\simeq~
+\underset{[\w{\Sigma}\xra{\pi}\Sigma]} \coprod \Emb^{\fr}\bigl( (\w{\Sigma},\pi^\ast \varphi) , (\Sigma',\varphi') \bigr)_{/\Diff_{/\Sigma}(\w{\Sigma})}
+~,
+\]
+is the moduli space of finite-sheeted covers over $\Sigma$ together with a framed-embedding from its total space to $(\Sigma',\varphi')$.
+
+\item
+Composition in $\bcM_{=2}^{\sfr}$ is given by base-change of framed embeddings along finite-sheeted covers, followed by composition of framed-embeddings:
+\[
+\Hom_{\bcM_{=2}^{\sfr}}\bigl( (\Sigma,\varphi) , (\Sigma',\varphi') \bigr)
+\times
+\Hom_{\bcM_{=2}^{\sfr}}\bigl( (\Sigma',\varphi') , (\Sigma'',\varphi'') \bigr)
+\longrightarrow
+\Hom_{\bcM_{=2}^{\sfr}}\bigl( (\Sigma,\varphi) , (\Sigma'',\varphi'') \bigr)
+~,
+\]
+\[
+\Bigl(
+~
+(\Sigma,\varphi) \xla{\pi} (\w{\Sigma},\pi^\ast \varphi) \xra{f} (\Sigma',\varphi')
+~,~
+(\Sigma',\varphi') \xla{\pi'} (\w{\Sigma}',{\pi'}^\ast \varphi') \xra{g} (\Sigma'',\varphi'')
+~
+\Bigr)
+\]
+\[
+~\longmapsto~
+\Bigl(
+(\Sigma,\varphi) \xla{\pi \circ \pr_1} (\w{\Sigma} _{\pi}\underset{\Sigma'} \times_f \w{\Sigma}',(\pr_1\circ \pi)^\ast \varphi) \xra{f \circ \pr_2} (\Sigma',\varphi')
+\Bigr)
+~.
+\]
+
+
+\item
+Evidently, framed embeddings form the left factor in a factorization system on $\bcM_{=2}^{\sfr}$, whose right factor is (the opposite of) framed finite-sheeted covers.  
+
+
+\item
+Finite products exist in $\bcM_{=2}^{\sfr}$, and are implemented by disjoin union of framed 2-manifolds.
+
+
+\item
+For each framing $\varphi$ of the 2-torus $\TT^2$, there is a canonical identification between continuous monoids:
+\[
+\Imm^{\fr}( \TT^2,\varphi)^{\op}
+~\simeq~
+\End_{\bcM_{=2}^{\sfr}}(\TT^2,\varphi)
+~.
+\]
+
+
+\end{enumerate}
+
+\end{observation}
+Denote the full $\infty$-subcategory
+\[
+\iota
+\colon
+\bcD_{=2}^{\sfr}
+~\subset~
+\bcM_{=2}^{\sfr}
+\]
+consisting of those framed 2-manifolds each of that are equivalent with a finite disjoint union of framed Euclidean spaces.
+Regard both $\bcD_{=2}^{\sfr}$ and $\bcM_{=2}^{\sfr}$ as symmetric monoidal $\infty$-categories, via their Cartesian monoidal structures.\footnote{It is straight-forward to observe that the full $\infty$-subcategory $\bcD_{=2}^{\sfr}\subset \bcM_{=2}^{\sfr}$ is closed under finite products.}
+Notice the evident monomorphisms be symmetric monoidal $\infty$-categories,
+\[
+\rho
+\colon 
+\Disk_2^{\fr}
+~\hookrightarrow~
+\bcD_{=2}^{\sfr}
+\qquad
+\text{ and }
+\qquad
+\rho
+\colon 
+\Mfld_2^{\fr}
+~\hookrightarrow~
+\bcM_{=2}^{\sfr}
+~,
+\]
+each of whose images consists of all objects yet only those morphisms $\bigl( (\Sigma,\varphi) \xla{\pi} (\w{\Sigma},\pi^\ast \varphi) \xra{f} (\Sigma',\varphi')\bigr)$ in which $\pi$ is a diffeomorphism.\footnote{In other words, $\rho$ is the inclusion of the left factor in the factorization system of Observation~\ref{t56}(4).}
+
+
+Consider the full $\infty$-subcategory
+\[
+\Fun^{\times}\bigl(
+\bigl( \bcD_{2}^{\sfr}, \cX \bigr)
+\bigr)
+~\subset~
+\Fun\bigl(
+\bigl( \bcD_{2}^{\sfr}, \cX \bigr)
+\bigr)
+\]
+consisting of those functors that preserve finite products.  
+\begin{prop}
+\label{t58}
+Restriction along $\rho$ defines an equivalence between $\infty$-categories:
+\[
+\rho^\ast
+\colon
+\Fun^{\times}\bigl(
+\bigl( \bcD_{2}^{\sfr}, \cX \bigr)
+\bigr)
+\longrightarrow
+\Fun^{\ot}\bigl( \Disk_2^{\fr} , \cX \bigr)
+~\simeq~
+\Alg_{\cE_2}(\cX)
+~.
+\]
+
+\end{prop}
+
+\begin{proof}
+Let $A\in \Alg_{\cE_2}(\cX)\simeq \Fun^{\ot}(\Disk_2^{\fr} , \cX)$.
+We seek to construct an extension:
+\begin{equation}
+\label{e80}
+\xymatrix{
+\Disk_2^{\fr}
+\ar[rr]^-{A}
+\ar[d]_-{\rho}
+&&
+\cX
+\\
+\bcD_{2}^{\sfr}
+\ar@{-->}[urr]_-{{\rho^\ast}^{-1}(A)}
+&&
+}
+\end{equation}
+in which $\w{A}$ preserves finite products.
+{\color{magenta}
+
+DO IT
+
+}
+The extension $\w{A}$ is evidently functorial in $A\in \Alg_{\cE_2}(\cX)$.  
+
+
+
+\end{proof}
+
+
+The inverse of restriction along $\rho$ followed by left Kan extension along $\iota$ defines a composite functor
+\[
+\w{\int}
+\colon
+\Alg_{\cE_2}(\cX)
+~\simeq~
+\Fun^{\ot}( \Disk_2^{\fr} , \cX )
+\xra{~{\rho^\ast}^{-1}~}
+\Fun^{\times}( \bcD_{=2}^{\sfr} , \cX )
+\xra{~\iota_!~}
+\Fun^{\times}( \bcM_{=2}^{\sfr} , \cX )
+~.
+\]
+
+
+\begin{prop}
+\label{t57}
+For each framed 2-manifold $(\Sigma,\varphi)$, the diagram among $\infty$-categories canonically commutes:
+\[
+\xymatrix{
+\Alg_{\cE_2}(\cX)
+\ar[rr]^-{\w{\int}}
+\ar[d]_-{\int}
+&&
+\Fun^{\times}( \bcM_{=2}^{\sfr} , \cX )
+\ar[rr]^-{\rm restriction}
+&&
+\Fun\bigl( {\sf BAut}_{\bcM_{=2}^{\sfr}}(\Sigma,\varphi) , \cX \bigr)
+\ar[d]_-{\simeq}^-{\rm Obs~\ref{t56}(1)}
+%&
+%\underset{\rm Obs~\ref{t56}(5)}\simeq
+%&
+%\Fun\bigl( \fB \End_{\bcM_{=2}^{\sfr}}(\Sigma,\varphi) , \cX \bigr)
+%\ar[d]^-{\rm forget}
+\\
+\Fun^{\ot}( \Mfld_2^{\fr}, \cX )
+\ar[rr]^-{\rm restriction}
+&&
+\Fun\bigl( {\sf BAut}_{\Mfld_2^{\fr}}(\Sigma,\varphi) , \cX \bigr)
+\ar[rr]^-{\simeq}
+&&
+\Mod_{\Diff^{\fr}(\Sigma,\varphi)}(\cX)
+.
+}
+\]
+
+\end{prop}
+
+
+\begin{proof}
+Let $A\in \Alg_{\cE_2}(\cX)\simeq \Fun^{\ot}(\Disk_2^{\fr} , \cX)$.
+Let $(\Sigma,\varphi)$ be a framed 2-manifold.
+Using Proposition~\ref{t??}, the monomorphism $\rho$ determines a canonical morphism between colimits in $\cX$,
+\begin{eqnarray}
+\label{e78}
+\int_{\TT^2} A
+&
+~\simeq~
+&
+\colim
+\Bigl(
+\Disk_{2/(\TT^2,\varphi)}^{\fr}:=
+\Disk_2^{\fr} \underset{\Mfld_2^{\fr}}\times \Mfld_{2/(\TT^2,\varphi)}^{\fr}
+\xra{\pr}
+\Disk_2^{\fr}
+\xra{A}
+\cX
+\Bigr)
+%\\
+%\nonumber
+%&
+%~
+%\underset{(\ref{e80})}
+%\simeq
+%~
+%&
+%\colim
+%\Bigl(
+%\Disk_{2/(\TT^2,\varphi)}^{\fr}:=
+%\Disk_2^{\fr} \underset{\Mfld_2^{\fr}}\times \Mfld_{2/(\TT^2,\varphi)}^{\fr}
+%\xra{\pr}
+%\Disk_2^{\fr}
+%\xra{\rho^\ast {\rho^\ast}^{-1}(A)}
+%\cX
+%\Bigr)
+\\
+\nonumber
+&
+\xra{~\rho~}
+&
+\colim
+\Bigl(
+\bcD_{=2/(\TT^2,\varphi)}^{\sfr}:=
+\bcD_{=2}^{\sfr} \underset{\bcM_{=2}^{\sfr}}\times \bcM_{=2/(\TT^2,\varphi)}^{\sfr}
+\xra{\pr}
+\bcD_{=2}^{\sfr}
+\xra{{\rho^\ast}^{-1}(A)}
+\cX
+\Bigr)
+\\
+\nonumber
+&
+~\simeq~
+&
+\w{\int}_{\TT^2} A
+~.
+\end{eqnarray}
+This morphism is manifestly $\Diff^{\fr}(\Sigma,\varphi)$-equivariant and functorial in $A\in \Alg_{\cE_2}(\cX)$ as so.
+So the proposition is proved upon showing this morphism~(\ref{e78}) is an equivalence.
+The morphism~(\ref{e78}) is an equivalence provided the canonical functor
+\begin{equation}
+\label{e79}
+\Disk_{2/(\TT^2,\varphi)}^{\fr}
+\longrightarrow
+\bcD_{=2/(\TT^2,\varphi)}^{\sfr}
+\end{equation}
+is final.
+But the factorization system of Observation~\ref{t56}(4) reveals that this functor~(\ref{e79}) is a right adjoint: its left adjoint given by 
+\[
+\bcD_{=2/(\TT^2,\varphi)}^{\sfr}
+\longrightarrow
+\Disk_{2/(\TT^2,\varphi)}^{\fr}
+~,\qquad
+\bigl(D \xla{\pi} \w{D} \xra{f} (\TT^2,\varphi) \bigr)
+\mapsto
+\bigl(
+\w{D} \xra{f} (\TT^2,\varphi)
+\bigr)
+~.
+\]
+Finality of the functor~(\ref{e79}) follows, which completes this proof.
+
+
+
+
+\end{proof}
+
+
+
+
+
+Now let $\varphi$ be a framing of the 2-torus $\TT^2$.
+Proposition~\ref{t57}, together with Observation~\ref{t56}(6), immediately supply a filler in the commutative diagram among $\infty$-categories:
+\begin{equation}
+\label{e76}
+\xymatrix{
+&&
+\Fun\bigl( \fB \End_{\bcM_{=2}^{\sfr}}(\TT^2,\varphi) , \cX \bigr)
+\ar[rr]^-{\simeq}_-{\rm Obs~\ref{t56}(6)}
+&&
+\Mod_{\Imm^{\fr}(\TT^2,\varphi)^{\op}}(\cX)
+\ar[d]^-{\rm forget}
+\ar[rr]^-{\simeq}_{\rm Thm~\ref{Theorem A}(2b)}
+&&
+\Mod_{\square \ltimes \TT^2}(\cX)
+\ar[d]^-{\rm forget}
+\\
+\Alg_{\cE_2}(\cX)
+\ar[rrrr]^-{\bigl \lag \Diff^{\fr}(\TT^2,\varphi) \lacts \int_{\TT^2} \bigr \rag}_-{(\ref{e75})}
+\ar@(u,-)@{-->}[urr]^-{\bigl \lag \Imm^{\fr}(\TT^2,\varphi)^{\op} \lacts  \w{\int}_{\TT^2} \bigr \rag}
+&&
+&&
+\Mod_{\Diff^{\fr}(\TT^2,\varphi)}(\cX)
+\ar[rr]^-{\simeq}_{\rm Thm~\ref{Theorem A}(2a)}
+&&
+\Mod_{\Braid \ltimes \TT^2}(\cX)
+.
+}
+\end{equation}
+The first statement of Theorem~\ref{t51} follows from this commutative diagram~(\ref{e76})
+after the commutative diagram~(\ref{e73}). 
+
+
+{\color{magenta}
+
+We now prove the second statement of Theorem~\ref{t51}, that this action $\Imm^{\fr}(\TT^2,\varphi)\lacts \HHt(A)$ defines a secondary cyclotomic structure on $\HHt(A)$.  
+
+}
+
+%\end{cor}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%{\color{magenta}
+%\subsection{Compatibility with iterated unstable cyclotomic structure}
+%We explain a relationship between an unstable secondary cyclotomic structure and a twice-iterated unstable cyclotomic structure.
+%
+%
+%Taking products defines a functor between $\infty$-categories:
+%\[
+%{\sf Orbit}^{\sf fin}_{\TT}
+%\times
+%{\sf Orbit}^{\sf fin}_{\TT}
+%\xra{~\times~}
+%{\sf Orbit}^{\sf fin}_{\TT^2}
+%~,\qquad
+%\bigl(
+%\TT_{/C}
+%,
+%\TT_{/D}
+%\bigr)
+%\mapsto 
+%\TT^2_{/C\times D}
+%~.
+%\]
+%This functor is evidently equivariant with respect to the morphism between monoids 
+%\[
+%\NN^\times \times \NN^\times
+%\longrightarrow
+%\Ebraid
+%~,\qquad
+%(s,r)\mapsto \begin{bmatrix} s & 0 \\ 0 & r \end{bmatrix}
+%~.
+%\]
+%For $\cX$ an $\infty$-category, this results in a forgetful functor from unstable 2-cyclotomic objects to iterated unstable 1-cyclotomic objects:
+%\[
+%{\sf Cyc}^{{\sf un} (2)}(\cX)
+%\longrightarrow
+%{\sf Cyc}^{\sf un}\bigl( {\sf Cyc}^{\sf un}(\cX) \bigr)
+%~.
+%\]
+%
+%
+%
+%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+%Let $A \in \Alg\Bigl( \Alg(\cV) \bigr)$ an associative algebra among associative algebras in $\cV$.
+%Consider its iterated Hochschild homology
+%\[
+%\sHH\bigl( \sHH( A ) \bigr)
+%~\in~
+%\cV
+%~.
+%\]
+%There is a continuous canonical action of 
+%\begin{equation}
+%\label{e33}
+%\Diff^{\fr}(\TT^2 \xra{\pr}\TT) \underset{\rm Obs~\ref{t14}}\simeq \TT^2 \rtimes \ZZ \lacts \sHH\bigl( \sHH( A ) \bigr)
+%~,
+%\end{equation}
+%which intertwines the two Connes' operators.  
+%Through Dunn's additivity~(\cite{dunn??}), $A$ is canonically identified as an $\cE_2$-algebra in $(\cV,\ot)$.
+%Thereafter, pushforward for factorization homology (Theorem~?? of~\cite{old.fact}) identifies the iterated Hochschild homology as factorization homology (in the sense of~\cite{old.fact}) over the framed torus:
+%\begin{equation}
+%\label{e34}
+%\int_{\TT^2} A
+%~\simeq~
+%\sHH\bigl( \sHH( A ) \bigr)
+%~\in~
+%\cV
+%~.
+%\end{equation}
+%Through this identification~(\ref{e34}), the continuous action~(\ref{e33}) extends via Observation~\ref{t15} to a continuous action
+%\begin{equation}
+%\label{e35}
+%\TT^2 \rtimes \Braid
+%\underset{\rm Thm~\ref{Theorem A}}\simeq 
+%\Diff^{\fr}(\TT^2) 
+%\lacts 
+%\int_{\TT^2} A
+%~
+%\underset{(\ref{e34})}\simeq
+%~
+%\sHH\bigl( \sHH( A ) \bigr)
+%~.
+%\end{equation}
+
+
+%
+%
+%Recall the Dennis trace map: $\sK(A) \xra{{\sf tr}} \sHH(A)$~(see~\cite{??}).
+%There is a canonical factorization of this Dennis trace map through negative-cyclic homology
+%$
+%\sK(A)
+%\xra{\sf tr^-}
+%\sHH^-(A)
+%:=
+%\sHH(A)^{{\sf h}\TT}
+%$
+%~(see~\cite{??}).
+%Iterating this trace map results in a map
+%\[
+%\sK\bigl( \sK(A) \bigr)
+%\xra{~\sf tr^-( \sf tr^-)~}
+%\sHH\bigl( \sHH(A)^{{\sf h}\TT}\bigr)^{{\sf h}\TT}
+%~.
+%\]
+%Through the universal property of iterated $\sK$-theory, as articulated in~\cite{mazel.gee.ruben}, the construction of this iterated trace map immediately yields a canonical factorization:
+%\begin{equation}
+%\label{e36}
+%{\Small
+%\xymatrix{
+%\Obj\Bigl( \Perf\bigl( \Perf(A) \bigr) \Bigr) \ar[rr] \ar[dd]
+%&&
+%\sHH\Bigl( \sHH\bigl( \Perf\bigl( \Perf(A) \bigr) \bigr) \Bigr)^{{\sf h} ( \TT^2 \rtimes \Braid) }  \ar[d]
+%&&
+%\sHH\bigl( \sHH( A ) \bigr)^{{\sf h} ( \TT^2 \rtimes \Braid) } \ar[d] \ar[ll]^-{\simeq}
+%\\
+%&&
+%\sHH\Bigl( \sHH\bigl( \Perf\bigl( \Perf(A) \bigr)^{{\sf h} \TT}  \bigr) \Bigr)^{{\sf h} \TT}  \ar[d]
+%&&
+%\sHH\bigl( \sHH( A )^{{\sf h} \TT} \bigr)^{{\sf h} \TT} \ar[d] \ar[ll]^-{\simeq}
+%\\
+%\sK\bigl( \sK( A ) \bigr) \ar[rr]^-{{\sf tr}({\sf tr})}
+%\ar[urr]^-{{\sf tr}^-({\sf tr}^-)}
+%\ar@(-,u)@{-->}[uurr]
+%&&
+%\sHH\Bigl( \sHH\bigl( \Perf\bigl( \Perf(A) \bigr) \bigr) \Bigr)
+%&&
+%\sHH\bigl( \sHH( A ) \bigr) \ar[ll]^-{\simeq}_-{\rm Morita~invariance}
+%.
+%}
+%}
+%\end{equation}
+%
+%
+%
+%
+%
+%For the case $(\cV,\ot) = (\Spectra,\wedge)$, it is known~(\cite{??}) that the iterated cyclotomic trace map
+%\[
+%\sK\bigl( \sK( A ) \bigr) 
+%\longrightarrow
+%{\sf TC}\bigl( {\sf TC}( A ) )
+%\]
+%is not locally constant (in the argument $A$).  
+%We hope the identification of Theorem~\ref{t11} is a step toward correcting this.  
+%For instance, the work~\cite{cyclo} explains how the cyclotomic structure on $\sHH(A)$ is derived from canonical actions of the topological monoid $\TT \rtimes \NN^\times \simeq \Emb^{\fr}(\TT)  \lacts  \int_{\TT} A' \simeq \sHH(A)$ for $A'$ a suspension spectrum of an associative algebra in $\Spaces$.  
+%By analogy, the lift~(\ref{e36}) suggests that the 2-dimensional analogue of a cyclotomic structure would be in terms of the topological monoid $??$, and that this structure on $\HHt(A)$ would be derived through the action~(\ref{e37}) from the case $(\cV,\ot) = (\Spaces,\times)$.
+%To that end, we pose the following problem of improving the action~(\ref{e35}), which is merely homotopy-coherent, to a genuine action with respect to finite subgroups of $\TT^2 \rtimes \Braid$.
+%\begin{problem}
+%\label{c1}
+%Let $\cV$ be a symmetric monoidal $\infty$-category that is $\ot$-presentable.
+%Suppose that the monoidal structure of $\cV$ is the Cartesian one.
+%Let $A \in \Alg\Bigl( \Alg(\cV) \bigr)$.
+%Lift the action~(\ref{e35}) to a \bit{genuine finite} action. 
+%Specifically, construct a canonical extension of the action~(\ref{e35}) as a functor:
+%\begin{equation}
+%\label{e37}
+%\xymatrix{
+%\TT^2 \underset{(\ref{e3})} \rtimes \Braid
+%\ar[rr]^-{\rm Thm~\ref{Theorem A}}_-{\simeq}
+%\ar[d]
+%&&
+%{\sf BDiff}^{\fr}(\TT^2)
+%\ar[d]
+%\ar[rrrr]^-{\Diff^{\fr}(\TT^2) 
+%\underset{(\ref{e35})}\lacts
+%\HHt(A)
+%}
+%&&
+%&&
+%\cV
+%\\
+%{\sf Orbit}^{\sf fin}_{\TT^2}
+%\ar[rr]^-{\rm Thm~\ref{t11}}_-{\simeq}
+%&&
+%\Ar\bigl( \fB \Imm^{\fr}(\TT^2) \bigr)_{|{\sf BDiff}^{\fr}(\TT^2)}
+%\ar@{-->}[urrrr]
+%&&
+%&&
+%.
+%}
+%\end{equation}
+%
+%\end{problem}
+%
+%
+%
+%{\color{blue}
+%\begin{example}
+%$A = \Omega^2 Z$.
+%
+%\end{example}
+%
+%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{thebibliography}{9}
+%\bibitem{alexander} J. W. Alexander, On the deformation of an n-cell, Proc. Nat. Acad. Sei. U.S.A. vol. 9 (1923) pp. 406-407.
+\bibitem{ee} Earle, C. J.; Eells, J. The diffeomorphism group of a compact Riemann surface. Bull. Amer. Math. Soc. 73 (1967), no. 4, 557--559. https://projecteuclid.org/euclid.bams/1183528956
+\bibitem{mil} J. Milnor, Introduction to Algebraic K-theory, Annals of Math. Study 72,
+Princeton Univ. Press, 1971.
+\bibitem{rawn} Rawnsley, J. On the Universal Covering Group of the Real Symplectic Group. Journal of Geometry and Physics. 2012
+\bibitem{rolf} Rolfsen, D.; Knots and Links. Berkeley, Publish or Perish 1976
+\end{thebibliography}
+
+
+
+\end{document}
