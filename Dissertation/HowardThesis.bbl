@@ -1,0 +1,118 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{fib}
+David Ayala and John Francis, \emph{Fibrations of $\infty-$categories}, Higher
+  Structures \textbf{4} (2020), no.~1, 168--265.
+
+\bibitem{non-com-geom}
+David Ayala, Aaron Mazel-Gee, and Nick Rozenblyum, \emph{Stratified
+  noncommutative geometry.}, ArXiv e-prints (2020).
+
+\bibitem{Morin}
+Morin Bernard and Jean-Pierre Petit, \emph{Le retournement de la sphere}, C. R.
+  Acad. Sci. Paris Sér. A-B \textbf{287} (1978), no.~11, A791--A794.
+
+\bibitem{Dehn}
+M.~Dehn, \emph{Die gruppe der abbildungsklassen: Das arithmetische feld auf
+  fl\"{a}chen}, Acta Mathematica \textbf{69} (1938), no.~1, 135--206.
+
+\bibitem{ee}
+C.~J. Earle and J.~Eells, \emph{The diffeomorphism group of a compact riemann
+  surface}, Bulletin of the American Mathematical Society \textbf{73} (1967),
+  557--559.
+
+\bibitem{hprinc2}
+M.~Gromov, \emph{Partial differential relations}, Springer-Verlag (1986).
+
+\bibitem{hprinc1}
+M.~Gromov and Y.~Eliashberg, \emph{Elimination of singularities of smooth
+  mappings}, Izvestiya Akademii Nauk SSSR. Seriya Matematicheskaya \textbf{35}
+  (1971), 600--626.
+
+\bibitem{hatcher}
+Allen Hatcher, \emph{A proof of the smale conjecture}, Annals of Mathematics.
+  Second Series \textbf{117} (1983), no.~3, 553--607.
+
+\bibitem{Hatch}
+\bysame, \emph{Algebraic topology}, Cambridge University Press, Cambridge
+  (2002).
+
+\bibitem{TT}
+\bysame, \emph{The kirby torus trick for surfaces}, ArXiv e-prints (2013).
+
+\bibitem{Hir}
+Morris~W. Hirsch, \emph{Immersions of manifolds}, Transactions of the American
+  Mathematical Society \textbf{93} (1959), 242--276.
+
+\bibitem{IMW}
+Sergei~O. Ivanov, Roman Mikhailov, and Jie Wu, \emph{On nontriviality of
+  certain homotopy groups of spheres}, Homology, Homotopy and Applications
+  \textbf{18} (2016), no.~2, 337--344.
+
+\bibitem{HA}
+Jacob Lurie, \emph{Higher algebra}, Available at author's website (2016).
+
+\bibitem{May}
+J.~P. May, \emph{A concise course in algebraic topology}, Chicago Lectures in
+  Mathematics. University of Chicago Press, Chicago, IL (1999).
+
+\bibitem{MoreMay}
+J.~P. May and K.~Ponto, \emph{More concise algebraic topology}, Chicago
+  Lectures in Mathematics. University of Chicago Press, Chicago, IL (2012).
+
+\bibitem{mil}
+John Milnor, \emph{Introduction to algebraic k-theory}, Annals of Mathematics
+  Studies Princeton University Press (1971), no.~72.
+
+\bibitem{MilStash}
+John~W. Milnor and James~D. Stasheff, \emph{Characteristic classes}, Annals of
+  Mathematics Studies Princeton University Press (1974), no.~76.
+
+\bibitem{Pink}
+Ulrich Pinkall, \emph{Regular homotopy classes of immersed surfaces}, Topology
+  \textbf{24} (1985), no.~4, 421--434.
+
+\bibitem{Preiss}
+Alexandre Preissmann, \emph{Quelques propri\'{e}t\'{e}s globales des espaces de
+  riemann}, Commentarii Mathematici Helvetici \textbf{15} (1943), 175--216.
+
+\bibitem{rawn}
+John Rawnsley, \emph{Hodge decomposition for higher order hochschild homology},
+  Journal of Geometry and Physics \textbf{62} (2012), no.~10, 2044--2058.
+
+\bibitem{rolf}
+Dale Rolfsen, \emph{Knots and links}, Mathematics Lecture Series, No. 7.
+  Publish or Perish, Inc., Berkeley, Calif. (1976).
+
+\bibitem{Rot}
+Joesph~J. Rotman, \emph{An introduction to algebraic topology}, Graduate Texts
+  in Mathematics, 119. Springer-Verlag, New York, (1988).
+
+\bibitem{Sm1}
+Stephen Smale, \emph{Regular curves on riemannian manifolds}, Thesis
+  (Ph.D.)--University of Michigan (1957).
+
+\bibitem{Sm3}
+\bysame, \emph{A classification of immersions of the two-sphere}, Transactions
+  of the American Mathematical Society \textbf{90} (1958), 281--290.
+
+\bibitem{sm}
+\bysame, \emph{Diffeomorphisms of the 2-sphere}, Proceedings of the American
+  Mathematical Society \textbf{10} (1959), 621--626.
+
+\bibitem{WG}
+Hassler Whitney, \emph{On regular closed curves in the plane}, Compositio
+  Mathematica \textbf{4} (1937), 276--284.
+
+\bibitem{Woc}
+Christoph Wockel, \emph{A generalization of steenrod's approximation theorem},
+  Arch. Math. (Brno) \textbf{45} (2009), no.~2, 95--104.
+
+\end{thebibliography}

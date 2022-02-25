@@ -1,0 +1,778 @@
+
+\chapter{Some Facts About the Braid Group and Braid Monoid}
+\label{sec.B}
+Here we collect some facts about the braid group on 3 strands, and the braid monoid on 3 strands.
+
+
+
+
+
+
+\section{Ambidexterity of $\Ebraid$} \label{ambidex}
+
+
+
+
+\begin{observation}
+\label{t60}
+Taking transposes of matrices identifies the nested sequence among monoids with the nested sequence of their opposites:
+\[
+\Bigl(
+\SL_2(\ZZ)
+\subset
+\EpZ
+\subset
+\GL_2^+(\RR)
+\Bigr)
+~\overset{{}^{~{}~}(-)^T}\cong~
+\Bigl(
+\SL_2(\ZZ)^{\op}
+\subset
+\EpZ^{\op}
+\subset
+\GL_2^+(\RR)^{\op}
+\Bigr)
+~.
+\]
+By covering space theory, these identifications canonically lift as identifications between nested sequences among monoids and their opposites:
+\[
+\Bigl(
+\Braid
+\subset
+\Ebraid
+\subset
+\w{\GL}_2^+(\RR)
+\Bigr)
+~\overset{{}^{~{}~}(-)^T}\cong~
+\Bigl(
+\Braid^{\op}
+\subset
+\Ebraid^{\op}
+\subset
+\w{\GL}_2^+(\RR)^{\op}
+\Bigr)
+~.
+\]
+\end{observation}
+
+
+\begin{cor}
+\label{t61}
+For each $\infty$-category $\cX$, there are canonical identifications
+\[
+\Mod_{\Braid}(\cX)
+~\simeq~
+\Mod_{\Braid^{\op}}(\cX)
+\qquad
+\text{ and }
+\qquad
+\Mod_{\Ebraid}(\cX)
+~\simeq~
+\Mod_{\Ebraid^{\op}}(\cX)
+\]
+between the $\infty$-category of (left-)modules in $\cX$ and that of right-modules in $\cX$.
+
+\end{cor}
+
+
+
+
+
+
+\begin{remark}
+The composite isomorphism
+$\Braid \underset{\cong}{\xra{(-)^{T}}} \Braid^{\op}  \underset{\cong}{\xra{(-)^{-1}}} \Braid$ 
+is the involution of $\Braid$ given in terms of the presentation~(\ref{e67}) by exchanging $\tau_1$ and $\tau_2$. 
+Similarly, the involution
+$\SL_2(\ZZ) \underset{\cong}{\xra{(-)^{T}}} \SL_2(\ZZ)^{\op}  \underset{\cong}{\xra{(-)^{-1}}} \SL_2(\ZZ)$ exchanges $U_1$ and $U_2$.  
+
+\end{remark}
+
+
+
+
+
+
+
+\section{Comments About $\Braid$ and $\Ebraid$}
+
+
+
+
+
+\begin{observation}
+In $\Braid$, there is an identity of the generator of $\Ker(\Phi)$:
+\[
+(\tau_{1} \tau_{2} \tau_{1})^4 
+=
+( \tau_{1} \tau_{2})^6
+=
+(\tau_{2} \tau_{1} \tau_{2})^4
+\in {\sf Ker}(\Phi)
+~.
+\]
+For that matter, since the matrix
+\begin{equation}
+\label{e64}
+R~:=~ U_1 U_2 U_3 ~=~ 
+\begin{bmatrix}
+0 & 1 
+\\
+-1 & 0
+\end{bmatrix}
+~=~
+U_2 U_1 U_2
+~\in~\GL_2(\ZZ)
+\end{equation}
+implements rotation by $-\frac{\pi}{2}$, 
+then $R^4 = \uno$ in $\GL_2(\ZZ)$.
+
+\end{observation}
+
+
+
+The following result is an immediate consequence of how $\Ebraid$ is defined in equation (\ref{e77}), using that the continuous group $\GL^+_2(\RR)$ is a path-connected 1-type.
+\begin{cor}
+\label{t31}
+There are pullbacks among continuous monoids:
+\begin{equation*}
+\xymatrix{
+\Braid
+\ar[rr]
+\ar[d]_-{\Phi}
+&&
+\Ebraid
+\ar[d]_-{\Psi} \ar[rr]
+&&
+\ast \ar[d]^-{\lag \uno \rag}
+\\
+\GL_2(\ZZ)
+\ar[rr]
+&&
+\EZ
+\ar[rr]^-{\RR \underset{\ZZ}\ot}
+&&
+\GL_2(\RR)
+.
+}
+\end{equation*}
+In particular, there is a canonical identification between continuous groups over $\GL_2(\ZZ)$:
+\[
+\Braid
+~\simeq~
+\Omega\bigl(
+\GL_2(\RR)_{/\GL_2(\ZZ)}
+\bigr)
+\qquad
+\bigl({\rm ~over~}
+\GL_2(\ZZ)
+~\bigr)
+~.
+\]
+
+\end{cor}
+
+
+
+
+
+
+
+\begin{observation}
+\label{t39}
+The inclusion $\SL_2(\ZZ)\subset \EpZ$ between submonoids of $\GL_2^+(\RR)$ determines an inclusion between topological monoids:
+\begin{equation}
+\label{e4}
+\TT^2 \rtimes \Braid
+\longrightarrow
+\TT^2 \rtimes \Ebraid
+~.
+\end{equation}
+After Observation~\ref{t21}, this inclusion~(\ref{e4}) witnesses the maximal subgroup, both as topological monoids and as monoid-objects in the $\infty$-category $\Spaces$.
+
+\end{observation}
+
+
+
+
+
+
+
+\begin{remark}
+We give an explicit description of $\Ebraid$.
+In~\cite{rawn}, the author gives an explicit description for the universal cover of $\SP_{2}(\RR) = \SL_{2}(\RR)$ (and goes on to establish the pullback square of Proposition~\ref{t32}).
+Following those methods, consider the maps
+\[
+\phi
+\colon
+\GL_2(\RR)
+\longrightarrow
+\SS^1;
+\qquad
+ A
+\mapsto \frac{(a + d) + i(b - c)}{|(a + d) + i(b - c)|}
+\]
+writing
+$
+A =
+\begin{bmatrix}
+a & b 
+\\
+c & d
+\end{bmatrix}.
+$
+As in \cite{rawn}, consider a map
+\[
+\eta \colon \GL_2(\RR) \times \GL_2(\RR) \rightarrow \RR
+\]
+for which
+\[
+e^{i\eta(A, B)} = \frac{1 - \alpha_{A}\overline{\alpha_{B^{-1}}}}{|1 - \alpha_{A}\overline{\alpha_{B^{-1}}}|}
+\qquad
+\text{ where }
+\qquad
+\alpha_{A} = \frac{a^{2} + c^{2} - b^{2} - d^{2} - 2i(ad + bc)}{(a + d)^{2} + (b - c)^{2}}.
+\]
+
+
+
+In these terms, the monoid $\Ebraid$ can be identified as the subset
+\[
+\Ebraid
+~:=~
+\bigl\{
+(A, s)  \mid  \phi(A) = e^{is}
+\bigr\} 
+~\subset~
+\EpZ \times \RR
+~,~
+\text{with monoid-law }
+\]
+\[
+(A, s) \cdot (B, t) := \bigl(AB, s + t + \eta(A, B) \bigr)
+~.
+\]
+\end{remark}
+
+
+
+
+
+\section{Group-Completion of $\Ebraid$}
+
+
+
+The continuous group $\GL_2^+(\RR)$ is path-connected with $\pi_1\bigl( \GL_2^+(\RR) , \uno \bigr) \cong \ZZ$.
+Consequently, there is a central extension
+\begin{equation}
+\label{e84}
+1
+\longrightarrow
+\ZZ
+\longrightarrow
+\w{\GL}_2^+(\RR)
+\xra{\rm universal~cover}
+\GL_2^+(\RR)
+\longrightarrow
+1
+~.
+\end{equation}
+Consider the inclusion as scalars $\RR_{>0}^\times \underset{\rm scalars} \hookrightarrow \GL_2^+(\RR)$.
+Contractibility of the topological group $\RR_{>0}^\times$ implies base-change of this central extension~(\ref{e84}) along this inclusion as scalars splits.
+In particular, 
+for $\RR\underset{\QQ}\ot \colon \GL_2^+(\QQ)\subset \GL_2^+(\RR)$ the subgroup with rational coefficients, 
+there are lifts among continuous groups in which the squares are pullbacks:
+
+\[
+\xymatrix@C=1em{
+\NN^\times
+\ar[rr]
+\ar[drrrrrr]_-{\rm scalars}
+\ar@{-->}@(u,-)[rrrrrr]^-{~}
+&&
+\QQ_{>0}^{\times}
+\ar[rr]
+\ar[drrrrrr]
+\ar@{-->}@(u,u)[rrrrrr]^-{\rm \w{scalars}}
+&&
+\RR_{>0}^{\times}
+\ar[drrrrrr]
+\ar@{-->}@(-,u)[rrrrrr]^-{~}
+&&
+\Ebraid
+\ar[d]
+\ar[rr]_-{\w{\QQ\underset{\ZZ}\ot}}
+&&
+\w{\GL}_2^+(\QQ)
+\ar[d]
+\ar[rr]_-{\w{\RR\underset{\QQ}\ot}}
+&&
+\w{\GL}_2^+(\RR)
+\ar[d]^-{\rm cover}_-{\rm universal}
+\\
+&&&
+&&&
+\EpZ
+\ar[rr]_-{\QQ\underset{\ZZ}\ot}
+&&
+\GL_2^+(\QQ)
+\ar[rr]_-{\RR\underset{\QQ}\ot}
+&&
+\GL_2^+(\RR)
+.
+}
+\]
+
+
+
+
+\begin{prop}
+\label{t59}
+Each of the diagrams among continuous monoids
+\[
+\xymatrix{
+\NN^\times
+\ar[rr]^-{\rm scalars}
+\ar[d]_-{\rm inclusion}
+&&
+\EZ
+\ar[d]^-{\QQ\underset{\ZZ}\ot}
+&&
+\NN^\times
+\ar[rr]^-{\rm \w{scalars}}
+\ar[d]_-{\rm inclusion}
+&&
+\Ebraid
+\ar[d]^-{\w{\QQ\underset{\ZZ}\ot}}
+\\
+\QQ_{>0}^{\times}
+\ar[rr]^-{\rm scalars}
+&&
+\GL_2(\QQ)
+&
+\text{ and }
+&
+\QQ_{>0}^{\times}
+\ar[rr]^-{\rm \w{scalars}}
+&&
+\w{\GL}_2^+(\QQ)
+}
+\]
+witnesses a pushout.
+In particular, because $\NN^\times \xra{\rm inclusion}\QQ^\times_{>0}$ witnesses group-completion among continuous monoids, then each of the right downward morphisms witnesses group-completion among continuous monoids.  
+
+
+
+\end{prop}
+
+\begin{proof}
+We explain the following commutative diagram among spaces:
+\[
+\xymatrix{
+\EZ
+\ar[rrrr]^-{\RR\underset{\ZZ}\ot }
+\ar@{-->}[dr]_-{\rm (a)}
+\ar[drrr]
+&
+&&
+&
+\GL_2(\QQ)
+\ar@{-->}[dlll]_-{\rm (b)}
+\\
+&
+\underset{\NN^{\sf div}}\colim
+~\EZ
+\ar@{-->}[rr]_-{\rm (c)}
+&&
+\EZ[ (\NN^\times)^{-1} ]
+\ar[ur]_-{\ov{\RR\underset{\ZZ}\ot}}
+&
+}
+\]
+The top horizontal arrow is the standard inclusion.
+Here, scalar matrices embed the multiplicative monoid of natural numbers $\NN^\times \underset{\rm scalars}\subset \EZ$.
+The bottom right term, equipped with the diagonal arrow to it, is the indicated localization (among continuous monoids). 
+The up-rightward arrow is the unique morphism between continuous monoids under $\EZ$, which exists because the continuous monoid $\GL_2(\QQ)$ is a continuous group.
+The solid diagram of spaces is thusly forgotten from a diagram among continuous monoids.  
+
+
+Next, the poset $\NN^{\sf div}$ is the natural numbers with partial order given by divisibility: $r\leq s$ means $r$ divides $s$.   
+Consider the functor 
+\[
+F_{\EZ} \colon \NN^{\sf div} \longrightarrow \Sets
+\hookrightarrow
+\Spaces
+~,\qquad
+r\mapsto \EZ
+~{}~
+\text{ and }
+~{}~
+(r\leq s)
+\mapsto 
+\bigl(
+~
+\EZ \xra{ \frac{s}{r} \cdot -} \EZ
+~
+\bigr)
+~.
+\]
+The colimit term in the above diagram is 
+$
+\colim\bigl( 
+F_{\EZ}
+\bigr)
+$,
+which can be identified as the classifying space of the poset
+\[
+{\sf Un}\bigl( F_{\EZ} \bigr)
+~=~
+\]
+\[
+\Bigl(
+~
+\NN\times \EZ
+\text{ , with partial order }(r,A) \leq (s,B) \text{ meaning }
+r\leq s \text{ in }\NN^{\sf div}
+\text{ and }
+\frac{s}{r} \cdot A=B
+~
+\Bigr)
+~.
+\]
+\begin{itemize}
+\item
+The dashed arrow~$\rm (a)$ is the canonical map from the $1$-cofactor of the colimit.  
+
+\item
+The dashed arrow~$\rm (b)$ is implemented by the map $\w{\rm (b)}\colon \GL_2(\QQ)\xra{A\mapsto (r_A,r_A\cdot A)} \NN\times \EZ$ where $r_A\in \NN$ is the smallest natural number for which the matrix $r_A\cdot  A\in \EZ$ has integer coefficients.
+The triangle with sides $\rm (a)$ and $\rm (b)$ evidently commutes.   
+
+\item
+The dashed arrow~$\rm (c)$ is implemented by the map \[
+\w{\rm (c)}\colon
+{\sf Un}\bigl( F_{\EZ} \bigr)
+ \xra{(r,A)\mapsto r^{-1}A} \EZ[ (\NN^\times)^{-1} ].
+ \]The triangle with sides~$\rm (a)$ and $\rm (c)$ evidently commutes.
+We now argue that the map~$\rm (c)$ is an equivalence between spaces.  
+
+
+Observe the identification between continuous monoids 
+\[
+\underset{p~{\rm prime}} \bigoplus (\ZZ_{\geq 0},+)
+\xra{~\cong~}
+\NN^\times
+~,\qquad
+\bigl(
+\{ p~{\rm prime}\}
+\xra{\eta}
+\ZZ_{\geq 0}
+\bigr)
+\mapsto 
+\underset{p~\rm prime}\prod p^{\eta(p)}
+~,
+\]
+as a direct sum, indexed by the set of prime numbers, of free monoids each on a single generator.
+For $S$ a set of prime numbers, denote by $\lag S \rag^{\times} \subset \NN^\times$ the submonoid generated by $S$.  
+For $S$ a set of primes, and for $p\in S$, 
+the above identification as a direct sum of monoids restricts as an identification $(\ZZ_{\geq 0},+ ) \times \lag S \smallsetminus \{p\} \rag^{\times} \cong  \lag \{p\} \rag^{\times}  \times \lag S \smallsetminus \{p\} \rag^{\times}   \cong \lag S \rag^{\times}$.
+
+Next, observe an identification of the poset $\NN^{\sf div} \simeq (\fB \NN^\times)^{\ast/}$ as the undercategory of the deloop.  
+Through this identification, and the above identification supplies an identification between posets from the direct sum (based at initial objects) indexed by the set of prime numbers:
+\[
+\underset{p~\rm prime} \bigoplus (\ZZ_{\geq 0},\leq)
+\xra{~\cong~}
+\NN^{\sf div}
+~,\qquad
+\bigl(
+\{ p~{\rm prime}\}
+\xra{\chi}
+\ZZ_{\geq 0}
+\bigr)
+\mapsto 
+\underset{p~\rm prime}\prod p^{\chi(p)}
+~.
+\]
+For $S$ a set of prime numbers, denote by $\lag S \rag^{\sf div} \subset \NN^{\sf div}$ the full subposet generated by $S$.  
+For $S$ a set of primes, and for $p\in S$, 
+the above identification as a direct sum of posets restricts as an identification $(\ZZ_{\geq 0},\leq ) \times \lag S \smallsetminus \{p\} \rag^{\sf div} \cong  \lag \{p\} \rag^{\sf div}  \times \lag S \smallsetminus \{p\} \rag^{\sf div}   \cong \lag S \rag^{\sf div}$.
+In particular, 
+the standard linear order on the set of prime natural numbers determines the sequence of functors
+\begin{equation}
+\label{e85}
+\NN^{\sf div}
+\xra{{\sf loc}_2}
+\lag p>2 \rag^{\sf div}
+\xra{{\sf loc}_3}
+\lag p > 3 \rag^{\sf div}
+\xra{{\sf loc}_5}
+\lag p > 5 \rag^{\sf div}
+\xra{{\sf loc}_7}
+\dots
+~,
+\end{equation}
+each which is isomorphic with projection off of $(\ZZ_{\geq 0},\leq)$.  
+In particular, each projection is a coCartesian fibration, so left Kan extension along each functor is computed as a sequential colimit.  
+Because $\NN^\times \underset{\rm scalars}\subset \EZ$ is (strictly) central, 
+so too is $(\ZZ_{\geq 0},+)\cong \lag \{p\}\rag^{\times}\subset \EZ$.  
+The following claim follows from these observations, using induction on the standardly ordered set of primes. 
+\begin{itemize}
+\item[{\bf Claim.}]
+For each prime $q$, 
+left Kan extension of $F_{\EZ}$ along the composite functor $\NN^{\sf div}\xra{{\sf loc}_q^1} \lag p>q \rag^{\sf div}$ is the functor
+\[
+F_{\EZ\bigl[ (\lag p' \leq q \rag^{\times})^{-1}\bigr]}
+\colon \lag p > q \rag^{\sf div} 
+\xra{~({\sf loc}_q^1)_!(\EZ)~} 
+\Spaces
+~,
+\]
+\[
+r\mapsto \EZ\bigl[ (\lag p' \leq q \rag^{\times})^{-1}\bigr]
+\qquad
+\text{ and }
+\qquad
+\]
+\[
+(r\leq s)
+\mapsto 
+\bigl(
+\EZ\bigl[ (\lag p' \leq q \rag^{\times})^{-1}\bigr] \xra{ \frac{s}{r} \cdot -} \EZ\bigl[ (\lag p' \leq q \rag^{\times})^{-1}\bigr]
+\bigr)
+~,
+\]
+that evaluates on each $r$ as the localization $\EZ\bigl[ (\lag p' \leq q \rag^{\times})^{-1} \bigr]$, and on each relation $r \leq s$ as scaling by $\frac{s}{r}$.
+\end{itemize}
+Next, the colimit of this sequence~(\ref{e85}) is $\underset{q ~ \rm prime}\bigcap \lag p > q \rag^{\sf div} \simeq \ast$ terminal.  
+Consequently, there is a canonical identification 
+\begin{eqnarray}
+\nonumber
+\colim( F_{\EZ} )
+&
+~\simeq ~
+&
+\underset{q \in \{2<3<5\cdots\}}\colim 
+\Bigl(
+({\sf loc}^1_q)_! \bigl( F_{\EZ\bigl[ (\lag p' \leq q \rag^{\times})^{-1}\bigr]} \bigr)
+\Bigr)
+\\
+\nonumber
+&
+~\simeq~
+&
+\underset{q \in \{2<3<5\cdots\}}\colim 
+\Bigl(
+F_{\EZ\bigl[ (\lag p' \leq q \rag^{\times})^{-1}\bigr]}
+\Bigr)
+\\
+\nonumber
+&
+~\simeq~
+&
+\EZ\Bigl[ 
+\bigl(
+\underset{q \in \{2<3<5<\cdots\}} \bigcup \lag p' \leq q \rag^{\times} 
+\bigr)^{-1}
+\Bigr]
+~=~
+\EZ[ (\NN^\times)^{-1} ]
+~.
+\end{eqnarray}
+
+
+
+\item
+By inspection, the resulting self-map of $\GL_2(\QQ)$ is the identity.  
+The natural transformation
+\[
+\xymatrix{
+{\sf Un}\bigl( F_{\EZ} \bigr)
+\ar@(u,u)[rr]^-{\id}
+\ar[d]_-{\w{\rm (c)}}
+&
+\Uparrow
+&
+{\sf Un}\bigl( F_{\EZ} \bigr)
+\\
+\EZ[(\NN^\times)^{-1}]
+\ar[rr]^{\ov{\RR\underset{\ZZ}\ot}}
+&&
+\GL_2(\QQ)
+\ar[u]_-{\w{\rm (b)}}
+,
+}
+\]
+given by, for each $(s,B)\in {\sf Un}\bigl( F_{\EZ} \bigr)$, the relation $\bigl( r_{s^{-1}\cdot B} , r_{s^{-1}\cdot B} \cdot (s^{-1}\cdot B) \bigr)  \leq (s,B)$, witnesses an identification of the resulting self-map of $\underset{\NN^{\sf div}}\colim \EZ$ with the identity.  
+\end{itemize}
+We conclude that the map $\EZ[(\NN^\times)^{-1}]\xra{\ov{\RR\underset{\ZZ}\ot}} \GL_2(\QQ)$ is an equivalence.
+It follows that the left square in the statement of the proposition is a pushout because the morphism $\NN^\times \xra{\rm inclusion}\QQ_{>0}^{\times}$ witnesses a group-completion (among continuous monoids).
+
+The same argument also implies the square
+\[
+\xymatrix{
+\NN^\times
+\ar[rr]^-{\rm scalars}
+\ar[d]_-{\rm inclusion}
+&&
+\EpZ 
+\ar[d]^-{\QQ\underset{\ZZ}\ot}
+\\
+\QQ_{>0}^\times
+\ar[rr]^-{\rm scalars}
+&&
+\GL_2^+(\QQ)
+}
+\]
+also witnesses a pushout among continuous monoids.
+Base-change along the central extension~(\ref{e84}) among continuous groups
+reveals that the right square is also a pushout among continuous groups.
+
+\end{proof}
+
+
+
+
+
+\section{Relationship with the Finite Orbit Category of $\TT^2$}
+Recall the $\infty$-category ${\sf Orbit}_{\TT^2}^{\sf fin}$ of transitive $\TT^2$-spaces with finite isotropy, and $\TT^2$-equivariant maps between them. 
+Recall that the action $\Ebraid \to \EZ \lacts \TT^2$ on the topological group determines an action 
+\begin{equation}
+\label{e92}
+\Ebraid \underset{\rm Obs~\ref{t60}}\simeq \Ebraid^{\op} \lacts {\sf Orbit}^{\sf fin}_{\TT^2}
+~.
+\end{equation}
+
+
+
+\begin{prop}
+\label{t68}
+There is a canonical identification of the $\infty$-category of coinvariants with respect to the action~(\ref{e92}): 
+\[
+\Bigl(
+{\sf Orbit}^{\sf fin}_{\TT^2}
+\Bigr)_{/\Ebraid}
+\xra{~\simeq~}
+\fB \bigl(
+\TT^2 \rtimes \Ebraid
+\bigr)
+~.
+\]
+
+\end{prop}
+
+\begin{proof}
+Recall that $\Ebraid \subset \w{\GL}^+_2(\RR)$ is defined as a submonoid of a group.
+As a result, the left-multiplication action by its maximal subgroup,
+$\w{\GL}_2^+(\ZZ) \lacts \Ebraid$, is free.  
+Consequently, the space of objects $\Obj\bigl( (\fB \Ebraid)^{\ast/} \bigr) \simeq \Ebraid_{/\w{\GL}^+_2(\ZZ)}\xra{\cong} \EpZ_{/\GL_2^+(\ZZ)}$ is simply the quotient set of $\Ebraid$ by its maximal subgroup acting via left-multiplication, which is bijective with the quotient of $\EpZ$ by its maximal subgroup via the canonical projection $\Ebraid \to \EpZ$.  
+The space of morphisms between objects represented by $A, B\in \EpZ$,
+\[
+\Hom_{(\fB \Ebraid)^{\ast/}}\bigl( [A] , [B] \bigr)\simeq  \{X \in \EpZ \mid XA=B\}\subset \EpZ
+\]
+is simply the set of factorizations in $\EpZ$ of $B$ by $A$.
+In particular, the $\infty$-category $(\fB \Ebraid)^{\ast/}$ is a poset.  
+We now identify this poset essentially through Pontrjagin duality.  
+
+
+
+Consider the poset $\sP^{\sf fin}_{\TT^2}$ of finite subgroups of $\TT^2$ ordered by inclusion.  
+We now construct mutually inverse functors between posets:
+\begin{equation}
+\label{e90}
+(\fB \Ebraid)^{\ast/}
+\xra{~[A]
+\mapsto 
+\Ker\bigl( \TT^2 \xra{A} \TT^2 \bigr)
+~}
+\sP^{\sf fin}_{\TT^2}
+\qquad
+\text{ and }
+\qquad
+\sP^{\sf fin}_{\TT^2}
+\xra{~C
+\mapsto 
+\bigl[ \ZZ^2 \xra{A_C} \ZZ^2 \bigr]
+~}
+(\fB \Ebraid)^{\ast/}
+\end{equation}
+The first functor assigns to $[A]$ the kernel of the endomorphism of $\TT^2$ induced by a representative $A \in \EpZ \lacts \TT^2$.   
+The second functor assigns to $C$ the endomorphism $(\ZZ^2 \xra{A_C}\ZZ^2)\in \EpZ$ defined as follows.
+The preimage $\ZZ^2 \subset \quot^{-1}(C) \subset \RR^2 \xra{\quot} \RR^2_{/\ZZ^2} =:\TT^2$ by the quotient is a lattice in $\RR^2$ that contains the standard lattice cofinitely.
+There is a unique pair of non-negative-quadrant vectors $(u_1,u_2)\in (\RR_{\geq 0})^2\times (\RR_\geq 0)^2$ that generate this lattice $\quot^{-1}(C)$ and agree with the standard orientation of $\RR^2$.
+Then $A_C \in \EpZ$ is the unique matrix for which $A_C u_i = e_i$ for $i=1,2$.  
+It is straight-forward to verify that these two assignments in~(\ref{e90}) indeed respect partial orders, and are mutually inverse to one another.
+Observe that the action~(\ref{e92}) descends as an action $\Ebraid^{\op}\lacts \sP^{\sf fin}_{\TT^2}$, with respect to which the equivalences~(\ref{e90}) are $\Ebraid^{\op}$-equivariant.
+
+
+
+
+
+Next, reporting the stabilizer of a transitive $\TT^2$-space defines a functor
+\[
+{\sf Orbit}^{\sf fin}_{\TT^2} \xra{ (\TT^2 \lacts T)\mapsto {\sf Stab}_{\TT^2}(t)} \sP^{\sf fin}_{\TT^2}.
+\]
+Evidently, this functor is conservative.
+Notice also that this functor is a left fibration; its straightening is the composite functor
+\begin{equation}
+\label{e93}
+\sP^{\sf fin}_{\TT^2}
+\xra{~C\mapsto \frac{\TT}{C}~}
+{\sf Groups}
+\xra{~\sB~}
+\Spaces
+~.
+\end{equation}
+Observe that the action~(\ref{e92}) descends as an action $\Ebraid^{\op}\lacts \sP^{\sf fin}_{\TT^2}$.  
+
+
+
+The result follows upon constructing a canonical filler in the diagram among $\infty$-categories witnessing a pullback:
+\[
+\xymatrix{
+{\sf Orbit}_{\TT^2}^{\sf fin}
+\ar@{-->}[rrrr]
+\ar[d]
+&&
+&&
+\Ar\bigl( \fB (\TT^2 \rtimes \Ebraid ) \bigr)
+\ar[d]^-{\Ar(\fB {\sf proj}) }
+\\
+\sP^{\sf fin}_{\TT^2}
+\ar[rr]^-{\simeq}_-{(\ref{e90})}
+&&
+(\fB \Ebraid)^{\ast/}
+\ar[rr]^-{\rm forget}
+&&
+\Ar\bigl( \fB \Ebraid \bigr)
+.
+}
+\]
+By definition of semi-direct products,
+the canonical functor $\fB (\TT^2 \rtimes \Ebraid) \xra{\fB \sf proj} \fB \Ebraid$ is a coCartesian fibration.
+Because the $\infty$-category $\fB \TT^2 =\sB \TT^2$ is an $\infty$-groupoid, this coCartesian fibration is conservative, and therefore a left fibration.
+Consequently, the functor 
+\[
+\Ar\bigl( \fB (\TT^2 \rtimes \Ebraid) \bigr)
+\to
+\Ar( \fB \Ebraid )
+\]
+is also a left fibration.
+Therefore, the base-change of this left fibration along $
+(\fB \Ebraid)^{\ast/}
+\xra{\rm forget}
+\Ar\bigl( \fB \Ebraid \bigr)
+$ is again a left fibration:
+\begin{equation}
+\label{e91}
+\Ar\bigl( \fB (\TT^2 \rtimes \Ebraid) \bigr)^{|\sB \TT^2}
+\longrightarrow
+(\fB \Ebraid)^{\ast/}
+~\underset{(\ref{e90})}\simeq~
+\sP^{\sf fin}_{\TT^2}
+~.
+\end{equation}
+Direct inspection identifies the straightening of this left fibration~(\ref{e91}) as~(\ref{e93}).
+
+
+\end{proof}
+
+

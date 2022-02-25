@@ -1,0 +1,582 @@
+\chapter{Some Facts About Continuous Monoids} \label{sec.A}
+We record some simple formal results concerning continuous monoids.
+
+\begin{lemma}\label{t2}
+Let $G \lacts X$ be an action of a continuous group on a space.
+Let $\ast \xra{\lag x \rag } X$ be a point in this space.
+Consider the stabilizer of $x$, which is the fiber of the orbit map of $x$:
+\begin{equation}
+\label{e52}
+\xymatrix{
+{\sf Stab}_G(x)
+\ar[rrrr]
+\ar[d]
+&&
+&&
+\ast
+\ar[d]^-{\lag x \rag}
+\\
+G \simeq G\times \ast 
+\ar[rr]^-{ \id \times \lag x \rag} 
+\ar@(u,u)[rrrr]_-{{\sf Orbit}_x}
+&&
+G \times X 
+\ar[rr]^-{\sf act} 
+&&
+X
+.
+}
+\end{equation}
+There is a canonical identification in $\Spaces$ between this stabilizer and the based-loops at $[x]\colon \ast \xra{\lag x \rag} X \xra{\rm quotient} X_{/G}$ of the $G$-coinvariants,
+\[
+{\sf Stab}_G(x)
+~\simeq~
+\Omega_{[x]} ( X_{/G} )
+~,
+\]
+through which the resulting composite morphism $\Omega_{[x]} ( X_{/G} )
+\simeq {\sf Stab}_G(x)
+\to 
+G
+$
+canonically lifts to one between continuous groups.
+
+\end{lemma}
+
+
+
+\begin{proof}
+By definition of a $G$-action, the orbit map $G\xra{{\sf Orbit}_x} X$ is canonically $G$-equivariant.
+Taking $G$-coinvariants supplies an extension of the commutative diagram~(\ref{e52}) in $\Spaces$:
+\[
+\xymatrix{
+{\sf Stab}_G(x) 
+\ar[rr] \ar[d]
+&&
+G 
+\ar[d]^-{{\sf Orbit}_x} \ar[rr]^-{\rm quotient}
+&&
+G_{/G} 
+\simeq 
+\ast
+\ar[d]^-{({\sf Orbit}_x)_{/G}}
+\\
+\ast \ar[rr]^-{\lag x\rag}
+&&
+X
+\ar[rr]^-{\rm quotient}
+&&
+X_{/G}
+.
+}
+\]
+Through the identification $G_{/G} \simeq \ast$, the right vertical map is identified as $\ast\xra{\lag [x] \rag} X_{/G}$.
+Using that groupoids in $\Spaces$ are effective, the right square is a pullback.  
+Because the lefthand square is defined as a pullback, it follows that the outer square is a pullback.
+The identification ${\sf Stab}_G(x) \simeq \Omega_{[x]} ( X_{/G} ) $ follows.  
+In particular, the space ${\sf Stab}_G(x)$ has the canonical structure of a continuous group.
+
+
+Now, this continuous group ${\sf Stab}_G(x)$ is evidently functorial in the argument $G \lacts X \ni x$.  
+In particular, the unique $G$-equivariant morphism $X\xra{!} \ast$ determines a morphism between continuous groups:
+\[
+{\sf Stab}_x(X)
+\longrightarrow
+{\sf Stab}_{\ast}(\ast)
+~\simeq~
+G
+~.
+\]
+
+
+\end{proof}
+
+
+
+\begin{lemma}
+\label{t66}
+Let $H \to G$ be a morphism between continuous groups.
+Let $H\lacts X$ be an action on a space.  
+There is a canonical map between spaces over $G_{/H}$, 
+\[
+X_{/\Omega(G_{/H})}
+\longrightarrow 
+(X \times G)_{/H}
+~,
+\]
+from the coinvariants with respect to the action 
+$
+\Omega (G_{/H})
+\xra{\Omega\text{-\rm Puppe}}
+H
+\lacts
+X
+$.
+Furthermore, if the induced map $\pi_0(H)\to \pi_0(G)$ between sets of path-components is surjective, then this map is an equivalence.
+
+\end{lemma}
+
+\begin{proof}
+The construction of the $\Omega$-Puppe sequence is so that the morphism 
+$
+\Omega (G_{/H})
+\to 
+H
+$
+witnesses the stabilizer of $\ast \xra{\rm unit} G$ with respect to the action $H \to G \underset{\rm left~trans}\lacts G$:
+\[
+\xymatrix{
+\Omega (G_{/H})
+\ar[rr]
+\ar[d]
+&&
+H
+\ar[d]
+\\
+\ast
+\ar[rr]^-{\rm unit}
+&&
+G
+.
+}
+\]
+In particular, there is a canonical $\Omega (G_{/H})$-equivariant map
+\[
+X
+~\simeq~
+X\times \ast
+\xra{ \id \times {\rm unit}}
+X \times G
+~.
+\]
+Taking coinvariants lends a canonically commutative diagram among spaces:
+\begin{equation}
+\label{f1ap}
+\xymatrix{
+X_{ \Omega (G_{/H}) }
+\ar[d]
+\ar[r]
+&
+(X \times  G)_{/H}
+\ar[r]
+\ar[d]
+&
+X_{/H}
+\ar[d]
+\\
+\sB \Omega (G_{/H})
+\ar[r]
+&
+G_{/H}
+\ar[r]
+&
+\sB H
+.
+}
+\end{equation}
+This proves the first assertion.
+
+We now prove the second assertion.
+Because groupoid-objects are effective in the $\infty$-category $\Spaces$,
+the $H$-coinvariants functor,
+\[
+\Fun ( \sB H , \Spaces )
+\longrightarrow
+\Spaces_{/\sB H}
+~,\qquad
+(H \lacts X)
+\mapsto 
+( X_{/H} \to \sB H)
+~,
+\]
+is an equivalence between $\infty$-categories.
+In particular, it preserves products.
+It follows that the right square in~(\ref{f1ap}) witnesses a pullback.  
+By definition of coinvariants of the restricted action $\Omega (G_{/H}) \to H \lacts X$, the outer square is a pullback.  
+The connectivity assumption on the morphism $H\to G$ implies the left bottom horizontal map is an equivalence.  
+We conclude that the left top horizontal map is also an equivalence, as desired.  
+
+\end{proof}
+
+
+
+
+
+Let $\fB N \xra{\lag N \lacts M \rag } {\sf Monoids}$ be an action of a continuous monoid on a continuous monoid.
+This action can be codified as unstraightening of the composite functor $\fB N \to {\sf Monoids} \xra{ \fB }\Cat^{\ast/}_{(\infty,1)}$ is a pointed coCartesian fibration
+$
+(\fB M)_{/^{\sf l.lax} N}
+\to
+\fB N
+$
+.
+The \bit{semi-direct product (of $N$ by $M$)} is the continuous monoid
+\[
+M \rtimes N := \End_{(\fB M)_{/^{\sf l.lax} N}} ( \ast )
+~,
+\]
+which is endomorphisms of the point.\footnote{The underlying space of this continuous monoid is canonically identified as $M \times N$;
+the 2-ary monoidal structure $\mu_{M \rtimes N}$ is canonically identified as the composite map between spaces:
+\begin{eqnarray*}
+\mu_{M \rtimes N }
+\colon
+(M \times N) \times (M \times N)
+=
+M \times (N \times M) \times M
+&
+\xra{ \id_M \times {\rm swap} \times \id_N} M \times ( M \times N ) \times N
+\\
+\xra{ \id_M \times \bigl( {\sf proj}_M , {\rm action} \bigr) \times \id_N }
+M \times ( M \times N ) \times N =
+&
+( M \times M ) \times ( N \times N )
+\xra{ \mu_M \times \mu_N }  M \times N 
+~.
+\end{eqnarray*}
+}
+Note the canonical morphism between monoids $M \rtimes N \to N$ whose kernel is $M$.
+
+
+Dually, let $\fB N^{\op} \xra{\lag M \racts N \rag} {\sf Monoids}$ a \emph{right} be a action.
+Consider the unstraightening of the composite functor $\fB N^{\op} \to {\sf Monoids} \xra{ \fB }\Cat^{\ast/}_{(\infty,1)}$ is a pointed Cartesian fibration
+$
+(\fB M)_{/^{\sf r.lax} N^{\op}}
+\to
+\fB N
+$
+.
+The \bit{semi-direct product (of $N$ by $M$)} is the continuous monoid
+\[
+N \ltimes M := \End_{(\fB M)_{/^{\sf r.lax} N^{\op}}} ( \ast )
+~,
+\]
+which is endomorphisms of the point.  
+Note the canonical morphism between monoids $M \rtimes N \to N$ whose kernel is $M$.
+
+
+\begin{observation}
+\label{f5}
+Let $N \lacts M$ be an action of a continuous monoid on a continuous monoid.
+There is a canonical identification between continuous monoids under $M^{\op}$ and over $N^{\op}$:
+\[
+\left(
+M \rtimes N
+\right)^{\op}
+~\simeq~
+\left(
+N^{\op}
+\ltimes 
+M^{\op}
+\right)
+~.
+\]
+
+\end{observation}
+
+
+
+
+The next result is a characterization of semi-direct products.  
+\begin{lemma}
+\label{t67}
+Let $A \overset{i}{\underset{r} \leftrightarrows} N$ be a retraction between continuous monoids (so $r \circ i \simeq \id_N$).
+\begin{itemize}
+
+\item
+If the canonical map between spaces
+\begin{equation}
+\label{f2ap}
+\Ker(r) 
+\times 
+N
+\xra{ {\rm inclusion} \times i }
+A \times A
+\xra{\mu_A}
+A
+\end{equation}
+is an equivalence,\footnote{Note that this condition is always satisfied if $N$ is a continuous group.}
+then there is a canonical action $N \underset{\lambda}\lacts \Ker(r)$ \footnote{
+The action map associated to $\lambda$ can be written as the composition
+\[
+N
+\times
+\Ker(r)
+\xra{ i \times {\rm inclusion}}
+A \times A
+\xra{~\mu_A~}
+A
+\underset{(\ref{f2ap})}{\xla{~\simeq~}}
+\Ker(r)\times N
+\xra{~\sf proj~}
+\Ker(r)
+~.
+\]
+}
+for which there is a canonical equivalence between monoids:
+\[
+\Ker(r) \underset{\lambda} \rtimes N
+~\simeq~
+A
+~.
+\]
+
+
+\item
+If the canonical map between spaces
+\[
+N
+\times 
+\Ker(r) 
+\xra{ \sigma \times {\rm inclusion} }
+A \times A
+\xra{\mu_A}
+A
+\]
+is an equivalence,\footnote{Note that this condition is always satisfied if $N$ is a continuous group.}
+then there is a canonical action $\Ker(r) \underset{\rho}\racts N $ for which there is a canonical equivalence between monoids:
+\[
+\Ker(r) \underset{\rho} \rtimes N
+~\simeq~
+A
+~.
+\]
+
+
+\end{itemize}
+
+
+
+\end{lemma}
+
+\begin{proof}
+By way of Observation~\ref{f5}, the two assertions imply one another by taking Cartesian/coCartesian duals of coCartesian/Cartesian fibrations.
+So we are reduced to proving the first assertion.
+
+Consider the retraction $\fB A \overset{\fB i}{\underset{\fB r} \leftrightarrows} \fB N$ among pointed $\infty$-categories.
+Note that $\fB i$ is essentially surjective.  
+Note that $\Ker(r)$ is the fiber of $\fB r$ over $\ast \to \fB N$.
+
+Let $c_1 \xra{\lag n \rag} \fB N$ be a morphism.
+Consider the commutative diagram among $\infty$-categories:
+\[
+\xymatrix{
+c_0
+\ar[rr]^-{\lag \ast \rag}
+\ar[d]_-{s}
+&&
+\fB A
+\ar[d]^-{\fB r}
+\\
+c_1
+\ar[rr]^-{\lag n \rag}
+\ar@{-->}[urr]^-{\lag i(n) \rag}
+&&
+\fB N
+.
+}
+\]
+The assumption on the retraction implies the diagonal filler is initial among all such fillers.
+This is to say that the morphism $i(n)$ in $\fB A$ is coCartesian over $\fB r$. 
+Because $\fB i$ is essentially surjective, this shows that $\fB r$ is a coCartesian fibration.
+The result now follows from the definition of the semi-direct product $\Ker(r) \underset{\lambda} \rtimes N$.    
+
+\end{proof}
+
+
+
+
+
+
+
+\begin{prop}
+\label{t65}
+Let $\cX$ be an $\infty$-category.
+Let $\fB N \xra{\lag  N \lacts M \rag} {\sf Monoids}$ be an action of a continuous monoid $N$ on a continuous monoid $M$.
+Consider the pre-composition-action:
+\[
+\fB N^{\op}
+\xra{~ \lag N \lacts M \rag^{\op}~ } 
+{\sf Monoids}^{\op}
+\xra{~\Mod_{-}(\cX)~}
+\Cat_{(\infty,1)}
+~.
+\]
+There is a canonical identification over $\Mod_{M^{\op}}(\cX)$ from the $\infty$-category of $(M \rtimes N)^{\op}$-modules in $\cX$ to that of $M^{\op}$-modules in $\cX$ with the structure of being left-laxly invariant with respect to this precomposition $N^{\op}$-action:
+\[
+\Mod_{
+\left(
+M \rtimes N
+\right)^{\op}
+}(\cX)
+~\simeq~
+\Mod_{M^{\op}}(\cX)^{{\sf l.lax} N^{\op}}
+~.
+\]
+In particular, there is a canonical fully faithful functor from the (strict) $N$-invariants,
+\[
+\Mod_{M^{\op}}(\cX)^{N}
+~\hookrightarrow~
+\Mod_{\left( M \rtimes N\right)^{\op}}(\cX)
+~.
+\]
+which is an equivalence if the continuous monoid $N$ is a continuous group.
+
+
+\end{prop}
+
+
+
+
+
+\begin{proof}
+The second assertion follows immediately from the first.  
+The first assertion is proved upon justifying the sequence of equivalences among $\infty$-categories, each which is evidently over $\Mod_M(\cX)$:
+\begin{eqnarray*}
+\Mod_{\left( M \rtimes N \right)^{\op} }(\cX)
+&
+\underset{\rm (a)}\simeq
+&
+\Fun\bigl( 
+~
+\fB (M \rtimes N )^{\op}
+~,~ 
+\cX 
+~
+\bigr)
+\\
+&
+\underset{\rm (b)}\simeq
+&
+\Fun\bigl( 
+~
+\fB ( N^{\op} \ltimes M^{\op} )
+~,~ 
+\cX 
+~
+\bigr)
+\\
+&
+\underset{\rm (c)}\simeq
+&
+\Fun_{/\fB N^{\op}}
+\Bigl(
+~
+\fB N^{\op}
+~,~
+\Fun^{\sf rel}_{\fB N^{\op}}
+\bigl( 
+\fB ( N^{\op} \ltimes M^{\op} )
+,
+\cX \times \fB N^{\op}
+\bigr)
+~
+\Bigr)
+\\
+&
+\underset{\rm (d)}\simeq
+&
+\Fun_{/\fB N^{\op}}\Bigl( 
+~
+\fB N^{\op}
+~,~ 
+\Fun^{\sf rel}_{\fB N^{\op}}
+\bigl( 
+(\fB M^{\op})_{/^{\sf r.lax} N}
+,
+\cX \times \fB N^{\op}
+\bigr)
+~
+\Bigr)
+\\
+&
+\underset{\rm (e)}\simeq
+&
+\Fun_{/\fB N^{\op}}\Bigl( 
+~
+\fB N^{\op}
+~,~ 
+\Fun(
+\fB M^{\op}
+,
+\cX)_{/^{\sf l.lax} N^{\op}}
+~
+\Bigr)
+\\
+&
+\underset{\rm (f)}\simeq
+&
+\Fun_{/\fB N^{\op}}\Bigl( 
+~
+\fB N^{\op}
+~,~
+\Mod_{M^{\op}}(\cX)_{/^{\sf l.lax} N^{\op}}
+~
+\Bigr)
+\\
+&
+\underset{\rm (g)}\simeq
+&
+\Mod_{M^{\op}}(\cX)^{{\sf l.lax}N^{\op}}
+~.
+\end{eqnarray*}
+The identifications~(a) and~(f) are both the definition of $\infty$-categories of modules for continuous monoids in $\cX$.
+The identification~(b) is Observation~\ref{f5}.
+By definition of semi-direct product monoids, 
+the Cartesian unstraightening the composite functor 
+$
+\fB N
+\xra{\lag N \lacts M^{\op}\rag } 
+{\sf Monoids}
+\xra{\fB}
+\Cat_{(\infty,1)}
+$
+is the Cartesian fibration:
+\[
+\fB (N^{\op} \ltimes M^{\op}) 
+\longrightarrow 
+\fB N^{\op}
+~.
+\]
+Being a Cartesian fibration ensures the existence of the \bit{relative functor $\infty$-category} (see~\cite{fib}).
+The identification~(c) is direct from the definition of relative functor $\infty$-categories.  
+Furthermore, there is a definitional identification of the \bit{right-lax coinvariants} $\fB (N^{\op} \ltimes M^{\op})  \simeq (\fB M^{\op})_{/^{\sf r.lax}N}$ over $\fB N^{\op}$ (see Appendix~A of~\cite{non-com-geom}), which determines the identification~(d).
+The identification~(e) follows from the codification of the $N^{\op}$-action on $\Fun(\fB M^{\op} , \cX)$ in the statement of the proposition.
+The identification~(g) is the definition of \bit{left-lax invariants} (see Appendix~A of~\cite{non-com-geom}).
+
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+The commutativity of the topological group $\TT^2$ determines a canonical identification $\TT^2 \cong (\TT^2)^{\op}$ between topological groups, and therefore between continuous groups.
+Together with Observation~\ref{t60}, we have the following consequence of Proposition~\ref{t65}.
+\begin{cor}
+\label{f6}
+For $\cX$ an $\infty$-category, there is a canonical identification between $\infty$-categories over $\Mod_{\TT^2}(\cX)$:
+\[
+\Mod_{\left(\TT^2 \rtimes \Ebraid \right)^{\op}}(\cX)
+~\simeq~
+\Mod_{\TT^2}(\cX)^{{\sf l.lax} \Ebraid}
+~.
+\]
+
+\end{cor}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+\chapter{Introduction}
+
+
+
+In this dissertation we consider immersions of orientable surfaces. An immersion is a map between manifolds that locally is an embedding, and can be thought of as a way to place one manifold inside of another. An interesting problem is how many topologically different ways there are to immerse one manifold into another. That is, we would like to not distinguish immersions which differ by a homotopy, or movie, of other immersions. Such a homotopy is a path in the \textit{space} of all immersions. So to determine the topologically distinct immersions from $M$ into $N$ we consider the path components of the entire space of immersions ${\sf Imm}(M, N).$
+
+The theory of immersions has a rich history. One of the first major results was the Whitney-Graustein Theorem \cite{WG} which classified immersions of the circle $S^{1}$ into the plane. This result can be stated as $\pi_{0}{\sf Imm}(S^{1}, \RR^{2}) \cong \ZZ,$ where ${\sf Imm}(S^{1}, \RR^{2})$ is the space of all immersions of $S^{1}$ into $\RR^{2}$. Given two immersions $\gamma_{1}, \gamma_{2} \colon S^{1} \rightarrow \RR^{2}$ there is a homotopy through immersions from $\gamma_{1}$ to $\gamma_{2}$, called a \textit{regular isotopy}, if and only if both $\gamma_{1}$ and $\gamma_{2}$ have the same \textit{turning number}. Here the turning number is defined to be the degree of the tangential Gauss map for an immersed path. So the possible turning numbers, $\ZZ$, classify immersions of $S^{1}$ into $\RR^{2}$ up to regular homotopy.
+
+In his Thesis \cite{Sm1}, Smale generalized this result to the case of immersions of $S^{1}$ into an arbitrary manifold. Later, Smale then classified immersions of spheres of arbitrary dimension, $S^{n}$, into Euclidean spaces $\RR^{m}$ \cite{Sm3}. A special case of this work was that $\pi_{0}{\sf Imm}(S^{2}, \RR^{^{3}})$ consists of a single point, or that all immersions of the 2-sphere into 3-dimensional Euclidean space are regularly homotopic. This proved the existence of \textit{sphere eversions}, the act of turning a sphere inside out, for $S^{2} \subset \RR^{3}$ which was previously not thought to be possible. Later, various people gave different algorithms and descriptions for how to accomplish such an eversion.
+
+In the 1960's, Charles Pugh created various halfway models of a sphere eversion out of chicken wire. These models were later stolen from UC Berkeley, perhaps to rebuild a chicken coop. In 1978, French mathematician Bernard Morin and French Engineer Jean-Pierre Petit gave an incredibly clear description of the steps for an eversion of the sphere, including all of the self-intersecting curves \cite{Morin}. The eversion Morin and Petit developed only had 14 singular stages, and performing this eversion twice results in a loop in $\pi_{1}{\sf Imm}(S^{2}, \RR^{3}),$ which generates the entire group.
+
+
+In \cite{Hir} Hirsch extended Smale's results using techniques from bundle theory. Essentially, he gave a bijection between regular homotopy classes of an immersion $f: M^{k} \rightarrow N^{n > k}$ and equivariant maps $f_{\ast}: \sV_{k}(M) \rightarrow \sV_{k}N$, where $\sV_{k}(M)$ is the space of $k-$frames of $M.$  He then was able to classify immersions of an arbitrary manifold into Euclidean space. 
+
+
+The work of Hirsch and Smale in 1959 can be phrased as what is now referred to as the Hirsch-Smale Theorem:
+\begin{theorem}[Hirsch-Smale] \label{hst}
+If $M$ and $N$ are smooth manifolds with $M$ compact and $\text{dim}(M) < \text{ dim} (N)$ then the map
+\[
+{\sf Imm}(M, N) \rightarrow {\sf Imm}^{\sf f}(M, N); \qquad f \mapsto Df
+\]
+is a weak homotopy equivalence.
+\end{theorem}
+\noindent Here ${\sf Imm}(M, N)$ is the space of immersions from $M$ to $N$ and ${\sf Imm}^{\sf f}(M, N)$ is the space of \bit{formal immersions} of $M$ to $N$ defined to be the space of bundle injections between tangent bundles $TM$ and $TN$. At first this theorem might seem unnecessary or unhelpful as ${\sf Imm}^{\sf f}(M, N)$ is ``larger'' than ${\sf Imm}(M, N),$ in the sense that not all bundle injections arise as the differential of an immersion. However, the utility of this theorem is that from the perspective of homotopy theory ${\sf Imm}^{\sf f}(M, N)$ can be analyzed much more easily than ${\sf Imm}(M, N).$ We explain this more thoroughly in Chapter \ref{CH:B}.
+
+
+In Chapter \ref{CH:H} we apply the Hirsch-Smale Theorem and some classic results from bundle theory to compute the homotopy groups of ${\sf Imm}(W_{g}, M)$ for a path-connected orientable surface $W_{g}$ of genus $g$ and a parallelizable manifold $M$. Our motivation for this problem was initially just to identify $\pi_{0}{\sf Imm}(\TT^{2}, \RR^{4}),$ and then try to apply this to compute invariants of knotted tori in 4-space. Along the way, we discovered that our arguments could be generalized to immersions of orientable surfaces of arbitrary genus into parallelizable manifolds. Even, better we found a straightforward way to identify all of the higher homotopy groups of ${\sf Imm}(W_{g}, M)$. This is recorded in Theorem \ref{mainhomthm} which shows the existence of the following isomorphisms for $k \geq 1$: 
+\[
+\pi_{k}{\sf Imm}(W_{g}, M) \cong \pi_{k}M \times (\pi_{k + 1}M)^{2g} \times \pi_{k + 2}M \times \pi_{k}\sV_{2}(n) \times (\pi_{k + 1}\sV_{2}(n))^{2g} \times \pi_{k + 2}\sV_{2}(n) ~,
+\]
+and a similar bijection for the connected components. In \cite{Pink}, the author studies immersions from general compact surfaces into $\RR^{3}$ and gives conditions for which two immersions are regularly homotopic, this characterization is compatible with our identification of the connected components in Theorem \ref{mainhomthm}.
+
+
+
+We find it unlikely that $\pi_{0}{\sf Imm}(W_{g}, \RR^{4})$ will distinguish knotted surfaces. Indeed, in the case for genus zero, Smale in \cite{Sm3} showed that there is only one immersion $S^{2} \hookrightarrow \RR^{4}$ represented by an embedding, i.e. all knotted 2-spheres in $\RR^{4}$ are regularly isotopic. However, an application of our work is that we are able to characterize immersions of 2-tori into hyperbolic manifolds as self covers onto a tubular neighborhood of some closed geodesic. We discuss this in greater detail at the end of Chapter \ref{CH:H} .
+
+
+
+Next, in Chapter \ref{CH:F} we turn our attention to a separate problem regarding immersions. Namely, we study immersions from the torus to itself which preserve, up to homotopy, a standard framing or vector field. Specifically we identify the group of framed diffeomorphisms and the monoid of framed local-diffeomorphisms of a framed torus. 
+
+A framing is a trivialization of the tangent bundle. One way of thinking about a framing is that of an everywhere non-vanishing vector field on $\TT^{2}.$ Given a framing $\varphi$ on the torus, we may apply an immersion $f$ to the torus and $Df$ composed with $\varphi$ will supply a new framing. We care about those immersions for which this new framing is homotopy equivalent to the standard framing, in particular we would like to determine the homotopy type of the space of framed immersions of the torus.
+
+Restricting the monoid of framed immersions to its maximal subgroup results in the group of framed diffeomorphisms. This group encodes the symmetries of a tangentially straightened torus, and it forms a group by composing such symmetries. The collection of 3-strand braids also forms a group by stacking one braid on top of the other. Remarkably there is a sense in which the group of framed diffeomorphisms is equivalent to the braid group on 3 strands, $\Braid$.
+
+
+The main result of Chapter \ref{CH:F} is Theorem \ref{Theorem A}, which identifies a homotopy equivalence between the continuous group of framed diffeomorphisms of the torus and the semidirect product $\TT^{2} \rtimes \Braid$. Theorem \ref{Theorem A} also gives a canonical identification between the continuous monoid of framed immersions of the torus, ${\sf Imm^{fr}}(\TT^{2})$, and the semidirect product $\TT^{2} \rtimes \Ebraid$ where $\Ebraid$ is a monoid with maximal subgroup $\Braid.$
+
+
+
+Before proving these results, Chapter \ref{CH:B} will introduce much of the necessary background and language which we use in the following chapters.
+
+
+

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  1 OCT 2021 21:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  2 OCT 2021 11:04
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**Immersion2.0.tex
-(./Immersion2.0.tex
+**Immersion3.0.tex
+(./Immersion3.0.tex
 LaTeX2e <2014/05/01>
 Babel <3.9k> and hyphenation patterns for 78 languages loaded.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amscls/amsart.cls
@@ -1217,7 +1217,7 @@ Package: thumbpdf 2012/04/18 v3.15 Inclusion of thumbnails (HO)
 Package thumbpdf Warning: Compressed PDF objects of PDF 1.5 are not supported.
 
 
-Package thumbpdf Warning: Thumbnail data file `Immersion2.0.tpt' not found.
+Package thumbpdf Warning: Thumbnail data file `Immersion3.0.tpt' not found.
 
 )
 \c@HD@unique=\count282
@@ -1316,12 +1316,12 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@loff=\dimen326
 \@vwid@roff=\dimen327
 ))
-(./Immersion2.0.aux
+(./Immersion3.0.aux
 
 LaTeX Warning: Label `e1' multiply defined.
 
 )
-\openout1 = `Immersion2.0.aux'.
+\openout1 = `Immersion3.0.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 512.
 LaTeX Font Info:    ... okay on input line 512.
@@ -1429,13 +1429,13 @@ LaTeX Info: Redefining \ref on input line 512.
 LaTeX Info: Redefining \pageref on input line 512.
 LaTeX Info: Redefining \nameref on input line 512.
 
-(./Immersion2.0.out) (./Immersion2.0.out)
+(./Immersion3.0.out) (./Immersion3.0.out)
 \@outlinefile=\write8
-\openout8 = `Immersion2.0.out'.
+\openout8 = `Immersion3.0.out'.
 
- (./Immersion2.0.hd)
+ (./Immersion3.0.hd)
 \HD@savedest@out=\write9
-\openout9 = `Immersion2.0.hd'.
+\openout9 = `Immersion3.0.hd'.
 
 \c@lstlisting=\count307
 LaTeX Font Info:    Try loading font information for OT1+lmss on input line 533
@@ -1553,13 +1553,13 @@ LaTeX Warning: Reference `?' on page 14 undefined on input line 1752.
 196> [15]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1858.
 Package atveryend Info: Executing hook `AfterLastShipout' on input line 1858.
- (./Immersion2.0.aux)
+ (./Immersion3.0.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1858.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1858.
 
-Package rerunfilecheck Info: File `Immersion2.0.out' has not changed.
+Package rerunfilecheck Info: File `Immersion3.0.out' has not changed.
 (rerunfilecheck)             Checksum: 86C1CE7EF34BF611FA934D6BAF659BBB;601.
-Package rerunfilecheck Info: File `Immersion2.0.hd' has not changed.
+Package rerunfilecheck Info: File `Immersion3.0.hd' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
@@ -1614,7 +1614,7 @@ texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2
 e/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/
 2014/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
-Output written on Immersion2.0.pdf (15 pages, 527475 bytes).
+Output written on Immersion3.0.pdf (15 pages, 527514 bytes).
 PDF statistics:
  379 PDF objects out of 1000 (max. 8388607)
  323 compressed objects within 4 object streams

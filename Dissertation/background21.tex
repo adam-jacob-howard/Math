@@ -1,0 +1,1037 @@
+\chapter{Background} \label{CH:B}
+
+%Setup some notation
+
+\section{Topology Primer}
+
+We record some basic definitions and notions in topology that will be relevant for this dissertation. For additional discussion on any of these topics the reader could consult a text such as \cite{Hatch} or \cite{May}. Whenever we refer to an object as a space we mean a topological space. Whenever we refer to a map between two spaces we mean a continuous map. 
+ We start by defining a smooth manifold, one of the fundamental objects we will be working with.
+
+%Give quick definition of smooth manifold
+\begin{definition}
+A $n-$dimensional \textit{smooth manifold} is a second countable Hausdorff space $M^{n},$ with a collection of charts $\{M \underset{open} \supset U_{\alpha} \xra[homeo]{\phi_{\alpha}} U \underset{open} \subset \RR^{n} \}$ such that
+\begin{enumerate}
+\item Every point $p \in M$ is in the domain of some chart.
+\item For two charts $\phi_{\alpha} \colon  U \rightarrow U' \subset \RR^{n}$ and $\phi_{\beta} \colon V \rightarrow V' \subset \RR^{n},$ the change of coordinates $\phi_{\alpha}\phi_{\beta}^{-1} \colon \phi_{\beta}(U \cap V) \rightarrow \phi_{\alpha}(U \cap V)$ is $C^{\infty}.$
+\item The collection of charts is maximal with respect to the above properties. 
+\end{enumerate}
+\end{definition}
+
+
+Unless otherwise specified, the term ``manifold'' will refer to a smooth manifold. For a manifold $M$ we will denote its tangent bundle as $\tau_{M} := (TM \longrightarrow M)$ where
+\[
+TM := \{(p, v) : p \in M \text{ and } v \in T_{p}M\}.
+\] 
+It is naturally endowed with a smooth structure for which the projection $TM \xra{(p, v) \mapsto p} M$ is a smooth fiber bundle.
+A manifold is called \textit{parallelizable} if its tangent bundle is homeomorphic to the trivial bundle $\epsilon_{M}^{m}:= (M \times \RR^{m} \rightarrow M).$ A parallelizable manifold equipped with a trivialization of its tangent bundle is called a \textit{framed} manifold. 
+
+Given a parallelizable manifold $M^{m}$, we can consider the set of all possible framings of $M.$ This set can be given a topology which leads us to define the space of framings:
+\begin{definition} \label{spaceoframes}
+For a parallelizable manifold $M^{m},$ we define the \textit{space of framings} of $M$ to be
+\[
+{\sf Fr}(M) := {\sf Iso_{Bdl_{M}}}(\tau_{M}, \epsilon^{m}_{M}) \subset {\sf Map}(TM, M \times \RR^{m}) ~,
+\]
+the set of bundle isomorphisms to the trivial bundle, which we give the subspace topology of the ${\sf C}^{\infty}-$topology on the set of smooth maps between total spaces.
+\end{definition}
+
+
+\begin{convention} \label{cccc}
+\begin{enumerate}
+\item For $X, Y$ Hausdorff, locally-compact, topological spaces we denote ${\sf Map}(X, Y)$ to be the set of all continuous maps from $X$ to $Y$ equipped with the compact-open topology.
+\item For $X, Y$ smooth manifolds we denote ${\sf Map}(X, Y)$ to be the set of all smooth maps from $X$ to $Y$ equipped with the ${\sf C}^{\infty}-$topology.
+\end{enumerate}
+\end{convention}
+\begin{remark}
+While Convention \ref{cccc} presents conflicting notation, by the Smooth Approximation Theorem and the Smooth Homotopy Theorem (see \cite{Woc} for a modern perspective) the underlying homotopy-type of ${\sf Map}(X, Y)$ is unambiguous. 
+\end{remark}
+
+
+
+Examples of manifolds that will be relevant for this dissertation include surfaces, such as the torus $\TT^{2} = S^{1} \times S^{1}.$ The torus is also an example of a parallelizable manifold. Other examples of manifolds that will be important to us are the Stiefel spaces $\sV_{k}(n),$ which are the spaces of all orthonormal \textit{k-frames} of $\RR^{n}.$ The set $\sV_{k}(n)$ is a subset of $\RR^{k \times n}$ where a $k-$frame can be described as a $k \times n$ matrix $A$ such that $AA^{T} = I.$ With the natural inclusion, $\sV_{k}(n) \hookrightarrow \{ k \times n \text{ matrices} \} \cong \RR^{k \times n},$ we endow $\sV_{k}(n) \subset \RR^{k \times n}$ with the subspace topology from Euclidean space with the standard topology. 
+
+For $k < n,$ the group ${\sf SO}(n)$ acts transitively on $\sV_{k}(n),$ that is to say any two $k-$frames in $\RR^{n}$ are related by an orthogonal transformation. The stabilizer of any $k-$frame is isomorphic to the group ${\sf SO}(n - k),$ therefore we can identify $\sV_{k}(n) \cong {\sf SO}(n)/{\sf SO}(n - k).$ 
+
+\begin{remark}
+We will often not require a $k$-frame in $\sV_{k}(n)$ to be orthonormal because, when considering $\sV_{k}(n)$ up to homotopy, the Gram-Schmidt map describes a homotopy of any $k$-frame to an orthonormal $k$-frame.
+\end{remark}
+
+
+%Definition of an immersion
+\begin{definition} \label{immdef}
+Let $M^{m}$ and $N^{n}$ be manifolds of dimensions $m \leq n.$ A smooth map 
+\[
+f \colon M \longrightarrow N
+\] 
+is an \textit{immersion} if the differential $D_{p}f \colon T_{p}M \longrightarrow T_{f(p)}N$ is injective for every point $p \in M$.
+\end{definition}
+
+\begin{remark}
+By the Inverse Function Theorem, in the case that the dimensions of the manifolds are the same, $m = n,$ the condition for $f \colon M \rightarrow N$ to be an immersion is the same as saying that $f$ is locally a diffeomorphism. As such we will substitute the word immersion for local diffeomorphism, especially in Chapter \ref{CH:F}.
+\end{remark}
+
+We are interested in how many topologically distinct immersions there are from one manifold to another. One way to do this is to consider the ``space of all immersions'' and try to identify the number of connected components of this space. We will give the set of all immersions the subspace topology ${\sf Imm}(M, N) \subset C^{\infty}(TM, TN)$ inherited from the space of smooth functions between their tangent bundles with the ${\sf C}^{\infty}-$topology. The topological space ${\sf Imm}(M, N),$ in most interesting cases, is not a smooth manifold or even finite dimensional. However, it is a topological space and so we may proceed in using topological invariants to study it. In particular, we will proceed to study it from the perspective of homotopy theory. With this in mind, we give the precise definition of a homotopy.
+
+
+\begin{definition}
+For topological spaces $X$ and $Y,$ a \textit{homotopy} of maps from $X$ to $Y$ is a map $F\colon X \times I \rightarrow Y$ where $I = [0, 1]$ is the unit interval. Two maps $f_{0} \colon X \rightarrow Y$ and $f_{1} \colon X \rightarrow Y$ are \textit{homotopic} if there exists a homotopy $F: X \times I \rightarrow Y$ for which $F(x, 0) = f_{0}(x)$ and $F(x, 1) = f_{1}(x)$ for all $x \in X.$
+\end{definition} 
+
+
+The relation ``$f$ is homotopic to $g$'' is an equivalence relation that we will denote as $f \simeq g.$ The equivalence class of maps homotopic to $f$ will be denoted as $[f].$ Some of the most important topological invariants of a space $Z$ are its homotopy groups, which we define now.
+
+\begin{definition}
+Let $k \geq 1.$ The $k$-th homotopy group of a pointed topological space $(Z, z_{0})$ is the set of homotopy classes: 
+\[
+\pi_{k}(Z, z_{0}) := \Big\{(S^{k}, \ast) \rightarrow (Z, z_{0})\Big\}/\simeq
+\]
+In the case that $Z$ is path-connected we will often leave out the base point and denote $\pi_{k}(Z, z_{0})$ as $\pi_{k}Z.$
+\end{definition}
+
+\begin{remark} \label{homprod}
+For $k \geq 1,$ $\pi_{k}Z$ can be given a group structure by the following binary operation: for $[\omega_{1}], [\omega_{2}] \in \pi_{k}Z$
+\[
+[\omega_{1}] \cdot [\omega_{2}] := [S^{k} \xra{{\sf collapse}_{S^{k - 1}}} S^{k} \vee S^{k} \xra{\omega_{1} \vee \omega_{2}} Z].
+\]
+That is $[\omega_{1}] \cdot [\omega_{2}]$ is the homotopy class of the map which first collapse $S^{k}$ along some equator and then maps out of each wedge-summand by the corresponding maps $\omega_{1}$ and $\omega_{2}$. By an Eckmann-Hilton argument (see section 4.H of \cite{Hatch}), $\pi_{k}Z$ is an abelian group for $k \geq 2.$ However, $\pi_{0}Z$ is not a group as the above binary operation would not make sense, but instead it is the set of path components of the space $Z.$ 
+\end{remark}
+
+\begin{definition}
+A map $f \colon X \rightarrow Y$ is a \textit{homotopy equivalence} if there exists a map $g: Y \rightarrow X$ such that $g \circ f \simeq \id_{X}$ and $f \circ g \simeq \id_{y}.$ Here $\id_{X}, \id_{Y}$ are the identity maps on the indicated spaces. Such a $g$ is a homotopy inverse.
+\end{definition}
+
+We will also denote the relationship of homotopy equivalence as $X \simeq Y$ or say that $X$ and $Y$ have the same homotopy-type. Based homotopy equivalent based spaces will have isomorphic homotopy groups. (However, spaces do not necessarily need to be homotopy equivalent to have the same homotopy groups.) A map between spaces which induces an isomorphism on homotopy groups is said to be a ``weak homotopy equivalence'', an example of which is the map from Theorem \ref{hst}. We will discuss this map and Theorem \ref{hst} in greater detail in the next section as it will be the starting point for Chapter \ref{CH:H}.
+
+
+
+
+
+
+\section{A Brief Introduction to the h-Principle} 
+The condition for a map $f \colon M^{m} \rightarrow N^{n}$ to be an immersion from Definition \ref{immdef} is a condition imposed on the partial derivatives of $f$: namely we require the Jacobian $Df$ to be of maximal rank $m$ for all $p \in M.$ We can describe this condition on partial derivatives by considering the function 
+\[
+I : {\sf Map^{smooth}}(M, N) \rightarrow {\sf Mat}_{k \times k}^{n \choose m} \rightarrow \RR^{n \choose m},
+\]
+\[
+f \mapsto \{k \times k \text{ minors of } Df\} \mapsto \Bigg(det(M_{1}), det(M_{2}), \hdots, \det\Big(M_{n \choose m}\Big)\Bigg)
+\]
+which selects a vector in Euclidean space parametrized by the determinants of all the $k \times k$ minors of $Df.$
+
+The condition that $f$ is an immersion is the same as the condition $I(f) \neq 0.$ This is an example of a \textit{partial differential relation} $\frak{R},$ which is generally any condition of equality or inequality involving the partial derivatives of some function. Any partial differential relation $\mathfrak{R}$ has some underlying algebraic relation obtained by exchanging partial derivatives with independent variables. A solution to this algebraic relation is called a \textit{formal} solution of $\mathfrak{R}$ and is a necessary condition for there to be a genuine solution of $\frak{R}.$ Then one can attempt to ``deform'' a formal solution into a genuine solution, and we say a partial differential relation satisfies the \textbf{h-principle} if any formal solution can be deformed into a genuine solution, and likewise for any compact family of formal solutions. By deforming a formal solution to a genuine solution, we mean finding a homotopy, in the class of formal solutions, from the formal solution to a genuine solution.
+
+
+The term ``h-principle'', or homotopy principle, was introduced by Gromov in \cite{hprinc2} but the idea appeared earlier in work such as \cite{hprinc1}. This general phenomena of the h-principle was discovered even earlier in work such as the Whitney-Graustein Theorem and Smale and Hirsch's work on differential immersions.  
+
+
+A bundle injection between fiber bundles $\xi = (E \rightarrow B)$ and $\nu = (E' \rightarrow B')$ is a bundle map
+\[
+\xymatrix{
+E \ar[rr]^-{F} \ar[d]^-{}
+&&
+E' \ar[d]^-{}
+\\
+B \ar[rr]^-{f}
+&&
+B'
+}
+\]
+which is an injection on each fiber $F_{b} \colon E_{b} \rightarrow E'_{f(b)}$ for all $b \in B.$ We denote the set of all bundle injections between $\xi$ and $\nu$ as ${\sf BunInj}(\xi, \nu).$ There is the natural injection ${\sf BunInj}(\xi, \nu) \hookrightarrow {\sf Map}(E, E')$ which forgets all the data of the bundle injection except the map between total spaces. We will then endow ${\sf BunInj}(\xi, \nu)$ with the subspace topology from this injection where ${\sf Map}(E, E')$ is equipped with the compact-open topology.
+
+In the case that we have two bundles over a common base space, $\xi = (E \rightarrow W)$ and $\nu = (E' \rightarrow W),$ a bundle injection is a map $\phi: E \rightarrow E'$ such that $\phi$ maps $E_{w}$ to $E'_{w}$ injectively. Alternatively, it is a bundle injection between $\xi$ and $\nu$ where the map between base spaces is the identity. We denote the set of all bundle injections between $\xi$ and $\nu$ \textit{over} $W$ as ${\sf BunInj}_{/W}(\xi, \nu)$ and again endow it with the subspace topology from ${\sf Map}(E, E')$ equipped with the compact-open topology.
+
+\begin{definition} \label{formalimmdef}
+Let $M^{m}$ and $N^{n}$ be manifolds of dimensions $m \leq n.$ We define the space of formal immersions 
+\[
+{\sf Imm^{f}}(M, N) := {\sf BunInj}(\tau_{M}, \tau_{N}). 
+\] 
+\end{definition}
+ As mentioned earlier there, is the natural map 
+\begin{equation}\label{immintoform}
+{\sf Imm}(M, N) \longrightarrow {\sf Imm^{f}}(M, N); \qquad f \mapsto Df
+\end{equation}
+which is clearly an injection. However, there are many bundle injections which do not arise as the differential of an immersion. For example, consider any framed embedding $e \colon S^{1} \longrightarrow \RR^{3}$ such that the framing is everywhere orthogonal to the embedding. These are referred to as framed knots and can be seen as sections of the normal bundle, or a bundle injection
+\[
+\xymatrix{
+TS^{1} \ar[rr]^-{} \ar[d]^-{}
+&&
+\nu(e(S^{1})) \subset T\RR^{3}  \ar[d]^-{}
+\\
+S^{1} \ar[rr]^-{e}
+&&
+\RR^{3}.
+}
+\]
+
+We call ${\sf Imm^{f}}(M, N)$ the space of formal immersions because they consist of the formal solutions to the immersion condition $I(f) \neq 0$. Then because immersions satisfy the h-principle, there is a homotopy of every formal solution to a genuine solution which leads to the Hirsch-Smale Theorem.
+
+
+The Hirsch-Smale Theorem \ref{hst} states that the map (\ref{immintoform}) is a weak homotopy equivalence and therefore we have that $\pi_{k}{\sf Imm}(M, N) \cong \pi_{k}{\sf Imm^{f}}(M, N)$ for all $k \geq 0.$ The essential reason formal immersions are easier to access through homotopy theory is that they fit into the following fibration:
+\[
+\xymatrix{
+{\sf BunInj}_{/M}(\tau_{M}, f^{\ast}\tau_{N}) \ar[rr]^-{} \ar[d]^-{}
+&&
+{\sf Imm^{f}}(M, N) \ar[d]^-{forget}
+\\
+\ast \ar[rr]^-{\langle f \rangle}
+&&
+{\sf Map^{smooth}}(M, N)
+}
+\]
+where $f^{\ast}TN$ is the pullback bundle.
+This allows us to analyze the long exact sequence on homotopy groups:
+\begin{equation}
+\resizebox{.9\hsize}{!}{$
+\hdots \rightarrow \pi_{k + 1}{\sf Map^{smooth}}(M, N) \rightarrow \pi_{k}{\sf BunInj}_{/M}(\tau_{M}, f^{\ast}\tau_{N}) \rightarrow \pi_{k}{\sf Imm^{f}}(M, N) \rightarrow \pi_{k}{\sf Map^{smooth}}(M, N) \rightarrow \pi_{k - 1}{\sf BunInj}_{/M}(\tau_{M}, f^{\ast}\tau_{N}) \rightarrow \hdots$}
+\end{equation}
+where both ${\sf BunInj}_{/M}(\tau_{M}, f^{\ast}\tau_{N})$ and ${\sf Map^{smooth}}(M, N)$ often have fairly computable homotopy groups. 
+
+
+
+
+\section{Homotopy Pullbacks and Homotopy Pushforwards} \label{ap.homotopy}
+
+We record some properties regarding homotopy pullbacks and pushouts. These are the appropriate notions of pullback and pushout when working in homotopy theory. We broadly cite \cite{MoreMay} and direct the reader there for proofs and additional discussion.  
+
+\begin{definition}
+The \textit{standard homotopy pullback of} $A \xra{f} C \xla{g} B$ is 
+\[
+A \times_{C}^{h} B := A \times_{C} C^{I} \times_{C} B = \{(a, \gamma, b): f(a) = \gamma(0), g(b) = \gamma(1) \}
+\]
+along with the projection maps:
+\[
+\xymatrix{
+A \times_{C}^{h} B \ar[rr]^-{{\sf proj}_{B}} \ar[d]^-{{\sf proj}_{A}}
+&&
+B \ar[d]^-{g}
+\\
+A \ar[rr]^-{f}
+&&
+C.
+}
+\]
+\end{definition}
+
+\begin{definition} \label{cd.def}
+A homotopy commutative diagram consists of a diagram
+\begin{equation} \label{hpback}
+\xymatrix{
+D \ar[rr]^-{h} \ar[d]^-{k}
+&&
+B \ar[d]^{g}
+\\
+A \ar[rr]^{f}
+&&
+C
+}
+\end{equation}
+and a homotopy $H$ between the maps $g \circ h \overset{H} \simeq f \circ k.$
+\end{definition}
+
+
+\begin{prop} \label{diagram.to.map}
+The following are equivalent:
+\begin{itemize}
+\item A homotopy commutative diagram as in definition \ref{cd.def}
+\item A map $\Omega : D \rightarrow A \times_{C}^{h} B $
+\end{itemize}
+\end{prop}
+
+\begin{definition}
+The homotopy commutative square (\ref{hpback}) is a \textit{homotopy pullback square} if the map $\Omega$ is a homotopy equivalence. 
+\end{definition}
+
+
+\begin{prop}
+The strict pullback where one map is a fibration is homotopy equivalent to the homotopy pullback.
+\end{prop}
+
+
+\begin{prop}[Diagram Pasting]
+Given the following homotopy commutative diagram
+\[
+\xymatrix{
+A \ar[rr]^-{} \ar[d]_-{}
+&&
+B \ar[rr]^{} \ar[d]_-{}
+&&
+C \ar[d]^{}
+\\
+D \ar[rr]^{}
+&&
+E \ar[rr]^{}
+&&
+F,
+}
+\]
+\begin{enumerate}
+\item If both of the smaller individual squares are homotopy pullback squares, then the larger square is a homotopy pullback square as well.
+\item If the outer large square and the smaller right hand square are homotopy pullback squares, then the smaller left hand square is a homotopy pullback square as well.
+\end{enumerate}
+\end{prop}
+
+
+
+\begin{definition}
+The \textit{standard homotopy pushout} of maps $C \xla{g} A \xra{f} B$ is the topological space $C \cup_{g(A) \times 0} A \times [0, 1] \cup_{f(A) \times 1} B$ along with the natural maps
+\[
+\xymatrix{
+A \ar[rr]^-{f} \ar[d]_-{g}
+&&
+B \ar[d]^{i_{B}}
+\\
+C \ar[rr]^-{i_{C}}
+&&
+C \cup_{g(A) \times 0} A \times [0, 1] \cup_{f(A) \times 1} B.
+}
+\]
+\end{definition}
+\begin{definition}
+A homotopy commutative square
+\[
+\xymatrix{
+A \ar[rr]^-{f} \ar[d]_-{g}
+&&
+B \ar[d]^{k}
+\\
+C \ar[rr]^{h}
+&&
+D
+}
+\]
+is called a \textit{homotopy pushout square} if there exists a homotopy $h \circ g \overset{H} \simeq k \circ f$ such that the map
+\begin{equation}
+C \cup_{g(A) \times 0} A \times [0, 1] \cup_{f(A) \times 1} B \longrightarrow D; 
+\end{equation}
+\[
+c \mapsto h(c), \hspace{10pt} b \mapsto k(b), \hspace{10pt} (a, t) \mapsto F(a, t)
+\]
+is a homotopy equivalence.
+\end{definition}
+
+\begin{prop}
+The strict pushout, where one map is a cofibration is homotopy equivalent to the homotopy pushout.
+\end{prop}
+
+Suppose we have that the following diagram,
+\begin{equation} \label{ghompush}
+\xymatrix{
+A \ar[rr]^-{} \ar[d]_-{}
+&&
+B \ar[d]^{}
+\\
+C \ar[rr]^{}
+&&
+D~,
+}
+\end{equation}
+is a homotopy pushout square. 
+
+\begin{prop}
+Applying the contravariant functor ${\sf Map}_{\ast}(-, Z)$ to the homotopy pushout (\ref{ghompush}) results in a homotopy pullback:
+\[
+\xymatrix{
+{\sf Map}_{\ast}(D, Z) \ar[rr]^-{} \ar[d]_-{}
+&&
+{\sf Map}_{\ast}(B, Z) \ar[d]^{}
+\\
+{\sf Map}_{\ast}(C, Z) \ar[rr]^{}
+&&
+{\sf Map}_{\ast}(A, Z).
+}
+\]
+
+\end{prop}
+
+\begin{prop}
+Applying the reduced suspension to the homotopy pushout (\ref{ghompush}) results in a homotopy pushout:
+\[
+\xymatrix{
+\Sigma A \ar[rr]^-{} \ar[d]_-{}
+&&
+\Sigma B \ar[d]^{}
+\\
+\Sigma C \ar[rr]^{}
+&&
+\Sigma D.
+}
+\]
+\end{prop}
+
+
+
+
+
+
+
+\section{Grassmannians Represent Vector Bundles}
+
+
+We give a synopsis of the book~\cite{MilStash}.
+
+Let $0\leq d \leq n$.
+We first explain how the Grassmannian ${\sf Gr}_d(n)$ is a smooth manifold representing smooth vector subbundles of trivial rank $n$ bundles.
+Its underlying set is that of $d$-dimensional vector subspaces of $\RR^n$:
+\[
+{\sf Gr}_2(n)
+~:=~
+\Bigl\{
+V \subset \RR^n
+\text{ $d$-dimensional vector subspace}
+\Bigr\}
+~.
+\]
+Its smooth structure is such that, for each smooth manifold $W$, the map
+\[
+{\sf SubBdl}_{d\subset n}(W)
+~:=~
+\]
+\[
+\Bigl\{
+E \overset{\rm smooth}{\underset{\rm submanifold}\subset} W \times \RR^n 
+\mid
+\pi
+\colon E \hookrightarrow W\times \RR^n \xra{\pr} W
+\text{ is a smooth vector bundle of rank $d$}
+\Bigr\}
+\]
+\begin{equation}
+\label{e10m}
+\xra{~\cong~}
+\Map\bigl(
+W , {\sf Gr}_d(n)
+\bigr)
+~,
+\footnote{Here, $\Map$ is understood as the topological space of smooth maps, as it is endowed with the $\sf{C}^{\infty}$ topology.
+}
+\end{equation}
+\[
+E
+~
+\longmapsto 
+~
+\Bigl(
+W
+\xra{p \mapsto \pi^{-1}(p) }
+{\sf Gr}_d(n)
+\Bigr)
+~,
+\]
+defines a bijection.
+Furthermore, this bijection is contravariantly functorial in the argument $W$.
+Each smooth map $f\colon W \to W'$ determines a commutative diagram
+\[
+\xymatrix{
+{\sf SubBdl}_{d\subset n}(W')
+\ar[rr]^-{(\ref{e10m})}
+\ar[d]_-{E\mapsto f^{-1}(E)}
+&&
+\Map\bigl(
+W , {\sf Gr}_d(n)
+\bigr)
+\ar[d]^-{-\circ f}
+\\
+{\sf SubBdl}_{d\subset n}(W')
+\ar[rr]^-{(\ref{e10m})}
+&&
+\Map\bigl(
+W , {\sf Gr}_d(n)
+\bigr)
+.
+}
+\]
+
+
+
+\begin{notation}
+For $W\subset \RR^n$ a $d$-dimensional smooth submanifold, the smooth map
+\[
+\tau_W
+\colon
+W
+\longrightarrow
+{\sf Gr}_d(n)
+\]
+is that representing (through~(\ref{e10m})) the vector subbundle $TW \subset W\times \RR^n$ of the trivial bundle over $W$.
+Also, the smooth map
+\[
+\epsilon^d_W
+\colon
+W
+\longrightarrow
+{\sf Gr}_d(n)
+\]
+is that representing (through~(\ref{e10m})) the vector subbundle $W\times \RR^d \subset W\times \RR^n$ of the trivial bundle over $W$, where $\RR^d \subset \RR^n$ is the span of the first $d$ coordinates. 
+
+\end{notation}
+
+
+
+
+Now, for each $0\leq d\leq m \leq n$, the inclusion $\RR^m \subset \RR^n$ as the first $m$ coordinates defines a smooth embedding:
+\[
+{\sf Gr}_d(m)
+\hookrightarrow
+{\sf Gr}_d(n)
+~.
+\]
+Denote the colimit (topological space) as $n\to \infty$:
+\[
+{\sf BO}(d)
+~:=~
+{\sf Gr}_d(\infty)
+~:=~
+\underset{n\geq 0}
+\bigcup
+{\sf Gr}_d(n)
+~:=~
+\underset{n \geq 0}
+\colim
+~{\sf Gr}_d(n)
+~.
+\]
+This topological space serves as a \emph{classifying space for smooth vector bundles of rank $d$}.
+Indeed, it has the following features.
+\begin{enumerate}
+
+\item
+Firstly, for ${\sf SubBdl}_{d \subset \infty}(W) := \underset{n\geq 0} \colim ~{\sf SubBdl}_{d \subset n}(W)$, 
+there is a canonical bijection:
+\[
+{\sf SubBdl}_{d \subset \infty}(W)
+~\cong~
+\Map\bigl(
+W , {\sf BO}(d) \bigr)
+~,
+\]
+for $W$ compact.
+
+
+\item
+Secondly, every smooth rank $d$ vector bundle over a smooth manifold $W$ of constant dimension is isomorphic to a vector subbundle of $\chi \subset \epsilon^N_W$ for some $N$.\footnote{Indeed, through a partition of unity argument, any smooth vector bundle $\eta = (E\to W)$ of rank $d$ (and whose base is of a constant dimension) admits a smooth bundle injection $e\colon \eta \hookrightarrow \epsilon^N_W$ for some $N \geq 0$.}
+Furthermore, given two such smooth rank $d$ vector subbundles $\chi \subset \epsilon^N_W$ and $\chi \subset \epsilon^{N'}_W$, an isomorphism $\chi \underset{\alpha}\cong \chi'$ determines a rank $d$ vector subbundle $\chi_\alpha \subset \epsilon^M_{W\times \RR}$ for some $M \geq N,N'$ for which there are identifications $\RR_{<\epsilon}\times \chi = (\chi_\alpha)_{W\times \RR_{<\epsilon}}$ and $\RR_{> 1-\epsilon}\times \chi' = (\chi_\alpha)_{W\times \RR_{>1-\epsilon}}$.  
+In this way, for $W$ a smooth manifold of constant dimension,
+there is a canonical bijection between the set of isomorphism-classes of smooth rank $d$ vector bundles over $W$ and the set of path-components of maps from $W$ to ${\sf BO}(d)$:
+\begin{equation}
+\label{e11m}
+{\sf SubBdl}_{d \subset \infty}(W)_{/\rm isomorphism}
+~\cong~
+\pi_0 \Map\bigl( W , {\sf BO}(d) \bigr)
+~,
+\end{equation}
+for $W$ compact.
+
+
+
+\item
+Lastly, the bijection~(\ref{e11m}) can be improved.
+Namely, for each smooth manifold $W$, consider the \emph{groupoid} ${\sf Bdl}_d(W)$ of smooth rank $d$ vector bundles over $W$ and isomorphisms among them.
+Pullbacks of smooth vector bundles makes this groupoid ${\sf Bdl}_d(W)$ contravariantly functorial in the argument $W$:
+\begin{equation}
+\label{e12m}
+{\sf Manifolds}^{\op}
+\longrightarrow
+{\sf Groupoids}
+~.
+\end{equation}
+Consider the smooth submanifold $\Delta^p_e:=\{ (t_0,\dots,t_p)\in \RR \mid \sum_{i=0}^p t_i = 1\} \subset \RR^{p+1}$.  
+These smooth manifolds organize as a cosimplicial smooth manifold
+\[
+\bDelta
+\longrightarrow
+{\sf Manifolds}
+~,\qquad
+[p]
+\mapsto 
+\Delta^p_e
+~.
+\]
+In this way, the functor~(\ref{e12m}) lifts as a functor to simplicial groupoids:
+\begin{equation}
+\label{e13m}
+{\sf Manifolds}^{\op}
+\longrightarrow
+{\sf Groupoids}^{\bDelta^{\op}}
+~,\qquad
+W
+\mapsto
+{\sf Bdl}_d(W \times \Delta^\bullet_e)
+~.
+\end{equation}
+Taking geometric realizations of nerves defines a presheaf of spaces:
+\begin{equation}
+\label{e14m}
+\cB{\sf dl}_d
+\colon 
+{\sf Manifolds}^{\op}
+\xra{~(\ref{e13m})~}
+{\sf Groupoids}^{\bDelta^{\op}}
+\xra{~| {\rm Nerve}_\bullet |~}
+{\sf Spaces}
+~,
+\end{equation}
+\[
+W
+\mapsto
+\Bigl|
+{\rm Nerve}_\bullet~ {\sf Bdl}_d(W \times \Delta^\bullet_e)
+\Bigr|
+~.
+\]
+
+Finally, the classifying space ${\sf BO}(d)$ represents this presheaf of spaces: 
+for each smooth manifold $W$, there is a canonical homotopy-equivalence between spaces:
+\begin{equation}
+\label{e15m}
+\cB{\sf dl}_d(W)
+~\simeq~
+\Map\bigl(
+W , {\sf BO}(d)
+\bigr)
+~.
+\end{equation}
+Taking path-components of~(\ref{e15m}) recovers the identity~(\ref{e11m}).
+
+
+
+\end{enumerate}
+  
+
+
+A consequence of~(\ref{e15m}) is that, for $\eta$ and $\chi$ two smooth vector bundles over $W$ of rank $d$, the space of triples $(\eta , \chi , \alpha)$, consisting of two smooth rank $d$ vector bundles over $W$ together with an isomorphism between them, is canonically homotopy-equivalent with the space of homotopies between their classifying maps:
+\[
+\Bigl\{
+(\eta , \chi , \eta \underset{\alpha}\cong \chi )
+\Bigr\}
+~\simeq~
+\Map
+\bigl(
+W\times [0,1] , {\sf BO}(d) 
+\bigr)
+~,\qquad
+\text{ over }
+\Map\bigl(
+W
+,
+{\sf BO}(d) 
+\bigr)^{\times 2}
+~.
+\]
+Even more, for each smooth rank $d$ vector bundle $\eta$ over a smooth manifold $W$, and for each $n \geq d$, the diagram among spaces
+\begin{equation}
+\label{e16m}
+\xymatrix{
+{\sf BdlInj}(\eta , \epsilon^n_W)
+\ar[d]
+\ar[rr]^-{\rm image}
+&&
+{\sf SubBdl}_{d \subset n}(W)
+\ar[rr]^-{\cong}
+\ar[d]
+&&
+\Map\bigl(
+W
+,
+{\sf Gr}_d(n)
+\bigr)
+\ar[d]
+\\
+\ast
+\ar[rr]^-{\lag \eta\rag}
+&&
+\cB{\sf dl}_d(W)
+\ar[rr]^-{\cong}
+&&
+\Map\bigl(
+W , {\sf BO}(d)
+\bigr)
+}
+\end{equation}
+is a homotopy-pullback.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\bigskip
+
+
+
+Now, there is a similar situation for \emph{oriented} bundles.
+Namely, let $0<d\leq n$.
+The smooth manifold 
+$
+{\sf Gr}^{\sf or}_d(n)
+$
+represents \emph{oriented} rank $d$ vector subbundles of trivial rank $n$ bundles. 
+Forgetting orientation defines a 2-to-1 covering 
+\[
+{\sf Gr}^{\sf or}_d(n)
+\longrightarrow
+{\sf Gr}_d(n)
+~;
+\]
+for $0<d<n$, this is a universal cover.
+So, an orientation $\sigma$ on a smooth manifold $W$ is precisely the data of a smooth lift in a commutative diagram:
+\[
+\xymatrix{
+&&
+{\sf Gr}^{\sf or}_d(n)
+\ar[d]
+\\
+W
+\ar[rr]^-{\tau_W}
+\ar@{-->}[urr]^-{(\tau_W , \sigma)}
+&&
+{\sf Gr}_d(n)
+.
+}
+\]
+The standard orientation $\sigma_{\rm stand}$ on $\RR^d$ determines a canonical lift:
+\[
+\xymatrix{
+&&
+{\sf Gr}^{\sf or}_d(n)
+\ar[d]
+\\
+W
+\ar[rr]^-{\epsilon^d_W}
+\ar@{-->}[urr]^-{(\epsilon^d_W , \sigma_{\rm stand})}
+&&
+{\sf Gr}_d(n)
+.
+}
+\]
+Now, for each $0< d\leq m \leq n$, the inclusion $\RR^m \subset \RR^n$ as the first $m$ coordinates defines a smooth embedding:
+\[
+{\sf Gr}^{\sf or}_d(m)
+\hookrightarrow
+{\sf Gr}^{\sf or}_d(n)
+~.
+\]
+Denote the colimit (topological space) as $n\to \infty$:
+\[
+{\sf BSO}(d)
+~:=~
+{\sf Gr}^{\sf or}_d(\infty)
+~:=~
+\underset{n\geq 0}
+\bigcup
+{\sf Gr}^{\sf or}_d(n)
+~:=~
+\underset{n \geq 0}
+\colim
+~{\sf Gr}^{\sf or}_d(n)
+~.
+\]
+This space is a \emph{classifying space for smooth oriented rank $d$ vector bundles}:
+succinctly, 
+there is a canonical homotopy-equivalence between spaces:
+\begin{equation}
+\label{e17m}
+\cB{\sf dl}^{\sf or}_d(W)
+~\simeq~
+\Map\bigl(
+W , {\sf BSO}(d)
+\bigr)
+~,
+\end{equation}
+where the lefthand term is defined in the same way as $\cB{\sf dl}_d(W)$.
+As in the unoriented case, each smooth oriented rank $d$ vector bundle $\eta$ over a smooth manifold $W$, and for each $n \geq d>0$, the diagram among spaces
+\begin{equation}
+\label{e18m}
+\xymatrix{
+{\sf BdlInj}(\eta , \epsilon^n_W)
+\ar[d]
+\ar[rr]^-{\rm image}
+&&
+{\sf SubBdl}^{\sf or}_{d \subset n}(W)
+\ar[rr]^-{\cong}
+\ar[d]
+&&
+\Map\bigl(
+W
+,
+{\sf Gr}^{\sf or}_d(n)
+\bigr)
+\ar[d]
+\\
+\ast
+\ar[rr]^-{\lag \eta\rag}
+&&
+\cB{\sf dl}^{\sf or}_d(W)
+\ar[rr]^-{\cong}
+&&
+\Map\bigl(
+W , {\sf BSO}(d)
+\bigr)
+}
+\end{equation}
+is a homotopy-pullback.
+
+
+For $d>0$, the fact that any two (oriented) vector spaces are (oriented) isomorphic implies that both ${\sf BSO}(d)$ and ${\sf BO}(d)$ are path-connected.
+Forgetting orientation defines a continuous map
+\[
+{\sf BSO}(d)
+\longrightarrow
+{\sf BO}(d)
+~.
+\]
+This map witnesses a universal cover, because it does for finite $n>d>0$.
+In particular, ${\sf BSO}(d)$ is path-connected and simply-connected. 
+
+
+
+
+%We will now discuss how one can think of the tangent bundle of $W_{g}$ as an element of ${\sf Map}(W_{g}, {\sf B)}(2)).$ 
+%Once and for all, fix an orientation on $W_g$, and fix a smooth embedding $e: W_{g} \hookrightarrow \RR^{3}$.
+%So the image $e(W_{g}) \subset \RR^{3}$ is a smooth submanifold. 
+%Denote the smooth map to the Grassmannian manifold:
+%\[
+%\tau_{W_g}\colon
+%W_{g} \rightarrow {\sf Gr}_{2}(3); \hspace{20pt} p \mapsto \big(T_{e(p)}e(W_{g}) \subset T_{e(p)}\RR^{3} = \RR^{3}\big)
+%~.
+%\]
+%{\color{blue}
+%Make a macro for stuff like ${\sf Gr}$
+%}
+%For each $n \geq 3$, consider the standard linear inclusion $\RR^3 \hookrightarrow \RR^n$ as the first three coordinates.  
+%This inclusion induces a smooth map ${\sf Gr}_2(3)\hookrightarrow {\sf Gr}_2(n)$.
+%Post-composing $\tau_{W_g}$ by this map defines a smooth map to this larger Grassmannian manifold, which we denote in the same way:
+%\[
+%\tau_{W_{g}}: W_{g} \xra{\tau_{W_g}} {\sf Gr}_2(3)
+%\hookrightarrow 
+%{\sf Gr}_{2}(n)
+%~.
+%\]
+%In the colimit as $n\to \infty$, we obtain a continuous map to the infinite Grassmannian:
+%\[
+%\tau_{W_{g}}: W_{g} \xra{\tau_{W_g}} {\sf Gr}_2(3)
+%\hookrightarrow 
+%\cdots
+%\hookrightarrow
+%\colim_{n\geq 0}
+%{\sf Gr}_2(\infty)
+%~=:~
+%{\sf BO}(2)
+%~.
+%\]
+
+
+
+
+%
+%
+%{\color{red}
+%{\color{blue}
+%\begin{definition}
+%For $W$ a manifold, and $0\leq k \leq n$, denote by ${\sf SubBdl}_{/W}^k(n)$ the set of rank k vector subbundles of $\epsilon^n_W$.
+%\end{definition} 
+%
+%\begin{lemma}
+%Observe the natural map
+%\begin{equation} \label{eqq1}
+%{\sf SubBdl}_{/W}^k(n) \longrightarrow \Map(W,\Gr_k(n); \qquad something.
+%\end{equation}
+%This map is an injection between sets, and as such we endow ${\sf SubBdl}_{/W}^k(n)$ with the subspace topology from this injection.
+%\end{lemma}
+%\begin{proof}
+%
+%\end{proof}
+%
+%
+%
+%\begin{theorem}[MIlnor-Stasheff]
+%The inclusion (\ref{eqq1})
+%\[
+%{\sf SubBdl}_{/W}^k(n)
+%\longrightarrow
+%\Map(W,\Gr_k(n))
+%\]
+%is a weak homotopy equivalence, and therefore induces an isomorphism on $\pi_q$ for $q\geq 0.$
+%\end{theorem} 
+%Now observe the canonical inclusions as subspaces:
+%\[
+%{\sf SubBdl}_{/W}^k(0)
+%~\subset~
+%{\sf SubBdl}_{/W}^k(1)
+%~\subset~
+%\cdots
+%~\subset~
+%{\sf SubBdl}_{/W}^k(n)
+%~\subset~
+%{\sf SubBdl}_{/W}^k(n+1)
+%~\subset~
+%\cdots
+%~.
+%\] Define the following abstract unions:
+%\[
+%{\sf Bdl}_{W}^k
+%~:=~
+%\underset{n\geq 0} \bigcup {\sf SubBdl}_{/W}^k(n)
+%~
+%\] and
+%\[
+%\underset{n\geq 0} \bigcup \Gr_k(n) =: \Gr_k(\infty) \simeq \BO(k) ~.
+%\] 
+%Then we can deduce the following corollary...
+%
+%}
+%\begin{cor}
+%For each $W$ and $0\leq k\leq n$, there is a commutative diagram among topological spaces
+%\[
+%\xymatrix{
+%{\sf SubBdl}_{/W}^k(n)
+%\ar[d]
+%\ar[rr]
+%&&
+%\Map(W,\Gr_k(n))
+%\ar[d]
+%\\
+%{\sf Bdl}_{W}^k
+%\ar[rr]
+%&&
+%\Map(W,\BO(k))
+%}
+%\]
+%in which the horizontal maps are weak homoropy equivalences. 
+%\end{cor}
+%
+%}
+
+\begin{definition} \label{def1}
+Let $E\xra{\pi} B$ be a map between spaces.
+For $X \xra{f} B$ a map between spaces, 
+the space of \emph{sections of $\pi$ over $X$} is the homotopy-fiber:
+\[
+{\sf Map}_{/B}(X,E) 
+~:=~ 
+{\sf hofib}_{f}
+\bigl(
+{\sf Map}(X,E) \xra{ \pi \circ -} {\sf Map}(X,B) 
+\bigr)
+~.
+\]
+That is, there is a homotopy-pullback diagram:
+\[
+\xymatrix{
+{\sf Map}_{/B}(X,E) 
+\ar[rr]^-{} \ar[d]^-{}
+&&
+{\sf Map}(X,E)
+\ar[d]^-{ \pi \circ -}
+\\
+\ast \ar[rr]^-{\langle f \rangle}
+&&
+{\sf Map}(X,B) 
+.
+}
+\]
+\end{definition}
+
+Let $0<d<n$.
+Let $W$ be a smooth $d$-manifold.
+The expression~(\ref{e15m}) can be rephrased as a canonical homotopy-equivalence:
+\begin{equation}
+\label{l0m}
+{\sf BunInj}_{/W}(\tau_{W}, \epsilon_{W}^{n}) 
+\xra{~\simeq~}
+ {\sf Map}_{/{\sf BO}(d)}(W, {\sf Gr}_{d}(n))
+~.
+\end{equation}
+For $\sigma$ an orientation on $W$, the expression~(\ref{e17m}) can be phrased as a canonical homotopy-equivalence:
+\begin{equation}
+\label{l1m}
+{\sf BunInj}_{/W}(\tau_{W}, \epsilon_{W}^{n}) 
+\xra{~\simeq~}
+{\sf Map}_{/{\sf BSO}(d)}(W, {\sf Gr}^{\sf or}_{d}(n))
+~.
+\end{equation}
+
+
+
+
+\section{Simple Spaces} \label{sec.simple}
+We discuss \textit{simple} topological spaces, as they will play a central role in Chapter \ref{CH:H}.
+
+
+\begin{definition}
+An $H-$space is a based space $(Z, z_{0})$ with a product $\mu: Z \times Z \longrightarrow Z$ for which the maps
+\[
+z \mapsto \mu(z, z_{0}) \hspace{10pt} \text{ and } \hspace{10pt} z \mapsto \mu(z_{0}, z)
+\]
+are both homotopic to $\id_{Z}.$
+\end{definition}
+
+Any topological group with its group multiplication is an $H-$space. However, a general $H$-space need not have inverses and its product is not required to be associative.
+Let $G$ be topological group (or, even an $H$-space for which $\pi_0$ is a group).
+There is an action of $\pi_0(G)$ on $\pi_{n-1}(G)$ given by 
+$[g] \cdot [\alpha] := [g \alpha g^{-1}]$.
+In the case that $G = \Omega Z$ for $Z$ a based path-connected space, this an action of 
+$\pi_1(Z)$ on $\pi_n(Z).$ 
+
+\begin{definition}
+A based path-connected space is simple (or, sometimes called ``abelian'') if the action of $\pi_1(Z)$ on $\pi_n(Z)$ is trivial for all $n.$
+\end{definition}
+
+We record the following Proposition proved in \cite{MoreMay}:
+\begin{prop} \label{uniq.prop}
+Any $H-$space, and therefore any topological group, is simple. 
+\end{prop}
+
+\begin{lemma} \label{uniq.lem}
+Let $H \subset G$ be a connected closed subgroup of a connected Lie group.
+If the homomorphism $\pi_1(H) \rightarrow \pi_1(G)$ is surjective, then the quotient $G/H$ is path-connected and simply-connected. In particular, $G/H$ is a simple space.
+\end{lemma}
+\begin{proof}
+We have the following homotopy fiber sequence:
+\[
+G/H \longrightarrow BH \longrightarrow BG.
+\]
+This induces the long exact sequence on homotopy groups:
+\[
+\hdots \longrightarrow \pi_{k+1}(G/H) \longrightarrow \pi_k(H) \longrightarrow \pi_k(G) \longrightarrow \pi_k(G/H) \longrightarrow \pi_{k-1}(H) \longrightarrow \hdots
+\]
+Our assumption $\pi_1(H) \rightarrow \pi_1(G)$ is surjective implies that 
+$\pi_0(G/H) = 0 = \pi_1(G/H)$.
+\end{proof}
+
+After Proposition \ref{uniq.prop} and Lemma \ref{uniq.lem} we have that the based path-connected spaces ${\sf BO}(2)$, ${\sf BSO}(2)$, $\Gr^{\sf or}_2(n),$ and $\sV_2(n)$ are all simple. 
+Here, $\Gr^{\sf or}_2(n)$ is the ``oriented Grassmannian'', which is defined to be
+\[
+\Gr^{\sf or}_2(n) := {\sf SO}(n)/\big({\sf SO}(2) \times {\sf SO}(n-2)\big).
+\]
+
+
+Other examples of a simple space are Eilenberg-Maclane spaces $K(\pi, n).$ An Eilenberg-Maclane space is a topological space for which $\pi_{n}Z \cong \pi$ and$\pi_{k}Z = 0$ for all $k \neq n.$ Therefore, $K(\pi, n)$ spaces where $n \geq 2$ are simple because of course $\pi_{1}K(\pi, n)$ is trivial. $K(\pi, 1)$ spaces are simple when $\pi$ is abelian because the action of $\pi_{1}K(\pi, 1)$ on itself is conjugation.
+
+
+Examples of $K(\pi, 1)$ spaces abound, for example any topological space with a contractible universal cover such as tori $\TT^{n}$ or connected compact hyperbolic manifolds. Here we see that $\TT^{n}$ are simple whereas hyperbolic manifolds are not.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

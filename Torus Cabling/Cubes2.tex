@@ -628,6 +628,77 @@
 
 \end{tikzpicture}
 
+\newpage
+%%%%
+\begin{tikzpicture}
+\coordinate (O) at (0,0,0);
+\coordinate (A) at (0,\Width,0);
+\coordinate (B) at (0,\Width,\Height);
+\coordinate (C) at (0,0,\Height);
+\coordinate (D) at (\Depth,0,0);
+\coordinate (E) at (\Depth,\Width,0);
+\coordinate (F) at (\Depth,\Width,\Height);
+\coordinate (G) at (\Depth,0,\Height);
+
+
+
+\coordinate (W) at (0,\Width/2,0);
+\coordinate(X) at (\Depth,\Width/2,0);
+\coordinate (Y) at (0,\Width/2,\Height);
+\coordinate(Z) at (\Depth,\Width/2,\Height);
+
+\coordinate (a) at (4/3, 0, 0);
+\coordinate(b) at (8/3, 0, 0);
+\coordinate (c) at (4/3, 4, 0);
+\coordinate(d) at (8/3, 4, 0);
+\coordinate(e) at (4/3, 0,4);
+\coordinate(f) at (8/3, 0, 4);
+\coordinate(g) at (4/3, 4,4);
+\coordinate(h) at (8/3, 4, 4);
+
+%\draw[fill=magenta!80,fill opacity=0.3] (a) -- (b) -- (d) -- (e) -- cycle;
+%\draw[fill=yellow!80,fill opacity=0.3] (C) -- (Z) -- (X) -- (O) -- cycle;
+%\draw[fill=yellow!80,fill opacity=0.3] (Y) -- (F) -- (E) -- (W) -- cycle;
+
+%\draw[magenta,thick] (a) -- (c);
+%\draw[magenta,thick] (f) -- (d);
+
+\draw[black] (e) -- (a);
+\draw[black] (f) -- (b);
+
+\draw[black] (g) -- (c);
+\draw[black] (e) -- (g);
+\draw[black] (a) -- (c);
+\draw[black] (f) -- (g);
+\draw[black] (f) -- (F);
+\draw[black] (b) -- (c);
+\draw[black] (b) -- (E);
+
+
+\draw[black] (C) -- (G); %Bottom Back
+\draw[black] (O) -- (D); %Bottom Front
+\draw[black] (B) -- (F); % Top Front
+\draw[black] (A) -- (E); %Top Back
+
+\draw[black] (C) -- (O); %Bottom Left
+\draw[black] (G) -- (D); %Bottom Right
+\draw[black] (B) -- (A); %Top Left
+\draw[black] (F) -- (E); %Top Right
+
+\draw[black] (C) -- (B); %Front Left
+\draw[black] (O) -- (A); %Back Left
+\draw[black] (G) -- (F); %Front Right
+\draw[black] (D) -- (E); %Back Right
+
+%% Following is for debugging purposes so you can see where the points are
+%% These are last so that they show up on top
+%\foreach \xy in {O, A, B, C, D, E, F, G, W, X, Y, Z, a, b, c, d, e, f, g, h}{
+   %\node at (\xy) {\xy};
+%}
+
+\end{tikzpicture}
+
+
 
 
 \end{document}

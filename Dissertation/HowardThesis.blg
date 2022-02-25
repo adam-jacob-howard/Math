@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: HowardThesis.aux
+A level-1 auxiliary file: intro21.aux
+A level-1 auxiliary file: background21.aux
+A level-1 auxiliary file: Homotopy26.aux
+A level-1 auxiliary file: Framings22.aux
+The style file: amsplain.bst
+A level-1 auxiliary file: appendixb.aux
+A level-1 auxiliary file: appendixc.aux
+Database file #1: mybib21.bib
+Warning--missing pages in non-com-geom
+Warning--missing pages in hprinc2
+Warning--missing pages in Hatch
+Warning--missing pages in TT
+Warning--missing pages in HA
+Warning--missing pages in May
+Warning--missing pages in MoreMay
+Warning--missing pages in mil
+Warning--missing pages in MilStash
+Warning--missing pages in rolf
+Warning--missing pages in Rot
+Warning--missing pages in Sm1
+You've used 27 entries,
+            2213 wiz_defined-function locations,
+            673 strings with 6780 characters,
+and the built_in function-call counts, 7163 in all, are:
+= -- 649
+> -- 235
+< -- 0
++ -- 104
+- -- 70
+* -- 634
+:= -- 1147
+add.period$ -- 27
+call.type$ -- 27
+change.case$ -- 118
+chr.to.int$ -- 0
+cite$ -- 39
+duplicate$ -- 297
+empty$ -- 664
+format.name$ -- 70
+if$ -- 1452
+int.to.chr$ -- 0
+int.to.str$ -- 27
+missing$ -- 54
+newline$ -- 91
+num.names$ -- 50
+pop$ -- 147
+preamble$ -- 1
+purify$ -- 91
+quote$ -- 0
+skip$ -- 152
+stack$ -- 0
+substring$ -- 526
+swap$ -- 39
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 108
+warning$ -- 12
+while$ -- 80
+width$ -- 29
+write$ -- 223
+(There were 12 warnings)
